@@ -38,7 +38,15 @@ layout: default
 
 ### DataStructure
 
+* :heavy_check_mark: <a href="library/DataStructure/basic_segment_tree.cpp.html">セグ木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
+
+
+<div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
+
+### interface
+
+* :warning: <a href="library/interface/Monoid.cpp.html">interface/Monoid.cpp</a>
 
 
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
@@ -61,5 +69,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/ALDS1_10_A.test.cpp.html">test/ALDS1_10_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DPL_1_E.test.cpp.html">test/DPL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_1_A.test.cpp.html">test/DSL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/DSL_2_B.test.cpp.html">test/DSL_2_B.test.cpp</a>
 
 
