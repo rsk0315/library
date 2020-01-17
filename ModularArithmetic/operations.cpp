@@ -1,3 +1,11 @@
+/**
+ * @brief 合同算術の基本演算
+ * @author えびちゃん
+ */
+
+#include <stdexcept>
+#include <vector>
+
 template <typename ModInt>
 ModInt pow(ModInt const& n, intmax_t iexp) {
   ModInt res(1, n);
