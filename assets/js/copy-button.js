@@ -88,6 +88,7 @@ $(function() {
     $('li svg').attr({
         width: 20,
         height: 20,
+    }).css({
         'vertical-align': 'text-bottom',
     });
 });
