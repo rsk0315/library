@@ -36,6 +36,11 @@ layout: default
 
 
 
+## Required by
+
+* :warning: <a href="../../test/ALDS1_10_A.cpp.html">test/ALDS1_10_A.cpp</a>
+
+
 ## Code
 
 <a id="unbundled"></a>

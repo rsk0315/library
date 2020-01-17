@@ -41,6 +41,13 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
+<div id="098f6bcd4621d373cade4e832627b4f6"></div>
+
+### test
+
+* :warning: <a href="library/test/ALDS1_10_A.cpp.html">test/ALDS1_10_A.cpp</a>
+
+
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
