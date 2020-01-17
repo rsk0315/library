@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/class.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 02:51:41+09:00
+    - Last commit date: 2020-01-18 03:06:22+09:00
 
 
 
@@ -50,6 +50,7 @@ layout: default
 #include <utility>
 
 template <typename Tp, Tp Modulo>
+// XXX Tp ではなく intmax_t にしていいって言った
 class modint {
 public:
   using value_type = typename std::make_signed<Tp>::type;
@@ -217,6 +218,7 @@ using mi = modint<intmax_t, mod>;
 #include <utility>
 
 template <typename Tp, Tp Modulo>
+// XXX Tp ではなく intmax_t にしていいって言った
 class modint {
 public:
   using value_type = typename std::make_signed<Tp>::type;
