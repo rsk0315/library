@@ -5,6 +5,6 @@ docs:
   toc: false
 plugins:
 - jemoji
-theme: minima
 minima:
   skin: solarized-dark
+theme: minima
