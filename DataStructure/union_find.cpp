@@ -26,7 +26,7 @@ public:
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  disjoint_set(size_t n): M_c(n, -1) {}
+  explicit disjoint_set(size_t n): M_c(n, -1) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;
