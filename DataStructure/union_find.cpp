@@ -1,8 +1,19 @@
+/**
+ * @file union_find.cpp
+ * @brief 素集合データ構造
+ * @author えびちゃん
+ * @date 2020/01/17
+ * @detail てすとてすと
+ */
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
 #include <vector>
 
+/*!
+  にゃん
+*/
 class disjoint_set {
 public:
   using size_type = size_t;
