@@ -6,3 +6,6 @@ docs:
 plugins:
 - jemoji
 theme: minima
+minima:
+  skin: neko
+
