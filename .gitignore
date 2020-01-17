@@ -34,3 +34,7 @@
 # Backups
 *~
 *.swp
+
+# Jekyll outputs
+.jekyll-cache/
+_site/
