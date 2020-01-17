@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 13:30:30+09:00
+    - Last commit date: 2020-01-17 13:56:01+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/union_find.cpp.html">DataStructure/union_find.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
 ## Code
@@ -83,11 +83,22 @@ int main() {
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 
 #line 1 "test/../DataStructure/union_find.cpp"
+/**
+ * @file union_find.cpp
+ * @brief 素集合データ構造
+ * @author えびちゃん
+ * @date 2020/01/17
+ * @detail てすとてすと
+ */
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
 #include <vector>
 
+/*!
+  にゃん
+*/
 class disjoint_set {
 public:
   using size_type = size_t;

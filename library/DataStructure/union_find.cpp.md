@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: DataStructure/union_find.cpp
+# :heavy_check_mark: 素集合データ構造 <small>(DataStructure/union_find.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/union_find.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 13:30:30+09:00
+    - Last commit date: 2020-01-17 13:56:01+09:00
 
 
 
@@ -46,11 +46,22 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @file union_find.cpp
+ * @brief 素集合データ構造
+ * @author えびちゃん
+ * @date 2020/01/17
+ * @detail てすとてすと
+ */
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
 #include <vector>
 
+/*!
+  にゃん
+*/
 class disjoint_set {
 public:
   using size_type = size_t;
@@ -102,11 +113,22 @@ public:
 {% raw %}
 ```cpp
 #line 1 "DataStructure/union_find.cpp"
+/**
+ * @file union_find.cpp
+ * @brief 素集合データ構造
+ * @author えびちゃん
+ * @date 2020/01/17
+ * @detail てすとてすと
+ */
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
 #include <vector>
 
+/*!
+  にゃん
+*/
 class disjoint_set {
 public:
   using size_type = size_t;

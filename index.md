@@ -38,7 +38,7 @@ layout: default
 
 ### DataStructure
 
-* :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">DataStructure/union_find.cpp</a>
+* :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
 ## Verify Files
