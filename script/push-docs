@@ -1,10 +1,19 @@
 #! -*- mode: sh; sh-shell: bash -*-
 
+cp copy-button.js copy-button.js.bak
+cp copy-button.css copy-button.css.bak
+cp _config.yml _config.yml.bak
+
 git pull
-cp copy-button.js ../assets/js/
-cp copy-button.css ../assets/css/
-cp _config.yml ../
+
+cp copy-button.js.bak ../assets/js/
+cp copy-button.css.bak ../assets/css/
+cp _config.yml.bak ../_config.yml
+cp copy-button.js.bak copy-button.js
+cp copy-button.css.bak copy-button.css
+cp _config.yml.bak _config.yml
+
 echo dummy >> ../dummy
 git add ..
 git commit -m 'automatic commit'
-git push
+# git push
