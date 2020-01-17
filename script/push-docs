@@ -1,9 +1,0 @@
-#! -*- mode: sh; sh-shell: bash -*-
-
-cp copy-button.js ../assets/js/
-cp copy-button.css ../assets/css/
-cp _config.yml ../
-echo dummy >> ../dummy
-git add ..
-git commit -m 'automatic commit'
-git push

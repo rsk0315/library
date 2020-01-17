@@ -1,6 +1,4 @@
-// window.addEventListener('load', function(){
-'use strict';
-$(function() {
+window.addEventListener('load', function(){
     const unbundle = function () {
         $('#unbundled').each(function(index, element) {
             $(element).parent().next().show();
@@ -29,37 +27,25 @@ $(function() {
 
     // ボタンを実装
     $('pre > code').each(function(index, element) {
-        // $(element).parent().wrap('<div style="position: relative;"></div>');
-        // $(element).parent().parent().append('<div class="code-btn code-copy-btn" title="Copied!">Copy</div>');
-        // $(element).parent().parent().append('<button type="button" class="code-btn code-bundle-btn" title="Bundled!">Bundle</button>');
-
-        $(element).attr({id: `code-${index}`});
-
-        $(element).parent().parent().prepend(`<div class="div-btn-copy"><span class="btn-copy btn-pre" tabindex="0" data-toggle="tooltip" data-trigger="manual" title="Copied!" data-original-title="Copied!" data-target="code-${index}">Copy</span></div>`);
+        $(element).parent().wrap('<div style="position: relative;"></div>');
+        $(element).parent().parent().append('<button type="button" class="code-btn code-copy-btn" title="Copied!">Copy</button>');
+        $(element).parent().parent().append('<button type="button" class="code-btn code-bundle-btn" title="Bundled!">Bundle</button>');
     });
 
-    // $('[data-toggle="tooltip"]').tooltip();
-    $('.btn-copy').on('click',function(){
+    $('.code-copy-btn').on('click',function(){
         // テキスト要素を選択＆クリップボードにコピー
-        let range = document.createRange();
-        let selected = $('#'+$(this).attr('data-target'))[0];
+        var textElem = $(this).siblings(':first');
+        window.getSelection().selectAllChildren(textElem[0]);
+        document.execCommand("copy");
         window.getSelection().removeAllRanges();
-        range.selectNode(selected);
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        window.getSelection().removeAllRanges();
-
-        let this_ = this;
-        $(this).showBalloon(
-            // 空でもオプションを与えるとこわれる，なにこれ
-            // {
-            //     showAnimation: function(d, c) { this.fadeIn(d, c); },
-            //     css: { fontSize: '70%' },
-            //     minLifetime: 300,
-            //     maxLifetime: 300,
-            // }
-        );
-        setTimeout(function() { $(this_).hideBalloon(); }, 300);
+        
+        // コピー完了した後の処理
+        // トースト通知とかすると親切かも...
+        $(this).showBalloon();
+        const this_ = this;
+        setTimeout(function() {
+            $(this_).hideBalloon();
+        }, 300);
     });
 
     $('.code-bundle-btn').on('click', function(){
