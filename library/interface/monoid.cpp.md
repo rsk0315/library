@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: interface/Monoid.cpp
+# :warning: モノイドクラス <small>(interface/monoid.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8eb58dd5e328e978169c7b0cbd30d43f">interface</a>
-* <a href="{{ site.github.repository_url }}/blob/master/interface/Monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 01:09:56+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/interface/monoid.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-18 02:07:30+09:00
 
 
 
@@ -41,6 +41,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief モノイドクラス
+ * @author えびちゃん
+ */
+
 template <typename Tp>
 class monoid {
 public:
@@ -77,7 +82,12 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "interface/Monoid.cpp"
+#line 1 "interface/monoid.cpp"
+/**
+ * @brief モノイドクラス
+ * @author えびちゃん
+ */
+
 template <typename Tp>
 class monoid {
 public:

@@ -46,7 +46,7 @@ layout: default
 
 ### interface
 
-* :warning: <a href="library/interface/Monoid.cpp.html">interface/Monoid.cpp</a>
+* :warning: <a href="library/interface/monoid.cpp.html">モノイドクラス <small>(interface/monoid.cpp)</small></a>
 
 
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
