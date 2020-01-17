@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ModularArithmetic/operations.cpp
+# :warning: 合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/operations.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 02:51:41+09:00
+    - Last commit date: 2020-01-18 02:54:45+09:00
 
 
 
@@ -41,6 +41,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+/**
+ * @brief 合同算術の基本演算
+ * @author えびちゃん
+ */
+
+#include <stdexcept>
+#include <vector>
+
 template <typename ModInt>
 ModInt pow(ModInt const& n, intmax_t iexp) {
   ModInt res(1, n);
@@ -112,6 +120,14 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
 {% raw %}
 ```cpp
 #line 1 "ModularArithmetic/operations.cpp"
+/**
+ * @brief 合同算術の基本演算
+ * @author えびちゃん
+ */
+
+#include <stdexcept>
+#include <vector>
+
 template <typename ModInt>
 ModInt pow(ModInt const& n, intmax_t iexp) {
   ModInt res(1, n);

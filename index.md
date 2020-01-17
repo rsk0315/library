@@ -48,7 +48,7 @@ layout: default
 ### ModularArithmetic
 
 * :warning: <a href="library/ModularArithmetic/class.cpp.html">合同算術用クラス <small>(ModularArithmetic/class.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/operations.cpp.html">ModularArithmetic/operations.cpp</a>
+* :warning: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
 
 
 <div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
