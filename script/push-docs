@@ -1,5 +1,6 @@
 #! -*- mode: sh; sh-shell: bash -*-
 
+git pull
 cp copy-button.js ../assets/js/
 cp copy-button.css ../assets/css/
 cp _config.yml ../
