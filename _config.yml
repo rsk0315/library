@@ -5,6 +5,4 @@ docs:
   toc: false
 plugins:
 - jemoji
-minima:
-  skin: solarized-dark
-theme: minima
+theme: neko
