@@ -7,6 +7,7 @@
 #include <utility>
 
 template <typename Tp, Tp Modulo>
+// XXX Tp ではなく intmax_t にしていいって言った
 class modint {
 public:
   using value_type = typename std::make_signed<Tp>::type;
