@@ -41,6 +41,13 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
+<div id="67b732dc42aaffa9056d34cc477c863c"></div>
+
+### utility
+
+* :warning: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+
+
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/DSL_1_A.test.cpp.html">test/DSL_1_A.test.cpp</a>
