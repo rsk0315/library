@@ -53,12 +53,13 @@ layout: default
 ### utility/make
 
 * :heavy_check_mark: <a href="library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
-* :warning: <a href="library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
 
 
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/ALDS1_10_A.test.cpp.html">test/ALDS1_10_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/DPL_1_E.test.cpp.html">test/DPL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_1_A.test.cpp.html">test/DSL_1_A.test.cpp</a>
 
 
