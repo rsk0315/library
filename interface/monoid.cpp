@@ -1,3 +1,8 @@
+/**
+ * @brief モノイドクラス
+ * @author えびちゃん
+ */
+
 template <typename Tp>
 class monoid {
 public:
