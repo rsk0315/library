@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: セグ木 <small>(DataStructure/basic_segment_tree.cpp)</small>
+# :heavy_check_mark: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 01:09:56+09:00
+    - Last commit date: 2020-01-18 03:03:23+09:00
 
 
 
@@ -47,7 +47,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief セグ木
+ * @brief 単一更新セグメント木
  * @author えびちゃん
  */
 
@@ -142,7 +142,7 @@ public:
 ```cpp
 #line 1 "DataStructure/basic_segment_tree.cpp"
 /**
- * @brief セグ木
+ * @brief 単一更新セグメント木
  * @author えびちゃん
  */
 

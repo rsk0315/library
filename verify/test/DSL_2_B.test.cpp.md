@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 01:09:56+09:00
+    - Last commit date: 2020-01-18 03:03:23+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">セグ木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 
 
 ## Code
@@ -135,7 +135,7 @@ int main() {
 
 #line 1 "test/../DataStructure/basic_segment_tree.cpp"
 /**
- * @brief セグ木
+ * @brief 単一更新セグメント木
  * @author えびちゃん
  */
 
