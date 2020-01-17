@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 14:07:27+09:00
+    - Last commit date: 2020-01-17 21:22:39+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -84,11 +84,8 @@ int main() {
 
 #line 1 "test/../DataStructure/union_find.cpp"
 /**
- * @file union_find.cpp
  * @brief 素集合データ構造
  * @author えびちゃん
- * @date 2020/01/17
- * @detail てすとてすと
  */
 
 #include <cstddef>
@@ -96,9 +93,6 @@ int main() {
 #include <utility>
 #include <vector>
 
-/*!
-  にゃん
-*/
 class disjoint_set {
 public:
   using size_type = size_t;
@@ -111,7 +105,7 @@ public:
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  explicit disjoint_set(size_t n): M_c(n, -1) {}
+  explicit disjoint_set(size_type n): M_c(n, -1) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;
@@ -123,7 +117,7 @@ public:
     return (M_c[v] = representative(M_c[v]));
   }
 
-  bool unite(size_t u, size_t v) {
+  bool unite(size_type u, size_type v) {
     u = representative(u);
     v = representative(v);
     if (u == v) return false;
@@ -133,7 +127,7 @@ public:
     return true;
   }
 
-  bool equivalent(size_t u, size_t v) const {
+  bool equivalent(size_type u, size_type v) const {
     return (representative(u) == representative(v));
   }
 
