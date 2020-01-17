@@ -84,4 +84,10 @@ $(function() {
     $('img[title=":heavy_check_mark:"]').replaceWith(verified);
     $('img[title=":warning:"]').replaceWith(unverified);
     $('img[title=":x:"]').replaceWith(failed);
+
+    $('li svg').attr({
+        width: 20,
+        height: 20,
+        'vertical-align': 'text-bottom',
+    });
 });
