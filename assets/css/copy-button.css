@@ -1,8 +1,7 @@
 .code-btn {
     position: absolute;
     border-radius: 0 0 0 0.5em;
-    /* background-color: #DEDEDE; */
-    background-color: red;
+    background-color: #DEDEDE;
     width: 6em;
     line-height: 2.0em;
     font-size: 1.2em;
