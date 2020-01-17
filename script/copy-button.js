@@ -81,7 +81,7 @@ $(function() {
 
     let failed = '<svg width="32" height="32" class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill="#d73a49" fill-rule="evenodd" d="M15.67 7.066l-1.08-1.34a1.5 1.5 0 01-.309-.77l-.19-1.698a1.51 1.51 0 00-1.329-1.33l-1.699-.19c-.3-.03-.56-.159-.78-.329L8.945.33a1.504 1.504 0 00-1.878 0l-1.34 1.08a1.5 1.5 0 01-.77.31l-1.698.19c-.7.08-1.25.63-1.33 1.329l-.19 1.699c-.03.3-.159.56-.329.78L.33 7.055a1.504 1.504 0 000 1.878l1.08 1.34c.17.22.28.48.31.77l.19 1.698c.08.7.63 1.25 1.329 1.33l1.699.19c.3.03.56.159.78.329l1.339 1.08c.55.439 1.329.439 1.878 0l1.34-1.08c.22-.17.48-.28.77-.31l1.698-.19c.7-.08 1.25-.63 1.33-1.329l.19-1.699c.03-.3.159-.56.329-.78l1.08-1.339a1.504 1.504 0 000-1.878z M9.48 8l3.75 3.75-1.48 1.48L8 9.48l-3.75 3.75-1.48-1.48L6.52 8 2.77 4.25l1.48-1.48L8 6.52l3.75-3.75 1.48 1.48L9.48 8z"></path></svg>';
 
-    $('img[title=":heavy_check_mark:"]').replaceWith($(verified));
-    $('img[title=":warning:"]').replaceWith($(unverified));
-    $('img[title=":x:"]').replaceWith($(failed));
+    $('img[title=":heavy_check_mark:"]').replaceWith(verified);
+    $('img[title=":warning:"]').replaceWith(unverified);
+    $('img[title=":x:"]').replaceWith(failed);
 });
