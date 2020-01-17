@@ -25,13 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: test/ALDS1_10_A.cpp
+# :heavy_check_mark: test/ALDS1_10_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_10_A.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:54:20+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_10_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-17 23:58:07+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A</a>
@@ -39,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :warning: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code
@@ -76,7 +75,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/ALDS1_10_A.cpp"
+#line 1 "test/ALDS1_10_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
 #line 1 "test/../utility/make/fix_point.cpp"
@@ -102,7 +101,7 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
-#line 4 "test/ALDS1_10_A.cpp"
+#line 4 "test/ALDS1_10_A.test.cpp"
 
 #include <cstdio>
 #include <cstdint>
