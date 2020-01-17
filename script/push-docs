@@ -1,0 +1,27 @@
+#! -*- mode: sh; sh-shell: bash -*-
+
+js_bak=$(mktemp --suffix=.js)
+css_bak=$(mktemp --suffix=.css)
+yml_bak=$(mktemp --suffix=.yml)
+sh_bak=$(mktemp --suffix=.sh)
+
+mv $0 $sh_bak
+
+cp -f copy-button.js $js_bak
+cp -f copy-button.css $css_bak
+cp -f _config.yml $yml_bak
+
+git pull
+
+cp -f $js_bak ../assets/js/copy-button.js
+cp -f $css_bak ../assets/css/copy-button.css
+cp -f $yml_bak ../_config.yml
+cp -f $js_bak copy-button.js
+cp -f $css_bak copy-button.css
+cp -f $yml_bak _config.yml
+mv $sh_bak $0
+
+echo dummy >> ../dummy
+git add ..
+git commit -m 'automatic commit'
+# git push
