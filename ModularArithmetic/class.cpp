@@ -6,11 +6,10 @@
 #include <type_traits>
 #include <utility>
 
-template <typename Tp, Tp Modulo>
-// XXX Tp ではなく intmax_t にしていいって言った
+template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = typename std::make_signed<Tp>::type;
+  using value_type = intmax_t;
 
 private:
   static constexpr value_type S_mod = Modulo;
@@ -45,10 +44,10 @@ public:
   modint() = default;
   modint(modint const&) = default;
   modint(modint&&) = default;
-  template <typename Up = Tp, typename std::enable_if<(Modulo > 0), Up>::type* = nullptr>
+  template <typename Up = intmax_t, typename std::enable_if<(Modulo > 0), Up>::type* = nullptr>
   modint(value_type n):
     M_value(S_normalize(n, Modulo)) {}
-  template <typename Up = Tp, typename std::enable_if<(Modulo == 0), Up>::type* = nullptr>
+  template <typename Up = intmax_t, typename std::enable_if<(Modulo == 0), Up>::type* = nullptr>
   modint(value_type n, value_type m):
     M_value(S_normalize(n, m)), M_mod(m) {}
   // copying mod
@@ -130,31 +129,31 @@ public:
   }
 };
 
-template <typename T1, typename T2, T2 Modulo>
-modint<T2, Modulo> operator +(T1 const& lhs, modint<T2, Modulo> const& rhs) {
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator +(Tp const& lhs, modint<Modulo> const& rhs) {
   return rhs + lhs;
 }
-template <typename T1, typename T2, T2 Modulo>
-modint<T2, Modulo> operator -(T1 const& lhs, modint<T2, Modulo> const& rhs) {
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator -(Tp const& lhs, modint<Modulo> const& rhs) {
   return -(rhs - lhs);
 }
-template <typename T1, typename T2, T2 Modulo>
-modint<T2, Modulo> operator *(T1 const& lhs, modint<T2, Modulo> const& rhs) {
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator *(Tp const& lhs, modint<Modulo> const& rhs) {
   return rhs * lhs;
 }
-template <typename T1, typename T2, T2 Modulo>
-modint<T2, Modulo> operator /(T1 const& lhs, modint<T2, Modulo> const& rhs) {
-  return modint<T2, Modulo>(lhs, rhs) / rhs;
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator /(Tp const& lhs, modint<Modulo> const& rhs) {
+  return modint<Modulo>(lhs, rhs) / rhs;
 }
-template <typename T1, typename T2, T2 Modulo>
-bool operator ==(T1 const& lhs, modint<T2, Modulo> const& rhs) {
+template <typename Tp, intmax_t Modulo>
+bool operator ==(Tp const& lhs, modint<Modulo> const& rhs) {
   return rhs == lhs;
 }
-template <typename T1, typename T2, T2 Modulo>
-bool operator !=(T1 const& lhs, modint<T2, Modulo> const& rhs) {
+template <typename Tp, intmax_t Modulo>
+bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
   return !(lhs == rhs);
 }
 
 // constexpr intmax_t mod = 1'000'000'007;  // '
 // constexpr intmax_t mod = 998244353;
-using mi = modint<intmax_t, mod>;
+using mi = modint<mod>;
