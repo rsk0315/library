@@ -6,8 +6,8 @@ cp -f _config.yml _config.yml.bak
 
 git pull
 
-cp -f copy-button.js.bak ../assets/js/
-cp -f copy-button.css.bak ../assets/css/
+cp -f copy-button.js.bak ../assets/js/copy-button.js
+cp -f copy-button.css.bak ../assets/css/copy-button.css
 cp -f _config.yml.bak ../_config.yml
 cp -f copy-button.js.bak copy-button.js
 cp -f copy-button.css.bak copy-button.css
