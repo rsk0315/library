@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 13:56:01+09:00
+    - Last commit date: 2020-01-17 14:07:27+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -111,7 +111,7 @@ public:
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  disjoint_set(size_t n): M_c(n, -1) {}
+  explicit disjoint_set(size_t n): M_c(n, -1) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;

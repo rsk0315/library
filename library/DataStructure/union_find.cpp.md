@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/union_find.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 13:56:01+09:00
+    - Last commit date: 2020-01-17 14:07:27+09:00
 
 
 
@@ -74,7 +74,7 @@ public:
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  disjoint_set(size_t n): M_c(n, -1) {}
+  explicit disjoint_set(size_t n): M_c(n, -1) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;
@@ -141,7 +141,7 @@ public:
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  disjoint_set(size_t n): M_c(n, -1) {}
+  explicit disjoint_set(size_t n): M_c(n, -1) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;
