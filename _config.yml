@@ -7,4 +7,4 @@ plugins:
 - jemoji
 theme: minima
 minima:
-  skin: neko
+  skin: solarized
