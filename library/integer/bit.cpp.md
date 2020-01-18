@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
+# :heavy_check_mark: ビット演算 <small>(integer/bit.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/literals.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:16:05+09:00
+* category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
+* <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-18 20:05:46+09:00
 
 
 
@@ -46,18 +46,19 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief ユーザ定義リテラル
+/** 
+ * @brief ビット演算
  * @author えびちゃん
  */
 
-#include <cstddef>
-#include <cstdint>
-
-constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
-constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
-constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
-constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+template <typename Tp>
+int ilog2(Tp n) {
+  // - range_error を投げる？
+  // - Tp は符号なしに限る？
+  // - __has_builtin で分岐する？
+  // - Tp のビット幅で分岐する？
+  return 63 - __builtin_clzll(n);
+}
 
 ```
 {% endraw %}
@@ -65,19 +66,20 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "utility/literals.cpp"
-/**
- * @brief ユーザ定義リテラル
+#line 1 "integer/bit.cpp"
+/** 
+ * @brief ビット演算
  * @author えびちゃん
  */
 
-#include <cstddef>
-#include <cstdint>
-
-constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
-constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
-constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
-constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+template <typename Tp>
+int ilog2(Tp n) {
+  // - range_error を投げる？
+  // - Tp は符号なしに限る？
+  // - __has_builtin で分岐する？
+  // - Tp のビット幅で分岐する？
+  return 63 - __builtin_clzll(n);
+}
 
 ```
 {% endraw %}

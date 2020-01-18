@@ -43,12 +43,27 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
+<div id="4cdbd2bafa8193091ba09509cedf94fd"></div>
+
+### Graph
+
+* :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor.cpp.html">最深共通祖先 <small>(Graph/lowest_common_ancestor.cpp)</small></a>
+
+
 <div id="495e431c85de4c533fce4ff12db613fe"></div>
 
 ### ModularArithmetic
 
 * :warning: <a href="library/ModularArithmetic/class.cpp.html">合同算術用クラス <small>(ModularArithmetic/class.cpp)</small></a>
 * :warning: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
+
+
+<div id="157db7df530023575515d366c9b672e8"></div>
+
+### integer
+
+* :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 <div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
@@ -62,7 +77,7 @@ layout: default
 
 ### utility
 
-* :warning: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
@@ -80,5 +95,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/DSL_1_A.test.cpp.html">test/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_1_B.test.cpp.html">test/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_2_B.test.cpp.html">test/DSL_2_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/GRL_5_C.test.cpp.html">test/GRL_5_C.test.cpp</a>
 
 
