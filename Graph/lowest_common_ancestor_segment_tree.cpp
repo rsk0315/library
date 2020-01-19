@@ -52,7 +52,7 @@ public:
   lowest_common_ancestor(Tree const& g, size_type r) {
     size_type n = g.size();
     M_e.resize(n);
-    M_st.reserve(n);
+    M_st.reserve(n+n-2);
     M_euler_tour(g, r, -1);
     M_build_rmq();
   }
