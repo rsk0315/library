@@ -48,7 +48,9 @@ layout: default
 ### Graph
 
 * :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor.cpp.html">最深共通祖先 <small>(Graph/lowest_common_ancestor.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
 
 
 <div id="495e431c85de4c533fce4ff12db613fe"></div>
@@ -95,6 +97,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/DSL_1_A.test.cpp.html">test/DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_1_B.test.cpp.html">test/DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/DSL_2_B.test.cpp.html">test/DSL_2_B.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/GRL_5_C.test.cpp.html">test/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
 
 

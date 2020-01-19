@@ -38,7 +38,8 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/GRL_5_C.test.cpp.html">test/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 
 
 ## Code

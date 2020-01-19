@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 最深共通祖先 <small>(Graph/lowest_common_ancestor.cpp)</small>
+# :heavy_check_mark: 最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/lowest_common_ancestor.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 20:05:46+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/Graph/lowest_common_ancestor_segment_tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-19 16:42:55+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/GRL_5_C.test.cpp.html">test/GRL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
 
 
 ## Code
@@ -47,7 +47,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief 最深共通祖先
+ * @brief 最深共通祖先 (segment tree)
  * @author えびちゃん
  */
 
@@ -68,28 +68,27 @@ public:
 
 private:
   std::vector<size_type> M_e;
-  std::vector<std::vector<std::pair<size_type, size_type>>> M_st;
+  std::vector<std::pair<size_type, size_type>> M_st;
 
   template <typename Tree>
   void M_euler_tour(Tree const& g, size_type v, size_type p, size_type d = 0) {
-    M_e[v] = M_st[0].size();
-    M_st[0].emplace_back(d, v);
+    M_e[v] = M_st.size();
+    M_st.emplace_back(d, v);
     for (auto const& e: g[v]) {
       size_type u = e.target();
       if (u == p) continue;
       M_euler_tour(g, u, v, d+1);
-      M_st[0].emplace_back(d, v);
+      M_st.emplace_back(d, v);
     }
   }
 
   void M_build_rmq() {
-    // non-disjoint sparse table
-    for (size_type i = 1, ii = 1; M_st[i-1].size() > ii; (++i, ii <<= 1)) {
-      M_st.emplace_back();
-      M_st[i].reserve(M_st[i-1].size()-ii);
-      for (size_type j = ii; j < M_st[i-1].size(); ++j)
-        M_st[i].push_back(std::min(M_st[i-1][j], M_st[i-1][j-ii]));
-    }
+    // segment tree
+    size_type n = M_st.size();
+    std::vector<std::pair<size_type, size_type>> tmp(n);
+    M_st.insert(M_st.begin(), tmp.begin(), tmp.end());
+    for (size_type i = n; i--;)
+      M_st[i] = std::min(M_st[i<<1|0], M_st[i<<1|1]);
   }
 
 public:
@@ -101,8 +100,7 @@ public:
   lowest_common_ancestor(Tree const& g, size_type r) {
     size_type n = g.size();
     M_e.resize(n);
-    M_st.emplace_back();
-    M_st[0].reserve(2*n);
+    M_st.reserve(n);
     M_euler_tour(g, r, -1);
     M_build_rmq();
   }
@@ -114,9 +112,17 @@ public:
     if (u == v) return u;
     size_type l, r;
     std::tie(l, r) = std::minmax(M_e[u], M_e[v]);
-    size_type e = ilog2(++r-l);
-    r -= 1_zu << e;
-    return std::min(M_st[e][l], M_st[e][r]).second;
+    size_type n = M_st.size() >> 1;
+    l += n;
+    r += n+1;
+    std::pair<size_type, size_type> res{n, n};
+    while (l < r) {
+      if (l & 1) res = std::min(res, M_st[l++]);
+      if (r & 1) res = std::min(M_st[--r], res);
+      l >>= 1;
+      r >>= 1;
+    }
+    return res.second;
   }
 };
 
@@ -131,7 +137,7 @@ Traceback (most recent call last):
     bundler.update(self.file_class.file_path)
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 153, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
