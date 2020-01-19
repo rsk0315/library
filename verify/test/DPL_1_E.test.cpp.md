@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:49:57+09:00
+    - Last commit date: 2020-01-19 18:55:22+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -52,8 +52,8 @@ layout: default
 #include "utility/make/vector.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -131,8 +131,8 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
 #line 5 "test/DPL_1_E.test.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
