@@ -1,6 +1,8 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
+#define CALL_FROM_TEST
 #include "DataStructure/basic_segment_tree.cpp"
+#undef CALL_FROM_TEST
 
 template <typename Tp>
 class sum_monoid {
