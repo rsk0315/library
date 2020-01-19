@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 02:29:24+09:00
+    - Last commit date: 2020-01-19 17:22:15+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B</a>
@@ -48,7 +48,7 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#include "../DataStructure/potential.cpp"
+#include "DataStructure/potential.cpp"
 
 #include <cstdio>
 
@@ -87,7 +87,7 @@ int main() {
 #line 1 "test/DSL_1_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#line 1 "test/../DataStructure/potential.cpp"
+#line 1 "DataStructure/potential.cpp"
 /** 
  * @brief ポテンシャル関数
  * @author えびちゃん

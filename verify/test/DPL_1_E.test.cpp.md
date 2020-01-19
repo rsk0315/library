@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 00:05:27+09:00
+    - Last commit date: 2020-01-19 17:22:15+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -48,7 +48,7 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#include "../utility/make/vector.cpp"
+#include "utility/make/vector.cpp"
 
 #include <cstdio>
 #include <cstdint>
@@ -88,7 +88,7 @@ int main() {
 #line 1 "test/DPL_1_E.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#line 1 "test/../utility/make/vector.cpp"
+#line 1 "utility/make/vector.cpp"
 /**
  * @brief 多次元 vector の作成
  * @author えびちゃん

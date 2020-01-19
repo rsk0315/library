@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_10_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:58:07+09:00
+    - Last commit date: 2020-01-19 17:22:15+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A</a>
@@ -48,7 +48,7 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#include "../utility/make/fix_point.cpp"
+#include "utility/make/fix_point.cpp"
 
 #include <cstdio>
 #include <cstdint>
@@ -78,7 +78,7 @@ int main() {
 #line 1 "test/ALDS1_10_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#line 1 "test/../utility/make/fix_point.cpp"
+#line 1 "utility/make/fix_point.cpp"
 /**
  * @brief ラムダ式の再帰
  * @author えびちゃん

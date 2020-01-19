@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 21:22:39+09:00
+    - Last commit date: 2020-01-19 17:22:15+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -48,7 +48,7 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 
-#include "../DataStructure/union_find.cpp"
+#include "DataStructure/union_find.cpp"
 
 #include <cstdio>
 
@@ -82,7 +82,7 @@ int main() {
 #line 1 "test/DSL_1_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 
-#line 1 "test/../DataStructure/union_find.cpp"
+#line 1 "DataStructure/union_find.cpp"
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
