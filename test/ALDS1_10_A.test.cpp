@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#include "../utility/make/fix_point.cpp"
+#include "utility/make/fix_point.cpp"
 
 #include <cstdio>
 #include <cstdint>

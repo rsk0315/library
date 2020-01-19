@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
-#include "../DataStructure/basic_segment_tree.cpp"
+#include "DataStructure/basic_segment_tree.cpp"
 
 template <typename Tp>
 class sum_monoid {

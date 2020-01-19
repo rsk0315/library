@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#include "../utility/make/vector.cpp"
+#include "utility/make/vector.cpp"
 
 #include <cstdio>
 #include <cstdint>

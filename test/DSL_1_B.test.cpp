@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#include "../DataStructure/potential.cpp"
+#include "DataStructure/potential.cpp"
 
 #include <cstdio>
 
