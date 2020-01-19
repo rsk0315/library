@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/lowest_common_ancestor_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 16:42:55+09:00
+    - Last commit date: 2020-01-19 16:47:18+09:00
 
 
 
@@ -100,7 +100,7 @@ public:
   lowest_common_ancestor(Tree const& g, size_type r) {
     size_type n = g.size();
     M_e.resize(n);
-    M_st.reserve(n);
+    M_st.reserve(n+n-2);
     M_euler_tour(g, r, -1);
     M_build_rmq();
   }
