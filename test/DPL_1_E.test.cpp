@@ -4,8 +4,8 @@
 #include "utility/make/vector.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>

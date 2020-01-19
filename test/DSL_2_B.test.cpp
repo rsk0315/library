@@ -50,8 +50,8 @@ public:
   value_type const& get() const { return M_v; }
 };
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 #include <vector>
 
 int main() {

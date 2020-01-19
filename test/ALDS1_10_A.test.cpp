@@ -4,8 +4,8 @@
 #include "utility/make/fix_point.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdio>
 #include <cstdint>
+#include <cstdio>
 #include <vector>
 
 int main() {

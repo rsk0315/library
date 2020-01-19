@@ -4,7 +4,9 @@
 #include "DataStructure/integral_intervals.cpp"
 #undef CALL_FROM_TEST
 
+#include <cstdint>
 #include <cstdio>
+#include <algorithm>
 #include <tuple>
 #include <vector>
 
