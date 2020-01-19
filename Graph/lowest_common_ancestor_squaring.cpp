@@ -3,6 +3,11 @@
  * @author えびちゃん
  */
 
+
+#ifdef CALL_FROM_TEST
+#include "utility/literals.cpp"
+#endif
+
 #include <cstddef>
 #include <algorithm>
 #include <tuple>

@@ -2,7 +2,7 @@
 
 #define CALL_FROM_TEST
 #include "Graph/adjacency_list.cpp"
-#include "Graph/lowest_common_ancestor.cpp"
+#include "Graph/lowest_common_ancestor_segment_tree.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>

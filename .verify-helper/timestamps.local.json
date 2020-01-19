@@ -4,6 +4,8 @@
 "test/DSL_1_A.test.cpp": "2020-01-18 17:53:09 +0900",
 "test/DSL_1_B.test.cpp": "2020-01-18 17:53:09 +0900",
 "test/DSL_2_B.test.cpp": "2020-01-18 17:53:09 +0900",
-"test/GRL_5_C.test.cpp": "2020-01-18 20:04:47 +0900",
+"test/GRL_5_C_segment_tree.test.cpp": "2020-01-19 16:43:57 +0900",
+"test/GRL_5_C_sparse_table.test.cpp": "2020-01-19 16:43:54 +0900",
+"test/GRL_5_C_squaring.test.cpp": "2020-01-19 16:45:00 +0900",
 "~": "dummy"
 }
