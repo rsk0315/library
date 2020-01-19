@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:22:15+09:00
+    - Last commit date: 2020-01-19 17:49:57+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -48,7 +48,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
+#define CALL_FROM_TEST
 #include "DataStructure/basic_segment_tree.cpp"
+#undef CALL_FROM_TEST
 
 template <typename Tp>
 class sum_monoid {
@@ -133,6 +135,7 @@ int main() {
 #line 1 "test/DSL_2_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
+#define CALL_FROM_TEST
 #line 1 "DataStructure/basic_segment_tree.cpp"
 /**
  * @brief 単一更新セグメント木
@@ -221,7 +224,8 @@ public:
     return resl += resr;
   }
 };
-#line 4 "test/DSL_2_B.test.cpp"
+#line 5 "test/DSL_2_B.test.cpp"
+#undef CALL_FROM_TEST
 
 template <typename Tp>
 class sum_monoid {

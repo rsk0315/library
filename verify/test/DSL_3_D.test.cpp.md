@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_3_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:21:25+09:00
+    - Last commit date: 2020-01-19 17:49:57+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D</a>
@@ -48,7 +48,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
+#define CALL_FROM_TEST
 #include "DataStructure/foldable_queue.cpp"
+#undef CALL_FROM_TEST
 
 #include <limits>
 
@@ -117,6 +119,7 @@ int main() {
 #line 1 "test/DSL_3_D.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
+#define CALL_FROM_TEST
 #line 1 "DataStructure/foldable_queue.cpp"
 /**
  * @brief fold 可能キュー
@@ -174,7 +177,8 @@ public:
     return M_front.top() + M_back_folded;
   }
 };
-#line 4 "test/DSL_3_D.test.cpp"
+#line 5 "test/DSL_3_D.test.cpp"
+#undef CALL_FROM_TEST
 
 #include <limits>
 

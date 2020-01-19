@@ -25,22 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/GRL_5_C_sparse_table.test.cpp
+# :heavy_check_mark: test/ALDS1_5_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/GRL_5_C_sparse_table.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_5_D.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-19 17:47:54+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
@@ -49,11 +48,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
 
 #define CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/lowest_common_ancestor_sparse_table.cpp"
+#include "DataStructure/wavelet_matrix.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
@@ -64,26 +62,15 @@ int main() {
   int n;
   scanf("%d", &n);
 
-  adjacency_list<weighted_edge<int>, undirected_tag> g(n);
-  for (size_t i = 0; i < n; ++i) {
-    size_t k;
-    scanf("%zu", &k);
-    for (size_t j = 0; j < k; ++j) {
-      size_t c;
-      scanf("%zu", &c);
-      g.emplace(i, c, 1);
-    }
-  }
+  std::vector<int> a(n);
+  for (auto& ai: a) scanf("%d", &ai);
 
-  lowest_common_ancestor g_lca(g, 0);
-
-  size_t q;
-  scanf("%zu", &q);
-  for (size_t i = 0; i < q; ++i) {
-    size_t u, v;
-    scanf("%zu %zu", &u, &v);
-    printf("%zu\n", g_lca(u, v));
+  wavelet_matrix<31> wm(a.begin(), a.end());
+  intmax_t res = 0;
+  for (size_t i = 1; i < n; ++i) {
+    res += wm.rank_3way(a[i], 0, i)[2];
   }
+  printf("%jd\n", res);
 }
 
 ```
@@ -99,7 +86,7 @@ Traceback (most recent call last):
     self.update(self._resolve(included, included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 153, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor_sparse_table.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 11: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

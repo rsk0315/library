@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_10_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:22:15+09:00
+    - Last commit date: 2020-01-19 17:49:57+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A</a>
@@ -48,7 +48,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
+#define CALL_FROM_TEST
 #include "utility/make/fix_point.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstdio>
 #include <cstdint>
@@ -78,6 +80,7 @@ int main() {
 #line 1 "test/ALDS1_10_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
+#define CALL_FROM_TEST
 #line 1 "utility/make/fix_point.cpp"
 /**
  * @brief ラムダ式の再帰
@@ -101,7 +104,8 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
-#line 4 "test/ALDS1_10_A.test.cpp"
+#line 5 "test/ALDS1_10_A.test.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstdio>
 #include <cstdint>

@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:22:15+09:00
+    - Last commit date: 2020-01-19 17:49:57+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -48,7 +48,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
+#define CALL_FROM_TEST
 #include "utility/make/vector.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstdio>
 #include <cstdint>
@@ -88,6 +90,7 @@ int main() {
 #line 1 "test/DPL_1_E.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
+#define CALL_FROM_TEST
 #line 1 "utility/make/vector.cpp"
 /**
  * @brief 多次元 vector の作成
@@ -125,7 +128,8 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
   for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
   return detail::make_vector<Tp, N>(s, x);
 }
-#line 4 "test/DPL_1_E.test.cpp"
+#line 5 "test/DPL_1_E.test.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstdio>
 #include <cstdint>

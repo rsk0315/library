@@ -31,13 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/literals.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:16:05+09:00
+    - Last commit date: 2020-01-19 17:47:54+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/ALDS1_5_D.test.cpp.html">test/ALDS1_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
@@ -53,6 +54,8 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef INT_LITERALS
+#define INT_LITERALS
 #include <cstddef>
 #include <cstdint>
 
@@ -60,6 +63,7 @@ constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
 constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
 constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
 constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+#endif  /* !defined(INT_LITERALS) */
 
 ```
 {% endraw %}
@@ -73,6 +77,8 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
  * @author えびちゃん
  */
 
+#ifndef INT_LITERALS
+#define INT_LITERALS
 #include <cstddef>
 #include <cstdint>
 
@@ -80,6 +86,7 @@ constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
 constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
 constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
 constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+#endif  /* !defined(INT_LITERALS) */
 
 ```
 {% endraw %}
