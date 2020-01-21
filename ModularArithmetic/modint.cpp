@@ -6,6 +6,7 @@
 #ifndef H_modint
 #define H_modint
 
+#include <cstdint>
 #include <type_traits>
 #include <utility>
 
