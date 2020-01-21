@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_wavelet_matrix
+#define H_wavelet_matrix
+
 #include <cstddef>
 #include <array>
 #include <vector>
@@ -269,3 +272,5 @@ public:
 
   value_type operator [](size_type s) const { return M_c[s]; }
 };
+
+#endif  /* !defined(wavelet_matrix) */

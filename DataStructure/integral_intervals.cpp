@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_integral_intervals
+#define H_integral_intervals
+
 #include <cstddef>
 #include <set>
 #include <utility>
@@ -130,3 +133,5 @@ public:
   size_type size() const { return M_size; }
   size_type count() const { return intervals.size(); }
 };
+
+#endif  /* !defined(H_integral_intervals) */

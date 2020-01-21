@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_basic_segment_tree
+#define H_basic_segment_tree
+
 #include <cstddef>
 #include <vector>
 
@@ -85,3 +88,5 @@ public:
     return resl += resr;
   }
 };
+
+#endif  /* !defined(H_basic_segment_tree) */

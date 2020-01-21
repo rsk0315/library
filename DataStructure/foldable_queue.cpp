@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_foldable_queue
+#define H_foldable_queue
+
 #include <cstddef>
 #include <queue>
 #include <stack>
@@ -54,3 +57,5 @@ public:
     return M_front.top() + M_back_folded;
   }
 };
+
+#endif  /* !defined(H_foldable_queue) */

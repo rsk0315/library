@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_mod_operations
+#define H_mod_operations
+
 #include <stdexcept>
 #include <vector>
 
@@ -69,3 +72,5 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
     return {};
   }
 }
+
+#endif  /* !defined(H_mod_operations) */

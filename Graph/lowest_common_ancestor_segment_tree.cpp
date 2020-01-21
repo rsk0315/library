@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_lowest_common_ancestor_segment_tree
+#define H_lowest_common_ancestor_segment_tree
+
 #ifdef CALL_FROM_TEST
 #include "integer/bit.cpp"
 #include "utility/literals.cpp"
@@ -77,3 +80,5 @@ public:
     return res.second;
   }
 };
+
+#endif  /* !defined(H_lowest_common_ancestor_segment_tree) */

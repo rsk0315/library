@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_adjacency_list
+#define H_adjacency_list
+
 #include <cstddef>
 #include <algorithm>
 #include <type_traits>
@@ -78,3 +81,5 @@ public:
   size_type size() const { return M_g.size(); }
   auto const& operator [](size_type i) const { return M_g[i]; }
 };
+
+#endif  /* !defined(H_adjacency_list) */

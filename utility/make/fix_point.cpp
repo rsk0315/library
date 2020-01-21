@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_make_fix_point
+#define H_make_fix_point
+
 #include <utility>
 
 template <typename Fn>
@@ -20,3 +23,5 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
+
+#endif  /* !defined(H_make_fix_point) */

@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_potential_function
+#define H_potential_function
+
 #include <cstddef>
 #include <stdexcept>
 #include <vector>
@@ -58,3 +61,5 @@ public:
 
   size_type count(size_type x) const { return -M_c[representative(x)]; }
 };
+
+#endif  /* !defined(H_potential_function) */

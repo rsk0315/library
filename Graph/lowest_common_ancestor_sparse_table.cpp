@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_lowest_common_ancestor_sparse_table
+#define H_lowest_common_ancestor_sparse_table
+
 #ifdef CALL_FROM_TEST
 #include "integer/bit.cpp"
 #include "utility/literals.cpp"
@@ -71,3 +74,5 @@ public:
     return std::min(M_st[e][l], M_st[e][r]).second;
   }
 };
+
+#endif  /* !defined(H_lowest_common_ancestor_sparse_table) */

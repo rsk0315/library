@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_make_vector
+#define H_make_vector
+
 #include <cstddef>
 #include <type_traits>
 #include <vector>
@@ -34,3 +37,5 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
   for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
   return detail::make_vector<Tp, N>(s, x);
 }
+
+#endif  /* !defined(H_make_vector) */

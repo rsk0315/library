@@ -3,6 +3,8 @@
  * @author えびちゃん
  */
 
+#ifndef H_lowest_common_ancestor_squaring
+#define H_lowest_common_ancestor_squaring
 
 #ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
@@ -82,3 +84,5 @@ public:
     return M_p[0][u];
   }
 };
+
+#endif  /* !defined(H_lowest_common_ancestor_squaring) */

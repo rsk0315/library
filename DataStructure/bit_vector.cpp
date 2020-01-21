@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_bit_vector
+#define H_bit_vector
+
 #include <climits>
 #include <cstddef>
 #include <cstdint>
@@ -166,3 +169,5 @@ public:
     return M_select<1>(n, M_s1, M_ss1);
   }
 };
+
+#endif  /* !defined(H_bit_vector) */

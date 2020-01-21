@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_bit
+#define H_bit
+
 template <typename Tp>
 int ilog2(Tp n) {
   // - range_error を投げる？
@@ -11,3 +14,5 @@ int ilog2(Tp n) {
   // - Tp のビット幅で分岐する？
   return 63 - __builtin_clzll(n);
 }
+
+#endif  /* !defined(H_bit) */

@@ -3,6 +3,9 @@
  * @author えびちゃん
  */
 
+#ifndef H_union_find
+#define H_union_find
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
@@ -51,3 +54,5 @@ public:
     return -M_c[representative(v)];
   }
 };
+
+#endif  /* !defined(H_union_find) */
