@@ -273,4 +273,4 @@ public:
   value_type operator [](size_type s) const { return M_c[s]; }
 };
 
-#endif  /* !defined(wavelet_matrix) */
+#endif  /* !defined(H_wavelet_matrix) */
