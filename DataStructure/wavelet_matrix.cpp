@@ -7,6 +7,7 @@
 #define H_wavelet_matrix
 
 #include <cstddef>
+#include <cstdint>
 #include <array>
 #include <vector>
 
