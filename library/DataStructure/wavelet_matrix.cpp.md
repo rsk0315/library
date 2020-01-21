@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/wavelet_matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:46:52+09:00
+    - Last commit date: 2020-01-21 17:05:34+09:00
 
 
 
@@ -55,6 +55,7 @@ layout: default
 #define H_wavelet_matrix
 
 #include <cstddef>
+#include <cstdint>
 #include <array>
 #include <vector>
 
@@ -334,7 +335,7 @@ Traceback (most recent call last):
     bundler.update(self.file_class.file_path)
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 153, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 14: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 15: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
