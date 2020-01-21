@@ -50,7 +50,7 @@ public:
   template <typename Up = intmax_t, typename std::enable_if<(Modulo == 0), Up>::type* = nullptr>
   modint(value_type n, value_type m):
     M_value(S_normalize(n, m)), M_mod(m) {}
-  // copying mod
+  // copying runtime mod
   modint(value_type n, modint const& base):
     M_value(S_normalize(n, base.modulo())), M_mod(base.M_mod) {}
 
@@ -61,20 +61,20 @@ public:
     return *this;
   }
 
-  modint& operator +=(modint const& other) {
-    if ((M_value += other.M_value) >= modulo()) M_value -= modulo();
+  modint& operator +=(modint const& that) {
+    if ((M_value += that.M_value) >= modulo()) M_value -= modulo();
     return *this;
   }
-  modint& operator -=(modint const& other) {
-    if ((M_value -= other.M_value) < 0) M_value += modulo();
+  modint& operator -=(modint const& that) {
+    if ((M_value -= that.M_value) < 0) M_value += modulo();
     return *this;
   }
-  modint& operator *=(modint const& other) {
-    (M_value *= other.M_value) %= modulo();
+  modint& operator *=(modint const& that) {
+    (M_value *= that.M_value) %= modulo();
     return *this;
   }
-  modint& operator /=(modint const& other) {
-    (M_value *= S_inv(other.M_value, modulo())) %= modulo();
+  modint& operator /=(modint const& that) {
+    (M_value *= S_inv(that.M_value, modulo())) %= modulo();
     return *this;
   }
 
@@ -95,10 +95,10 @@ public:
     return *this;
   }
 
-  modint operator +(modint const& other) const { return modint(*this) += other; }
-  modint operator -(modint const& other) const { return modint(*this) -= other; }
-  modint operator *(modint const& other) const { return modint(*this) *= other; }
-  modint operator /(modint const& other) const { return modint(*this) /= other; }
+  modint operator +(modint const& that) const { return modint(*this) += that; }
+  modint operator -(modint const& that) const { return modint(*this) -= that; }
+  modint operator *(modint const& that) const { return modint(*this) *= that; }
+  modint operator /(modint const& that) const { return modint(*this) /= that; }
   modint operator +(value_type const& n) const { return modint(*this) += n; }
   modint operator -(value_type const& n) const { return modint(*this) -= n; }
   modint operator *(value_type const& n) const { return modint(*this) *= n; }
@@ -110,23 +110,17 @@ public:
     return modint(modulo()-M_value, *this);
   }
 
-  bool operator ==(modint const& other) const {
-    return M_value == other.M_value;
+  bool operator ==(modint const& that) const {
+    return M_value == that.M_value;
   }
   bool operator ==(value_type const& n) const {
     return M_value == S_normalize(n, modulo());
   }
-  bool operator !=(modint const& other) const { return !(*this == other); }
+  bool operator !=(modint const& that) const { return !(*this == that); }
   bool operator !=(value_type const& n) const { return !(*this == n); }
 
   value_type get() const { return M_value; }
   value_type modulo() const { return ((S_mod > 0)? S_mod: M_mod); }
-
-  static value_type generator(value_type p) {
-    // XXX
-    if (p == 998244353) return 3;
-    return -1;
-  }
 };
 
 template <typename Tp, intmax_t Modulo>
@@ -154,6 +148,6 @@ bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
   return !(lhs == rhs);
 }
 
-// constexpr intmax_t mod = 1'000'000'007;  // '
+// constexpr intmax_t mod = 1000'000'007;  // '
 // constexpr intmax_t mod = 998244353;
-using mi = modint<mod>;
+// using mi = modint<mod>;
