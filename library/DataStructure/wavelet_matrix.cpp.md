@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/wavelet_matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-01-21 16:46:52+09:00
 
 
 
@@ -321,7 +321,7 @@ public:
   value_type operator [](size_type s) const { return M_c[s]; }
 };
 
-#endif  /* !defined(wavelet_matrix) */
+#endif  /* !defined(H_wavelet_matrix) */
 
 ```
 {% endraw %}
