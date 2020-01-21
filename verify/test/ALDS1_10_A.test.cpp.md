@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_10_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 18:55:22+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A</a>
@@ -87,6 +87,9 @@ int main() {
  * @author えびちゃん
  */
 
+#ifndef H_make_fix_point
+#define H_make_fix_point
+
 #include <utility>
 
 template <typename Fn>
@@ -104,6 +107,8 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
+
+#endif  /* !defined(H_make_fix_point) */
 #line 5 "test/ALDS1_10_A.test.cpp"
 #undef CALL_FROM_TEST
 

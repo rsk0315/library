@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:49:57+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -91,6 +91,9 @@ int main() {
  * @author えびちゃん
  */
 
+#ifndef H_union_find
+#define H_union_find
+
 #include <cstddef>
 #include <cstdint>
 #include <utility>
@@ -139,6 +142,8 @@ public:
     return -M_c[representative(v)];
   }
 };
+
+#endif  /* !defined(H_union_find) */
 #line 5 "test/DSL_1_A.test.cpp"
 #undef CALL_FROM_TEST
 

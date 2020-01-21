@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/operations.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 02:54:45+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -46,6 +46,9 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef H_mod_operations
+#define H_mod_operations
+
 #include <stdexcept>
 #include <vector>
 
@@ -112,6 +115,8 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
     return {};
   }
 }
+
+#endif  /* !defined(H_mod_operations) */
 
 ```
 {% endraw %}
@@ -125,6 +130,9 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
  * @author えびちゃん
  */
 
+#ifndef H_mod_operations
+#define H_mod_operations
+
 #include <stdexcept>
 #include <vector>
 
@@ -191,6 +199,8 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
     return {};
   }
 }
+
+#endif  /* !defined(H_mod_operations) */
 
 ```
 {% endraw %}

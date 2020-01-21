@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 18:55:22+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -97,6 +97,9 @@ int main() {
  * @author えびちゃん
  */
 
+#ifndef H_make_vector
+#define H_make_vector
+
 #include <cstddef>
 #include <type_traits>
 #include <vector>
@@ -128,6 +131,8 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
   for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
   return detail::make_vector<Tp, N>(s, x);
 }
+
+#endif  /* !defined(H_make_vector) */
 #line 5 "test/DPL_1_E.test.cpp"
 #undef CALL_FROM_TEST
 

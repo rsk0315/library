@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#eea2354d8759bbd52e8bbb508d91fa66">utility/make</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/make/fix_point.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:22:29+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -51,6 +51,9 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef H_make_fix_point
+#define H_make_fix_point
+
 #include <utility>
 
 template <typename Fn>
@@ -68,6 +71,8 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
+
+#endif  /* !defined(H_make_fix_point) */
 
 ```
 {% endraw %}
@@ -81,6 +86,9 @@ static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
  * @author えびちゃん
  */
 
+#ifndef H_make_fix_point
+#define H_make_fix_point
+
 #include <utility>
 
 template <typename Fn>
@@ -98,6 +106,8 @@ template <typename Fn>
 static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
   return fix_point<Fn>{std::forward<Fn>(f)};
 }
+
+#endif  /* !defined(H_make_fix_point) */
 
 ```
 {% endraw %}

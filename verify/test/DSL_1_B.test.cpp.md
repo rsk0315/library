@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_1_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 17:49:57+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/potential.cpp.html">ポテンシャル関数 <small>(DataStructure/potential.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
 
 
 ## Code
@@ -49,7 +49,7 @@ layout: default
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
 #define CALL_FROM_TEST
-#include "DataStructure/potential.cpp"
+#include "DataStructure/potential_function.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
@@ -90,11 +90,14 @@ int main() {
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
 #define CALL_FROM_TEST
-#line 1 "DataStructure/potential.cpp"
+#line 1 "DataStructure/potential_function.cpp"
 /** 
  * @brief ポテンシャル関数
  * @author えびちゃん
  */
+
+#ifndef H_potential_function
+#define H_potential_function
 
 #include <cstddef>
 #include <stdexcept>
@@ -151,6 +154,8 @@ public:
 
   size_type count(size_type x) const { return -M_c[representative(x)]; }
 };
+
+#endif  /* !defined(H_potential_function) */
 #line 5 "test/DSL_1_B.test.cpp"
 #undef CALL_FROM_TEST
 

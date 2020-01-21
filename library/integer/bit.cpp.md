@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 20:05:46+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -52,6 +52,9 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef H_bit
+#define H_bit
+
 template <typename Tp>
 int ilog2(Tp n) {
   // - range_error を投げる？
@@ -60,6 +63,8 @@ int ilog2(Tp n) {
   // - Tp のビット幅で分岐する？
   return 63 - __builtin_clzll(n);
 }
+
+#endif  /* !defined(H_bit) */
 
 ```
 {% endraw %}
@@ -73,6 +78,9 @@ int ilog2(Tp n) {
  * @author えびちゃん
  */
 
+#ifndef H_bit
+#define H_bit
+
 template <typename Tp>
 int ilog2(Tp n) {
   // - range_error を投げる？
@@ -81,6 +89,8 @@ int ilog2(Tp n) {
   // - Tp のビット幅で分岐する？
   return 63 - __builtin_clzll(n);
 }
+
+#endif  /* !defined(H_bit) */
 
 ```
 {% endraw %}

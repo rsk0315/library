@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/lowest_common_ancestor_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-19 16:47:18+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -50,6 +50,9 @@ layout: default
  * @brief 最深共通祖先 (segment tree)
  * @author えびちゃん
  */
+
+#ifndef H_lowest_common_ancestor_segment_tree
+#define H_lowest_common_ancestor_segment_tree
 
 #ifdef CALL_FROM_TEST
 #include "integer/bit.cpp"
@@ -126,6 +129,8 @@ public:
   }
 };
 
+#endif  /* !defined(H_lowest_common_ancestor_segment_tree) */
+
 ```
 {% endraw %}
 
@@ -133,11 +138,26 @@ public:
 {% raw %}
 ```cpp
 Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/main.py", line 173, in main
+    subcommand_run(paths=[], jobs=parsed.jobs)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/main.py", line 66, in subcommand_run
+    onlinejudge_verify.verify.main(paths, marker=marker, timeout=timeout, jobs=jobs)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/verify.py", line 98, in main
+    exec_command([cxx, *shlex.split(utils.CXXFLAGS), '-I', '.', '-o', shlex.quote(str(directory / 'a.out')), shlex.quote(str(path))])
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/verify.py", line 26, in exec_command
+    subprocess.check_call(command)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/subprocess.py", line 364, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['g++', '-I', './', '-I', '.', '-o', '.verify-helper/cache/1f785e1929540734e32bcee260295e9a/a.out', 'test/aoj_3110.test.cpp']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
     bundler.update(self.file_class.file_path)
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 153, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

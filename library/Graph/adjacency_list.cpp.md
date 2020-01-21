@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/adjacency_list.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 20:05:46+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -53,6 +53,9 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef H_adjacency_list
+#define H_adjacency_list
+
 #include <cstddef>
 #include <algorithm>
 #include <type_traits>
@@ -128,6 +131,8 @@ public:
   size_type size() const { return M_g.size(); }
   auto const& operator [](size_type i) const { return M_g[i]; }
 };
+
+#endif  /* !defined(H_adjacency_list) */
 
 ```
 {% endraw %}
@@ -141,6 +146,9 @@ public:
  * @author えびちゃん
  */
 
+#ifndef H_adjacency_list
+#define H_adjacency_list
+
 #include <cstddef>
 #include <algorithm>
 #include <type_traits>
@@ -216,6 +224,8 @@ public:
   size_type size() const { return M_g.size(); }
   auto const& operator [](size_type i) const { return M_g[i]; }
 };
+
+#endif  /* !defined(H_adjacency_list) */
 
 ```
 {% endraw %}

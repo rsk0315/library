@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ポテンシャル関数 <small>(DataStructure/potential.cpp)</small>
+# :heavy_check_mark: ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/potential.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-18 02:29:24+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/potential_function.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -51,6 +51,9 @@ layout: default
  * @author えびちゃん
  */
 
+#ifndef H_potential_function
+#define H_potential_function
+
 #include <cstddef>
 #include <stdexcept>
 #include <vector>
@@ -106,6 +109,8 @@ public:
 
   size_type count(size_type x) const { return -M_c[representative(x)]; }
 };
+
+#endif  /* !defined(H_potential_function) */
 
 ```
 {% endraw %}
@@ -113,11 +118,14 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "DataStructure/potential.cpp"
+#line 1 "DataStructure/potential_function.cpp"
 /** 
  * @brief ポテンシャル関数
  * @author えびちゃん
  */
+
+#ifndef H_potential_function
+#define H_potential_function
 
 #include <cstddef>
 #include <stdexcept>
@@ -174,6 +182,8 @@ public:
 
   size_type count(size_type x) const { return -M_c[representative(x)]; }
 };
+
+#endif  /* !defined(H_potential_function) */
 
 ```
 {% endraw %}

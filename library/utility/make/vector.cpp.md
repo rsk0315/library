@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#eea2354d8759bbd52e8bbb508d91fa66">utility/make</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/make/vector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-17 23:20:45+09:00
+    - Last commit date: 2020-01-21 16:32:25+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/DPL_1_E.test.cpp.html">test/DPL_1_E.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 
 
 ## Code
@@ -50,6 +51,9 @@ layout: default
  * @brief 多次元 vector の作成
  * @author えびちゃん
  */
+
+#ifndef H_make_vector
+#define H_make_vector
 
 #include <cstddef>
 #include <type_traits>
@@ -82,6 +86,8 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
   for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
   return detail::make_vector<Tp, N>(s, x);
 }
+
+#endif  /* !defined(H_make_vector) */
 
 ```
 {% endraw %}
@@ -95,6 +101,9 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
  * @author えびちゃん
  */
 
+#ifndef H_make_vector
+#define H_make_vector
+
 #include <cstddef>
 #include <type_traits>
 #include <vector>
@@ -126,6 +135,8 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
   for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
   return detail::make_vector<Tp, N>(s, x);
 }
+
+#endif  /* !defined(H_make_vector) */
 
 ```
 {% endraw %}
