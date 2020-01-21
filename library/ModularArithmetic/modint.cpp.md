@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
+# :heavy_check_mark: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-01-21 16:42:25+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 
 
 ## Code
@@ -54,6 +54,7 @@ layout: default
 #ifndef H_modint
 #define H_modint
 
+#include <cstdint>
 #include <type_traits>
 #include <utility>
 
@@ -222,6 +223,7 @@ using mi = modint<mod>;
 #ifndef H_modint
 #define H_modint
 
+#include <cstdint>
 #include <type_traits>
 #include <utility>
 
