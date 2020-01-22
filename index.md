@@ -83,7 +83,9 @@ layout: default
 
 ### utility
 
+* :warning: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :warning: <a href="library/utility/max_monoid.cpp.html">max を得る演算のモノイド <small>(utility/max_monoid.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
