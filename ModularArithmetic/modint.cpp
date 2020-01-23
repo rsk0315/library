@@ -152,10 +152,10 @@ bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
   return !(lhs == rhs);
 }
 
-#  ifndef CALL_FROM_TEST
+#ifndef CALL_FROM_TEST
 // constexpr intmax_t mod = 1000'000'007;
 // constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
-#  endif  /* !defined(CALL_FROM_TEST) */
+#endif
 
 #endif  /* !defined(H_modint) */
