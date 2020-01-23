@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:42:25+09:00
+    - Last commit date: 2020-01-23 17:50:37+09:00
 
 
 
@@ -200,11 +200,11 @@ bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
   return !(lhs == rhs);
 }
 
-#  ifndef CALL_FROM_TEST
-// constexpr intmax_t mod = 1000'000'007;  // '
+#ifndef CALL_FROM_TEST
+// constexpr intmax_t mod = 1000'000'007;
 // constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
-#  endif  /* !defined(CALL_FROM_TEST) */
+#endif
 
 #endif  /* !defined(H_modint) */
 
@@ -369,11 +369,11 @@ bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
   return !(lhs == rhs);
 }
 
-#  ifndef CALL_FROM_TEST
-// constexpr intmax_t mod = 1000'000'007;  // '
+#ifndef CALL_FROM_TEST
+// constexpr intmax_t mod = 1000'000'007;
 // constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
-#  endif  /* !defined(CALL_FROM_TEST) */
+#endif
 
 #endif  /* !defined(H_modint) */
 
