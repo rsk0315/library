@@ -5,6 +5,7 @@
 
 #ifndef H_int_literals
 #define H_int_literals
+
 #include <cstddef>
 #include <cstdint>
 
