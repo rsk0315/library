@@ -8,10 +8,6 @@ plugins:
 - jekyll-remote-theme
 remote_theme: rsk0315/minima
 
-title: にゃー
-author: にゃん？
-description: にゃん
-social-network-links:
-  twitter: rsk0315_h4x
-share-links-active:
-  twitter: true
+title: えびちゃんライブラリ
+author: えびちゃん
+description: [にゃん](https://twitter.com/rsk0315_h4x)
