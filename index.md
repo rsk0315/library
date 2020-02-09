@@ -57,6 +57,8 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 
 
 <div id="495e431c85de4c533fce4ff12db613fe"></div>
@@ -111,6 +113,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
