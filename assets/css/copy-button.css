@@ -1,36 +1,22 @@
-.div-btn-copy {
-    position: relative;
-    display: block;
-}
-.btn-pre {
+.code-btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    padding: 0 6px;
-    font-size: 12px;
-    font-family: Lato;
-    color: #767676;
-    cursor: pointer;
-    background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 0 4px 0 4px;
-    line-height: 23px;
+    background-color: #fff;
+    width: 6em;
+    line-height: 1.2em;
+    font-size: 0.8em;
+    cursor: pointer;
 }
-.btn-pre:hover {
+.code-btn:hover {
     color: #fff;
-    background-color: #563d7c;
-    border-color: #563d7c
+    background-color: #267cb9;
 }
-.btn-copy {
-    vertical-align: top;
+.code-copy-btn {
+    top: 0px;
+    right: 0px;
 }
-/* .code-copy-btn { */
-/*     top: 0px; */
-/*     right: 0px; */
-/* } */
-/* .code-bundle-btn { */
-/*     display: none; */
-/*     top: 0px; */
-/*     right: 6em; */
-/* } */
+.code-bundle-btn {
+    top: 0px;
+    right: 6em;
+    border-radius: 0 0 0 6px;
+}

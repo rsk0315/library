@@ -43,6 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 
 
