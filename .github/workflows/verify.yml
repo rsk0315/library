@@ -21,3 +21,6 @@ jobs:
         GH_PAT: ${{ secrets.GH_PAT }}
         CXXFLAGS: -I ./
       run: oj-verify all
+
+    - name: Grope
+      run: g++ --version; clang++ --version; git status
