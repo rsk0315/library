@@ -8,7 +8,7 @@ plugins:
 - jekyll-remote-theme
 remote_theme: rsk0315/minima
 
-title にゃー
+title: にゃー
 author: にゃん？
 description: にゃん
 social-network-links:
