@@ -23,4 +23,4 @@ jobs:
       run: oj-verify all
 
     - name: Grope
-      run: g++ --version; clang++ --version; git status; ls -la .
+      run: g++ --version; clang++ --version; git status; ls -la .; cat _config.yml; cat test
