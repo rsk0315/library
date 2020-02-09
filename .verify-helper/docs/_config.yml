@@ -8,5 +8,10 @@ plugins:
 - jekyll-remote-theme
 remote_theme: rsk0315/minima
 
-site.author: "にゃん？"
-site.description: にゃん
+title にゃー
+author: にゃん？
+description: にゃん
+social-network-links:
+  twitter: rsk0315_h4x
+share-links-active:
+  twitter: true
