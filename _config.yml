@@ -5,4 +5,6 @@ docs:
   toc: false
 plugins:
 - jemoji
+- jekyll-remote-theme
+remote_theme: rsk0315/minima
 theme: jekyll-theme-minimal
