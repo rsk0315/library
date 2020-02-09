@@ -19,8 +19,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
-        CXXFLAGS: -I ./
+        CXXFLAGS: -I ./ --std=c++17
       run: oj-verify all
 
     - name: Grope
-      run: g++ --version; clang++ --version; git status
+      run: g++ --version; clang++ --version; git status; ls -la .verify-helper/docs/static/; cat .verify-helper/docs/static/*
