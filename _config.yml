@@ -7,7 +7,8 @@ docs:
   categorize_verify: false
   html: false
   toc: false
-footer_description: "\u3048\u3073\u3061\u3083\u3093\u304B\u308F\u3044\u3044\u306D\u3002"
+footer_description: "\u3048\u3073\u3061\u3083\u3093\u304B\u308F\u3044\u3044\u306D\u3002\
+  \u306B\u3083\u3093\u306B\u3083\u3093\u3002"
 plugins:
 - jemoji
 - jekyll-remote-theme
