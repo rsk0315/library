@@ -7,7 +7,6 @@ plugins:
 - jemoji
 - jekyll-remote-theme
 remote_theme: rsk0315/minima
-site:
-  author: "\u306B\u3083\u3093\uFF1F"
-  description: "\u306B\u3083\u3093"
+site.author: "\u306B\u3083\u3093\uFF1F"
+site.description: "\u306B\u3083\u3093"
 theme: jekyll-theme-minimal
