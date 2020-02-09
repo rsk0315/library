@@ -9,7 +9,8 @@ plugins:
 remote_theme: rsk0315/minima
 
 title: えびちゃんライブラリ
-author: "<a href=\"https://twitter.com/rsk0315_h4x\">えびちゃん</a>"
+# author: "<a href=\"https://twitter.com/rsk0315_h4x\">えびちゃん</a>"
+author: えびちゃ
 description: "えびちゃんのライブラリです。[online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) で管理されています。"
 footer_description: "えびちゃんかわいいね。にゃんにゃん。"
 
