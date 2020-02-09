@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-02-01 04:11:17+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -93,13 +93,15 @@ int main() {
 {% raw %}
 ```cpp
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundler.update(self.file_class.file_path)
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 154, in update
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 343, in write_contents
+    bundled_code = language.bundle(self.file_class.file_path, basedir=self.cpp_source_path)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 63, in bundle
+    bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 182, in update
     self.update(self._resolve(included, included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 153, in update
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

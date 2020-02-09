@@ -52,6 +52,8 @@ layout: default
 ### Graph
 
 * :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/capacitated_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_list.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
@@ -84,7 +86,7 @@ layout: default
 
 ### utility
 
-* :warning: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :warning: <a href="library/utility/max_monoid.cpp.html">max を得る演算のモノイド <small>(utility/max_monoid.cpp)</small></a>
 
@@ -109,6 +111,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 

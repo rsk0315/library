@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/literals.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-02-01 04:11:17+09:00
 
 
 
@@ -42,6 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_segment_tree.test.cpp.html">test/GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_sparse_table.test.cpp.html">test/GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/GRL_5_C_squaring.test.cpp.html">test/GRL_5_C_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 
 
@@ -57,6 +58,7 @@ layout: default
 
 #ifndef H_int_literals
 #define H_int_literals
+
 #include <cstddef>
 #include <cstdint>
 
@@ -81,6 +83,7 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
 #ifndef H_int_literals
 #define H_int_literals
+
 #include <cstddef>
 #include <cstdint>
 

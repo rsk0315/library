@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 型依存の定数 <small>(utility/limits.cpp)</small>
+# :heavy_check_mark: 型依存の定数 <small>(utility/limits.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-01-22 15:16:30+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 
 
 ## Code
