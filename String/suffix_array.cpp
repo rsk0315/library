@@ -24,7 +24,7 @@ public:
 
 private:
   std::vector<value_type> M_c;
-  size_type M_len;
+  size_type M_len;  // including trailing '$'
   std::vector<size_type> M_rank, M_sa, M_lcpa;
 
   void M_build_sa() {
@@ -102,6 +102,7 @@ private:
       if (pos == M_c.size()) return true;
       if (M_c[pos] < *first) return true;
       if (*first < M_c[pos]) return false;
+      ++pos, ++first;
     }
     return false;
   }
@@ -138,6 +139,18 @@ public:
     auto it0 = M_mismatch(M_sa[lb], first, last);
     auto it1 = M_mismatch(M_sa[ub], first, last);
     return std::max(std::distance(first, it0), std::distance(first, it1));
+  }
+
+  template <typename ForwardIt>
+  size_type lower_bound(ForwardIt first, ForwardIt last) const {
+    size_type lb = 0;
+    size_type ub = M_c.size();
+    while (ub-lb > 1) {
+      size_type mid = (lb+ub) >> 1;
+      (M_lexicographical_compare(M_sa[mid], first, last)? lb: ub) = mid;
+    }
+    if (M_lexicographical_compare(M_sa[ub], first, last)) return M_c.size();
+    return M_sa[ub];
   }
 
   template <typename ForwardIt>
