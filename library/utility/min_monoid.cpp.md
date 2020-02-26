@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/min_monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-27 00:09:18+09:00
+    - Last commit date: 2020-02-27 00:24:29+09:00
 
 
 
@@ -47,7 +47,7 @@ layout: default
  */
 
 #ifdef CALL_FROM_TEST
-#include "limits.cpp"
+#include "utility/limits.cpp"
 #endif
 
 #ifndef H_min_monoid
