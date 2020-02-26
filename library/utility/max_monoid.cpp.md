@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/max_monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-22 15:16:30+09:00
+    - Last commit date: 2020-02-27 00:09:18+09:00
 
 
 
@@ -45,6 +45,10 @@ layout: default
  * @brief max を得る演算のモノイド
  * @author えびちゃん
  */
+
+#ifdef CALL_FROM_TEST
+#include "limits.cpp"
+#endif
 
 #ifndef H_max_monoid
 #define H_max_monoid
@@ -95,54 +99,14 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "utility/max_monoid.cpp"
-/**
- * @brief max を得る演算のモノイド
- * @author えびちゃん
- */
-
-#ifndef H_max_monoid
-#define H_max_monoid
-
-template <typename Tp>
-class max_monoid {
-public:
-  using value_type = Tp;
-
-private:
-  value_type M_x = limits<value_type>::min();
-
-public:
-  max_monoid() = default;  // identity
-  max_monoid(max_monoid const&) = default;
-  max_monoid(max_monoid&&) = default;
-
-  max_monoid(value_type const& x): M_x(x) {};
-  max_monoid(value_type&& x): M_x(std::move(x)) {};
-
-  max_monoid& operator =(max_monoid const&) = default;
-  max_monoid& operator =(max_monoid&&) = default;
-
-  max_monoid& operator +=(max_monoid const& that) {
-    M_x = std::max(M_x, that.M_x);
-    return *this;
-  }
-  max_monoid& operator +=(max_monoid&& that) {
-    M_x = std::max(M_x, std::move(that.M_x));
-    return *this;
-  }
-
-  max_monoid operator +(max_monoid const& that) const {
-    return max_monoid(*this) += that;
-  }
-  max_monoid operator +(max_monoid&& that) const {
-    return max_monoid(*this) += std::move(that);
-  }
-
-  value_type const& get() const { return M_x; }
-};
-
-#endif  /* !defined(H_max_monoid) */
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 348, in write_contents
+    bundled_code = language.bundle(self.file_class.file_path, basedir=self.cpp_source_path)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 63, in bundle
+    bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
+    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/max_monoid.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

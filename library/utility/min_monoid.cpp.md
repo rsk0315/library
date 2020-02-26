@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 2-SAT <small>(Graph/two_sat.cpp)</small>
+# :warning: min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/two_sat.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-10 03:33:13+09:00
+* category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/min_monoid.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-02-27 00:09:18+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 
 
 ## Code
@@ -47,77 +42,56 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief 2-SAT
+ * @brief min を得る演算のモノイド
  * @author えびちゃん
  */
 
-#ifndef H_two_sat
-#define H_two_sat
-
 #ifdef CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/scc.cpp"
+#include "limits.cpp"
 #endif
 
-#include <cstddef>
-#include <vector>
+#ifndef H_min_monoid
+#define H_min_monoid
 
-class two_sat {
+template <typename Tp>
+class min_monoid {
 public:
-  using size_type = unsigned;
+  using value_type = Tp;
 
 private:
-  size_type M_n;
-  adjacency_list<weighted_edge<bool>, directed_tag> M_g;
-  std::vector<size_type> M_scc;
-  bool M_sat;
-
-  void M_solve() {
-    if (!M_scc.empty()) return;
-    M_scc = strongly_connected_components(M_g);
-    for (size_type i = 0; i < M_n; ++i)
-      if (M_scc[i] == M_scc[i+M_n]) {
-        M_sat = false;
-        return;
-      }
-    M_sat = true;
-  }
+  value_type M_x = limits<value_type>::max();
 
 public:
-  two_sat() = default;
-  two_sat(two_sat const&) = default;
-  two_sat(two_sat&&) = default;
+  min_monoid() = default;  // identity
+  min_monoid(min_monoid const&) = default;
+  min_monoid(min_monoid&&) = default;
 
-  two_sat(size_type n): M_n(n), M_g(n+n) {}
+  min_monoid(value_type const& x): M_x(x) {};
+  min_monoid(value_type&& x): M_x(std::move(x)) {};
 
-  two_sat& operator =(two_sat const&) = default;
-  two_sat& operator =(two_sat&&) = default;
+  min_monoid& operator =(min_monoid const&) = default;
+  min_monoid& operator =(min_monoid&&) = default;
 
-  void push(size_type i, bool bi, size_type j, bool bj) {
-    M_scc.clear();
-
-    size_type not_i = i + M_n;
-    size_type not_j = j + M_n;
-    if (!bi) std::swap(i, not_i);
-    if (!bj) std::swap(j, not_j);
-
-    // i or j, (not i => j, not j => i)
-    M_g.emplace(not_i, j, 1);
-    M_g.emplace(not_j, i, 1);
+  min_monoid& operator +=(min_monoid const& that) {
+    M_x = std::min(M_x, that.M_x);
+    return *this;
+  }
+  min_monoid& operator +=(min_monoid&& that) {
+    M_x = std::min(M_x, std::move(that.M_x));
+    return *this;
   }
 
-  bool satisfiable() {
-    M_solve();
-    return M_sat;    
+  min_monoid operator +(min_monoid const& that) const {
+    return min_monoid(*this) += that;
+  }
+  min_monoid operator +(min_monoid&& that) const {
+    return min_monoid(*this) += std::move(that);
   }
 
-  bool operator [](size_type i) {
-    M_solve();
-    return M_scc[i+M_n] < M_scc[i];
-  }
+  value_type const& get() const { return M_x; }
 };
 
-#endif  /* !defined(H_two_sat) */
+#endif  /* !defined(H_min_monoid) */
 
 ```
 {% endraw %}
@@ -132,7 +106,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/two_sat.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/min_monoid.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

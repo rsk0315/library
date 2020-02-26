@@ -30,7 +30,7 @@ layout: default
 <a href="../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-02-27 00:09:05+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -158,6 +158,20 @@ private:
   std::vector<value_type> M_c;
   size_type M_n;
 
+  std::vector<size_type> M_covering_segments(size_type l, size_type r) const {
+    std::vector<size_type> left, right;
+    l += M_n;
+    r += M_n;
+    while (l < r) {
+      if (l & 1) left.push_back(l++);
+      if (r & 1) right.push_back(--r);
+      l >>= 1;
+      r >>= 1;
+    }
+    left.insert(left.end(), right.rbegin(), right.rend());
+    return left;
+  }
+
 public:
   basic_segment_tree() = default;
   basic_segment_tree(basic_segment_tree const&) = default;
@@ -225,6 +239,34 @@ public:
       r >>= 1;
     }
     return resl += resr;
+  }
+
+  template <typename Predicate>
+  size_type partition_point(size_type l, Predicate pred) const {
+    if (l == M_n) return l;
+    value_type x{};
+    size_type v = M_n + M_n;
+    std::vector<size_type> cs = M_covering_segments(l, M_n);
+
+    // search the subroot
+    for (auto s: cs) {
+      if (!pred(x + M_c[s])) {
+        v = s;
+        break;
+      }
+      x += M_c[s];
+    }
+
+    // search the leaf
+    while (v < M_n) {
+      v <<= 1;
+      if (pred(x + M_c[v])) {
+        x += M_c[v];
+        v |= 1;
+      }
+    }
+
+    return v - M_n;
   }
 };
 
