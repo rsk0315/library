@@ -4,7 +4,7 @@
  */
 
 #ifdef CALL_FROM_TEST
-#include "limits.cpp"
+#include "utility/limits.cpp"
 #endif
 
 #ifndef H_min_monoid
