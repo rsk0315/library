@@ -3,6 +3,10 @@
  * @author えびちゃん
  */
 
+#ifdef CALL_FROM_TEST
+#include "limits.cpp"
+#endif
+
 #ifndef H_max_monoid
 #define H_max_monoid
 
