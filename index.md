@@ -78,13 +78,6 @@ layout: default
 * :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
 
 
-<div id="ad42f6697b035b7580e4fef93be20b4d"></div>
-
-### debug
-
-* :warning: <a href="library/debug/sa_is.cpp.html">debug/sa_is.cpp</a>
-
-
 <div id="157db7df530023575515d366c9b672e8"></div>
 
 ### integer

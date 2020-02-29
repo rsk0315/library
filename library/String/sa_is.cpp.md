@@ -37,11 +37,6 @@ layout: default
 * see: <a href="http://web.stanford.edu/class/archive/cs/cs166/cs166.1186/lectures/04/Slides04.pdf">http://web.stanford.edu/class/archive/cs/cs166/cs166.1186/lectures/04/Slides04.pdf</a>
 
 
-## Required by
-
-* :warning: <a href="../debug/sa_is.cpp.html">debug/sa_is.cpp</a>
-
-
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
