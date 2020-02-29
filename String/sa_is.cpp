@@ -1,5 +1,5 @@
 /**
- * @brief SA-IS
+ * @brief 接尾辞配列 + induced sort
  * @author えびちゃん
  */
 
@@ -47,12 +47,7 @@ private:
       ls[i] = ((c[i] < c[i+1] || (c[i] == c[i+1] && ls[i+1] == s_type))? s_type: l_type);
     }
 
-    fprintf(stderr, "LS:\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%c%c", ((ls[i] == l_type)? 'L': 'S'), i+1<n? ' ': '\n');
-
     std::vector<size_type> sa(n, -1);
-
     std::vector<size_type> count(n);
     for (size_type i = 0; i < n; ++i) ++count[c[i]];
 
@@ -74,19 +69,11 @@ private:
       sa[--tail[c[i]]] = i;
     }
 
-    fprintf(stderr, "pass one\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
-
     // pass two
     for (size_type i = 0; i < n; ++i) {
       if (sa[i] == -1_zu || sa[i] == 0 || ls[sa[i]-1] != l_type) continue;
       sa[head[c[sa[i]-1]]++] = sa[i]-1;
     }
-
-    fprintf(stderr, "pass two\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
 
     // pass three
     tail = count;
@@ -95,10 +82,6 @@ private:
       if (sa[i] == 0 || ls[sa[i]-1] != s_type) continue;
       sa[--tail[c[sa[i]-1]]] = sa[i]-1;
     }
-
-    fprintf(stderr, "pass three\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
 
     std::vector<size_type> lms_suffix;
     for (size_type i = 0; i < n; ++i) {
@@ -113,21 +96,12 @@ private:
       for (size_type j = 1; ident; ++j) {
         if (lms[lms_suffix[i]+j] && lms[lms_suffix[i-1]+j]) break;
         ident &= (lms[lms_suffix[i]+j] == lms[lms_suffix[i-1]+j]);
-        if (ident) {
-          // check for boundaries
+        if (ident) {  // check for boundaries
           ident &= (c[lms_suffix[i]+j] == c[lms_suffix[i-1]+j]);
         }
       }
       h[i] = (ident? h[i-1]: h[i-1]+1);
     }
-
-    fprintf(stderr, "LMS suffices:\n");
-    for (size_type i = 0; i < lms_suffix.size(); ++i)
-      fprintf(stderr, "%zu%c", lms_suffix[i], i+1<lms_suffix.size()? ' ': '\n');
-
-    fprintf(stderr, "Hash:\n");
-    for (size_type i = 0; i < h.size(); ++i)
-      fprintf(stderr, "%zu%c", h[i], i+1<h.size()? ' ': '\n');
 
     std::vector<size_type> rs;  // reduced string
     {
@@ -139,13 +113,6 @@ private:
         if (lms[i]) rs.push_back(map[i]);
       }
     }
-
-    fprintf(stderr, "SA:\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zu%c", sa[i], i+1<n? ' ': '\n');
-    fprintf(stderr, "reduced:\n");
-    for (size_type i = 0; i < rs.size(); ++i)
-      fprintf(stderr, "%zu%c", rs[i], i+1<rs.size()? ' ': '\n');
 
     auto rs_sa = S_sa_is(rs);
     lms_suffix.clear();
@@ -161,27 +128,15 @@ private:
     for (size_type i = 1; i < n; ++i) head[i] = tail[i-1];
     sa.assign(n, -1);
 
-    fprintf(stderr, "sorted LMS\n");
-    for (size_type i = 0; i < sorted_lms.size(); ++i)
-      fprintf(stderr, "%zu%c", sorted_lms[i], i+1<sorted_lms.size()? ' ': '\n');
-
     // pass one
     std::reverse(sorted_lms.begin(), sorted_lms.end());
     for (auto s: sorted_lms) sa[--tail[c[s]]] = s;
-
-    fprintf(stderr, "pass one\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
 
     // pass two
     for (size_type i = 0; i < n; ++i) {
       if (sa[i] == -1_zu || sa[i] == 0 || ls[sa[i]-1] != l_type) continue;
       sa[head[c[sa[i]-1]]++] = sa[i]-1;
     }
-
-    fprintf(stderr, "pass two\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
 
     // pass three
     tail = count;
@@ -191,10 +146,6 @@ private:
       sa[--tail[c[sa[i]-1]]] = sa[i]-1;
     }
 
-    fprintf(stderr, "completed?\n");
-    for (size_type i = 0; i < n; ++i)
-      fprintf(stderr, "%zd%c", sa[i], i+1<n? ' ': '\n');
-
     return sa;
   }
 
@@ -202,6 +153,29 @@ private:
     std::vector<size_type> s = S_hash(M_c);
     s.push_back(0);  // for '$'
     M_sa = S_sa_is(s);
+  }
+
+  template <typename InputIt>
+  bool M_lexicographical_compare(size_type pos, InputIt first, InputIt last) const {
+    // return true if M_c[pos:] < *[first, last)
+    while (first != last) {
+      if (pos == M_c.size()) return true;
+      if (M_c[pos] < *first) return true;
+      if (*first < M_c[pos]) return false;
+      ++pos, ++first;
+    }
+    return false;
+  }
+
+  template <typename InputIt>
+  InputIt M_mismatch(size_type pos, InputIt first, InputIt last) const {
+    // with equivalence, instead of equality
+    while (first != last) {
+      if (pos == M_c.size()) break;
+      if (M_c[pos] < *first || *first < M_c[pos]) break;
+      ++pos, ++first;
+    }
+    return first;
   }
 
 public:
@@ -214,6 +188,57 @@ public:
 
   suffix_array& operator =(suffix_array const&) = default;
   suffix_array& operator =(suffix_array&&) = default;
+
+  template <typename ForwardIt>
+  difference_type lcp(ForwardIt first, ForwardIt last) const {
+    size_type lb = 0;
+    size_type ub = M_c.size();
+    while (ub-lb > 1) {
+      size_type mid = (lb+ub) >> 1;
+      (M_lexicographical_compare(M_sa[mid], first, last)? lb: ub) = mid;
+    }
+    auto it0 = M_mismatch(M_sa[lb], first, last);
+    auto it1 = M_mismatch(M_sa[ub], first, last);
+    return std::max(std::distance(first, it0), std::distance(first, it1));
+  }
+
+  template <typename ForwardIt>
+  size_type lower_bound(ForwardIt first, ForwardIt last) const {
+    size_type lb = 0;
+    size_type ub = M_c.size();
+    while (ub-lb > 1) {
+      size_type mid = (lb+ub) >> 1;
+      (M_lexicographical_compare(M_sa[mid], first, last)? lb: ub) = mid;
+    }
+    if (M_lexicographical_compare(M_sa[ub], first, last)) return M_c.size();
+    return M_sa[ub];
+  }
+
+  template <typename ForwardIt>
+  bool contains(ForwardIt first, ForwardIt last) const {
+    return lcp(first, last) == std::distance(first, last);
+  }
+
+  size_type operator [](size_type i) const { return M_sa[i]; }
+  auto begin() const { return M_sa.begin(); }
+  auto end() const { return M_sa.end(); }
+
+  std::vector<size_type> lcp_array() const {
+    size_type n = M_c.size();
+    std::vector<size_type> rank(n+1);
+    for (size_type i = 0; i <= n; ++i) rank[M_sa[i]] = i;
+    size_type h = 0;
+    std::vector<size_type> lcpa(n+1, 0);
+    for (size_type i = 0; i < n; ++i) {
+      size_type j = M_sa[rank[i]-1];
+      if (h > 0) --h;
+      for (; (j+h < n && i+h < n); ++h) {
+        if (M_c[j+h] < M_c[i+h] || M_c[i+h] < M_c[j+h]) break;
+      }
+      lcpa[rank[i]-1] = h;
+    }
+    return lcpa;
+  }
 };
 
 #endif  /* !defined(H_suffix_array_induced_sort) */
