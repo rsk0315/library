@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <string>
 
+#define IGNORE
+
 #define CALL_FROM_TEST
 #include "String/sa_is.cpp"
 #undef CALL_FROM_TEST
