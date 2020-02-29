@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/max_monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-27 00:24:29+09:00
+    - Last commit date: 2020-03-01 08:04:50+09:00
 
 
 
@@ -49,6 +49,9 @@ layout: default
 #ifdef CALL_FROM_TEST
 #include "utility/limits.cpp"
 #endif
+
+#include <algorithm>
+#include <utility>
 
 #ifndef H_max_monoid
 #define H_max_monoid
