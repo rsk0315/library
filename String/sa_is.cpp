@@ -1,6 +1,7 @@
 /**
  * @brief 接尾辞配列 + induced sort
  * @author えびちゃん
+ * @see http://web.stanford.edu/class/archive/cs/cs166/cs166.1186/lectures/04/Slides04.pdf
  */
 
 #ifndef H_suffix_array_induced_sort
