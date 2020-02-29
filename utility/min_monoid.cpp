@@ -7,6 +7,9 @@
 #include "utility/limits.cpp"
 #endif
 
+#include <algorithm>
+#include <utility>
+
 #ifndef H_min_monoid
 #define H_min_monoid
 
