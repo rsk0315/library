@@ -25,15 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small>
+# :warning: debug/sa_is.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/min_monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-27 00:24:29+09:00
+* category: <a href="../../index.html#ad42f6697b035b7580e4fef93be20b4d">debug</a>
+* <a href="{{ site.github.repository_url }}/blob/master/debug/sa_is.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-01 04:12:51+09:00
 
 
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -41,57 +47,36 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief min を得る演算のモノイド
- * @author えびちゃん
- */
+#include <cstdio>
+#include <string>
 
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
+#define CALL_FROM_TEST
+#include "String/sa_is.cpp"
+#undef CALL_FROM_TEST
 
-#ifndef H_min_monoid
-#define H_min_monoid
+#include <iostream>
 
-template <typename Tp>
-class min_monoid {
-public:
-  using value_type = Tp;
-
-private:
-  value_type M_x = limits<value_type>::max();
-
-public:
-  min_monoid() = default;  // identity
-  min_monoid(min_monoid const&) = default;
-  min_monoid(min_monoid&&) = default;
-
-  min_monoid(value_type const& x): M_x(x) {};
-  min_monoid(value_type&& x): M_x(std::move(x)) {};
-
-  min_monoid& operator =(min_monoid const&) = default;
-  min_monoid& operator =(min_monoid&&) = default;
-
-  min_monoid& operator +=(min_monoid const& that) {
-    M_x = std::min(M_x, that.M_x);
-    return *this;
+template <typename InputIt>
+void say(InputIt first, InputIt last) {
+  while (first != last) {
+    std::cout << *first++;
+    std::cout << ((first != last)? ' ': '\n');
   }
-  min_monoid& operator +=(min_monoid&& that) {
-    M_x = std::min(M_x, std::move(that.M_x));
-    return *this;
-  }
+}
 
-  min_monoid operator +(min_monoid const& that) const {
-    return min_monoid(*this) += that;
+int main() {
+  {
+    std::string s = "GTCCCGATGTCATGTCAGGA";
+    suffix_array<char> sa(s.begin(), s.end());
   }
-  min_monoid operator +(min_monoid&& that) const {
-    return min_monoid(*this) += std::move(that);
+  {
+    std::string s = "abracadabra";
+    suffix_array<char> sa(s.begin(), s.end());
+    say(sa.begin(), sa.end());
+    auto lcpa = sa.lcp_array();
+    say(lcpa.begin(), lcpa.end());
   }
-
-  value_type const& get() const { return M_x; }
-};
-
-#endif  /* !defined(H_min_monoid) */
+}
 
 ```
 {% endraw %}
@@ -104,9 +89,11 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=self.cpp_source_path)
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 68, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 182, in update
+    self.update(self._resolve(included, included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/min_monoid.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: String/sa_is.cpp: line 17: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
