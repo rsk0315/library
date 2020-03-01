@@ -117,11 +117,15 @@ private:
     for (size_type i = 0; i < n; ++i)
       if (lms[sa[i]]) lmss.push_back(sa[i]);
 
+    // Sort LMS suffixes
     auto rs_sa = S_sa_is(S_reduce(c, lmss, lms));
-    lmss.clear();  // reorder in appearing order
+
+    // Reorder LMS suffixes in the order they appear
+    lmss.clear();
     for (size_type i = 0; i < n; ++i)
       if (lms[i]) lmss.push_back(i);
 
+    // Put LMS suffixes in proper order and 
     init_offset();
     sa.assign(n, -1_zu);
     for (size_type i = rs_sa.size(); i--;) {
