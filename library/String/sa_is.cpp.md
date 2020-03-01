@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/sa_is.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-02 03:46:28+09:00
+    - Last commit date: 2020-03-02 03:56:13+09:00
 
 
 * see: <a href="http://web.stanford.edu/class/archive/cs/cs166/cs166.1186/lectures/04/Slides04.pdf">http://web.stanford.edu/class/archive/cs/cs166/cs166.1186/lectures/04/Slides04.pdf</a>
@@ -167,11 +167,15 @@ private:
     for (size_type i = 0; i < n; ++i)
       if (lms[sa[i]]) lmss.push_back(sa[i]);
 
+    // Sort LMS suffixes
     auto rs_sa = S_sa_is(S_reduce(c, lmss, lms));
-    lmss.clear();  // reorder in appearing order
+
+    // Reorder LMS suffixes in the order they appear
+    lmss.clear();
     for (size_type i = 0; i < n; ++i)
       if (lms[i]) lmss.push_back(i);
 
+    // Put LMS suffixes in proper order and 
     init_offset();
     sa.assign(n, -1_zu);
     for (size_type i = rs_sa.size(); i--;) {
