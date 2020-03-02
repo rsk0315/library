@@ -74,6 +74,7 @@ layout: default
 
 ### String
 
+* :heavy_check_mark: <a href="library/String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/tree_attack.cpp.html">tree attack <small>(String/tree_attack.cpp)</small></a>
@@ -130,6 +131,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B.test.cpp.html">test/aoj_ALDS1_14_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
