@@ -4,6 +4,10 @@
 #include "String/tree_attack.cpp"
 #undef CALL_FROM_TEST
 
+#include <cstdio>
+#include <cassert>
+#include <string>
+
 int main() {
   intmax_t p, b;
   scanf("%jd %jd", &p, &b);
