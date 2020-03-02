@@ -41,8 +41,9 @@ int main() {
     }
   } while (s.empty());
 
-  printf("%s\n", s.data());
-  printf("%s\n", t.data());
+  // for special judges
+  // printf("%s\n", s.data());
+  // printf("%s\n", t.data());
 
   std::vector<int> u(s.length());
   for (size_t i = 0; i < s.length(); ++i)
