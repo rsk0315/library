@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: tree attack <small>(String/tree_attack.cpp)</small>
+# :heavy_check_mark: ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/tree_attack.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:19:38+09:00
+    - Last commit date: 2020-03-03 04:48:46+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/60442">https://codeforces.com/blog/entry/60442</a>
@@ -48,7 +48,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief tree attack
+ * @brief ロリハを衝突させるやつ (tree attack)
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/60442
  */

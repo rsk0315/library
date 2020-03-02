@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/DSL_3_D.test.cpp
+# :heavy_check_mark: test/aoj_DSL_3_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/DSL_3_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_3_D.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 04:47:29+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D</a>
@@ -116,7 +116,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/DSL_3_D.test.cpp"
+#line 1 "test/aoj_DSL_3_D.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
 #define CALL_FROM_TEST
@@ -182,7 +182,7 @@ public:
 };
 
 #endif  /* !defined(H_foldable_queue) */
-#line 5 "test/DSL_3_D.test.cpp"
+#line 5 "test/aoj_DSL_3_D.test.cpp"
 #undef CALL_FROM_TEST
 
 #include <limits>

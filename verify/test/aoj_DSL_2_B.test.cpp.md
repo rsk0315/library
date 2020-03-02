@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/DSL_2_B.test.cpp
+# :heavy_check_mark: test/aoj_DSL_2_B.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-27 00:09:05+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_B.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 04:47:29+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -132,7 +132,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/DSL_2_B.test.cpp"
+#line 1 "test/aoj_DSL_2_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
 #define CALL_FROM_TEST
@@ -271,7 +271,7 @@ public:
 };
 
 #endif  /* !defined(H_basic_segment_tree) */
-#line 5 "test/DSL_2_B.test.cpp"
+#line 5 "test/aoj_DSL_2_B.test.cpp"
 #undef CALL_FROM_TEST
 
 template <typename Tp>

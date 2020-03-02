@@ -25,21 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/ALDS1_5_D.test.cpp
+# :heavy_check_mark: test/aoj_GRL_5_C_segment_tree.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/ALDS1_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 04:11:17+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 04:47:29+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
@@ -48,10 +49,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
 #define CALL_FROM_TEST
-#include "DataStructure/wavelet_matrix.cpp"
+#include "Graph/adjacency_list.cpp"
+#include "Graph/lowest_common_ancestor_segment_tree.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdint>
@@ -62,15 +64,26 @@ int main() {
   int n;
   scanf("%d", &n);
 
-  std::vector<int> a(n);
-  for (auto& ai: a) scanf("%d", &ai);
-
-  wavelet_matrix<31> wm(a.begin(), a.end());
-  intmax_t res = 0;
-  for (size_t i = 1; i < n; ++i) {
-    res += wm.rank_3way(a[i], 0, i)[2];
+  adjacency_list<weighted_edge<int>, undirected_tag> g(n);
+  for (size_t i = 0; i < n; ++i) {
+    size_t k;
+    scanf("%zu", &k);
+    for (size_t j = 0; j < k; ++j) {
+      size_t c;
+      scanf("%zu", &c);
+      g.emplace(i, c, 1);
+    }
   }
-  printf("%jd\n", res);
+
+  lowest_common_ancestor g_lca(g, 0);
+
+  size_t q;
+  scanf("%zu", &q);
+  for (size_t i = 0; i < q; ++i) {
+    size_t u, v;
+    scanf("%zu %zu", &u, &v);
+    printf("%zu\n", g_lca(u, v));
+  }
 }
 
 ```
@@ -88,7 +101,7 @@ Traceback (most recent call last):
     self.update(self._resolve(included, included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 15: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

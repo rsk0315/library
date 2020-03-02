@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/GRL_5_C_sparse_table.test.cpp
+# :heavy_check_mark: test/aoj_GRL_5_C_squaring.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/GRL_5_C_sparse_table.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 04:11:17+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_squaring.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 04:47:29+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,8 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
@@ -53,7 +52,7 @@ layout: default
 
 #define CALL_FROM_TEST
 #include "Graph/adjacency_list.cpp"
-#include "Graph/lowest_common_ancestor_sparse_table.cpp"
+#include "Graph/lowest_common_ancestor_squaring.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdint>
@@ -101,7 +100,7 @@ Traceback (most recent call last):
     self.update(self._resolve(included, included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 181, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/lowest_common_ancestor_sparse_table.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/lowest_common_ancestor_squaring.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

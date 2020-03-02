@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/DPL_1_E.test.cpp
+# :heavy_check_mark: test/aoj_DPL_1_E.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_E.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 04:47:29+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -87,7 +87,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/DPL_1_E.test.cpp"
+#line 1 "test/aoj_DPL_1_E.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
 #define CALL_FROM_TEST
@@ -133,7 +133,7 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
 }
 
 #endif  /* !defined(H_make_vector) */
-#line 5 "test/DPL_1_E.test.cpp"
+#line 5 "test/aoj_DPL_1_E.test.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdint>
