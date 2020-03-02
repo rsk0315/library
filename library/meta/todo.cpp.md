@@ -25,17 +25,17 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: To-do リスト
+# :warning: to-do リスト
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/todo.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 05:51:09+09:00
+* category: <a href="../../index.html#8ef655987a464acd81c7f1a3ecbbc7e3">(Meta)</a>
+* <a href="{{ site.github.repository_url }}/blob/master/meta/todo.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 05:56:22+09:00
 
 
 * see: <a href="https://kmyk.github.io/online-judge-verify-helper/document.ja.html">https://kmyk.github.io/online-judge-verify-helper/document.ja.html</a>
 * see: <a href="https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py">https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py</a>
-* see: <a href=""></a>
 
 
 # To-do
@@ -49,16 +49,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM ""
-
 /**
- * @title To-do リスト
- * @author えびちゃん
+ * @title to-do リスト
+ * @category (Meta)
+ * @docs todo.md
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
  * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
- * @docs todo.md
  */
-
 
 ```
 {% endraw %}
@@ -66,17 +63,14 @@ layout: default
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/todo.test.cpp"
-#define PROBLEM ""
-
+#line 1 "meta/todo.cpp"
 /**
- * @title To-do リスト
- * @author えびちゃん
+ * @title to-do リスト
+ * @category (Meta)
+ * @docs todo.md
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
  * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
- * @docs todo.md
  */
-
 
 ```
 {% endraw %}

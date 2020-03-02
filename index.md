@@ -34,6 +34,13 @@ layout: default
 
 ## Library Files
 
+<div id="8ef655987a464acd81c7f1a3ecbbc7e3"></div>
+
+### (Meta)
+
+* :warning: <a href="library/meta/todo.cpp.html">to-do リスト</a>
+
+
 <div id="5e248f107086635fddcead5bf28943fc"></div>
 
 ### DataStructure
@@ -132,7 +139,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
-* :x: <a href="verify/test/todo.test.cpp.html">To-do リスト</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
