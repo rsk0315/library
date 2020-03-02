@@ -4,7 +4,7 @@
  * @title テスト
  * @author えびちゃん
  * @brief **テスト**
- * @docs /test.md
+ * @docs docs/test.md
  */
 
 #include <cstdio>
