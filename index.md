@@ -114,6 +114,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj_0000.test.cpp.html">テスト</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
