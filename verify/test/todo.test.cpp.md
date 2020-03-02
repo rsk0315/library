@@ -25,48 +25,40 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: テスト
+# :x: To-do リスト
 
 <a href="../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_0000.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 05:35:42+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/todo.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-03 05:51:09+09:00
 
 
 * see: <a href="https://kmyk.github.io/online-judge-verify-helper/document.ja.html">https://kmyk.github.io/online-judge-verify-helper/document.ja.html</a>
 * see: <a href="https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py">https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py</a>
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000</a>
+* see: <a href=""></a>
 
 
-# ねこちゃん
-## テスト
-にゃにゃ？ **にゃん**
+# To-do
+
+- あ
+
+
 
 ## Code
 
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000"
+#define PROBLEM ""
 
 /**
- * @title テスト
+ * @title To-do リスト
  * @author えびちゃん
- * @brief **テスト**
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
  * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
- * @docs docs/test.md
- * @docs test.md
- * @docs /test.md
+ * @docs todo.md
  */
 
-#include <cstdio>
-
-int main() {
-  for (int i = 1; i <= 9; ++i)
-    for (int j = 1; j <= 9; ++j)
-      printf("%dx%d=%d\n", i, j, i*j);
-}
 
 ```
 {% endraw %}
@@ -74,27 +66,17 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj_0000.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000"
+#line 1 "test/todo.test.cpp"
+#define PROBLEM ""
 
 /**
- * @title テスト
+ * @title To-do リスト
  * @author えびちゃん
- * @brief **テスト**
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
  * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
- * @docs docs/test.md
- * @docs test.md
- * @docs /test.md
+ * @docs todo.md
  */
 
-#include <cstdio>
-
-int main() {
-  for (int i = 1; i <= 9; ++i)
-    for (int j = 1; j <= 9; ++j)
-      printf("%dx%d=%d\n", i, j, i*j);
-}
 
 ```
 {% endraw %}
