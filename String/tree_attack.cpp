@@ -1,5 +1,5 @@
 /**
- * @brief tree attack
+ * @brief ロリハを衝突させるやつ (tree attack)
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/60442
  */
