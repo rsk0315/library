@@ -19,5 +19,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
+        YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
         CXXFLAGS: -I ./ --std=c++17
       run: oj-verify all
