@@ -16,7 +16,7 @@
 
 class two_sat {
 public:
-  using size_type = unsigned;
+  using size_type = size_t;
 
 private:
   size_type M_n;
