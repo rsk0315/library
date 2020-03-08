@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 強連結成分分解 <small>(Graph/scc.cpp)</small>
+# :heavy_check_mark: 強連結成分分解 <small>(Graph/scc.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/scc.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-10 03:33:13+09:00
+    - Last commit date: 2020-03-08 18:52:39+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 
 
 ## Code
@@ -81,7 +81,7 @@ auto strongly_connected_components(AdjacencyList const& g) {
     if (!used[v]) dfs(v);
 
   used.assign(n, false);
-  std::vector<unsigned> cmp(n);
+  std::vector<size_t> cmp(n);
   size_t num = 0;
   auto rdfs = make_fix_point([&](auto f, size_t v) -> void {
       used[v] = true;
