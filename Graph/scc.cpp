@@ -33,7 +33,7 @@ auto strongly_connected_components(AdjacencyList const& g) {
     if (!used[v]) dfs(v);
 
   used.assign(n, false);
-  std::vector<unsigned> cmp(n);
+  std::vector<size_t> cmp(n);
   size_t num = 0;
   auto rdfs = make_fix_point([&](auto f, size_t v) -> void {
       used[v] = true;
