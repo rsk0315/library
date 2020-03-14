@@ -91,6 +91,7 @@ layout: default
 
 ### algorithm
 
+* :heavy_check_mark: <a href="library/algorithm/parallel_binary_search.cpp.html">並列二分探索 <small>(algorithm/parallel_binary_search.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
@@ -129,6 +130,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
