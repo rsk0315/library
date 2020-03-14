@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small>
+# :heavy_check_mark: 周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/tortoise_and_hare.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-15 02:17:07+09:00
+    - Last commit date: 2020-03-15 02:55:29+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 
 
 ## Code
@@ -49,25 +54,33 @@ layout: default
 #ifndef H_tortoise_and_hare
 #define H_tortoise_and_hare
 
+#include <cstdint>
+#include <utility>
+
 template <typename Generator>
-std::pair<size_t, size_t> detect_cycle(Generator g) {
+std::pair<intmax_t, intmax_t> detect_cycle(Generator g) {
   Generator tortoise = g;
   Generator hare = g;
-  intmax_t lambda = 0;
   do {
-    ++lambda;
     tortoise.pop();
     hare.pop(), hare.pop();
   } while (tortoise.peek() != hare.peek());
 
-  tortoise = hare = g;
-  for (intmax_t i = 0; i < lambda; ++i) hare.pop();
+  tortoise = g;
   intmax_t mu = 0;
   while (tortoise.peek() != hare.peek()) {
     ++mu;
     tortoise.pop();
     hare.pop();
   }
+
+  intmax_t lambda = 0;
+  hare = tortoise;
+  do {
+    ++lambda;
+    hare.pop();
+  } while (tortoise.peek() != hare.peek());
+
   return {mu, lambda};
 }
 
@@ -88,25 +101,33 @@ std::pair<size_t, size_t> detect_cycle(Generator g) {
 #ifndef H_tortoise_and_hare
 #define H_tortoise_and_hare
 
+#include <cstdint>
+#include <utility>
+
 template <typename Generator>
-std::pair<size_t, size_t> detect_cycle(Generator g) {
+std::pair<intmax_t, intmax_t> detect_cycle(Generator g) {
   Generator tortoise = g;
   Generator hare = g;
-  intmax_t lambda = 0;
   do {
-    ++lambda;
     tortoise.pop();
     hare.pop(), hare.pop();
   } while (tortoise.peek() != hare.peek());
 
-  tortoise = hare = g;
-  for (intmax_t i = 0; i < lambda; ++i) hare.pop();
+  tortoise = g;
   intmax_t mu = 0;
   while (tortoise.peek() != hare.peek()) {
     ++mu;
     tortoise.pop();
     hare.pop();
   }
+
+  intmax_t lambda = 0;
+  hare = tortoise;
+  do {
+    ++lambda;
+    hare.pop();
+  } while (tortoise.peek() != hare.peek());
+
   return {mu, lambda};
 }
 

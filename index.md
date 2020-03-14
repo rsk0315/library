@@ -92,7 +92,7 @@ layout: default
 ### algorithm
 
 * :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
-* :warning: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
 
 <div id="157db7df530023575515d366c9b672e8"></div>
@@ -129,6 +129,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
