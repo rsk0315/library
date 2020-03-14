@@ -87,6 +87,20 @@ layout: default
 * :heavy_check_mark: <a href="library/String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
 
 
+<div id="ed469618898d75b149e5c7c4b6a1c415"></div>
+
+### algorithm
+
+* :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
+
+
+<div id="ad42f6697b035b7580e4fef93be20b4d"></div>
+
+### debug
+
+* :warning: <a href="library/debug/sa_is.cpp.html">debug/sa_is.cpp</a>
+
+
 <div id="157db7df530023575515d366c9b672e8"></div>
 
 ### integer
@@ -125,6 +139,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
@@ -140,6 +155,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
 

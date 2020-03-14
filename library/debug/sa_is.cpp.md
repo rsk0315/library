@@ -25,23 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_ALDS1_5_D.test.cpp
+# :warning: debug/sa_is.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:47:29+09:00
+* category: <a href="../../index.html#ad42f6697b035b7580e4fef93be20b4d">debug</a>
+* <a href="{{ site.github.repository_url }}/blob/master/debug/sa_is.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-02 03:56:13+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -49,29 +47,37 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
+#include <cstdio>
+#include <string>
+
+#define IGNORE
 
 #define CALL_FROM_TEST
-#include "DataStructure/wavelet_matrix.cpp"
+#include "String/sa_is.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdint>
-#include <cstdio>
-#include <vector>
+#include <iostream>
+
+template <typename InputIt>
+void say(InputIt first, InputIt last) {
+  while (first != last) {
+    std::cout << *first++;
+    std::cout << ((first != last)? ' ': '\n');
+  }
+}
 
 int main() {
-  int n;
-  scanf("%d", &n);
-
-  std::vector<int> a(n);
-  for (auto& ai: a) scanf("%d", &ai);
-
-  wavelet_matrix<31> wm(a.begin(), a.end());
-  intmax_t res = 0;
-  for (size_t i = 1; i < n; ++i) {
-    res += wm.rank_3way(a[i], 0, i)[2];
+  {
+    std::string s = "GTCCCGATGTCATGTCAGGA";
+    suffix_array<char> sa(s.begin(), s.end());
   }
-  printf("%jd\n", res);
+  {
+    std::string s = "abracadabra";
+    suffix_array<char> sa(s.begin(), s.end());
+    say(sa.begin(), sa.end());
+    auto lcpa = sa.lcp_array();
+    say(lcpa.begin(), lcpa.end());
+  }
 }
 
 ```
@@ -89,7 +95,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 15: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: String/sa_is.cpp: line 17: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
