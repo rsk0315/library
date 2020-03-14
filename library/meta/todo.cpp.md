@@ -102,12 +102,10 @@ layout: default
 - Mo
   - 5/3 のやつも？
 - `next_combination` (いる？)
-- 黄金比分割探索 (いる？)
 - Karatsuba 法 (いる？)
 
 ## 幾何
 - ほんとに？
-
 
 
 ## Code
