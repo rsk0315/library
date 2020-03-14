@@ -7,5 +7,7 @@
 "test/aoj_3112.test.cpp": "2020-02-27 00:47:27 +0900",
 "test/aoj_3112_sa_is.test.cpp": "2020-03-02 03:43:50 +0900",
 "test/aoj_ALDS1_14_B.test.cpp": "2020-03-03 04:43:38 +0900",
-"test/yc_306.test.cpp": "2020-03-14 12:01:37 +0900"
+"test/yc_306.test.cpp": "2020-03-14 12:01:37 +0900",
+"test/yc_306_maximize.test.cpp": "2020-03-14 12:13:50 +0900",
+"test/yj_suffixarray.test.cpp": "2020-03-04 00:39:58 +0900"
 }
