@@ -92,6 +92,7 @@ layout: default
 ### algorithm
 
 * :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
+* :warning: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
 
 <div id="157db7df530023575515d366c9b672e8"></div>
