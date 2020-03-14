@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
+# :heavy_check_mark: test/yc_306_maximize.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
-* <a href="{{ site.github.repository_url }}/blob/master/algorithm/ternary_search.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-14 12:07:36+09:00
+* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yc_306_maximize.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-14 12:15:13+09:00
 
 
+* see: <a href="https://yukicoder.me/problems/no/306">https://yukicoder.me/problems/no/306</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
 
 
 ## Code
@@ -47,45 +47,25 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief 黄金比分割探索
- * @author えびちゃん
- */
+#define PROBLEM "https://yukicoder.me/problems/no/306"
 
-#ifndef H_ternary_search
-#define H_ternary_search
+#define ERROR 1e-6
 
+#define CALL_FROM_TEST
+#include "algorithm/ternary_search.cpp"
+#undef CALL_FROM_TEST
+
+#include <cstdio>
 #include <cmath>
-#include <utility>
 
-template <typename Fn, typename Tp>
-std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
-  // Returns {argmin f(x), min f(x)}.
-  Tp const phi = (1 + std::sqrt(static_cast<Tp>(5))) / 2;
-  int const iter = (std::log(xu-xl) - std::log(err)) / std::log(phi) + 1;
-  Tp xml = (phi * xl + xu) / (1 + phi);
-  Tp xmu = (xl + phi * xu) / (1 + phi);
-  Tp yml = f(xml);
-  Tp ymu = f(xmu);
-  for (int i = 0; i < iter; ++i) {
-    if (!maximize ^ (yml > ymu)) {
-      xu = xmu;
-      xmu = xml;
-      ymu = yml;
-      xml = (phi * xl + xu) / (1 + phi);
-      yml = f(xml);
-    } else {
-      xl = xml;
-      xml = xmu;
-      yml = ymu;
-      xmu = (xl + phi * xu) / (1 + phi);
-      ymu = f(xmu);
-    }
-  }
-  return std::make_pair(xml, yml);
+int main() {
+  long double xa, ya, xb, yb;
+  scanf("%Lf %Lf %Lf %Lf", &xa, &ya, &xb, &yb);
+
+  auto f = [&](auto y) { return -(std::hypot(xa, y-ya) + std::hypot(xb, yb-y)); };
+  long double y = optimize_convex(f, 0.0L, 1e3L, 1e-6L).first;
+  printf("%.20Lf\n", y);
 }
-
-#endif  /* !defined(H_ternary_search) */
 
 ```
 {% endraw %}
@@ -93,6 +73,12 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "test/yc_306_maximize.test.cpp"
+#define PROBLEM "https://yukicoder.me/problems/no/306"
+
+#define ERROR 1e-6
+
+#define CALL_FROM_TEST
 #line 1 "algorithm/ternary_search.cpp"
 /**
  * @brief 黄金比分割探索
@@ -133,6 +119,20 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 }
 
 #endif  /* !defined(H_ternary_search) */
+#line 7 "test/yc_306_maximize.test.cpp"
+#undef CALL_FROM_TEST
+
+#include <cstdio>
+#include <cmath>
+
+int main() {
+  long double xa, ya, xb, yb;
+  scanf("%Lf %Lf %Lf %Lf", &xa, &ya, &xb, &yb);
+
+  auto f = [&](auto y) { return -(std::hypot(xa, y-ya) + std::hypot(xb, yb-y)); };
+  long double y = optimize_convex(f, 0.0L, 1e3L, 1e-6L).first;
+  printf("%.20Lf\n", y);
+}
 
 ```
 {% endraw %}
