@@ -94,13 +94,6 @@ layout: default
 * :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
 
 
-<div id="ad42f6697b035b7580e4fef93be20b4d"></div>
-
-### debug
-
-* :warning: <a href="library/debug/sa_is.cpp.html">debug/sa_is.cpp</a>
-
-
 <div id="157db7df530023575515d366c9b672e8"></div>
 
 ### integer

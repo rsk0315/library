@@ -36,11 +36,6 @@ layout: default
 
 
 
-## Required by
-
-* :warning: <a href="../debug/sa_is.cpp.html">debug/sa_is.cpp</a>
-
-
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
