@@ -6,25 +6,33 @@
 #ifndef H_tortoise_and_hare
 #define H_tortoise_and_hare
 
+#include <cstdint>
+#include <utility>
+
 template <typename Generator>
-std::pair<size_t, size_t> detect_cycle(Generator g) {
+std::pair<intmax_t, intmax_t> detect_cycle(Generator g) {
   Generator tortoise = g;
   Generator hare = g;
-  intmax_t lambda = 0;
   do {
-    ++lambda;
     tortoise.pop();
     hare.pop(), hare.pop();
   } while (tortoise.peek() != hare.peek());
 
-  tortoise = hare = g;
-  for (intmax_t i = 0; i < lambda; ++i) hare.pop();
+  tortoise = g;
   intmax_t mu = 0;
   while (tortoise.peek() != hare.peek()) {
     ++mu;
     tortoise.pop();
     hare.pop();
   }
+
+  intmax_t lambda = 0;
+  hare = tortoise;
+  do {
+    ++lambda;
+    hare.pop();
+  } while (tortoise.peek() != hare.peek());
+
   return {mu, lambda};
 }
 
