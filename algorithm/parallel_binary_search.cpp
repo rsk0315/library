@@ -13,8 +13,8 @@ template <typename StatefulPredicate, typename RandomIt>
 std::vector<size_t> parallel_binary_search(
     StatefulPredicate spred, RandomIt first, RandomIt last
 ) {
-  // result[i] = j if spred(first[i]) returns true state j-1 (and before
-  // that) and returns false state j (and after that).
+  // result[i] = j if spred(first[i]) returns true for state j-1 (and
+  // before that) and returns false for state j (and after that).
   size_t size = spred.size();
   std::vector<size_t> lb(std::distance(first, last), 0);
   std::vector<size_t> ub(lb.size(), size+1);
