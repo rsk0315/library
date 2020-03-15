@@ -5,6 +5,7 @@
 #undef CALL_FROM_TEST
 
 #include <cstdio>
+#include <cstdint>
 #include <algorithm>
 #include <vector>
 
