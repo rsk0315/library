@@ -8,6 +8,7 @@
 
 #include <cstddef>
 #include <utility>
+#include <vector>
 
 #ifdef CALL_FROM_TEST
 #include "utility/make/fix_point.cpp"
