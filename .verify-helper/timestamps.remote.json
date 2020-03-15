@@ -24,6 +24,6 @@
 "test/yc_3014.test.cpp": "2020-03-03 04:48:46 +0900",
 "test/yc_306.test.cpp": "2020-03-14 12:07:36 +0900",
 "test/yc_306_maximize.test.cpp": "2020-03-14 12:15:13 +0900",
-"test/yc_703.test.cpp": "2020-03-16 00:30:14 +0900",
+"test/yc_703_onoff.test.cpp": "2020-03-16 00:34:42 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900"
 }
