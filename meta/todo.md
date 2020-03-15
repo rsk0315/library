@@ -55,10 +55,7 @@
 - sqrt
 
 ## アルゴリズム
-- 並列二分探索
-- D&C opt.
 - SMAWK
-- オンラインオフライン変換
 - Mo
   - 5/3 のやつも？
 - `next_combination` (いる？)
