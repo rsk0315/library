@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: monotone minima <small>(algorithm/monotone_minima.cpp)</small>
+# :heavy_check_mark: monotone minima <small>(algorithm/monotone_minima.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
-* :x: <a href="../../verify/test/yc_703.test.cpp.html">test/yc_703.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_703.test.cpp.html">test/yc_703.test.cpp</a>
 
 
 ## Code

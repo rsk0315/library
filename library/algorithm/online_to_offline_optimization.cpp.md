@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
+# :heavy_check_mark: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yc_703.test.cpp.html">test/yc_703.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_703.test.cpp.html">test/yc_703.test.cpp</a>
 
 
 ## Code
