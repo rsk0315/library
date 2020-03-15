@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/parallel_binary_search.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-15 06:58:47+09:00
+    - Last commit date: 2020-03-15 13:36:40+09:00
 
 
 
@@ -61,8 +61,8 @@ template <typename StatefulPredicate, typename RandomIt>
 std::vector<size_t> parallel_binary_search(
     StatefulPredicate spred, RandomIt first, RandomIt last
 ) {
-  // result[i] = j if spred(first[i]) returns true state j-1 (and before
-  // that) and returns false state j (and after that).
+  // result[i] = j if spred(first[i]) returns true for state j-1 (and
+  // before that) and returns false for state j (and after that).
   size_t size = spred.size();
   std::vector<size_t> lb(std::distance(first, last), 0);
   std::vector<size_t> ub(lb.size(), size+1);
@@ -113,8 +113,8 @@ template <typename StatefulPredicate, typename RandomIt>
 std::vector<size_t> parallel_binary_search(
     StatefulPredicate spred, RandomIt first, RandomIt last
 ) {
-  // result[i] = j if spred(first[i]) returns true state j-1 (and before
-  // that) and returns false state j (and after that).
+  // result[i] = j if spred(first[i]) returns true for state j-1 (and
+  // before that) and returns false for state j (and after that).
   size_t size = spred.size();
   std::vector<size_t> lb(std::distance(first, last), 0);
   std::vector<size_t> ub(lb.size(), size+1);
