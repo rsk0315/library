@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/monotone_minima.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-15 21:09:37+09:00
+    - Last commit date: 2020-03-15 21:18:34+09:00
 
 
 
@@ -55,6 +55,7 @@ layout: default
 #define H_monotone_minima
 
 #include <cstddef>
+#include <utility>
 
 #ifdef CALL_FROM_TEST
 #include "utility/make/fix_point.cpp"
@@ -99,7 +100,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: algorithm/monotone_minima.cpp: line 12: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: algorithm/monotone_minima.cpp: line 13: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
