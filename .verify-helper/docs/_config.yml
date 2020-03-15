@@ -10,8 +10,9 @@ remote_theme: rsk0315/minima
 
 title: えびちゃんライブラリ
 author: えびちゃん
-description: "[えびちゃん](https://twitter.com/rsk0315_h4x) のライブラリです。[online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) で管理されています。"
-footer_description: "えびちゃんかわいいね。にゃんにゃん。"
+# description: "[えびちゃん](https://twitter.com/rsk0315_h4x) のライブラリです。[online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) で管理されています。"
+# footer_description: "えびちゃんかわいいね。にゃんにゃん。"
+description: "えびちゃんかわいいね。にゃんにゃん。"
 
 # minima:
 #   social_links:
