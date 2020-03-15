@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yc_703.test.cpp
+# :heavy_check_mark: test/yc_703_onoff.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yc_703.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-16 00:30:14+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yc_703_onoff.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-16 00:34:42+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/703">https://yukicoder.me/problems/no/703</a>

@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_703.test.cpp.html">test/yc_703.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
 
 
 ## Code
