@@ -6,8 +6,8 @@ docs:
   categorize_verify: false
   html: false
   toc: false
-github:
-- metadata
+# github:
+# - metadata
 plugins:
 - jemoji
 - jekyll-remote-theme
