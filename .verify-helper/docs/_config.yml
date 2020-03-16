@@ -5,8 +5,10 @@ docs:
   toc: false
 plugins:
 - jemoji
-- jekyll-remote-theme
-remote_theme: rsk0315/minima
+# - jekyll-remote-theme
+# remote_theme: rsk0315/minima
+- theme: minima
+# - theme: jekyll-theme-minimal
 
 title: えびちゃんライブラリ
 author: えびちゃん
@@ -20,5 +22,3 @@ description: "えびちゃんかわいいね。にゃんにゃん。"
 
 github:
   project_tagline: "[えびちゃん](https://twitter.com/rsk0315_h4x) のライブラリです。[online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) で管理されています。"
-
-testmessage: てすと
