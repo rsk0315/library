@@ -13,6 +13,7 @@ github:
 plugins:
 - jemoji
 - jekyll-remote-theme
-remote_theme: benbalter/retlab
+remote_theme: rsk0315/minima
 theme: jekyll-theme-minimal
 title: "\u3048\u3073\u3061\u3083\u3093\u30E9\u30A4\u30D6\u30E9\u30EA"
+github: [metadata]
