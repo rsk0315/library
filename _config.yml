@@ -6,6 +6,8 @@ docs:
   categorize_verify: false
   html: false
   toc: false
+github:
+  project_tagline: "\u3042"
 plugins:
 - jemoji
 - jekyll-remote-theme
