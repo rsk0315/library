@@ -12,7 +12,5 @@ github:
     \ \u3067\u7BA1\u7406\u3055\u308C\u3066\u3044\u307E\u3059\u3002"
 plugins:
 - jemoji
-- jekyll-remote-theme
-remote_theme: rsk0315/minima
-# theme: jekyll-theme-minimal
+theme: jekyll-theme-minimal
 title: "\u3048\u3073\u3061\u3083\u3093\u30E9\u30A4\u30D6\u30E9\u30EA"
