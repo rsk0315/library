@@ -6,7 +6,8 @@ docs:
 plugins:
 - jemoji
 - jekyll-remote-theme
-remote_theme: rsk0315/minima
+# remote_theme: rsk0315/minima
+remote_theme: benbalter/retlab
 theme: jekyll-theme-minimal
 
 title: えびちゃんライブラリ
