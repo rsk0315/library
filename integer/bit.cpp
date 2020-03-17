@@ -8,7 +8,7 @@
 
 #include <climits>
 
-#ifdef __has_builtin
+// #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }
 int clz(unsigned long n) { return __builtin_clzl(n); }
 int clz(unsigned long long n) { return __builtin_clzll(n); }
@@ -18,9 +18,9 @@ int ctz(unsigned long long n) { return __builtin_ctzll(n); }
 int popcount(unsigned n) { return __builtin_popcount(n); }
 int popcount(unsigned long n) { return __builtin_popcountl(n); }
 int popcount(unsigned long long n) { return __builtin_popcountll(n); }
-#else
+// #else
 // TODO: implement
-#endif
+// #endif
 
 template <typename Tp>
 auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
