@@ -38,6 +38,8 @@ auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::
 template <typename Tp>
 int parity(Tp n) { return popcount(n) & 1; }
 template <typename Tp>
-int ilog2(Tp n) { return (CHAR_BIT * sizeof(Tp) - 1) - clz(n); }
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
 
 #endif  /* !defined(H_bit) */
