@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 09:47:14+09:00
+    - Last commit date: 2020-03-17 11:00:02+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -43,6 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
 ## Code
@@ -53,6 +54,7 @@ layout: default
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
 #define CALL_FROM_TEST
+#include "utility/stack_extend.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "Graph/lowest_common_ancestor_segment_tree.cpp"
 #undef CALL_FROM_TEST
@@ -62,6 +64,8 @@ layout: default
 #include <vector>
 
 int main() {
+  BEGIN_STACK_EXTEND(128*1024*1024);
+
   int n;
   scanf("%d", &n);
 
@@ -85,6 +89,8 @@ int main() {
     scanf("%zu %zu", &u, &v);
     printf("%zu\n", g_lca(u, v));
   }
+
+  END_STACK_EXTEND;
 }
 
 ```

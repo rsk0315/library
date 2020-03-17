@@ -120,6 +120,7 @@ layout: default
 * :question: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :warning: <a href="library/utility/max_monoid.cpp.html">max を得る演算のモノイド <small>(utility/max_monoid.cpp)</small></a>
 * :warning: <a href="library/utility/min_monoid.cpp.html">min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small></a>
+* :question: <a href="library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
