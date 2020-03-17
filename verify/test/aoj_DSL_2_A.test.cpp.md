@@ -25,20 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small>
+# :heavy_check_mark: test/aoj_DSL_2_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/min_monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-01 08:04:50+09:00
+* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-17 11:59:54+09:00
 
 
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/min_monoid.cpp.html">min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small></a>
 
 
 ## Code
@@ -46,60 +49,38 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief min を得る演算のモノイド
- * @author えびちゃん
- */
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
+#define CALL_FROM_TEST
+#include "utility/min_monoid.cpp"
+#include "DataStructure/basic_segment_tree.cpp"
+#undef CALL_FROM_TEST
 
-#include <algorithm>
-#include <utility>
+#include <cstdint>
+#include <cstdio>
+#include <vector>
 
-#ifndef H_min_monoid
-#define H_min_monoid
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-template <typename Tp>
-class min_monoid {
-public:
-  using value_type = Tp;
+  basic_segment_tree<min_monoid<int>> st(n);
+  for (size_t i = 0; i < q; ++i) {
+    int com;
+    scanf("%d", &com);
 
-private:
-  value_type M_x = limits<value_type>::max();
-
-public:
-  min_monoid() = default;  // identity
-  min_monoid(min_monoid const&) = default;
-  min_monoid(min_monoid&&) = default;
-
-  min_monoid(value_type const& x): M_x(x) {};
-  min_monoid(value_type&& x): M_x(std::move(x)) {};
-
-  min_monoid& operator =(min_monoid const&) = default;
-  min_monoid& operator =(min_monoid&&) = default;
-
-  min_monoid& operator +=(min_monoid const& that) {
-    M_x = std::min(M_x, that.M_x);
-    return *this;
+    if (com == 0) {
+      size_t i;
+      intmax_t x;
+      scanf("%zu %jd", &i, &x);
+      st.modify(i, x);
+    } else if (com == 1) {
+      size_t x, y;
+      scanf("%zu %zu", &x, &y);
+      printf("%jd\n", st.fold(x, y+1).get());
+    }
   }
-  min_monoid& operator +=(min_monoid&& that) {
-    M_x = std::min(M_x, std::move(that.M_x));
-    return *this;
-  }
-
-  min_monoid operator +(min_monoid const& that) const {
-    return min_monoid(*this) += that;
-  }
-  min_monoid operator +(min_monoid&& that) const {
-    return min_monoid(*this) += std::move(that);
-  }
-
-  value_type const& get() const { return M_x; }
-};
-
-#endif  /* !defined(H_min_monoid) */
+}
 
 ```
 {% endraw %}
@@ -112,6 +93,8 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 68, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
 onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/min_monoid.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
