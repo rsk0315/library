@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: ビット演算 <small>(integer/bit.cpp)</small>
+# :heavy_check_mark: ビット演算 <small>(integer/bit.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:06:15+09:00
+    - Last commit date: 2020-03-17 11:32:06+09:00
 
 
 
@@ -43,8 +43,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
-* :x: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
 
 
 ## Code
@@ -62,7 +62,7 @@ layout: default
 
 #include <climits>
 
-#ifdef __has_builtin
+// #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }
 int clz(unsigned long n) { return __builtin_clzl(n); }
 int clz(unsigned long long n) { return __builtin_clzll(n); }
@@ -72,9 +72,9 @@ int ctz(unsigned long long n) { return __builtin_ctzll(n); }
 int popcount(unsigned n) { return __builtin_popcount(n); }
 int popcount(unsigned long n) { return __builtin_popcountl(n); }
 int popcount(unsigned long long n) { return __builtin_popcountll(n); }
-#else
+// #else
 // TODO: implement
-#endif
+// #endif
 
 template <typename Tp>
 auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
@@ -115,7 +115,7 @@ int ilog2(Tp n) {
 
 #include <climits>
 
-#ifdef __has_builtin
+// #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }
 int clz(unsigned long n) { return __builtin_clzl(n); }
 int clz(unsigned long long n) { return __builtin_clzll(n); }
@@ -125,9 +125,9 @@ int ctz(unsigned long long n) { return __builtin_ctzll(n); }
 int popcount(unsigned n) { return __builtin_popcount(n); }
 int popcount(unsigned long n) { return __builtin_popcountl(n); }
 int popcount(unsigned long long n) { return __builtin_popcountll(n); }
-#else
+// #else
 // TODO: implement
-#endif
+// #endif
 
 template <typename Tp>
 auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
