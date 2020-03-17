@@ -37,6 +37,8 @@
 "test/yc_306.test.cpp": "2020-03-17 11:42:16 +0900",
 "test/yc_306_maximize.test.cpp": "2020-03-17 11:42:16 +0900",
 "test/yc_551.test.cpp": "2020-03-17 11:54:23 +0900",
-"test/yc_703_onoff.test.cpp": "2020-03-16 00:34:42 +0900",
+"test/yc_703_onoff.test.cpp": "2020-03-17 12:04:54 +0900",
+"test/yc_704_onoff.test.cpp": "2020-03-17 12:04:54 +0900",
+"test/yc_705_onoff.test.cpp": "2020-03-17 12:04:54 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900"
 }
