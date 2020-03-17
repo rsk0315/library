@@ -1,5 +1,4 @@
 #define PROBLEM "https://yukicoder.me/problems/no/306"
-
 #define ERROR 1e-6
 
 #define CALL_FROM_TEST
