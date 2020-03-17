@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/703"
+#define PROBLEM "https://yukicoder.me/problems/no/704"
 
 #define CALL_FROM_TEST
 #include "algorithm/online_to_offline_optimization.cpp"
@@ -6,6 +6,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <algorithm>
 #include <vector>
 
@@ -21,7 +22,7 @@ int main() {
   auto f = [&](size_t j, size_t i) {
     intmax_t dx = x[j] - a[i-1];
     intmax_t dy = y[j];
-    return dx*dx + dy*dy;
+    return std::abs(dx) + std::abs(dy);
   };
 
   auto dp = online_to_offline_optimization(f, n+1);
