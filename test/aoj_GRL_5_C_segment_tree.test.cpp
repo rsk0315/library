@@ -1,6 +1,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 
 #define CALL_FROM_TEST
+#include "utility/stack_extend.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "Graph/lowest_common_ancestor_segment_tree.cpp"
 #undef CALL_FROM_TEST
@@ -10,6 +11,8 @@
 #include <vector>
 
 int main() {
+  BEGIN_STACK_EXTEND(128*1024*1024);
+
   int n;
   scanf("%d", &n);
 
@@ -33,4 +36,6 @@ int main() {
     scanf("%zu %zu", &u, &v);
     printf("%zu\n", g_lca(u, v));
   }
+
+  END_STACK_EXTEND;
 }
