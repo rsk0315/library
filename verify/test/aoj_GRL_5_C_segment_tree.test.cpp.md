@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:00:02+09:00
+    - Last commit date: 2020-03-17 11:06:15+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>

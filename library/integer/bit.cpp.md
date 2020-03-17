@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 09:47:14+09:00
+    - Last commit date: 2020-03-17 11:06:15+09:00
 
 
 
@@ -92,7 +92,9 @@ auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::
 template <typename Tp>
 int parity(Tp n) { return popcount(n) & 1; }
 template <typename Tp>
-int ilog2(Tp n) { return (CHAR_BIT * sizeof(Tp) - 1) - clz(n); }
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
 
 #endif  /* !defined(H_bit) */
 
@@ -143,7 +145,9 @@ auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::
 template <typename Tp>
 int parity(Tp n) { return popcount(n) & 1; }
 template <typename Tp>
-int ilog2(Tp n) { return (CHAR_BIT * sizeof(Tp) - 1) - clz(n); }
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
 
 #endif  /* !defined(H_bit) */
 
