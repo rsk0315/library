@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yc_703_onoff.test.cpp
+# :heavy_check_mark: test/yc_704_onoff.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yc_703_onoff.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yc_704_onoff.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-17 12:04:54+09:00
 
 
-* see: <a href="https://yukicoder.me/problems/no/703">https://yukicoder.me/problems/no/703</a>
+* see: <a href="https://yukicoder.me/problems/no/704">https://yukicoder.me/problems/no/704</a>
 
 
 ## Depends on
@@ -50,7 +50,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://yukicoder.me/problems/no/703"
+#define PROBLEM "https://yukicoder.me/problems/no/704"
 
 #define CALL_FROM_TEST
 #include "algorithm/online_to_offline_optimization.cpp"
@@ -58,6 +58,7 @@ layout: default
 
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <algorithm>
 #include <vector>
 
@@ -73,7 +74,7 @@ int main() {
   auto f = [&](size_t j, size_t i) {
     intmax_t dx = x[j] - a[i-1];
     intmax_t dy = y[j];
-    return dx*dx + dy*dy;
+    return std::abs(dx) + std::abs(dy);
   };
 
   auto dp = online_to_offline_optimization(f, n+1);
