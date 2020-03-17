@@ -8,10 +8,6 @@
 
 #include <vector>
 
-#ifdef CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#endif
-
 template <typename ModInt>
 class modtable {
 public:
