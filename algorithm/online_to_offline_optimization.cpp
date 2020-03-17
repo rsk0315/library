@@ -18,6 +18,10 @@
 
 template <typename Fn>
 auto online_to_offline_optimization(Fn&& f, size_t n, decltype(f(n, n)) init = 0) {
+  // FIXME: コスト関数 f を渡すんじゃなくて induce を渡す設計にしたいかも。
+  //        SMAWK で解きたいとか、別の性質が使えるとかありそう。
+  //        よさげなインタフェースが思いついたら変更する。
+
   using value_type = decltype(f(n, n));
   std::vector<value_type> dp(n, limits<value_type>::max());
   dp[0] = init;
