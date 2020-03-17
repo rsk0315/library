@@ -31,13 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:32:06+09:00
+    - Last commit date: 2020-03-17 11:54:23+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
@@ -61,6 +62,7 @@ layout: default
 #define H_bit
 
 #include <climits>
+#include <type_traits>
 
 // #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }
@@ -114,6 +116,7 @@ int ilog2(Tp n) {
 #define H_bit
 
 #include <climits>
+#include <type_traits>
 
 // #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }

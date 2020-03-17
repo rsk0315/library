@@ -25,23 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DPL_5_A.test.cpp
+# :heavy_check_mark: 高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_A.test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
+* <a href="{{ site.github.repository_url }}/blob/master/algorithm/moebius_transform.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-17 11:54:23+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A</a>
 
 
-## Depends on
+## Verified with
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
 
 
 ## Code
@@ -49,22 +46,28 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
+/**
+ * @brief 高速 Möbius 変換
+ * @author えびちゃん
+ */
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/operations.cpp"
-#undef CALL_FROM_TEST
+#ifndef H_moebius_transform
+#define H_moebius_transform
 
-using mi = modint<1000'000'007>;
+#ifdef CALL_FROM_TEST
+#include "integer/bit.cpp"
+#include "utility/literals.cpp"
+#endif
 
-#include <cstdio>
-
-int main() {
-  intmax_t n, k;
-  scanf("%jd %jd", &n, &k);
-  printf("%jd\n", pow(mi(k), n).get());
+template <typename RandomIt>
+void moebius_transform(RandomIt first, RandomIt last) {
+  size_t n = ctz(last-first);
+  for (size_t j = 0; j < n; ++j)
+    for (size_t i = 0; i < (1_zu << n); ++i)
+      if (i >> j & 1) first[i] -= first[i ^ (1_zu << j)];
 }
+
+#endif  /* !defined(H_moebius_transform) */
 
 ```
 {% endraw %}
@@ -77,11 +80,9 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 68, in bundle
     bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/operations.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: algorithm/moebius_transform.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

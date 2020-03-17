@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_306_maximize.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-14 12:15:13+09:00
+    - Last commit date: 2020-03-17 11:42:16+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/306">https://yukicoder.me/problems/no/306</a>
@@ -48,7 +48,6 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "https://yukicoder.me/problems/no/306"
-
 #define ERROR 1e-6
 
 #define CALL_FROM_TEST
@@ -75,7 +74,6 @@ int main() {
 ```cpp
 #line 1 "test/yc_306_maximize.test.cpp"
 #define PROBLEM "https://yukicoder.me/problems/no/306"
-
 #define ERROR 1e-6
 
 #define CALL_FROM_TEST
@@ -119,7 +117,7 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 }
 
 #endif  /* !defined(H_ternary_search) */
-#line 7 "test/yc_306_maximize.test.cpp"
+#line 6 "test/yc_306_maximize.test.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
