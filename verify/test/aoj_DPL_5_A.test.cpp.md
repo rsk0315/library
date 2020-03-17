@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yc_551.test.cpp
+# :heavy_check_mark: test/aoj_DPL_5_A.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yc_551.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 09:47:50+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_A.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-17 10:27:05+09:00
 
 
-* see: <a href="https://yukicoder.me/problems/no/551">https://yukicoder.me/problems/no/551</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A</a>
 
 
 ## Depends on
@@ -49,44 +49,21 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://yukicoder.me/problems/no/551"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
 
 #define CALL_FROM_TEST
 #include "ModularArithmetic/modint.cpp"
 #include "ModularArithmetic/operations.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdint>
+using mi = modint<1000'000'007>;
+
 #include <cstdio>
-#include <algorithm>
-#include <vector>
 
 int main() {
-  intmax_t p;
-  int q;
-  scanf("%jd %*d %d", &p, &q);
-
-  while (q--) {
-    intmax_t a0, b0, c0;
-    scanf("%jd %jd %jd", &a0, &b0, &c0);
-
-    modint<0> a(a0, p), b(b0, p), c(c0, p);
-    auto dd = sqrt_all(b*b - 4*a*c);
-
-    std::vector<intmax_t> res;
-    for (auto d: dd)
-      res.push_back(((-b + d) / (2*a)).get());
-
-    if (res.empty()) {
-      puts("-1");
-      continue;
-    }
-
-    if (res.size() == 2 && res[0] == res[1]) res.pop_back();
-    std::sort(res.begin(), res.end());
-    for (size_t i = 0; i < res.size(); ++i)
-      printf("%jd%c", res[i], i+1<res.size()? ' ': '\n');
-  }
+  intmax_t n, k;
+  scanf("%jd %jd", &n, &k);
+  printf("%jd\n", pow(mi(k), n).get());
 }
 
 ```

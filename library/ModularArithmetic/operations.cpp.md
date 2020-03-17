@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small>
+# :question: 合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,6 +38,10 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
 * :x: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
 
 

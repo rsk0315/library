@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small>
+# :heavy_check_mark: 合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modtable.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-23 17:50:42+09:00
+    - Last commit date: 2020-03-17 10:06:25+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_D.test.cpp.html">test/aoj_DPL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_E.test.cpp.html">test/aoj_DPL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
 
 
 ## Code
@@ -50,10 +60,6 @@ layout: default
 #define H_modtable
 
 #include <vector>
-
-#ifdef CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#endif
 
 template <typename ModInt>
 class modtable {
@@ -108,14 +114,63 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 68, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/modtable.cpp: line 12: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "ModularArithmetic/modtable.cpp"
+/**
+ * @brief 合同演算の前計算テーブル
+ * @author えびちゃん
+ */
+
+#ifndef H_modtable
+#define H_modtable
+
+#include <vector>
+
+template <typename ModInt>
+class modtable {
+public:
+  using value_type = ModInt;
+  using size_type = size_t;
+  using underlying_type = typename ModInt::value_type;
+
+private:
+  std::vector<value_type> M_f, M_i, M_fi;
+
+public:
+  modtable() = default;
+  modtable(modtable const&) = default;
+  modtable(modtable&&) = default;
+
+  // not compatible with runtime mod
+  modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
+    M_f[0] = 1;
+    for (underlying_type i = 1; i <= n; ++i)
+      M_f[i] = M_f[i-1] * i;
+
+    underlying_type mod = M_f[0].modulo();
+    M_i[1] = 1;
+    for (underlying_type i = 2; i <= n; ++i)
+      M_i[i] = -value_type(mod / i) * M_i[mod % i];
+
+    M_fi[0] = 1;
+    for (underlying_type i = 1; i <= n; ++i)
+      M_fi[i] = M_fi[i-1] * M_i[i];
+  }
+
+  modtable& operator =(modtable const&) = default;
+  modtable& operator =(modtable&&) = default;
+
+  value_type inverse(underlying_type n) const { return M_i[n]; }
+  value_type factorial(underlying_type n) const { return M_f[n]; }
+  value_type factorial_inverse(underlying_type n) const { return M_fi[n]; }
+
+  value_type binom(underlying_type n, underlying_type k) const {
+    if (n < 0 || n < k || k < 0) return 0;
+    // assumes n < mod
+    return M_f[n] * M_fi[k] * M_fi[n-k];
+  }
+};
+
+#endif  /* !defined(H_modtable) */
 
 ```
 {% endraw %}
