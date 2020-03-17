@@ -7,6 +7,7 @@
 #define H_bit
 
 #include <climits>
+#include <type_traits>
 
 // #ifdef __has_builtin
 int clz(unsigned n) { return __builtin_clz(n); }
