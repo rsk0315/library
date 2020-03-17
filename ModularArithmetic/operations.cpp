@@ -6,6 +6,10 @@
 #ifndef H_mod_operations
 #define H_mod_operations
 
+#ifdef CALL_FROM_TEST
+#include "integer/bit.cpp"
+#endif
+
 #include <stdexcept>
 #include <vector>
 
@@ -25,7 +29,7 @@ ModInt sqrt(ModInt const& n) {
 
   using value_type = typename ModInt::value_type;
 
-  intmax_t const p = modulo();
+  intmax_t const p = n.modulo();
   if (p % 4 == 3) {
     ModInt r = pow(n, (p+1) / 4);
     if (r * r == n) return r;
@@ -47,7 +51,7 @@ ModInt sqrt(ModInt const& n) {
   ModInt r = pow(n, (q+1) / 2);
 
   while (true) {
-    if (t == 0) return 0;
+    if (t == 0) return ModInt(0, n);
     if (t == 1) return r;
 
     value_type i = 0;
