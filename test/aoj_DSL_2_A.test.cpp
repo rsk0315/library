@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 
 #define CALL_FROM_TEST
-#include "utility/min_monoid.cpp"
+#include "utility/monoid/min.cpp"
 #include "DataStructure/basic_segment_tree.cpp"
 #undef CALL_FROM_TEST
 

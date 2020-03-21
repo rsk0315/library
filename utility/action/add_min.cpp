@@ -7,7 +7,7 @@
 #define H_action_add_min
 
 #ifdef CALL_FROM_TEST
-#include "utility/min_monoid.cpp"
+#include "utility/monoid/min.cpp"
 #endif
 
 template <typename Tp>
