@@ -25,25 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DSL_2_H.test.cpp
+# :heavy_check_mark: test/aoj_DSL_2_G.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_H.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-22 02:59:14+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_G.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-22 03:00:53+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 
 
 ## Code
@@ -51,10 +50,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G"
 
 #define CALL_FROM_TEST
-#include "utility/action/add_min.cpp"
+#include "utility/action/add_sum.cpp"
 #include "DataStructure/segment_tree.cpp"
 #undef CALL_FROM_TEST
 
@@ -66,7 +65,7 @@ int main() {
   size_t n, q;
   scanf("%zu %zu", &n, &q);
 
-  segment_tree<action_add_to_min<int>> st(n, 0);
+  segment_tree<action_add_to_sum<intmax_t>> st(n, 0);
   for (size_t i = 0; i < q; ++i) {
     int com;
     scanf("%d", &com);
@@ -75,11 +74,13 @@ int main() {
       size_t s, t;
       intmax_t x;
       scanf("%zu %zu %jd", &s, &t, &x);
+      --s, --t;
       st.act(s, t+1, x);
     } else if (com == 1) {
       size_t s, t;
       scanf("%zu %zu", &s, &t);
-      printf("%d\n", st.fold(s, t+1).get());
+      --s, --t;
+      printf("%jd\n", st.fold(s, t+1).get());
     }
   }
 }
@@ -99,7 +100,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_min.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_sum.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

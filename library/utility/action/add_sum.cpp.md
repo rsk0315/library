@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small>
+# :heavy_check_mark: 区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_min.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_sum.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-22 02:59:14+09:00
 
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
 
 
 ## Code
@@ -47,28 +47,28 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief 区間最小値・区間加算用のヘルパークラス
+ * @brief 区間和・区間加算用のヘルパークラス
  * @author えびちゃん
  */
 
-#ifndef H_action_add_min
-#define H_action_add_min
+#ifndef H_action_add_sum
+#define H_action_add_sum
 
 #ifdef CALL_FROM_TEST
-#include "utility/monoid/min.cpp"
+#include "utility/monoid/length.cpp"
 #endif
 
 template <typename Tp>
-struct action_add_to_min {
-  using operand_type = min_monoid<Tp>;
+struct action_add_to_sum {
+  using operand_type = length_monoid<Tp>;
   using action_type = Tp;
 
   static void act(operand_type& op, action_type const& a) {
-    op = operand_type(std::move(op).get() + a);
+    op += operand_type(a * op.length(), 0);
   }
 };
 
-#endif  /* !defined(H_action_add_min) */
+#endif  /* !defined(H_action_add_sum) */
 
 ```
 {% endraw %}
@@ -83,7 +83,7 @@ Traceback (most recent call last):
     bundler.update(path)
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_min.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_sum.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

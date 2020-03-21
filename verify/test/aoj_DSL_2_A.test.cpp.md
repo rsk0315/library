@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:59:54+09:00
+    - Last commit date: 2020-03-22 02:59:14+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -41,7 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/min_monoid.cpp.html">min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
 
 ## Code
@@ -52,7 +52,7 @@ layout: default
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 
 #define CALL_FROM_TEST
-#include "utility/min_monoid.cpp"
+#include "utility/monoid/min.cpp"
 #include "DataStructure/basic_segment_tree.cpp"
 #undef CALL_FROM_TEST
 
@@ -97,7 +97,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/min_monoid.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/monoid/min.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

@@ -121,8 +121,6 @@ layout: default
 
 * :heavy_check_mark: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :warning: <a href="library/utility/max_monoid.cpp.html">max を得る演算のモノイド <small>(utility/max_monoid.cpp)</small></a>
-* :heavy_check_mark: <a href="library/utility/min_monoid.cpp.html">min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
@@ -131,6 +129,7 @@ layout: default
 ### utility/action
 
 * :heavy_check_mark: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
@@ -139,6 +138,15 @@ layout: default
 
 * :heavy_check_mark: <a href="library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
+
+
+<div id="0991b1681f77f54af5325f2eb1ef5d3e"></div>
+
+### utility/monoid
+
+* :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :warning: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
 
 ## Verify Files
@@ -173,6 +181,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_1_B.test.cpp.html">test/aoj_DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
