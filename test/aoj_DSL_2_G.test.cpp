@@ -15,9 +15,6 @@ int main() {
 
   segment_tree<action_add_to_sum<intmax_t>> st(n, 0);
   for (size_t i = 0; i < q; ++i) {
-    // for (size_t j = 0; j < n; ++j)
-    //   fprintf(stderr, "(%jdx%+jd)%c", st[j].get().first, st[j].get().second, j+1<n? ' ': '\n');
-
     int com;
     scanf("%d", &com);
 
