@@ -92,6 +92,7 @@ layout: default
 
 ### algorithm
 
+* :heavy_check_mark: <a href="library/algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
@@ -106,6 +107,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
 <div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
@@ -151,6 +153,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
