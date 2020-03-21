@@ -25,25 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_GRL_5_C_segment_tree.test.cpp
+# :heavy_check_mark: test/aoj_DSL_2_H.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:54:23+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_H.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-21 23:39:10+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/min_monoid.cpp.html">min を得る演算のモノイド <small>(utility/min_monoid.cpp)</small></a>
 
 
 ## Code
@@ -51,12 +51,11 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H"
 
 #define CALL_FROM_TEST
-#include "utility/stack_extend.cpp"
-#include "Graph/adjacency_list.cpp"
-#include "Graph/lowest_common_ancestor_segment_tree.cpp"
+#include "utility/action/add_min.cpp"
+#include "DataStructure/segment_tree.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdint>
@@ -64,33 +63,25 @@ layout: default
 #include <vector>
 
 int main() {
-  BEGIN_STACK_EXTEND(128*1024*1024);
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-  int n;
-  scanf("%d", &n);
+  segment_tree<action_add_to_min<int>> st(n, 0);
+  for (size_t i = 0; i < q; ++i) {
+    int com;
+    scanf("%d", &com);
 
-  adjacency_list<weighted_edge<int>, undirected_tag> g(n);
-  for (size_t i = 0; i < n; ++i) {
-    size_t k;
-    scanf("%zu", &k);
-    for (size_t j = 0; j < k; ++j) {
-      size_t c;
-      scanf("%zu", &c);
-      g.emplace(i, c, 1);
+    if (com == 0) {
+      size_t s, t;
+      intmax_t x;
+      scanf("%zu %zu %jd", &s, &t, &x);
+      st.act(s, t+1, x);
+    } else if (com == 1) {
+      size_t s, t;
+      scanf("%zu %zu", &s, &t);
+      printf("%d\n", st.fold(s, t+1).get());
     }
   }
-
-  lowest_common_ancestor g_lca(g, 0);
-
-  size_t q;
-  scanf("%zu", &q);
-  for (size_t i = 0; i < q; ++i) {
-    size_t u, v;
-    scanf("%zu %zu", &u, &v);
-    printf("%zu\n", g_lca(u, v));
-  }
-
-  END_STACK_EXTEND;
 }
 
 ```
@@ -108,7 +99,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/lowest_common_ancestor_segment_tree.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_min.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
