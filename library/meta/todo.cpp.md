@@ -41,8 +41,6 @@ layout: default
 # 置きたいもの
 
 ## データ構造
-- 遅延セグ木
-  - インタフェースがまともなやつ
 - CHT
   - 任意順 (map)
   - Li-Chao tree
@@ -81,7 +79,6 @@ layout: default
 - Euler tour (いる？)
 
 ## 数学
-- modint (`value_type` を `int` に)
 - 行列
 - 中国剰余定理
   - Garner も
@@ -91,18 +88,20 @@ layout: default
 - $\mathbb{Z}_p$ での位数
 
 ## 整数
-- ctz, clz, popcount
-- sqrt
+- todo をふやす
 
 ## アルゴリズム
 - SMAWK
 - Mo
-  - 5/3 のやつも？
+  - 5/3 のやつ
 - `next_combination` (いる？)
 - Karatsuba 法 (いる？)
 
 ## 幾何
 - ほんとに？
+
+## その他
+- モノイドクラス用のロリハ演算
 
 
 ## Code
