@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_queue.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-03-23 04:45:44+09:00
 
 
 
@@ -55,7 +55,6 @@ layout: default
 #define H_foldable_queue
 
 #include <cstddef>
-#include <queue>
 #include <stack>
 #include <utility>
 
@@ -70,18 +69,15 @@ private:
   value_type M_back_folded{};
 
   void M_move_to_front() {
-    std::queue<value_type> tmp;
-    while (!M_back.empty()) {
-      tmp.push(M_back.top());
+    if (!M_back.empty()) {
+      M_front.push(std::move(M_back.top()));
       M_back.pop();
     }
-    M_front.push(tmp.front());
-    tmp.pop();
-    while (!tmp.empty()) {
-      value_type x = std::move(tmp.front());
-      tmp.pop();
-      x += M_front.top();
-      M_front.push(x);
+    while (!M_back.empty()) {
+      value_type tmp = M_front.top();
+      tmp += std::move(M_back.top());
+      M_back.pop();
+      M_front.push(std::move(tmp));
     }
     M_back_folded = value_type{};
   }
@@ -124,7 +120,6 @@ public:
 #define H_foldable_queue
 
 #include <cstddef>
-#include <queue>
 #include <stack>
 #include <utility>
 
@@ -139,18 +134,15 @@ private:
   value_type M_back_folded{};
 
   void M_move_to_front() {
-    std::queue<value_type> tmp;
-    while (!M_back.empty()) {
-      tmp.push(M_back.top());
+    if (!M_back.empty()) {
+      M_front.push(std::move(M_back.top()));
       M_back.pop();
     }
-    M_front.push(tmp.front());
-    tmp.pop();
-    while (!tmp.empty()) {
-      value_type x = std::move(tmp.front());
-      tmp.pop();
-      x += M_front.top();
-      M_front.push(x);
+    while (!M_back.empty()) {
+      value_type tmp = M_front.top();
+      tmp += std::move(M_back.top());
+      M_back.pop();
+      M_front.push(std::move(tmp));
     }
     M_back_folded = value_type{};
   }
