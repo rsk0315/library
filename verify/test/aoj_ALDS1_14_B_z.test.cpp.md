@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_z.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 21:42:44+09:00
+    - Last commit date: 2020-03-23 21:50:44+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>
@@ -188,6 +188,8 @@ public:
   std::pair<RandomIt2, RandomIt2> operator ()(RandomIt2 first, RandomIt2 last) const {
     return find_first(first, last);
   }
+
+  size_type operator [](size_type i) const { return M_z[i]; }
 };
 
 template <typename RandomIt1>
