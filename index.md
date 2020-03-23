@@ -82,6 +82,7 @@ layout: default
 
 ### String
 
+* :heavy_check_mark: <a href="library/String/knuth_morris_pratt_searcher.cpp.html">KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
@@ -168,6 +169,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_kmp.test.cpp.html">test/aoj_ALDS1_14_B_kmp.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_l61m1.test.cpp.html">test/aoj_ALDS1_14_B_l61m1.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_5_D.test.cpp.html">test/aoj_ALDS1_5_D.test.cpp</a>

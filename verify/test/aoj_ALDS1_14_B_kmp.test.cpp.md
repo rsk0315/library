@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_ALDS1_14_B_z.test.cpp
+# :heavy_check_mark: test/aoj_ALDS1_14_B_kmp.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_z.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 22:00:05+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_kmp.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-23 22:09:46+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/String/knuth_morris_pratt_searcher.cpp.html">KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small></a>
 
 
 ## Code
@@ -50,7 +50,7 @@ layout: default
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
 #define CALL_FROM_TEST
-#include "String/z_algorithm.cpp"
+#include "String/knuth_morris_pratt_searcher.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
@@ -65,15 +65,15 @@ int main() {
   scanf("%s", buf);
   std::string p = buf;
 
-  z_array z(p.begin(), p.end());
+  knuth_morris_pratt_searcher kmp(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: z.find_all(t.begin(), t.end())) {
+  for (auto [first, last]: kmp.find_all(t.begin(), t.end())) {
     matched = true;
     printf("%td\n", first-t.begin());
   }
 
   {
-    auto first = std::search(t.begin(), t.end(), z);
+    auto first = std::search(t.begin(), t.end(), kmp);
     if (matched != (first != t.end())) return 1;
   }
 }
@@ -84,80 +84,60 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj_ALDS1_14_B_z.test.cpp"
+#line 1 "test/aoj_ALDS1_14_B_kmp.test.cpp"
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
 #define CALL_FROM_TEST
-#line 1 "String/z_algorithm.cpp"
+#line 1 "String/knuth_morris_pratt_searcher.cpp"
 /**
- * @brief Z algorithm
+ * @brief KMP 法
  * @author えびちゃん
  */
 
-#ifndef H_z_algorithm
-#define H_z_algorithm
+#ifndef H_knuth_morris_pratt_searcher
+#define H_knuth_morris_pratt_searcher
 
 #include <cstddef>
-#include <utility>
 #include <vector>
 
 template <typename RandomIt1>
-class z_array {
+class knuth_morris_pratt_searcher {
 public:
   using size_type = size_t;
 
 private:
+  static constexpr size_type S_npos = -1;
   RandomIt1 M_pf, M_pl;
-  std::vector<size_type> M_z;
+  std::vector<size_type> M_fail;
 
 public:
-  z_array() = default;
-
-  z_array(RandomIt1 pat_first, RandomIt1 pat_last):
-    M_pf(pat_first), M_pl(pat_last), M_z(M_pl-M_pf)
+  knuth_morris_pratt_searcher(RandomIt1 pat_first, RandomIt1 pat_last):
+    M_pf(pat_first), M_pl(pat_last), M_fail(M_pl-M_pf+1)
   {
-    if (M_pf == M_pl) return;
-    M_z[0] = M_z.size();
-    for (size_type i = 1, j = 0; i < M_z.size();) {
-      while (i+j < M_z.size() && M_pf[j] == M_pf[i+j]) ++j;
-      M_z[i] = j;
-      if (j == 0) {
-        ++i;
-        continue;
-      }
-      size_type k = 1;
-      while (i+k < M_z.size() && k+M_z[k] < j)
-        M_z[i+k] = M_z[k], ++k;
-      i += k;
-      j -= k;
+    M_fail[0] = S_npos;
+    size_type n = M_pl - M_pf;
+    for (size_type i = 0, j = S_npos; i < n;) {
+      while (j != S_npos && M_pf[i] != M_pf[j]) j = M_fail[j];
+      ++i, ++j;
+      M_fail[i] = ((i < n && (M_pf[i] == M_pf[j]))? M_fail[j]: j);
     }
   }
 
   template <typename RandomIt2>
   std::pair<RandomIt2, RandomIt2> find_first(RandomIt2 first, RandomIt2 last) const {
     if (M_pf == M_pl) return {first, first};
-    if (first == last) return {last, last};
-
-    size_type i = 0;
+    size_type n = M_pl - M_pf;
     size_type j = 0;
     for (auto it = first; it < last;) {
-      while (it < last && j < M_z.size() && M_pf[j] == *it) ++j, ++it;
-      if (j == 0) {
-        ++i, ++it;
-        continue;
-      }
-      if (j == M_z.size()) return {it-(M_pl-M_pf), it};
-      size_type k = 1;
-      while (k < M_z.size() && k+M_z[k] < j) ++k;
-      i += k;
-      j -= k;
+      while (j != S_npos && M_pf[j] != *it) j = M_fail[j];
+      ++it;
+      if (++j == n) return {it-n, it};
     }
     return {last, last};
   }
 
   template <typename RandomIt2>
   std::vector<std::pair<RandomIt2, RandomIt2>> find_all(RandomIt2 first, RandomIt2 last) const {
-    if (first == last) return {{last, last}};
     std::vector<std::pair<RandomIt2, RandomIt2>> res;
     if (M_pf == M_pl) {
       for (auto it = first; it < last; ++it) res.emplace_back(it, it);
@@ -165,19 +145,15 @@ public:
       return res;
     }
 
-    size_type i = 0;
+    size_type n = M_pl - M_pf;
     size_type j = 0;
     for (auto it = first; it < last;) {
-      while (it < last && j < M_z.size() && M_pf[j] == *it) ++j, ++it;
-      if (j == 0) {
-        ++i, ++it;
-        continue;
+      while (j != S_npos && M_pf[j] != *it) j = M_fail[j];
+      ++it;
+      if (++j == n) {
+        res.emplace_back(it-n, it);
+        j = M_fail[j];
       }
-      if (j == M_z.size()) res.emplace_back(it-(M_pl-M_pf), it);
-      size_type k = 1;
-      while (k < M_z.size() && k+M_z[k] < j) ++k;
-      i += k;
-      j -= k;
     }
     return res;
   }
@@ -187,21 +163,17 @@ public:
     return find_first(first, last);
   }
 
-  size_type operator [](size_type i) const { return M_z[i]; }
+  size_type operator [](size_type i) const { return M_fail[i]; }
 };
-
-template <typename RandomIt1>
-auto make_z_array(RandomIt1 pat_first, RandomIt1 pat_last) {
-  return z_array<RandomIt1>(pat_first, pat_last);
-}
 
 #if __cplusplus >= 201703L
 template <typename RandomIt1>
-z_array(RandomIt1 pat_first, RandomIt1 pat_last) -> z_array<RandomIt1>;
+knuth_morris_pratt_searcher(RandomIt1 pat_first, RandomIt1 pat_last)
+  -> knuth_morris_pratt_searcher<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_z_algorithm) */
-#line 5 "test/aoj_ALDS1_14_B_z.test.cpp"
+#endif  /* !defined(H_knuth_morris_pratt_searcher) */
+#line 5 "test/aoj_ALDS1_14_B_kmp.test.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
@@ -216,15 +188,15 @@ int main() {
   scanf("%s", buf);
   std::string p = buf;
 
-  z_array z(p.begin(), p.end());
+  knuth_morris_pratt_searcher kmp(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: z.find_all(t.begin(), t.end())) {
+  for (auto [first, last]: kmp.find_all(t.begin(), t.end())) {
     matched = true;
     printf("%td\n", first-t.begin());
   }
 
   {
-    auto first = std::search(t.begin(), t.end(), z);
+    auto first = std::search(t.begin(), t.end(), kmp);
     if (matched != (first != t.end())) return 1;
   }
 }

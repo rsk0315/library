@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/z_algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 21:50:44+09:00
+    - Last commit date: 2020-03-23 22:00:05+09:00
 
 
 
@@ -62,8 +62,6 @@ template <typename RandomIt1>
 class z_array {
 public:
   using size_type = size_t;
-  using difference_type = typename std::iterator_traits<RandomIt1>::difference_type;
-  using value_type = typename std::iterator_traits<RandomIt1>::value_type;
 
 private:
   RandomIt1 M_pf, M_pl;
@@ -94,7 +92,7 @@ public:
 
   template <typename RandomIt2>
   std::pair<RandomIt2, RandomIt2> find_first(RandomIt2 first, RandomIt2 last) const {
-    if (M_z.empty()) return {first, first};
+    if (M_pf == M_pl) return {first, first};
     if (first == last) return {last, last};
 
     size_type i = 0;
@@ -118,7 +116,7 @@ public:
   std::vector<std::pair<RandomIt2, RandomIt2>> find_all(RandomIt2 first, RandomIt2 last) const {
     if (first == last) return {{last, last}};
     std::vector<std::pair<RandomIt2, RandomIt2>> res;
-    if (M_z.empty()) {
+    if (M_pf == M_pl) {
       for (auto it = first; it < last; ++it) res.emplace_back(it, it);
       res.emplace_back(last, last);
       return res;
@@ -184,8 +182,6 @@ template <typename RandomIt1>
 class z_array {
 public:
   using size_type = size_t;
-  using difference_type = typename std::iterator_traits<RandomIt1>::difference_type;
-  using value_type = typename std::iterator_traits<RandomIt1>::value_type;
 
 private:
   RandomIt1 M_pf, M_pl;
@@ -216,7 +212,7 @@ public:
 
   template <typename RandomIt2>
   std::pair<RandomIt2, RandomIt2> find_first(RandomIt2 first, RandomIt2 last) const {
-    if (M_z.empty()) return {first, first};
+    if (M_pf == M_pl) return {first, first};
     if (first == last) return {last, last};
 
     size_type i = 0;
@@ -240,7 +236,7 @@ public:
   std::vector<std::pair<RandomIt2, RandomIt2>> find_all(RandomIt2 first, RandomIt2 last) const {
     if (first == last) return {{last, last}};
     std::vector<std::pair<RandomIt2, RandomIt2>> res;
-    if (M_z.empty()) {
+    if (M_pf == M_pl) {
       for (auto it = first; it < last; ++it) res.emplace_back(it, it);
       res.emplace_back(last, last);
       return res;
