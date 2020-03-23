@@ -11,6 +11,7 @@
 "test/aoj_3110.test.cpp": "2020-01-21 16:40:10 +0900",
 "test/aoj_3112.test.cpp": "2020-02-27 00:47:27 +0900",
 "test/aoj_3112_sa_is.test.cpp": "2020-03-02 03:43:50 +0900",
+"test/aoj_ALDS1_14_B_kmp.test.cpp": "2020-03-23 22:09:29 +0900",
 "test/aoj_ALDS1_14_B_z.test.cpp": "2020-03-23 21:42:08 +0900",
 "test/aoj_DPL_5_A.test.cpp": "2020-03-17 09:58:01 +0900",
 "test/aoj_DPL_5_B.test.cpp": "2020-03-17 09:59:44 +0900",
