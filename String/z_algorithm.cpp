@@ -14,8 +14,6 @@ template <typename RandomIt1>
 class z_array {
 public:
   using size_type = size_t;
-  using difference_type = typename std::iterator_traits<RandomIt1>::difference_type;
-  using value_type = typename std::iterator_traits<RandomIt1>::value_type;
 
 private:
   RandomIt1 M_pf, M_pl;
