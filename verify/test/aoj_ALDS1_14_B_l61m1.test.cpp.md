@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_ALDS1_14_B.test.cpp
+# :heavy_check_mark: test/aoj_ALDS1_14_B_l61m1.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:44:01+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_l61m1.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-23 21:03:05+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>

@@ -86,6 +86,7 @@ layout: default
 * :heavy_check_mark: <a href="library/String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
 * :heavy_check_mark: <a href="library/String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
+* :heavy_check_mark: <a href="library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 <div id="ed469618898d75b149e5c7c4b6a1c415"></div>
@@ -167,7 +168,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B.test.cpp.html">test/aoj_ALDS1_14_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_l61m1.test.cpp.html">test/aoj_ALDS1_14_B_l61m1.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_ALDS1_5_D.test.cpp.html">test/aoj_ALDS1_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DPL_1_E.test.cpp.html">test/aoj_DPL_1_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
