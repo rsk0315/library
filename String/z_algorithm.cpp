@@ -97,6 +97,8 @@ public:
   std::pair<RandomIt2, RandomIt2> operator ()(RandomIt2 first, RandomIt2 last) const {
     return find_first(first, last);
   }
+
+  size_type operator [](size_type i) const { return M_z[i]; }
 };
 
 template <typename RandomIt1>
