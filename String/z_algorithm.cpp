@@ -44,7 +44,7 @@ public:
 
   template <typename RandomIt2>
   std::pair<RandomIt2, RandomIt2> find_first(RandomIt2 first, RandomIt2 last) const {
-    if (M_z.empty()) return {first, first};
+    if (M_pf == M_pl) return {first, first};
     if (first == last) return {last, last};
 
     size_type i = 0;
@@ -68,7 +68,7 @@ public:
   std::vector<std::pair<RandomIt2, RandomIt2>> find_all(RandomIt2 first, RandomIt2 last) const {
     if (first == last) return {{last, last}};
     std::vector<std::pair<RandomIt2, RandomIt2>> res;
-    if (M_z.empty()) {
+    if (M_pf == M_pl) {
       for (auto it = first; it < last; ++it) res.emplace_back(it, it);
       res.emplace_back(last, last);
       return res;
