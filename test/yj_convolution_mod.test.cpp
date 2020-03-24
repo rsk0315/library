@@ -1,7 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
-#include <cstdio>
-
 #define CALL_FROM_TEST
 #include "ModularArithmetic/modint.cpp"
 #include "ModularArithmetic/polynomial.cpp"

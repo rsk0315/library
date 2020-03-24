@@ -12,6 +12,7 @@
 
 #include <cstddef>
 #include <climits>
+#include <algorithm>
 #include <vector>
 
 template <typename ModInt>
@@ -73,11 +74,40 @@ private:
   }
   void M_ifft() { M_fft(true); }
 
+  polynomial(size_type n, value_type x): M_f(n, x) {}  // not normalized
+
 public:
   polynomial() = default;
 
   template <typename InputIt>
   polynomial(InputIt first, InputIt last): M_f(first, last) { M_normalize(); }
+  polynomial(std::initializer_list<value_type> il): polynomial(il.begin(), il.end()) {}
+
+  polynomial inverse(size_type m) const {
+    polynomial res{1 / M_f[0]};
+    value_type zero(0, M_f[0]);
+    for (size_type d = 1; d < m; d *= 2) {
+      polynomial f(d+d, zero), g(d+d, zero);
+      for (size_type j = 0; j < d+d; ++j) f.M_f[j] = (*this)[j];
+      for (size_type j = 0; j < d; ++j) g.M_f[j] = res.M_f[j];
+
+      f.M_fft();
+      g.M_fft();
+      for (size_type j = 0; j < d+d; ++j) f.M_f[j] *= g.M_f[j];
+      f.M_ifft();
+      for (size_type j = 0; j < d; ++j) {
+        f.M_f[j] = 0;
+        f.M_f[j+d] = -f.M_f[j+d];
+      }
+      f.M_fft();
+      for (size_type j = 0; j < d+d; ++j) f.M_f[j] *= g.M_f[j];
+      f.M_ifft();
+      for (size_type j = 0; j < d; ++j) f.M_f[j] = res.M_f[j];
+      res = std::move(f);
+    }
+    res.M_f.erase(res.M_f.begin()+m, res.M_f.end());
+    return res;
+  }
 
   polynomial& operator +=(polynomial const& that) {
     if (M_f.size() < that.M_f.size())
@@ -111,19 +141,37 @@ public:
   }
 
   polynomial& operator /=(polynomial that) {
+    if (M_f.size() < that.M_f.size()) {
+      M_f[0] = 0;
+      M_f.erase(M_f.begin()+1, M_f.end());
+      return *this;
+    }
+
     if (that.M_f.size() == 1) {
       // scalar division
+      value_type d = 1 / that.M_f[0];
+      for (auto& c: M_f) c *= d;
       return *this;
     }
-    if (that.M_f.size() <= 16) {
-      // naive division
-      return *this;
-    }
-    // division with FFT
+    // if (that.M_f.size() <= 16) {
+    //   M_naive_division(that);
+    //   return *this;
+    // }
+
+    size_type deg = M_f.size() - that.M_f.size() + 1;
+    std::reverse(M_f.begin(), M_f.end());
+    std::reverse(that.M_f.begin(), that.M_f.end());
+    *this *= that.inverse();
+    M_f.resize(deg);
+    std::reverse(M_f.begin(), M_f.end());
+    M_normalize();
     return *this;
   }
 
-  value_type operator [](size_type i) const { return M_f[i]; }
+  value_type const operator [](size_type i) const {
+    if (i >= M_f.size()) return value_type(0, M_f[0]);
+    return M_f[i];
+  }
 };
 
 #endif  /* !defined(H_mod_polynomial) */
