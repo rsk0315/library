@@ -5,7 +5,6 @@
 #include "ModularArithmetic/polynomial.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdint>
 #include <cstdio>
 #include <vector>
 
@@ -15,17 +14,9 @@ int main() {
   size_t n, m;
   scanf("%zu %zu", &n, &m);
 
-  std::vector<mi> a(n), b(m);
-  for (auto& ai: a) {
-    int tmp;
-    scanf("%d", &tmp);
-    ai = tmp;
-  }
-  for (auto& bi: b) {
-    int tmp;
-    scanf("%d", &tmp);
-    bi = tmp;
-  }
+  std::vector<int> a(n), b(m);
+  for (auto& ai: a) scanf("%d", &ai);
+  for (auto& bi: b) scanf("%d", &bi);
 
   polynomial<mi> f(a.begin(), a.end()), g(b.begin(), b.end());
   f *= g;
