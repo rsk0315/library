@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_convolution_mod.test.cpp
+# :heavy_check_mark: test/yj_multipoint_evaluation.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yj_convolution_mod.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_multipoint_evaluation.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-25 01:24:00+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
+* see: <a href="https://judge.yosupo.jp/problem/multipoint_evaluation">https://judge.yosupo.jp/problem/multipoint_evaluation</a>
 
 
 ## Depends on
@@ -49,7 +49,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+#define PROBLEM "https://judge.yosupo.jp/problem/multipoint_evaluation"
 
 #define CALL_FROM_TEST
 #include "ModularArithmetic/modint.cpp"
@@ -65,15 +65,16 @@ int main() {
   size_t n, m;
   scanf("%zu %zu", &n, &m);
 
-  std::vector<int> a(n), b(m);
-  for (auto& ai: a) scanf("%d", &ai);
-  for (auto& bi: b) scanf("%d", &bi);
+  std::vector<int> c(n), p(m);
+  for (auto& ci: c) scanf("%d", &ci);
+  for (auto& pi: p) scanf("%d", &pi);
 
-  polynomial<mi> f(a.begin(), a.end()), g(b.begin(), b.end());
-  f *= g;
+  polynomial<mi> f(c.begin(), c.end());
+  std::vector<mi> xs(p.begin(), p.end());
+  auto ys = f.multieval(xs);
 
-  for (size_t i = 0; i+1 < n+m; ++i)
-    printf("%jd%c", f[i].get(), i+2<n+m? ' ': '\n');
+  for (size_t i = 0; i < m; ++i)
+    printf("%jd%c", ys[i].get(), i+1<m? ' ': '\n');
 }
 
 ```

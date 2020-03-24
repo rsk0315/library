@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-25 00:08:02+09:00
+    - Last commit date: 2020-03-25 01:24:00+09:00
 
 
 
@@ -41,6 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
 
 
 ## Code
@@ -127,6 +128,29 @@ private:
   }
   void M_ifft() { M_fft(true); }
 
+  void M_naive_multiplication(polynomial const& that) {
+    size_type deg = M_f.size() + that.M_f.size() - 1;
+    std::vector<value_type> res(deg, value_type(0, M_f[0]));
+    for (size_type i = 0; i < M_f.size(); ++i)
+      for (size_type j = 0; j < that.M_f.size(); ++j)
+        res[i+j] += M_f[i] * that.M_f[j];
+    M_f = std::move(res);
+    M_normalize();
+  }
+
+  void M_naive_division(polynomial that) {
+    size_type deg = M_f.size() - that.M_f.size();
+    std::vector<value_type> res(deg+1);
+    for (size_type i = deg+1; i--;) {
+      value_type c = M_f[that.M_f.size()+i-1] / that.M_f.back();
+      res[i] = c;
+      for (size_type j = 0; j < that.M_f.size(); ++j)
+        M_f[that.M_f.size()+i-j-1] -= c * that.M_f[that.M_f.size()-j-1];
+    }
+    M_f = std::move(res);
+    M_normalize();
+  }
+
   polynomial(size_type n, value_type x): M_f(n, x) {}  // not normalized
 
 public:
@@ -162,6 +186,31 @@ public:
     return res;
   }
 
+  std::vector<value_type> multieval(std::vector<value_type> const& xs) const {
+    size_type m = xs.size();
+    std::vector<polynomial> mul(m+m);
+    value_type one(1, M_f[0]);
+    for (size_type i = 0; i < m; ++i)
+      mul[m+i] = polynomial({-xs[i], one});
+    for (size_type i = m; i-- > 1;)
+      mul[i] = mul[i<<1|0] * mul[i<<1|1];
+
+    std::vector<bool> vis(m+m, false);
+    vis[0] = true;
+    for (size_type l = m, r = m+m; l < r; l >>= 1, r >>= 1) {
+      if (l & 1) vis[l] = true, mul[l] = *this % mul[l], ++l;
+      if (r & 1) --r, vis[r] = true, mul[r] = *this % mul[r];
+    }
+    for (size_type i = m+m; i--;)
+      if (vis[i]) vis[i>>1] = true;
+    for (size_type i = 1; i < m+m; ++i)
+      if (!vis[i]) mul[i] = mul[i >> 1] % mul[i];
+
+    std::vector<value_type> ys(m);
+    for (size_type i = 0; i < m; ++i) ys[i] = mul[m+i][0];
+    return ys;
+  }
+
   polynomial& operator +=(polynomial const& that) {
     if (M_f.size() < that.M_f.size())
       M_f.resize(that.M_f.size(), value_type(0, M_f[0]));
@@ -181,6 +230,17 @@ public:
   }
 
   polynomial& operator *=(polynomial that) {
+    if (that.M_f.size() == 1) {
+      // scalar multiplication
+      auto m = that.M_f[0];
+      for (auto& c: M_f) c *= m;
+      return *this;
+    }
+    if (M_f.size() + that.M_f.size() <= 64) {
+      M_naive_multiplication(that);
+      return *this;
+    }
+
     size_type n = ceil2(M_f.size() + that.M_f.size() - 1);
     M_f.resize(n, value_type(0, M_f[0]));
     that.M_f.resize(n, value_type(0, M_f[0]));
@@ -206,19 +266,38 @@ public:
       for (auto& c: M_f) c *= d;
       return *this;
     }
-    // if (that.M_f.size() <= 16) {
-    //   M_naive_division(that);
-    //   return *this;
-    // }
+    if (that.M_f.size() <= 256) {
+      M_naive_division(that);
+      return *this;
+    }
 
     size_type deg = M_f.size() - that.M_f.size() + 1;
     std::reverse(M_f.begin(), M_f.end());
     std::reverse(that.M_f.begin(), that.M_f.end());
-    *this *= that.inverse();
+    *this *= that.inverse(deg);
     M_f.resize(deg);
     std::reverse(M_f.begin(), M_f.end());
     M_normalize();
     return *this;
+  }
+
+  polynomial& operator %=(polynomial that) {
+    if (M_f.size() < that.M_f.size()) return *this;
+    *this -= *this / that * that;
+    return *this;
+  }
+
+  polynomial operator -(polynomial const& that) const {
+    return polynomial(*this) -= that;
+  }
+  polynomial operator *(polynomial const& that) const {
+    return polynomial(*this) *= that;
+  }
+  polynomial operator /(polynomial const& that) const {
+    return polynomial(*this) /= that;
+  }
+  polynomial operator %(polynomial const& that) const {
+    return polynomial(*this) %= that;
   }
 
   value_type const operator [](size_type i) const {
