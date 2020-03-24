@@ -91,4 +91,8 @@ $(function() {
     }).css({
         'vertical-align': 'text-bottom',
     });
+
+    let numOfPassedTests = $('#verify-files').next().find('li svg.octicon-verified').length;
+    let suffix = ((numOfPassedTests != 1)? 's': '');
+    $('#verify-files').append(` <small>[passed ${numOfPassedTests} test${suffix}]</small>`);
 });
