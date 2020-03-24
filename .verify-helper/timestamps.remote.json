@@ -45,8 +45,9 @@
 "test/yc_703_onoff.test.cpp": "2020-03-17 12:18:22 +0900",
 "test/yc_704_onoff.test.cpp": "2020-03-17 12:18:22 +0900",
 "test/yc_705_onoff.test.cpp": "2020-03-17 12:18:22 +0900",
-"test/yj_convolution_mod.test.cpp": "2020-03-25 00:08:02 +0900",
-"test/yj_convolution_mod_1000000007.test.cpp": "2020-03-25 00:08:02 +0900",
-"test/yj_inv_of_formal_power_series.test.cpp": "2020-03-25 00:08:02 +0900",
+"test/yj_convolution_mod.test.cpp": "2020-03-25 01:24:00 +0900",
+"test/yj_convolution_mod_1000000007.test.cpp": "2020-03-25 01:24:00 +0900",
+"test/yj_inv_of_formal_power_series.test.cpp": "2020-03-25 01:24:00 +0900",
+"test/yj_multipoint_evaluation.test.cpp": "2020-03-25 01:24:00 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900"
 }
