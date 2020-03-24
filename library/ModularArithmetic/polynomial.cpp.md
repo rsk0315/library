@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-24 23:06:20+09:00
+    - Last commit date: 2020-03-25 00:08:02+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 
 
@@ -79,9 +80,12 @@ private:
 
   static value_type S_omega() {
     auto p = value_type{}.modulo();
-    if (p == 998244353 /* == ((119 << 23) | 1) */) {
-      return 15311432;  // 3 (generator) ^ 119
-    }
+    // for p = (u * 2**e + 1) with generator g, returns g ** u mod p
+    if (p == 998244353 /* (119 << 23 | 1 */) return 15311432;  // g = 3
+    if (p == 163577857 /* (39 << 22 | 1) */) return 121532577;  // g = 23
+    if (p == 167772161 /* (5 << 25 | 1) */) return 243;  // g = 3
+    if (p == 469762049 /* (7 << 26 | 1) */) return 2187;  // g = 3
+
     return 0;  // XXX
   }
 

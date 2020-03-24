@@ -73,6 +73,8 @@ layout: default
 
 ### ModularArithmetic
 
+* :warning: <a href="library/ModularArithmetic/chinese_remaindering.cpp.html">連立合同式の解の構成 <small>(ModularArithmetic/chinese_remaindering.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
@@ -203,6 +205,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
