@@ -25,24 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_2446.test.cpp
+# :heavy_check_mark: test/yj_inv_of_formal_power_series.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_2446.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-24 20:58:06+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_inv_of_formal_power_series.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-24 23:06:20+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446</a>
+* see: <a href="https://judge.yosupo.jp/problem/inv_of_formal_power_series">https://judge.yosupo.jp/problem/inv_of_formal_power_series</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -50,57 +49,30 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446"
-#define ERROR 1e-7
+#define PROBLEM "https://judge.yosupo.jp/problem/inv_of_formal_power_series"
 
 #define CALL_FROM_TEST
-#include "algorithm/moebius_transform.cpp"
-#include "utility/literals.cpp"
-#include "integer/gcd.cpp"
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/polynomial.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdint>
 #include <cstdio>
-#include <vector>
+#include <algorithm>
 
-bool lcm_overflow(intmax_t m, intmax_t n, intmax_t& res) {
-  return __builtin_mul_overflow(m / gcd(m, n), n, &res);
-}
-
-intmax_t g(std::vector<intmax_t> const& a, size_t i, size_t m) {
-  intmax_t d = 1;
-  for (size_t j = 0; j < a.size(); ++j)
-    if (i >> j & 1)
-      if (lcm_overflow(d, a[j], d)) return 0;
-  return m / d;
-}
+using mi = modint<998244353>;
 
 int main() {
-  size_t n, m;
-  scanf("%zu %zu", &n, &m);
+  size_t n;
+  scanf("%zu", &n);
 
-  std::vector<intmax_t> a(n), p(n);
-  for (auto& ai: a) scanf("%jd", &ai);
-  for (auto& pi: p) scanf("%jd", &pi);
+  std::vector<int> a(n);
+  for (auto& ai: a) scanf("%d", &ai);
 
-  std::vector<intmax_t> dp(1_zu << n, 0);
-  for (size_t i = 1; i < dp.size(); ++i)
-    dp[i] = g(a, i, m);
+  polynomial<mi> f(a.begin(), a.end());
+  polynomial<mi> g = f.inverse(n);
 
-  moebius_transform(dp.begin(), dp.end());
-
-  double res = 0;
-  for (size_t i = 0; i < (1_zu << n); ++i) {
-    double pi = 1;
-    for (size_t j = 0; j < n; ++j)
-      pi *= ((i >> j & 1)? p[j]: 100-p[j]) / 100.0;
-
-    intmax_t vi = dp[i];
-    if (!parity(i)) vi = -vi;
-    res += pi * vi;
-  }
-
-  printf("%.12f\n", res);
+  for (size_t i = 0; i < n; ++i)
+    printf("%jd%c", g[i].get(), i+1<n? ' ': '\n');
 }
 
 ```
@@ -118,7 +90,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: algorithm/moebius_transform.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/polynomial.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

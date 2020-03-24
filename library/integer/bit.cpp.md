@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:54:23+09:00
+    - Last commit date: 2020-03-24 20:58:06+09:00
 
 
 
@@ -48,6 +48,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 
 
 ## Code
@@ -98,6 +100,26 @@ int parity(Tp n) { return popcount(n) & 1; }
 template <typename Tp>
 int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+Tp ceil2(Tp n) {
+  if (!(n & (n-1))) return n;
+  return Tp(2) << ilog2(n);
+}
+template <typename Tp>
+Tp reverse(Tp n) {
+  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
+  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
+  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
+  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
+  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
+  n = ((n & b1) << 1) | ((n >> 1) & b1);
+  n = ((n & b2) << 2) | ((n >> 2) & b2);
+  n = ((n & b4) << 4) | ((n >> 4) & b4);
+  n = ((n & b8) << 8) | ((n >> 8) & b8);
+  n = ((n & bx) << 16) | ((n >> 16) & bx);
+  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+  return n;
 }
 
 #endif  /* !defined(H_bit) */
@@ -152,6 +174,26 @@ int parity(Tp n) { return popcount(n) & 1; }
 template <typename Tp>
 int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+Tp ceil2(Tp n) {
+  if (!(n & (n-1))) return n;
+  return Tp(2) << ilog2(n);
+}
+template <typename Tp>
+Tp reverse(Tp n) {
+  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
+  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
+  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
+  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
+  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
+  n = ((n & b1) << 1) | ((n >> 1) & b1);
+  n = ((n & b2) << 2) | ((n >> 2) & b2);
+  n = ((n & b4) << 4) | ((n >> 4) & b4);
+  n = ((n & b8) << 8) | ((n >> 8) & b8);
+  n = ((n & bx) << 16) | ((n >> 16) & bx);
+  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+  return n;
 }
 
 #endif  /* !defined(H_bit) */
