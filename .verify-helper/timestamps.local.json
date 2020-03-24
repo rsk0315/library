@@ -36,5 +36,6 @@
 "test/yc_551.test.cpp": "2020-03-17 11:05:52 +0900",
 "test/yc_704_onoff.test.cpp": "2020-03-17 12:02:29 +0900",
 "test/yc_705_onoff.test.cpp": "2020-03-17 12:04:03 +0900",
+"test/yj_convolution_mod.test.cpp": "2020-03-24 20:55:31 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-04 00:39:58 +0900"
 }

@@ -42,5 +42,25 @@ template <typename Tp>
 int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
 }
+template <typename Tp>
+Tp ceil2(Tp n) {
+  if (!(n & (n-1))) return n;
+  return Tp(2) << ilog2(n);
+}
+template <typename Tp>
+Tp reverse(Tp n) {
+  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
+  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
+  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
+  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
+  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
+  n = ((n & b1) << 1) | ((n >> 1) & b1);
+  n = ((n & b2) << 2) | ((n >> 2) & b2);
+  n = ((n & b4) << 4) | ((n >> 4) & b4);
+  n = ((n & b8) << 8) | ((n >> 8) & b8);
+  n = ((n & bx) << 16) | ((n >> 16) & bx);
+  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+  return n;
+}
 
 #endif  /* !defined(H_bit) */

@@ -1,0 +1,129 @@
+/**
+ * @brief 多項式
+ * @author えびちゃん
+ */
+
+#ifndef H_mod_polynomial
+#define H_mod_polynomial
+
+#ifdef CALL_FROM_TEST
+#include "integer/bit.cpp"
+#endif
+
+#include <cstddef>
+#include <climits>
+#include <vector>
+
+template <typename ModInt>
+class polynomial {
+public:
+  using size_type = size_t;
+  using value_type = ModInt;
+
+private:
+  std::vector<value_type> M_f;
+
+  void M_normalize() {
+    while (M_f.size() > 1 && M_f.back() == 0) M_f.pop_back();
+  }
+
+  static value_type S_omega() {
+    auto p = value_type{}.modulo();
+    if (p == 998244353 /* == ((119 << 23) | 1) */) {
+      return 15311432;  // 3 (generator) ^ 119
+    }
+    return 0;  // XXX
+  }
+
+  void M_fft(bool inverse = false) {
+    size_type il = ilog2(M_f.size());
+    for (size_type i = 1; i < M_f.size(); ++i) {
+      size_type j = reverse(i) >> ((CHAR_BIT * sizeof(size_type)) - il);
+      if (i < j) std::swap(M_f[i], M_f[j]);
+    }
+
+    size_type zn = ctz(M_f[0].modulo()-1);
+    // pow_omega[i] = omega ^ (2^i)
+    std::vector<value_type> pow_omega(zn+1, value_type(1, M_f[0]));
+    pow_omega[0] = S_omega();
+    if (inverse) pow_omega[0] = 1 / pow_omega[0];
+    for (size_type i = 1; i < pow_omega.size(); ++i)
+      pow_omega[i] = pow_omega[i-1] * pow_omega[i-1];
+
+    for (size_type i = 1, ii = zn-1; i < M_f.size(); i <<= 1, --ii) {
+      value_type omega(1, M_f[0]);
+      for (size_type jl = 0, jr = i; jr < M_f.size();) {
+        auto x = M_f[jl];
+        auto y = M_f[jr] * omega;
+        M_f[jl] = x + y;
+        M_f[jr] = x - y;
+        ++jl, ++jr;
+        if ((jl & i) == i) {
+          jl += i, jr += i, omega = 1;
+        } else {
+          omega *= pow_omega[ii];
+        }
+      }
+    }
+
+    if (inverse) {
+      value_type n1 = value_type(1, M_f[0]) / M_f.size();
+      for (auto& c: M_f) c *= n1;
+    }
+  }
+  void M_ifft() { M_fft(true); }
+
+public:
+  polynomial() = default;
+
+  template <typename InputIt>
+  polynomial(InputIt first, InputIt last): M_f(first, last) { M_normalize(); }
+
+  polynomial& operator +=(polynomial const& that) {
+    if (M_f.size() < that.M_f.size())
+      M_f.resize(that.M_f.size(), value_type(0, M_f[0]));
+    for (size_type i = 0; i < that.M_f.size(); ++i)
+      M_f[i] += that.M_f[i];
+    M_normalize();
+    return *this;
+  }
+
+  polynomial& operator -=(polynomial const& that) {
+    if (M_f.size() < that.M_f.size())
+      M_f.resize(that.M_f.size(), value_type(0, M_f[0]));
+    for (size_type i = 0; i < that.M_f.size(); ++i)
+      M_f[i] -= that.M_f[i];
+    M_normalize();
+    return *this;
+  }
+
+  polynomial& operator *=(polynomial that) {
+    size_type n = ceil2(M_f.size() + that.M_f.size() - 1);
+    M_f.resize(n, value_type(0, M_f[0]));
+    that.M_f.resize(n, value_type(0, M_f[0]));
+    M_fft();
+    that.M_fft();
+    for (size_type i = 0; i < n; ++i)
+      M_f[i] *= that.M_f[i];
+    M_ifft();
+    M_normalize();
+    return *this;
+  }
+
+  polynomial& operator /=(polynomial that) {
+    if (that.M_f.size() == 1) {
+      // scalar division
+      return *this;
+    }
+    if (that.M_f.size() <= 16) {
+      // naive division
+      return *this;
+    }
+    // division with FFT
+    return *this;
+  }
+
+  value_type operator [](size_type i) const { return M_f[i]; }
+};
+
+#endif  /* !defined(H_mod_polynomial) */
