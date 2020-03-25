@@ -126,6 +126,7 @@ layout: default
 
 ### utility
 
+* :heavy_check_mark: <a href="library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
@@ -207,6 +208,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_many_aplusb.test.cpp.html">test/yj_many_aplusb.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
