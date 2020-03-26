@@ -47,6 +47,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :warning: <a href="library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
