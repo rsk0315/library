@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small>
+# :x: 動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-03-27 18:46:33+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
 
 
 ## Code
