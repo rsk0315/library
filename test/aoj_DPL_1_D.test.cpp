@@ -3,7 +3,7 @@
 #define IGNORE
 
 #define CALL_FROM_TEST
-#include "DataStructure/dynamic_bitvector.cpp"
+// #include "DataStructure/dynamic_bitvector.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
