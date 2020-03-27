@@ -25,22 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_ALDS1_5_D.test.cpp
+# :heavy_check_mark: test/aoj_DPL_1_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_5_D.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_D.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-27 23:04:00+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D</a>
+* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
@@ -49,29 +51,42 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
 #define CALL_FROM_TEST
+#include "DataStructure/dynamic_bitvector.cpp"
 #include "DataStructure/wavelet_matrix.cpp"
 #undef CALL_FROM_TEST
 
-#include <cstdint>
 #include <cstdio>
+#include <algorithm>
+#include <numeric>
 #include <vector>
 
 int main() {
   size_t n;
   scanf("%zu", &n);
 
-  std::vector<int> a(n);
-  for (auto& ai: a) scanf("%d", &ai);
+  std::vector<size_t> a(n);
+  for (auto& ai: a) scanf("%zu", &ai);
 
-  wavelet_matrix<31> wm(a.begin(), a.end());
-  intmax_t res = 0;
-  for (size_t i = 1; i < n; ++i) {
-    res += wm.rank_3way(a[i], 0, i)[2];
+  wavelet_matrix<17, uintmax_t, dynamic_bitvector> wm;
+  for (size_t i = 0; i < n; ++i) wm.insert(i, 0);
+
+  std::vector<size_t> p(n);
+  std::iota(p.begin(), p.end(), 0);
+  std::sort(p.begin(), p.end(), [&](size_t i, size_t j) {
+    if (a[i] != a[j]) return a[i] < a[j];
+    return j < i;
+  });
+
+  for (size_t i = 0; i < n; ++i) {
+    size_t j = p[i];
+    auto cur = ((j > 0)? wm.quantile(j-1, 0, j): 0) + 1;
+    wm.modify(j, cur);
   }
-  printf("%jd\n", res);
+
+  printf("%ju\n", wm.quantile(n-1, 0, n));
 }
 
 ```
@@ -89,7 +104,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: DataStructure/wavelet_matrix.cpp: line 15: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: DataStructure/dynamic_bitvector.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}
