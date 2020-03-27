@@ -303,8 +303,9 @@ public:
     insert(t, x);
   }
 
-  // XXX for dynamic ones, this is no longer correct.
-  value_type operator [](size_type s) /* const */ { return M_c[s]; }
+  value_type operator [](size_type s) /* const */ {
+    return quantile(0, s, s+1);
+  }
 };
 
 #endif  /* !defined(H_wavelet_matrix) */

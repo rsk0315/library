@@ -261,6 +261,7 @@ public:
 
     if (!left && !right && M_root->M_self_size == 0) {
       delete M_root;
+      M_root = nullptr;
       return;
     }
 
