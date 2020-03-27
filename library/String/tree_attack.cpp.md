@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/tree_attack.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:48:46+09:00
+    - Last commit date: 2020-03-27 19:41:19+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/60442">https://codeforces.com/blog/entry/60442</a>
@@ -64,23 +64,40 @@ layout: default
 #include "utility/literals.cpp"
 #endif
 
-std::vector<int> tree_attack(intmax_t p, intmax_t b, size_t k) {
+std::vector<int> tree_attack(intmax_t p, intmax_t b, size_t k, int sigma = 2) {
   struct node {
     intmax_t value;
     size_t pos, neg;
+    int coef;
     node() = default;
-    node(intmax_t v, size_t l, size_t r): value(v), pos(l), neg(r) {}
+    node(intmax_t v, size_t l, size_t r, int c): value(v), pos(l), neg(r), coef(c) {}
     bool operator <(node const& that) const { return value < that.value; }
   };
 
   std::vector<std::vector<node>> cl(k+1);
   size_t n = 1_zu << k;
-  cl[0].assign(n, node(1, n-1, -1_zu));
+  cl[0].assign(n, node(1, n-1, -1_zu, 1));
+  intmax_t pow = 1;
   for (size_t j = 1; j < n; ++j) {
-    cl[0][j].value = __int128(cl[0][j-1].value) * b % p;
+    pow = __int128(pow) * b % p;
+    cl[0][j].value = pow;
+    cl[0][j].coef = 1;
+    intmax_t cur = pow;
+    for (int s = 2; s < sigma; ++s) {
+      cur = __int128(cur + pow) % p;
+      if (cur < cl[0][j].value) {
+        cl[0][j].value = cur;
+        cl[0][j].coef = s;
+      }
+    }
     cl[0][j].pos = n-1-j;
   }
+
   std::sort(cl[0].begin(), cl[0].end());
+
+  std::vector<int> coef(n);
+  for (size_t i = 0; i < n; ++i)
+    coef[cl[0][i].pos] = cl[0][i].coef;
 
   for (size_t i = 1; i <= k; ++i) {
     cl[i].resize(n >> i);
@@ -108,7 +125,7 @@ std::vector<int> tree_attack(intmax_t p, intmax_t b, size_t k) {
       auto [i, j, neg] = q.front();
       q.pop();
       if (i == -1_zu) {
-        if (j != -1_zu) res[j] = (neg? -1: +1);
+        if (j != -1_zu) res[j] = (neg? -coef[j]: +coef[j]);
         continue;
       }
       q.emplace(i-1, cl[i][j].pos, neg);

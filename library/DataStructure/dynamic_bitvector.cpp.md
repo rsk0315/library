@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small>
+# :x: 動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/dynamic_bitvector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 02:29:56+09:00
+    - Last commit date: 2020-03-27 18:46:33+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
 
 
 ## Code
@@ -104,7 +109,7 @@ private:
 
   static void S_insert_mini(pointer v, size_type i, bool x) {
     // assume i < S_ws
-    printf("insert_mini(%zd, %d)\n", i, !!x);
+    // printf("insert_mini(%zd, %d)\n", i, !!x);
     underlying_type lo = v->M_value & ((1_ju << i) - 1);
     underlying_type hi = (v->M_value ^ lo) << 1;
     v->M_value = lo | hi;
@@ -217,10 +222,15 @@ private:
   pointer M_root = nullptr;
 
 public:
+  dynamic_bitvector() = default;
+  dynamic_bitvector(dynamic_bitvector const&);  // deep copy
+  dynamic_bitvector& operator =(dynamic_bitvector const&);  // deep copy
+
   void insert(size_type i, bool x) {
     if (!M_root) {
       underlying_type y = (x? 1: 0);
       M_root = new node(y, 1);
+      S_reduce(M_root);
       return;
     }
 
@@ -260,7 +270,11 @@ public:
 
   template <int B>
   size_type rank(size_type i) {
-    if (M_root->M_size <= i) return M_root->M_count;
+    if (M_root->M_size <= i) {
+      size_type res = M_root->M_count;
+      if (B == 0) res = i - res;
+      return res;
+    }
     size_type j = M_nth_bit(i);
     size_type res = popcount(M_root->M_value & ((1_ju << j) - 1));
     if (M_root->M_children[0]) res += M_root->M_children[0]->M_count;
@@ -270,20 +284,27 @@ public:
 
   template <int B>
   size_type select(size_type i) {
+    if (i == 0) return 0;
+    {
+      size_type rank = M_root->M_count;
+      if (B == 0) rank = M_root->M_size - rank;
+      if (rank < i) return -1;
+    }
+
     pointer v = M_root;
     size_type res = 0;
     while (v->M_children[0] || v->M_children[1]) {
       size_type left = (v->M_children[0]? v->M_children[0]->M_count: 0);
       if (B == 0 && v->M_children[0]) left = v->M_children[0]->M_size - left;
-      size_type cur = v->M_count;
-      if (B == 0) cur = v->size - cur;
-      if (i < left) {
+      size_type cur = v->M_self_count;
+      if (B == 0) cur = v->M_self_size - cur;
+      if (i <= left) {
         v = v->M_children[0];
-      } else if (i >= left + cur) {
+      } else if (i > left + cur) {
         if (!v->M_children[1]) break;
-        i -= left + cur;
+        if (v->M_children[0]) res += v->M_children[0]->M_size;
         res += v->M_self_size;
-        if (v->M_children[0]) res += v->M_children[0]->size;
+        i -= left + cur;
         v = v->M_children[1];
       } else {
         break;
@@ -295,7 +316,7 @@ public:
       i -= left;
       res += v->M_children[0]->M_size;
     }
-    res += S_select_mini((B? res->M_value: ~res->M_value), i);
+    res += S_select_mini((B? v->M_value: ~v->M_value), i);
     M_splay(v);
     return res;
   }
