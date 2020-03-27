@@ -1,6 +1,7 @@
 #define PROLBEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
 #define IGNORE
+// @ignore
 
 #define CALL_FROM_TEST
 // #include "DataStructure/dynamic_bitvector.cpp"
