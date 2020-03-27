@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 23:04:00+09:00
+    - Last commit date: 2020-03-28 00:55:56+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>

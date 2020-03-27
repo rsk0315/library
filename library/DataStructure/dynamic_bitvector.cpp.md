@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/dynamic_bitvector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 23:04:00+09:00
+    - Last commit date: 2020-03-28 00:55:56+09:00
 
 
 
@@ -309,6 +309,7 @@ public:
 
     if (!left && !right && M_root->M_self_size == 0) {
       delete M_root;
+      M_root = nullptr;
       return;
     }
 
