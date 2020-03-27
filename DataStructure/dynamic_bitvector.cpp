@@ -60,8 +60,6 @@ private:
   }
 
   static void S_insert_mini(pointer v, size_type i, bool x) {
-    // assume i < S_ws
-    // printf("insert_mini(%zd, %d)\n", i, !!x);
     underlying_type lo = v->M_value & ((1_ju << i) - 1);
     underlying_type hi = (v->M_value ^ lo) << 1;
     v->M_value = lo | hi;
@@ -70,6 +68,39 @@ private:
       v->M_value |= 1_ju << i;
       ++v->M_self_count, ++v->M_count;
     }
+  }
+
+  static void S_erase_mini(pointer v, size_type i) {
+    underlying_type lo = v->M_value & ((1_ju << i) - 1);
+    v->M_value ^= lo;
+    if (v->M_value >> i & 1) {
+      v->M_value ^= 1_ju << i;
+      --v->M_self_count, --v->M_count;
+    }
+    v->M_value >>= 1;
+    v->M_value |= lo;
+    --v->M_self_size, --v->M_size;
+  }
+
+  static void S_split_evenly(pointer lop, pointer hip) {
+    size_type lo_size = (lop->M_self_size + hip->M_self_size) / 2;
+    size_type hi_size = (lop->M_self_size + hip->M_self_size) - lo_size;
+    // lop->M_value | (hip->M_value << lop->M_self_size)
+    underlying_type lo, hi;
+    if (lop->M_self_size > lo_size) {
+      lo = lop->M_value & ((1_ju << lo_size) - 1);
+      hi = (lop->M_value >> lo_size) | (hip->M_value << (lop->M_self_size - lo_size));
+    } else {
+      lo = lop->M_value | ((hip->M_value << lop->M_self_size) & ((1_ju << lo_size) - 1));
+      hi = hip->M_value >> (lo_size - lop->M_self_size);
+    }
+    lop->M_value = lo;
+    lop->M_self_size = lo_size;
+    lop->M_self_count = popcount(lo);
+    hip->M_value = hi;
+    hip->M_self_size = hi_size;
+    hip->M_self_count = popcount(hi);
+    S_reduce(lop), S_reduce(hip);
   }
 
   static size_type S_select_mini(underlying_type x, size_type i) {
@@ -91,7 +122,7 @@ private:
     S_inspect_dfs(v->M_children[1]);
   }
 
-  void M_zig(pointer v, pointer p, size_type d) {
+  static void S_zig(pointer v, pointer p, size_type d) {
     v->M_parent = nullptr;
     p->M_children[d] = v->M_children[!d];
     v->M_children[!d] = p;
@@ -101,7 +132,7 @@ private:
     S_reduce(v);
   }
 
-  void M_zigzig(pointer v, pointer p, pointer g, size_type d) {
+  static void S_zigzig(pointer v, pointer p, pointer g, size_type d) {
     v->M_parent = g->M_parent;
     if (g->M_parent) g->M_parent->M_children[S_child_dir(g, g->M_parent)] = v;
     g->M_children[d] = p->M_children[!d];
@@ -117,7 +148,7 @@ private:
     S_reduce(v);
   }
 
-  void M_zigzag(pointer v, pointer p, pointer g, size_type d) {
+  static void S_zigzag(pointer v, pointer p, pointer g, size_type d) {
     v->M_parent = g->M_parent;
     if (g->M_parent) g->M_parent->M_children[S_child_dir(g, g->M_parent)] = v;
     p->M_children[d] = v->M_children[!d];
@@ -132,27 +163,33 @@ private:
     S_reduce(v);
   }
 
-  void M_splay(pointer v) {
+  static void S_splay(pointer v) {
     while (v->M_parent) {
       pointer p = v->M_parent;
       size_type pd = S_child_dir(v, p);
       if (!p->M_parent) {
-        M_zig(v, p, pd);
+        S_zig(v, p, pd);
         continue;
       }
       pointer g = p->M_parent;
       size_type gd = S_child_dir(p, g);
       if (pd == gd) {
-        M_zigzig(v, p, g, pd);
+        S_zigzig(v, p, g, pd);
       } else {
-        M_zigzag(v, p, g, pd);
+        S_zigzag(v, p, g, pd);
       }
-    }
+    }    
+  }
+
+  void M_splay(pointer v) {
+    S_splay(v);
     M_root = v;
   }
 
   size_type M_nth_bit(size_type n) {
     pointer v = M_root;
+    // inspect();
+    // fprintf(stderr, "M_nth_bit(%zu): ", n);
     while (v->M_children[0] || v->M_children[1]) {
       size_type left = (v->M_children[0]? v->M_children[0]->M_size: 0);
       if (n < left) {
@@ -165,9 +202,11 @@ private:
         break;
       }
     }
+    // fprintf(stderr, "v: %p\n", v);
     if (v->M_children[0])
       n -= v->M_children[0]->M_size;
     M_splay(v);
+    // fprintf(stderr, "%zu\n", n);
     return n;
   }
 
@@ -175,8 +214,8 @@ private:
 
 public:
   dynamic_bitvector() = default;
-  dynamic_bitvector(dynamic_bitvector const&);  // deep copy
-  dynamic_bitvector& operator =(dynamic_bitvector const&);  // deep copy
+  dynamic_bitvector(dynamic_bitvector const&);  // XXX deep copy
+  dynamic_bitvector& operator =(dynamic_bitvector const&);  // XXX deep copy
 
   void insert(size_type i, bool x) {
     if (!M_root) {
@@ -212,7 +251,77 @@ public:
     S_reduce(M_root);
   }
 
-  void erase(size_type i);
+  void erase(size_type i) {
+    size_type j = M_nth_bit(i);
+    S_erase_mini(M_root, j);
+    if (M_root->M_self_size > S_ws_4) return;
+
+    pointer left = M_root->M_children[0];
+    pointer right = M_root->M_children[1];
+
+    if (!left && !right && M_root->M_self_size == 0) {
+      delete M_root;
+      return;
+    }
+
+    M_root->M_children[0] = M_root->M_children[1] = nullptr;
+    S_reduce(M_root);
+
+    if (left) {
+      left->M_parent = nullptr;
+      while (left->M_children[1]) left = left->M_children[1];
+      S_splay(left);
+    }
+    if (right) {
+      right->M_parent = nullptr;
+      while (right->M_children[0]) right = right->M_children[0];
+      S_splay(right);
+    }
+
+    if (left && left->M_self_size + M_root->M_self_size < S_ws) {
+      // left とくっつける
+      left->M_value |= M_root->M_value << left->M_self_size;
+      left->M_self_size += M_root->M_self_size;
+      left->M_size += M_root->M_self_size;
+      left->M_self_count += M_root->M_self_count;
+      left->M_count += M_root->M_self_count;
+      delete M_root;
+      M_root = left;
+      M_root->M_children[1] = right;
+      if (right) right->M_parent = M_root;
+    } else if (right && right->M_self_size + M_root->M_self_size < S_ws) {
+      // right とくっつける
+      right->M_value <<= M_root->M_self_size;
+      right->M_value |= M_root->M_value;
+      right->M_size += M_root->M_self_size;
+      right->M_self_size += M_root->M_self_size;
+      right->M_count += M_root->M_self_count;
+      right->M_self_count += M_root->M_self_count;
+      delete M_root;
+      M_root = right;
+      M_root->M_children[0] = left;
+      if (left) left->M_parent = M_root;
+    } else if (left) {
+      // left->M_value と M_root->M_value を分けっこする
+      S_split_evenly(left, M_root);
+      S_reduce(left);
+      M_root->M_children[0] = left;
+      M_root->M_children[1] = right;
+      left->M_parent = M_root;
+      if (right) right->M_parent = M_root;
+    } else if (right) {
+      // right->M_value と M_root->M_value を分けっこする
+      S_split_evenly(M_root, right);
+      S_reduce(right);
+      M_root->M_children[0] = left;
+      M_root->M_children[1] = right;
+      if (left) left->M_parent = M_root;
+      right->M_parent = M_root;
+    }
+
+    S_reduce(M_root);
+  }
+
   void set(size_type i, bool x = true);
   void reset(size_type i);
 
@@ -271,6 +380,23 @@ public:
     res += S_select_mini((B? v->M_value: ~v->M_value), i);
     M_splay(v);
     return res;
+  }
+
+  size_type rank(int x, size_type i) { return (x? rank<1>(i): rank<0>(i)); }
+  size_type select(int x, size_type i) { return (x? select<1>(i): select<0>(i)); }
+
+  size_type rank0(size_type i) { return rank<0>(i); }
+  size_type rank1(size_type i) { return rank<1>(i); }
+  size_type select0(size_type i) { return select<0>(i); }
+  size_type select1(size_type i) { return select<1>(i); }
+
+  size_type rank0(size_type s, size_type t) {
+    if (s == t) return 0;
+    return rank0(t) - rank0(s);
+  }
+  size_type rank1(size_type s, size_type t) {
+    if (s == t) return 0;
+    return rank1(t) - rank1(s);
   }
 
   bool operator [](size_type i) {

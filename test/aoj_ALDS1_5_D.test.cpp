@@ -9,8 +9,8 @@
 #include <vector>
 
 int main() {
-  int n;
-  scanf("%d", &n);
+  size_t n;
+  scanf("%zu", &n);
 
   std::vector<int> a(n);
   for (auto& ai: a) scanf("%d", &ai);

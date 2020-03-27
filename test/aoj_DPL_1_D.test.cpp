@@ -1,105 +1,37 @@
-#define PROLBEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
-
-#define IGNORE
-// @ignore
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
 #define CALL_FROM_TEST
-// #include "DataStructure/dynamic_bitvector.cpp"
+#include "DataStructure/dynamic_bitvector.cpp"
+#include "DataStructure/wavelet_matrix.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstdio>
-#include <random>
+#include <algorithm>
+#include <numeric>
 #include <vector>
 
-std::mt19937 rsk(0315);
-
-#include <cassert>
-#include <algorithm>
-
-template <int B>
-void test_rank(dynamic_bitvector& got, std::vector<int> const& expected) {
-  size_t n = expected.size();
-  std::vector<size_t> rank(n+1, 0);
-  for (size_t i = 0; i < n; ++i) {
-    if (expected[i] == B) ++rank[i+1];
-    rank[i+1] += rank[i];
-  }
-
-  for (size_t i = 0; i <= n; ++i) {
-    size_t j = got.rank<B>(i);
-    // fprintf(stderr, "rank<%d>(%zu), expected %zu, got %s%zu%s\n",
-    //         B, i, rank[i],
-    //         ((j == rank[i])? "": "\x1b[1;91m"), j,
-    //         ((j == rank[i])? "": "\x1b[m"));
-    assert(j == rank[i]);
-  }
-  fprintf(stderr, "passed %zu tests\n", n+1);
-}
-
-template <int B>
-void test_select(dynamic_bitvector& got, std::vector<int> const& expected) {
-  size_t n = expected.size();
-  std::vector<size_t> select(n+1, -1);
-  select[0] = 0;
-  for (size_t i = 0, j = 0; i < n; ++i) {
-    if (expected[i] == B) select[++j] = i+1;
-  }
-
-  for (size_t i = 0; i <= n; ++i) {
-    // printf("\n");
-    // got.inspect();
-    size_t j = got.select<B>(i);
-    // fprintf(stderr, "select<%d>(%zu), expected %zu, got %s%zu%s\n",
-    //         B, i, select[i],
-    //         ((j == select[i])? "": "\x1b[1;91m"), j,
-    //         ((j == select[i])? "": "\x1b[m"));
-    assert(j == select[i]);
-  }
-  fprintf(stderr, "passed %zu tests\n", n+1);
-}
-
 int main() {
-  dynamic_bitvector got;
-  std::vector<int> expected;
-  int test = 10000;
-  std::uniform_int_distribution<int> bitgen(0, 1);
-  for (int i = 0; i < test; ++i) {
-    // printf("---\n");
-    size_t j = std::uniform_int_distribution<size_t>(0, i)(rsk);
-    int x = bitgen(rsk);
+  size_t n;
+  scanf("%zu", &n);
 
-    printf("insert(%zu, %d)\n", j, x);
+  std::vector<size_t> a(n);
+  for (auto& ai: a) scanf("%zu", &ai);
 
-    got.insert(j, x);
-    // got.inspect();
+  wavelet_matrix<17, uintmax_t, dynamic_bitvector> wm;
+  for (size_t i = 0; i < n; ++i) wm.insert(i, 0);
 
-    expected.insert(expected.begin() + j, x);
+  std::vector<size_t> p(n);
+  std::iota(p.begin(), p.end(), 0);
+  std::sort(p.begin(), p.end(), [&](size_t i, size_t j) {
+    if (a[i] != a[j]) return a[i] < a[j];
+    return j < i;
+  });
 
-    // for (size_t i = 0; i < expected.size(); ++i)
-    //   fprintf(stderr, "%d%s", expected[i], i+1<expected.size()? "": "\n");
-
-    // for (size_t i = 0; i < expected.size(); ++i) {
-    //   bool fail = (got[i] != expected[i]);
-    //   if (fail) printf("\x1b[1;31m");
-    //   printf("%d%s", !!got[i], i+1<expected.size()? "": "\n");
-    //   if (fail) printf("\x1b[m");
-    // }
-
-    test_rank<0>(got, expected);
-    test_rank<1>(got, expected);
-    test_select<0>(got, expected);
-    test_select<1>(got, expected);
-    // printf("\n\n");
+  for (size_t i = 0; i < n; ++i) {
+    size_t j = p[i];
+    auto cur = ((j > 0)? wm.quantile(j-1, 0, j): 0) + 1;
+    wm.modify(j, cur);
   }
 
-  // for (size_t i = 0; i < expected.size(); ++i)
-  //   printf("%d%s", expected[i], i+1<expected.size()? "": "\n");
-
-  // got.inspect();
-  // for (int i = 0; i < test; ++i) {
-  //   bool fail = (got[i] != expected[i]);
-  //   if (fail) printf("\x1b[1;31m");
-  //   printf("%d%s", !!got[i], i+1<test? "": "\n");
-  //   if (fail) printf("\x1b[m");
-  // }
+  printf("%ju\n", wm.quantile(n-1, 0, n));
 }
