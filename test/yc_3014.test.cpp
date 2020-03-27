@@ -10,7 +10,7 @@
 
 int main() {
   intmax_t p, b;
-  int sigma = 2;
+  int sigma = 26;
   scanf("%jd %jd %d", &p, &b, &sigma);
 
   auto h = [&](auto const& s) -> intmax_t {
