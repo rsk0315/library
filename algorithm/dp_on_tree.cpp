@@ -6,6 +6,7 @@
 #ifndef H_dp_on_tree
 #define H_dp_on_tree
 
+#include <cstddef>
 #include <queue>
 #include <vector>
 
