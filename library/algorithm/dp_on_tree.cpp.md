@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/dp_on_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 03:19:46+09:00
+    - Last commit date: 2020-03-30 03:20:51+09:00
 
 
 
@@ -59,7 +59,7 @@ layout: default
 #include <vector>
 
 template <typename Monoid, typename AdjacencyList, typename Fn>
-std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
+std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f, Monoid e = Monoid{}) {
   size_t n = g.size();
   std::vector<size_t> ord, par(n, n);
   std::vector<bool> vis(n, false);
@@ -81,7 +81,6 @@ std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
     }
   }
 
-  Monoid e{};
   std::vector<Monoid> dpl(n, e), dpr(n, e), dpp(n, e);
   for (size_t i = n; i--;) {
     size_t v = ord[i];
@@ -149,7 +148,7 @@ std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
 #include <vector>
 
 template <typename Monoid, typename AdjacencyList, typename Fn>
-std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
+std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f, Monoid e = Monoid{}) {
   size_t n = g.size();
   std::vector<size_t> ord, par(n, n);
   std::vector<bool> vis(n, false);
@@ -171,7 +170,6 @@ std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
     }
   }
 
-  Monoid e{};
   std::vector<Monoid> dpl(n, e), dpr(n, e), dpp(n, e);
   for (size_t i = n; i--;) {
     size_t v = ord[i];
