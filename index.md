@@ -67,6 +67,7 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :warning: <a href="library/Graph/topologinal_sort.cpp.html">トポロジカルソート <small>(Graph/topologinal_sort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 
 
@@ -98,6 +99,7 @@ layout: default
 
 ### algorithm
 
+* :heavy_check_mark: <a href="library/algorithm/dp_on_tree.cpp.html">木 DP <small>(algorithm/dp_on_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
@@ -154,7 +156,7 @@ layout: default
 ### utility/monoid
 
 * :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
 
@@ -163,6 +165,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>

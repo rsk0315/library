@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small>
+# :heavy_check_mark: max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-03-22 02:59:14+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
 
 
 ## Code
