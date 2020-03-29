@@ -11,7 +11,7 @@
 #include <vector>
 
 template <typename Monoid, typename AdjacencyList, typename Fn>
-std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
+std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f, Monoid e = Monoid{}) {
   size_t n = g.size();
   std::vector<size_t> ord, par(n, n);
   std::vector<bool> vis(n, false);
@@ -33,7 +33,6 @@ std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f) {
     }
   }
 
-  Monoid e{};
   std::vector<Monoid> dpl(n, e), dpr(n, e), dpp(n, e);
   for (size_t i = n; i--;) {
     size_t v = ord[i];
