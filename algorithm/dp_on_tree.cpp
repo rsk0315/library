@@ -6,75 +6,60 @@
 #ifndef H_dp_on_tree
 #define H_dp_on_tree
 
+#ifdef CALL_FROM_TEST
+#include "utility/make/fix_point.cpp"
+#endif
+
 #include <cstddef>
-#include <queue>
+#include <utility>
 #include <vector>
 
 template <typename Monoid, typename AdjacencyList, typename Fn>
 std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f, Monoid e = Monoid{}) {
   size_t n = g.size();
-  std::vector<size_t> ord, par(n, n);
-  std::vector<bool> vis(n, false);
-  ord.reserve(n);
-  vis[0] = true;
-  std::queue<size_t> q;
-  q.push(0);
-  while (!q.empty()) {
-    size_t v = q.front();
-    q.pop();
-    ord.push_back(v);
-    for (auto const& e: g[v]) {
-      size_t u = e.target();
-      if (!vis[u]) {
-        vis[u] = true;
-        par[u] = v;
-        q.push(u);
-      }
-    }
-  }
-
-  std::vector<Monoid> dpl(n, e), dpr(n, e), dpp(n, e);
-  for (size_t i = n; i--;) {
-    size_t v = ord[i];
-    bool bef = true;
-    for (size_t j = 0; j < g[v].size(); ++j) {
-      auto const& e = g[v][j];
-      size_t u = e.target();
-      auto w = e.weight();
-      if (u == par[v]) {
-        bef = true;
-      } else if (bef) {
-        dpl[v] += f(dpl[u] + dpr[u], w);
-      } else {
-        dpr[v] = f(dpl[u] + dpr[u], w) + std::move(dpr[v]);
-      }
-    }
-  }
-
+  std::vector<size_t> par(n, n);
+  std::vector<std::vector<Monoid>> dpl(n), dpr(n);
   std::vector<Monoid> dp(n);
   for (size_t i = 0; i < n; ++i) {
-    size_t v = ord[i];
-    std::vector<Monoid> al(g[v].size());
-    for (size_t j = 0; j < g[v].size(); ++j) {
-      auto const& e = g[v][j];
-      size_t u = e.target();
-      auto w = e.weight();
-      al[j] = ((u == par[v])? dpp[v]: f(dpl[u] + dpr[u], w));
-    }
-    auto ar = al;
-    al.insert(al.begin(), e);
-    ar.push_back(e);
-    for (size_t j = 1; j <= g[v].size(); ++j) al[j] = al[j-1] + std::move(al[j]);
-    for (size_t j = g[v].size(); j--;) ar[j] += ar[j+1];
-    for (size_t j = 0; j < g[v].size(); ++j) {
-      auto const& e = g[v][j];
-      size_t u = e.target();
-      if (u == par[v]) continue;
-      auto w = e.weight();
-      dpp[u] = f(al[j] + ar[j+1], w);
-    }
-    dp[v] = ar[0];
+    dpl[i].resize(g[i].size()+1, e);
+    dpr[i].resize(g[i].size()+1, e);
   }
+
+  make_fix_point([&](auto& dfs, size_t v, size_t p) -> Monoid {
+    Monoid res = e;
+    typename AdjacencyList::weight_type w{};
+    for (size_t i = 0; i < g[v].size(); ++i) {
+      auto const& e = g[v][i];
+      size_t u = e.target();
+      if (u == p) {
+        par[v] = i;
+        w = e.weight();
+        continue;
+      }
+      Monoid tmp = dfs(u, v);
+      res += tmp;
+      dpl[v][i+1] = dpr[v][i] = tmp;
+    }
+    return f(res, w);
+  })(0, n);
+
+  make_fix_point([&](auto& dfs, size_t v, size_t p, size_t pi) -> void {
+    if (p != n) {
+      Monoid tmp = f(dpl[p][pi] + dpr[p][pi+1], g[p][pi].weight());
+      dpl[v][par[v]+1] = dpr[v][par[v]] = tmp;
+    }
+    for (size_t i = 1; i < dpl[v].size(); ++i)
+      dpl[v][i] = dpl[v][i-1] + std::move(dpl[v][i]);
+    for (size_t i = dpr[v].size()-1; i--;)
+      dpr[v][i] += dpr[v][i+1];
+
+    dp[v] = dpr[v][0];
+    for (size_t i = 0; i < g[v].size(); ++i){
+      size_t u = g[v][i].target();
+      if (u != p) dfs(u, v, i);
+    }
+  })(0, n, n);
+
   return dp;
 }
 
