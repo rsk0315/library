@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_4_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-31 04:28:06+09:00
+    - Last commit date: 2020-03-31 04:40:35+09:00
 
 
 
@@ -48,7 +48,7 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B" 
-#define IGNORE  /* requires a special judge */
+#define IGNORE
 
 #define CALL_FROM_TEST
 #include "Graph/adjacency_list.cpp"
@@ -81,7 +81,7 @@ int main() {
 ```cpp
 #line 1 "test/aoj_GRL_4_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B" 
-#define IGNORE  /* requires a special judge */
+#define IGNORE
 
 #define CALL_FROM_TEST
 #line 1 "Graph/adjacency_list.cpp"
