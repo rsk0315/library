@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small>
+# :question: ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
+# :question: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -43,7 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>

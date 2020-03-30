@@ -44,7 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 * :x: <a href="../../verify/test/aoj_GRL_4_B.test.cpp.html">test/aoj_GRL_4_B.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
