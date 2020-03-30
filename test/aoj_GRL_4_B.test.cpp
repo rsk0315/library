@@ -1,5 +1,6 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_4_B" 
-#define IGNORE
+#define IGNORE  /* requires a special judge */
+// @ignore
 
 #define CALL_FROM_TEST
 #include "Graph/adjacency_list.cpp"
