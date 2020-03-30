@@ -1,5 +1,4 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2991"
-
 #define IGNORE
 
 #define CALL_FROM_TEST
