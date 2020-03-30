@@ -15,7 +15,7 @@
 
 template <typename ModInt>
 ModInt pow(ModInt const& n, intmax_t iexp) {
-  ModInt res(1, n);
+  ModInt res(1);
   for (ModInt dbl = n; iexp; iexp >>= 1) {
     if (iexp & 1) res *= dbl;
     dbl *= dbl;
@@ -29,7 +29,7 @@ ModInt sqrt(ModInt const& n) {
 
   using value_type = typename ModInt::value_type;
 
-  intmax_t const p = n.modulo();
+  intmax_t const p = n.get_modulo();
   if (p % 4 == 3) {
     ModInt r = pow(n, (p+1) / 4);
     if (r * r == n) return r;
@@ -41,7 +41,7 @@ ModInt sqrt(ModInt const& n) {
 
   ModInt z;
   for (value_type z0 = 2; z0 < p; ++z0) {
-    z = ModInt(z0, n);
+    z = ModInt(z0);
     if (pow(z, (p-1) / 2) == -1) break;
   }
 
@@ -51,7 +51,7 @@ ModInt sqrt(ModInt const& n) {
   ModInt r = pow(n, (q+1) / 2);
 
   while (true) {
-    if (t == 0) return ModInt(0, n);
+    if (t == 0) return 0;
     if (t == 1) return r;
 
     value_type i = 0;

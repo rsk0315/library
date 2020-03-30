@@ -19,7 +19,9 @@ int main() {
     intmax_t a0, b0, c0;
     scanf("%jd %jd %jd", &a0, &b0, &c0);
 
-    modint<0> a(a0, p), b(b0, p), c(c0, p);
+    modint<0>::set_modulo(p);
+
+    modint<0> a(a0), b(b0), c(c0);
     auto dd = sqrt_all(b*b - 4*a*c);
 
     std::vector<intmax_t> res;
