@@ -9,7 +9,7 @@
 #include <queue>
 #include <vector>
 
-typename <typename AdjacencyList>
+template <typename AdjacencyList>
 std::vector<size_t> topological_sort(AdjacencyList const& g) {
   size_t n = g.size();
   std::vector<size_t> ord, indeg(n, 0);
