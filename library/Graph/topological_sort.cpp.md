@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: トポロジカルソート <small>(Graph/topologinal_sort.cpp)</small>
+# :x: トポロジカルソート <small>(Graph/topological_sort.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/topologinal_sort.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 03:18:55+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/Graph/topological_sort.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-31 04:28:00+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/aoj_GRL_4_B.test.cpp.html">test/aoj_GRL_4_B.test.cpp</a>
 
 
 ## Code
@@ -52,7 +57,7 @@ layout: default
 #include <queue>
 #include <vector>
 
-typename <typename AdjacencyList>
+template <typename AdjacencyList>
 std::vector<size_t> topological_sort(AdjacencyList const& g) {
   size_t n = g.size();
   std::vector<size_t> ord, indeg(n, 0);
@@ -83,7 +88,7 @@ std::vector<size_t> topological_sort(AdjacencyList const& g) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Graph/topologinal_sort.cpp"
+#line 1 "Graph/topological_sort.cpp"
 /**
  * @brief トポロジカルソート
  * @author えびちゃん
@@ -95,7 +100,7 @@ std::vector<size_t> topological_sort(AdjacencyList const& g) {
 #include <queue>
 #include <vector>
 
-typename <typename AdjacencyList>
+template <typename AdjacencyList>
 std::vector<size_t> topological_sort(AdjacencyList const& g) {
   size_t n = g.size();
   std::vector<size_t> ord, indeg(n, 0);
