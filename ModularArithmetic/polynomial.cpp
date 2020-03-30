@@ -25,7 +25,7 @@ private:
   std::vector<value_type> M_f;
 
   void M_normalize() {
-    while (M_f.size() > 1 && M_f.back() == 0) M_f.pop_back();
+    while (!M_f.empty() && M_f.back() == 0) M_f.pop_back();
   }
 
   static value_type S_omega() {
