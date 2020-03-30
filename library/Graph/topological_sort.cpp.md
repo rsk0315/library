@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: トポロジカルソート <small>(Graph/topological_sort.cpp)</small>
+# :warning: トポロジカルソート <small>(Graph/topological_sort.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -34,11 +34,6 @@ layout: default
     - Last commit date: 2020-03-31 04:28:00+09:00
 
 
-
-
-## Verified with
-
-* :x: <a href="../../verify/test/aoj_GRL_4_B.test.cpp.html">test/aoj_GRL_4_B.test.cpp</a>
 
 
 ## Code

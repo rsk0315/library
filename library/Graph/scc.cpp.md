@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 強連結成分分解 <small>(Graph/scc.cpp)</small>
+# :heavy_check_mark: 強連結成分分解 <small>(Graph/scc.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -40,7 +40,6 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 
 
 ## Code

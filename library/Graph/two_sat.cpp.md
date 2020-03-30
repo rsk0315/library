@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 2-SAT <small>(Graph/two_sat.cpp)</small>
+# :heavy_check_mark: 2-SAT <small>(Graph/two_sat.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,7 +39,6 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_2991.test.cpp.html">test/aoj_2991.test.cpp</a>
 
 
 ## Code
