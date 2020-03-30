@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modtable.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 10:06:25+09:00
+    - Last commit date: 2020-03-30 14:53:49+09:00
 
 
 
@@ -59,6 +59,7 @@ layout: default
 #ifndef H_modtable
 #define H_modtable
 
+#include <cstddef>
 #include <vector>
 
 template <typename ModInt>
@@ -73,16 +74,13 @@ private:
 
 public:
   modtable() = default;
-  modtable(modtable const&) = default;
-  modtable(modtable&&) = default;
 
-  // not compatible with runtime mod
-  modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
+  explicit modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
     M_f[0] = 1;
     for (underlying_type i = 1; i <= n; ++i)
       M_f[i] = M_f[i-1] * i;
 
-    underlying_type mod = M_f[0].modulo();
+    underlying_type mod = M_f[0].get_modulo();
     M_i[1] = 1;
     for (underlying_type i = 2; i <= n; ++i)
       M_i[i] = -value_type(mod / i) * M_i[mod % i];
@@ -91,9 +89,6 @@ public:
     for (underlying_type i = 1; i <= n; ++i)
       M_fi[i] = M_fi[i-1] * M_i[i];
   }
-
-  modtable& operator =(modtable const&) = default;
-  modtable& operator =(modtable&&) = default;
 
   value_type inverse(underlying_type n) const { return M_i[n]; }
   value_type factorial(underlying_type n) const { return M_f[n]; }
@@ -123,6 +118,7 @@ public:
 #ifndef H_modtable
 #define H_modtable
 
+#include <cstddef>
 #include <vector>
 
 template <typename ModInt>
@@ -137,16 +133,13 @@ private:
 
 public:
   modtable() = default;
-  modtable(modtable const&) = default;
-  modtable(modtable&&) = default;
 
-  // not compatible with runtime mod
-  modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
+  explicit modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
     M_f[0] = 1;
     for (underlying_type i = 1; i <= n; ++i)
       M_f[i] = M_f[i-1] * i;
 
-    underlying_type mod = M_f[0].modulo();
+    underlying_type mod = M_f[0].get_modulo();
     M_i[1] = 1;
     for (underlying_type i = 2; i <= n; ++i)
       M_i[i] = -value_type(mod / i) * M_i[mod % i];
@@ -155,9 +148,6 @@ public:
     for (underlying_type i = 1; i <= n; ++i)
       M_fi[i] = M_fi[i-1] * M_i[i];
   }
-
-  modtable& operator =(modtable const&) = default;
-  modtable& operator =(modtable&&) = default;
 
   value_type inverse(underlying_type n) const { return M_i[n]; }
   value_type factorial(underlying_type n) const { return M_f[n]; }

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-25 01:24:00+09:00
+    - Last commit date: 2020-03-30 14:58:09+09:00
 
 
 
@@ -76,11 +76,11 @@ private:
   std::vector<value_type> M_f;
 
   void M_normalize() {
-    while (M_f.size() > 1 && M_f.back() == 0) M_f.pop_back();
+    while (!M_f.empty() && M_f.back() == 0) M_f.pop_back();
   }
 
   static value_type S_omega() {
-    auto p = value_type{}.modulo();
+    auto p = value_type{}.get_modulo();
     // for p = (u * 2**e + 1) with generator g, returns g ** u mod p
     if (p == 998244353 /* (119 << 23 | 1 */) return 15311432;  // g = 3
     if (p == 163577857 /* (39 << 22 | 1) */) return 121532577;  // g = 23
@@ -97,16 +97,16 @@ private:
       if (i < j) std::swap(M_f[i], M_f[j]);
     }
 
-    size_type zn = ctz(M_f[0].modulo()-1);
+    size_type zn = ctz(M_f[0].get_modulo()-1);
     // pow_omega[i] = omega ^ (2^i)
-    std::vector<value_type> pow_omega(zn+1, value_type(1, M_f[0]));
+    std::vector<value_type> pow_omega(zn+1, 1);
     pow_omega[0] = S_omega();
     if (inverse) pow_omega[0] = 1 / pow_omega[0];
     for (size_type i = 1; i < pow_omega.size(); ++i)
       pow_omega[i] = pow_omega[i-1] * pow_omega[i-1];
 
     for (size_type i = 1, ii = zn-1; i < M_f.size(); i <<= 1, --ii) {
-      value_type omega(1, M_f[0]);
+      value_type omega(1);
       for (size_type jl = 0, jr = i; jr < M_f.size();) {
         auto x = M_f[jl];
         auto y = M_f[jr] * omega;
@@ -122,7 +122,7 @@ private:
     }
 
     if (inverse) {
-      value_type n1 = value_type(1, M_f[0]) / M_f.size();
+      value_type n1 = value_type(1) / M_f.size();
       for (auto& c: M_f) c *= n1;
     }
   }
@@ -130,7 +130,7 @@ private:
 
   void M_naive_multiplication(polynomial const& that) {
     size_type deg = M_f.size() + that.M_f.size() - 1;
-    std::vector<value_type> res(deg, value_type(0, M_f[0]));
+    std::vector<value_type> res(deg, 0);
     for (size_type i = 0; i < M_f.size(); ++i)
       for (size_type j = 0; j < that.M_f.size(); ++j)
         res[i+j] += M_f[i] * that.M_f[j];
@@ -162,9 +162,8 @@ public:
 
   polynomial inverse(size_type m) const {
     polynomial res{1 / M_f[0]};
-    value_type zero(0, M_f[0]);
     for (size_type d = 1; d < m; d *= 2) {
-      polynomial f(d+d, zero), g(d+d, zero);
+      polynomial f(d+d, 0), g(d+d, 0);
       for (size_type j = 0; j < d+d; ++j) f.M_f[j] = (*this)[j];
       for (size_type j = 0; j < d; ++j) g.M_f[j] = res.M_f[j];
 
@@ -189,9 +188,8 @@ public:
   std::vector<value_type> multieval(std::vector<value_type> const& xs) const {
     size_type m = xs.size();
     std::vector<polynomial> mul(m+m);
-    value_type one(1, M_f[0]);
     for (size_type i = 0; i < m; ++i)
-      mul[m+i] = polynomial({-xs[i], one});
+      mul[m+i] = polynomial({-xs[i], 1});
     for (size_type i = m; i-- > 1;)
       mul[i] = mul[i<<1|0] * mul[i<<1|1];
 
@@ -213,7 +211,7 @@ public:
 
   polynomial& operator +=(polynomial const& that) {
     if (M_f.size() < that.M_f.size())
-      M_f.resize(that.M_f.size(), value_type(0, M_f[0]));
+      M_f.resize(that.M_f.size(), 0);
     for (size_type i = 0; i < that.M_f.size(); ++i)
       M_f[i] += that.M_f[i];
     M_normalize();
@@ -222,7 +220,7 @@ public:
 
   polynomial& operator -=(polynomial const& that) {
     if (M_f.size() < that.M_f.size())
-      M_f.resize(that.M_f.size(), value_type(0, M_f[0]));
+      M_f.resize(that.M_f.size(), 0);
     for (size_type i = 0; i < that.M_f.size(); ++i)
       M_f[i] -= that.M_f[i];
     M_normalize();
@@ -242,8 +240,8 @@ public:
     }
 
     size_type n = ceil2(M_f.size() + that.M_f.size() - 1);
-    M_f.resize(n, value_type(0, M_f[0]));
-    that.M_f.resize(n, value_type(0, M_f[0]));
+    M_f.resize(n, 0);
+    that.M_f.resize(n, 0);
     M_fft();
     that.M_fft();
     for (size_type i = 0; i < n; ++i)
@@ -301,8 +299,7 @@ public:
   }
 
   value_type const operator [](size_type i) const {
-    if (i >= M_f.size()) return value_type(0, M_f[0]);
-    return M_f[i];
+    return ((i < M_f.size())? M_f[i]: 0);
   }
 };
 
