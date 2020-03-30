@@ -34,6 +34,7 @@ namespace fast {
     1000000000000000000, 10000000000000000000u,
   };
   static __attribute__((aligned(8))) char inttab[40000] = {};  // 4-digit integers (10000 many)
+  static char S_sep = ' ', S_end = '\n';
   template <typename Tp>
   using enable_if_integral = std::enable_if<std::is_integral<Tp>::value, Tp>;
 
@@ -135,6 +136,12 @@ namespace fast {
     }
 
     void scan(std::string& s) { scan_serial(s); }
+
+    template <typename Tp, typename... Args>
+    void scan(Tp& x, Args&&... xs) {
+      scan(x);
+      scan(std::forward<Args>(xs)...);
+    }
   };
 
   class printer {
@@ -217,11 +224,14 @@ namespace fast {
     }
 
     void print(char const* s) {
+      // FIXME: strlen や memcpy などで定数倍高速化したい
       while (*s != 0) {
         *pos++ = *s++;
         if (pos == outbuf + buf_size) M_flush_stdout();
       }
     }
+
+    void print(std::string const& s) { print(s.data()); }
 
     template <typename Integral,
               typename enable_if_integral<Integral>::type* = nullptr>
@@ -267,8 +277,26 @@ namespace fast {
       }
     }
 
+    template <typename Tp, typename... Args>
+    void print(Tp const& x, Args&&... xs) {
+      if (sizeof...(Args) > 0) {
+        print(x);
+        print(S_sep);
+        print(std::forward<Args>(xs)...);
+      }
+    }
+
     template <typename Tp>
-    void println(Tp const& x) { print(x), print('\n'); }
+    void println(Tp const& x) { print(x), print(S_end); }
+
+    template <typename Tp, typename... Args>
+    void println(Tp const& x, Args&&... xs) {
+      print(x, std::forward<Args>(xs)...);
+      print(S_end);
+    }
+
+    static void set_sep(char c) { S_sep = c; }
+    static void set_end(char c) { S_end = c; }
   };
 }  // fast::
 

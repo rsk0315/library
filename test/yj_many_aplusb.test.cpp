@@ -12,8 +12,7 @@ int main() {
 
   while (t--) {
     uintmax_t a, b;
-    cin.scan(a);
-    cin.scan(b);
+    cin.scan(a, b);
     cout.println(a+b);
   }
 }
