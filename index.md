@@ -63,6 +63,7 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/capacitated_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_list.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
@@ -107,6 +108,13 @@ layout: default
 * :heavy_check_mark: <a href="library/algorithm/parallel_binary_search.cpp.html">並列二分探索 <small>(algorithm/parallel_binary_search.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
+
+
+<div id="e77989ed21758e78331b20e477fc5582"></div>
+
+### dev
+
+* :warning: <a href="library/dev/hld.cpp.html">dev/hld.cpp</a>
 
 
 <div id="157db7df530023575515d366c9b672e8"></div>
@@ -204,6 +212,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
