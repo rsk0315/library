@@ -1,11 +1,13 @@
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E"
 
 #define CALL_FROM_TEST
 #include "utility/stack_extend.cpp"
-#include "DataStructure/basic_segment_tree.cpp"
+#include "utility/action/add_sum.cpp"
+#include "DataStructure/segment_tree.cpp"
 #include "Graph/hl_decomposition.cpp"
 #undef CALL_FROM_TEST
 
+#include <cstdint>
 #include <cstdio>
 #include <cassert>
 #include <tuple>
@@ -18,7 +20,7 @@ int main() {
   scanf("%zu", &n);
 
   std::vector<size_t> par(n, n);
-  std::vector<std::tuple<size_t, size_t, int>> es;
+  std::vector<std::tuple<size_t, size_t, length_monoid<intmax_t>>> es;
   for (size_t i = 0; i < n; ++i) {
     size_t k;
     scanf("%zu", &k);
@@ -30,7 +32,7 @@ int main() {
     }
   }
 
-  hl_decomposed_tree<basic_segment_tree<int>, value_on_undirected_edge_tag> g(n, es);
+  hl_decomposed_tree<segment_tree<action_add_to_sum<intmax_t>>, value_on_undirected_edge_tag> g(n, es);
 
   size_t q;
   scanf("%zu", &q);
@@ -41,16 +43,15 @@ int main() {
 
     if (t == 0) {
       size_t v;
-      int w;
-      scanf("%zu %d", &v, &w);
-      w += g.fold(v, par[v]);
-      g.modify(v, w);
+      intmax_t w;
+      scanf("%zu %jd", &v, &w);
+      g.act(v, 0, w);
     } else if (t == 1) {
       size_t u;
       scanf("%zu", &u);
-      int res = g.fold(u, 0);
-      assert(res == g.fold(0, u));
-      printf("%d\n", res);
+      intmax_t res = g.fold(u, 0).get();
+      assert(res == g.fold(0, u).get());
+      printf("%jd\n", res);
     }
   }
 

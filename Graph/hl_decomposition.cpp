@@ -1,6 +1,3 @@
-// #define IGNORE
-// // @ignore
-
 /**
  * @brief HL 分解
  * @author えびちゃん
@@ -12,6 +9,7 @@
 
 #include <cstddef>
 #include <type_traits>
+#include <utility>
 #include <vector>
 
 struct value_on_directed_edge_tag {};
@@ -64,15 +62,6 @@ private:
     M_dfs_size(al, ss, r, M_n);
     size_type in = 0;
     M_dfs_heavy_path(al, ss, r, in);
-
-    // std::vector<size_type> et(M_n);
-    // for (size_type i = 0; i < M_n; ++i) et[M_in[i]] = i;
-    // for (size_type i = 0; i < M_n; ++i) fprintf(stderr, "%zu%c", et[i], i+1<M_n? ' ': '\n');
-
-    // for (size_type i = 0; i < M_n; ++i) {
-    //   fprintf(stderr, "#%zu: p: %zu, hp: %zu\n", i, M_p[i], M_hp[i]);
-    // }
-    // abort();
   }
 
   size_type M_lca(size_type u, size_type v) const {
@@ -90,15 +79,9 @@ private:
   }
 
   value_type M_fold_one_way(size_type u, size_type v, bool asc) {
-    // fprintf(stderr, "fold1(%zu, %zu, %d)\n", u, v, !!asc);
     value_type res{};
     if (asc) {
-      // fprintf(stderr, "asc\n");
-      // for (size_type i = 0; i < M_n; ++i)
-      //   fprintf(stderr, "%d%c", M_fa[i], i+1<M_n? ' ': '\n');
-
       while (M_hp[u] != M_hp[v]) {
-        // fprintf(stderr, "%zu[hp:%zu] to %zu[hp:%zu]\n", u, M_hp[u], v, M_hp[v]);
         size_type l = M_n-1 - M_in[u];
         size_type r = M_n-1 - M_in[M_hp[u]];
         S_fold(res, M_fa.fold(l, r+1), true);
@@ -109,36 +92,47 @@ private:
       S_fold(res, M_fa.fold(l, r), true);
     } else {
       while (M_hp[u] != M_hp[v]) {
-        // fprintf(stderr, "%zu[hp:%zu] to %zu[hp:%zu]\n", u, M_hp[u], v, M_hp[v]);
         size_type l = M_in[M_hp[u]];
         size_type r = M_in[u];
-        // fprintf(stderr, "l: %zu, r: %zu\n", l, r);
         S_fold(res, M_fd.fold(l, r+1), false);
         u = M_p[M_hp[u]];
       }
       size_type l = M_in[v]+1;
       size_type r = M_in[u]+1;
-      // for (size_type i = 0; i < M_n; ++i)
-      //   fprintf(stderr, "%d%c", M_fd[i], i+1<M_n? ' ': '\n');
-      // fprintf(stderr, "fold[%zu, %zu)\n", l, r);
       S_fold(res, M_fd.fold(l, r), false);
     }
-    // fprintf(stderr, "returns %d\n", res);
     return res;
   }
 
-  // template <typename Tp>
-  // void M_act_one_way(size_type u, size_type v, Tp x, bool asc);
-  // // chain の途中で切れる場合とか、上まで行く場合とか、根とか、light で終わる場合とか
-  // // ちゃんと気をつけるべきことに気をつける
+  template <typename Tp>
+  void M_act_one_way(size_type u, size_type v, Tp x, bool asc) {
+    if (asc) {
+      while (M_hp[u] != M_hp[v]) {
+        size_type l = M_n-1 - M_in[u];
+        size_type r = M_n-1 - M_in[M_hp[u]];
+        M_fa.act(l, r+1, x);
+        u = M_p[M_hp[u]];
+      }
+      size_type l = M_n-1 - M_in[u];
+      size_type r = M_n-1 - M_in[v];
+      M_fa.act(l, r, x);
+    } else {
+      while (M_hp[u] != M_hp[v]) {
+        size_type l = M_in[M_hp[u]];
+        size_type r = M_in[u];
+        M_fd.act(l, r+1, x);
+        u = M_p[M_hp[u]];
+      }
+      size_type l = M_in[v]+1;
+      size_type r = M_in[u]+1;
+      M_fd.act(l, r, x);
+    }
+  }
 
   value_type M_fold(size_type u, size_type v) {
     size_type w = M_lca(u, v);
-    // fprintf(stderr, "lca(%zu, %zu): %zu\n", u, v, w);
     value_type resl = M_fold_one_way(u, w, true);
-    // fprintf(stderr, "fold1(%zu, %zu, true): %d\n", u, w, resl);
     value_type resr = M_fold_one_way(v, w, false);
-    // fprintf(stderr, "fold1(%zu, %zu, false): %d\n", v, w, resr);
     if (std::is_same<attribute, value_on_vertex_tag>::value) {
       resl += M_fd.fold(M_in[M_p[w]], M_in[w]);
     }
@@ -147,30 +141,24 @@ private:
 
   void M_modify(size_type v, value_type x, bool asc) {
     bool undir = std::is_same<ValueAttribute, value_on_undirected_edge_tag>::value;
-    if (asc || undir) {
-      size_type i = M_n-1 - M_in[v];
-      M_fa.modify(i, x);
-    }
-    if (!asc || undir) {
-      size_type i = M_in[v];
-      M_fd.modify(i, x);
-    }
+    if (asc || undir) M_fa.modify(M_n-1 - M_in[v], x);
+    if (!asc || undir) M_fd.modify(M_in[v], x);
   }
 
-  // template <typename Tp>
-  // void M_act(size_type u, size_type v, Tp x) {
-  //   size_type w = M_lca(u, v);
-  //   M_act_one_way.act(u, w, x, true);
-  //   M_act_one_way.act(v, w, x, false);
-  //   if (!std::is_same<attribute, value_on_directed_edge_tag>::value) {
-  //     M_act_one_way.act(v, w, x, true);
-  //     M_act_one_way.act(u, w, x, false);
-  //     if (std::is_same<attribute, value_on_vertex_tag>::value) {
-  //       M_act_one_way(w, M_p[w], x, true);
-  //       M_act_one_way(w, M_p[w], x, false);
-  //     }
-  //   }
-  // }
+  template <typename Tp>
+  void M_act(size_type u, size_type v, Tp x) {
+    size_type w = M_lca(u, v);
+    M_act_one_way(u, w, x, true);
+    M_act_one_way(v, w, x, false);
+    if (!std::is_same<attribute, value_on_directed_edge_tag>::value) {
+      M_act_one_way(v, w, x, true);
+      M_act_one_way(u, w, x, false);
+      if (std::is_same<attribute, value_on_vertex_tag>::value) {
+        M_act_one_way(w, M_p[w], x, true);
+        M_act_one_way(w, M_p[w], x, false);
+      }
+    }
+  }
 
 public:
   hl_decomposed_tree() = default;
@@ -230,24 +218,10 @@ public:
     M_fd.assign(d.begin(), d.end());
   }
 
-  template <
-    typename Va = ValueAttribute,
-    typename std::enable_if<std::is_same<Va, value_on_vertex_tag>::value>::type
-  >
-  void push(size_type u, size_type v);
-
-  template <
-    typename Va = ValueAttribute,
-    typename std::enable_if<!std::is_same<Va, value_on_vertex_tag>::value>::type
-  >
-  void push(size_type u, size_type v, value_type x);
-
-  void decompose();
-
   value_type fold(size_type u, size_type v) { return M_fold(u, v); }
   void modify(size_type v, value_type x, bool asc = true) { M_modify(v, x, asc); }
-  // template <typename Tp>
-  // void act(size_type u, size_type v, Tp x) { M_act(u, v, x); }
+  template <typename Rq = RangeQuery, typename Ta = typename Rq::action_type>
+  void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };
 
 #endif  /* !defined(H_heavy_light_decomposition) */
