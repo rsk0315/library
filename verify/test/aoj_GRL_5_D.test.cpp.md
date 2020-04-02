@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 02:50:21+09:00
+    - Last commit date: 2020-04-03 02:53:48+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D</a>
@@ -41,7 +41,6 @@ layout: default
 
 * :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
 ## Code
@@ -52,7 +51,7 @@ layout: default
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D"
 
 #define CALL_FROM_TEST
-#include "utility/stack_extend.cpp"
+// #include "utility/stack_extend.cpp"
 #include "DataStructure/basic_segment_tree.cpp"
 #include "Graph/hl_decomposition.cpp"
 #undef CALL_FROM_TEST
@@ -63,7 +62,7 @@ layout: default
 #include <vector>
 
 int main() {
-  BEGIN_STACK_EXTEND(256*1024*1024);
+  // BEGIN_STACK_EXTEND(256*1024*1024);
 
   size_t n;
   scanf("%zu", &n);
@@ -105,7 +104,7 @@ int main() {
     }
   }
 
-  END_STACK_EXTEND;
+  // END_STACK_EXTEND;
 }
 
 ```
@@ -118,30 +117,7 @@ int main() {
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D"
 
 #define CALL_FROM_TEST
-#line 1 "utility/stack_extend.cpp"
-/**
- * @brief スタック拡張マクロ（魔法）
- * @author えびちゃん
- * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
- */
-
-#ifndef H_stack_extend
-#define H_stack_extend
-
-#include <cstdlib>
-
-#define BEGIN_STACK_EXTEND(size)                                        \
-  void* stack_extend_memory_ = malloc(size);                            \
-  void* stack_extend_origin_memory_;                                    \
-  char* stack_extend_dummy_memory_ = (char*)alloca((1+(int)(((long long)stack_extend_memory_)&127))*16); \
-  *stack_extend_dummy_memory_ = 0;                                      \
-  asm volatile ("mov %%rsp, %%rbx\n\tmov %%rax, %%rsp":"=b"(stack_extend_origin_memory_):"a"((char*)stack_extend_memory_+(size)-1024));
-
-#define END_STACK_EXTEND                                                \
-  asm volatile ("mov %%rax, %%rsp"::"a"(stack_extend_origin_memory_));  \
-  free(stack_extend_memory_);
-
-#endif  /* !defined(H_stack_extend) */
+// #include "utility/stack_extend.cpp"
 #line 1 "DataStructure/basic_segment_tree.cpp"
 /**
  * @brief 単一更新セグメント木
@@ -516,7 +492,7 @@ public:
 #include <vector>
 
 int main() {
-  BEGIN_STACK_EXTEND(256*1024*1024);
+  // BEGIN_STACK_EXTEND(256*1024*1024);
 
   size_t n;
   scanf("%zu", &n);
@@ -558,7 +534,7 @@ int main() {
     }
   }
 
-  END_STACK_EXTEND;
+  // END_STACK_EXTEND;
 }
 
 ```

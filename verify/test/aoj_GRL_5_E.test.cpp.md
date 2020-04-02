@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 02:50:21+09:00
+    - Last commit date: 2020-04-03 02:53:48+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E</a>
@@ -44,7 +44,6 @@ layout: default
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
 ## Code
@@ -55,7 +54,7 @@ layout: default
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E"
 
 #define CALL_FROM_TEST
-#include "utility/stack_extend.cpp"
+// #include "utility/stack_extend.cpp"
 #include "utility/action/add_sum.cpp"
 #include "DataStructure/segment_tree.cpp"
 #include "Graph/hl_decomposition.cpp"
@@ -68,7 +67,7 @@ layout: default
 #include <vector>
 
 int main() {
-  BEGIN_STACK_EXTEND(256*1024*1024);
+  // BEGIN_STACK_EXTEND(256*1024*1024);
 
   size_t n;
   scanf("%zu", &n);
@@ -109,7 +108,7 @@ int main() {
     }
   }
 
-  END_STACK_EXTEND;
+  // END_STACK_EXTEND;
 }
 
 ```
