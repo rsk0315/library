@@ -25,24 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
+# :heavy_check_mark: test/yj_point_add_range_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-27 00:09:05+09:00
+* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_point_add_range_sum.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-03 03:10:59+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 
 
 ## Code
@@ -50,140 +47,41 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief 単一更新セグメント木
- * @author えびちゃん
- */
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 
-#ifndef H_basic_segment_tree
-#define H_basic_segment_tree
+#define CALL_FROM_TEST
+#include "DataStructure/basic_segment_tree.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstddef>
+#include <cstdint>
+#include <cstdio>
 #include <vector>
 
-template <typename Monoid>
-class basic_segment_tree {
-public:
-  using value_type = Monoid;
-  using size_type = size_t;
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-private:
-  std::vector<value_type> M_c;
-  size_type M_n;
+  std::vector<int> a(n);
+  for (auto& ai: a) scanf("%d", &ai);
 
-  std::vector<size_type> M_covering_segments(size_type l, size_type r) const {
-    std::vector<size_type> left, right;
-    l += M_n;
-    r += M_n;
-    while (l < r) {
-      if (l & 1) left.push_back(l++);
-      if (r & 1) right.push_back(--r);
-      l >>= 1;
-      r >>= 1;
-    }
-    left.insert(left.end(), right.rbegin(), right.rend());
-    return left;
-  }
+  basic_segment_tree<intmax_t> st(a.begin(), a.end());
+  for (size_t i = 0; i < q; ++i) {
+    int t;
+    scanf("%d", &t);
 
-public:
-  basic_segment_tree() = default;
-  basic_segment_tree(basic_segment_tree const&) = default;
-  basic_segment_tree(basic_segment_tree&&) = default;
-
-  explicit basic_segment_tree(size_type n): M_c(n+n), M_n(n) {}
-  explicit basic_segment_tree(size_type n, value_type const& x):
-    M_c(n+n, x), M_n(n)
-  {
-    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  template <typename InputIt>
-  basic_segment_tree(InputIt first, InputIt last) {
-    std::vector<value_type> tmp(first, last);
-    M_n = tmp.size();
-    M_c.resize(M_n);
-    M_c.insert(M_c.end(), tmp.begin(), tmp.end());
-    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  void assign(size_type n, value_type const& x) {
-    M_c.assign(n+n, x);
-    M_n = n;
-    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  template <typename InputIt>
-  void assign(InputIt first, InputIt last) {
-    std::vector<value_type> tmp(first, last);
-    M_n = tmp.size();
-    M_c.resize(M_n);
-    M_c.insert(M_c.end(), tmp.begin(), tmp.end());
-    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  void modify(size_type i, value_type const& x) {
-    i += M_n;
-    M_c[i] = x;
-    while (i > 1) {
-      i >>= 1;
-      M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+    if (t == 0) {
+      size_t p;
+      intmax_t x;
+      scanf("%zu %jd", &p, &x);
+      st.modify(p, st[p]+x);
+    } else if (t == 1) {
+      size_t l, r;
+      scanf("%zu %zu", &l, &r);
+      printf("%jd\n", st.fold(l, r));
     }
   }
-
-  void modify(size_type i, value_type&& x) {
-    i += M_n;
-    M_c[i] = std::move(x);
-    while (i > 1) {
-      i >>= 1;
-      M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-    }
-  }
-
-  value_type const& operator [](size_type i) const { return M_c[i + M_n]; }
-
-  value_type fold(size_type l, size_type r) const {
-    value_type resl{}, resr{};
-    l += M_n;
-    r += M_n;
-    while (l < r) {
-      if (l & 1) resl += M_c[l++];
-      if (r & 1) resr = M_c[--r] + std::move(resr);
-      l >>= 1;
-      r >>= 1;
-    }
-    return resl += resr;
-  }
-
-  template <typename Predicate>
-  size_type partition_point(size_type l, Predicate pred) const {
-    if (l == M_n) return l;
-    value_type x{};
-    size_type v = M_n + M_n;
-    std::vector<size_type> cs = M_covering_segments(l, M_n);
-
-    // search the subroot
-    for (auto s: cs) {
-      if (!pred(x + M_c[s])) {
-        v = s;
-        break;
-      }
-      x += M_c[s];
-    }
-
-    // search the leaf
-    while (v < M_n) {
-      v <<= 1;
-      if (pred(x + M_c[v])) {
-        x += M_c[v];
-        v |= 1;
-      }
-    }
-
-    return v - M_n;
-  }
-};
-
-#endif  /* !defined(H_basic_segment_tree) */
+}
 
 ```
 {% endraw %}
@@ -191,6 +89,10 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "test/yj_point_add_range_sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+
+#define CALL_FROM_TEST
 #line 1 "DataStructure/basic_segment_tree.cpp"
 /**
  * @brief 単一更新セグメント木
@@ -326,6 +228,38 @@ public:
 };
 
 #endif  /* !defined(H_basic_segment_tree) */
+#line 5 "test/yj_point_add_range_sum.test.cpp"
+#undef CALL_FROM_TEST
+
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
+
+  std::vector<int> a(n);
+  for (auto& ai: a) scanf("%d", &ai);
+
+  basic_segment_tree<intmax_t> st(a.begin(), a.end());
+  for (size_t i = 0; i < q; ++i) {
+    int t;
+    scanf("%d", &t);
+
+    if (t == 0) {
+      size_t p;
+      intmax_t x;
+      scanf("%zu %jd", &p, &x);
+      st.modify(p, st[p]+x);
+    } else if (t == 1) {
+      size_t l, r;
+      scanf("%zu %zu", &l, &r);
+      printf("%jd\n", st.fold(l, r));
+    }
+  }
+}
 
 ```
 {% endraw %}
