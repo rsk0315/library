@@ -55,7 +55,6 @@ private:
 
 public:
   segment_tree() = default;
-
   explicit segment_tree(size_type n):
     M_n(n), M_c(n+n, operand_type{}), M_d(n, action_type{}) {}
 
@@ -67,6 +66,28 @@ public:
 
   template <typename InputIt>
   segment_tree(InputIt first, InputIt last): M_c(first, last) {
+    M_n = M_c.size();
+    M_d.assign(M_n, action_type{});
+    M_c.insert(M_c.begin(), M_n, operand_type{});
+    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  void assign(size_type n) {
+    M_n = n;
+    M_c(n+n, operand_type{});
+    M_d(n, action_type{});
+  }
+
+  void assign(size_type n, operand_type const& x) {
+    M_n = n;
+    M_c(n+n, x);
+    M_d(n, action_type{});
+    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last) {
+    M_c.assign(first, last);
     M_n = M_c.size();
     M_d.assign(M_n, action_type{});
     M_c.insert(M_c.begin(), M_n, operand_type{});

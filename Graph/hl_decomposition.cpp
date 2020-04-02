@@ -1,5 +1,5 @@
-#define IGNORE
-// @ignore
+// #define IGNORE
+// // @ignore
 
 /**
  * @brief HL 分解
@@ -28,13 +28,52 @@ public:
 
 private:
   size_type M_n = 0;
-  std::vector<size_type> M_p, M_hp, M_hc;  // parent, heavy parent/child
+  std::vector<size_type> M_p, M_hp;  // parent, heavy path root
   std::vector<size_type> M_in;
-  std::vector<value_type> M_ea, M_ed;  // ascending/descending edge
-  range_query_type M_fa, M_fd;  // folded
+  range_query_type M_fa, M_fd;
 
-  void M_dfs_size();
-  void M_dfs_build();
+  void M_dfs_size(
+      std::vector<std::vector<size_type>>& al, std::vector<size_type>& ss,
+      size_type v, size_type p
+  ) {
+    ss[v] = 1;
+    M_p[v] = p;
+    if (al[v][0] == p) std::swap(al[v][0], al[v].back());
+    for (auto& u: al[v]) {
+      if (u == p) continue;
+      M_dfs_size(al, ss, u, v);
+      ss[v] += ss[u];
+      if (ss[u] > ss[al[v][0]]) std::swap(u, al[v][0]);
+    }
+  }
+
+  void M_dfs_heavy_path(
+      std::vector<std::vector<size_type>> const& al, std::vector<size_type> const& ss,
+      size_type v, size_type& t
+  ) {
+    M_in[v] = t++;
+    for (auto u: al[v]) {
+      if (u == M_p[v]) continue;
+      M_hp[u] = ((u == al[v][0])? M_hp[v]: u);
+      M_dfs_heavy_path(al, ss, u, t);
+    }
+  }
+
+  void M_decompose(std::vector<std::vector<size_type>>& al, size_type r = 0) {
+    std::vector<size_type> ss(M_n, 0);
+    M_dfs_size(al, ss, r, M_n);
+    size_type in = 0;
+    M_dfs_heavy_path(al, ss, r, in);
+
+    // std::vector<size_type> et(M_n);
+    // for (size_type i = 0; i < M_n; ++i) et[M_in[i]] = i;
+    // for (size_type i = 0; i < M_n; ++i) fprintf(stderr, "%zu%c", et[i], i+1<M_n? ' ': '\n');
+
+    // for (size_type i = 0; i < M_n; ++i) {
+    //   fprintf(stderr, "#%zu: p: %zu, hp: %zu\n", i, M_p[i], M_hp[i]);
+    // }
+    // abort();
+  }
 
   size_type M_lca(size_type u, size_type v) const {
     if (M_in[u] > M_in[v]) std::swap(u, v);
@@ -50,67 +89,165 @@ private:
     }
   }
 
-  value_type M_fold_one_way(size_type u, size_type v, bool asc);
+  value_type M_fold_one_way(size_type u, size_type v, bool asc) {
+    // fprintf(stderr, "fold1(%zu, %zu, %d)\n", u, v, !!asc);
+    value_type res{};
+    if (asc) {
+      // fprintf(stderr, "asc\n");
+      // for (size_type i = 0; i < M_n; ++i)
+      //   fprintf(stderr, "%d%c", M_fa[i], i+1<M_n? ' ': '\n');
 
-  template <typename Tp>
-  void M_act_one_way(size_type u, size_type v, Tp x, bool asc);
-  // chain の途中で切れる場合とか、上まで行く場合とか、根とか、light で終わる場合とか
-  // ちゃんと気をつけるべきことに気をつける
+      while (M_hp[u] != M_hp[v]) {
+        // fprintf(stderr, "%zu[hp:%zu] to %zu[hp:%zu]\n", u, M_hp[u], v, M_hp[v]);
+        size_type l = M_n-1 - M_in[u];
+        size_type r = M_n-1 - M_in[M_hp[u]];
+        S_fold(res, M_fa.fold(l, r+1), true);
+        u = M_p[M_hp[u]];
+      }
+      size_type l = M_n-1 - M_in[u];
+      size_type r = M_n-1 - M_in[v];
+      S_fold(res, M_fa.fold(l, r), true);
+    } else {
+      while (M_hp[u] != M_hp[v]) {
+        // fprintf(stderr, "%zu[hp:%zu] to %zu[hp:%zu]\n", u, M_hp[u], v, M_hp[v]);
+        size_type l = M_in[M_hp[u]];
+        size_type r = M_in[u];
+        // fprintf(stderr, "l: %zu, r: %zu\n", l, r);
+        S_fold(res, M_fd.fold(l, r+1), false);
+        u = M_p[M_hp[u]];
+      }
+      size_type l = M_in[v]+1;
+      size_type r = M_in[u]+1;
+      // for (size_type i = 0; i < M_n; ++i)
+      //   fprintf(stderr, "%d%c", M_fd[i], i+1<M_n? ' ': '\n');
+      // fprintf(stderr, "fold[%zu, %zu)\n", l, r);
+      S_fold(res, M_fd.fold(l, r), false);
+    }
+    // fprintf(stderr, "returns %d\n", res);
+    return res;
+  }
+
+  // template <typename Tp>
+  // void M_act_one_way(size_type u, size_type v, Tp x, bool asc);
+  // // chain の途中で切れる場合とか、上まで行く場合とか、根とか、light で終わる場合とか
+  // // ちゃんと気をつけるべきことに気をつける
 
   value_type M_fold(size_type u, size_type v) {
     size_type w = M_lca(u, v);
+    // fprintf(stderr, "lca(%zu, %zu): %zu\n", u, v, w);
     value_type resl = M_fold_one_way(u, w, true);
+    // fprintf(stderr, "fold1(%zu, %zu, true): %d\n", u, w, resl);
     value_type resr = M_fold_one_way(v, w, false);
+    // fprintf(stderr, "fold1(%zu, %zu, false): %d\n", v, w, resr);
     if (std::is_same<attribute, value_on_vertex_tag>::value) {
-      resl += M_ea[w];
+      resl += M_fd.fold(M_in[M_p[w]], M_in[w]);
     }
     return resl += resr;
   }
 
-  void M_modify(size_type v, value_type x) {
-  }
-
-  template <typename Tp>
-  void M_act(size_type u, size_type v, Tp x) {
-    size_type w = M_lca(u, v);
-    M_act_one_way.act(u, w, x, true);
-    M_act_one_way.act(v, w, x, false);
-    if (!std::is_same<attribute, value_on_directed_edge_tag>::value) {
-      M_act_one_way.act(v, w, x, true);
-      M_act_one_way.act(u, w, x, false);
-      if (std::is_same<attribute, value_on_vertex_tag>::value) {
-        M_act_one_way(w, M_p[w], x, true);
-        M_act_one_way(w, M_p[w], x, false);
-      }
+  void M_modify(size_type v, value_type x, bool asc) {
+    bool undir = std::is_same<ValueAttribute, value_on_undirected_edge_tag>::value;
+    if (asc || undir) {
+      size_type i = M_n-1 - M_in[v];
+      M_fa.modify(i, x);
+    }
+    if (!asc || undir) {
+      size_type i = M_in[v];
+      M_fd.modify(i, x);
     }
   }
 
+  // template <typename Tp>
+  // void M_act(size_type u, size_type v, Tp x) {
+  //   size_type w = M_lca(u, v);
+  //   M_act_one_way.act(u, w, x, true);
+  //   M_act_one_way.act(v, w, x, false);
+  //   if (!std::is_same<attribute, value_on_directed_edge_tag>::value) {
+  //     M_act_one_way.act(v, w, x, true);
+  //     M_act_one_way.act(u, w, x, false);
+  //     if (std::is_same<attribute, value_on_vertex_tag>::value) {
+  //       M_act_one_way(w, M_p[w], x, true);
+  //       M_act_one_way(w, M_p[w], x, false);
+  //     }
+  //   }
+  // }
+
 public:
   hl_decomposed_tree() = default;
-  explicit hl_decomposed_tree(size_type n): M_n(n) {
-    // on vertex なら ++n
-  }
-
-  // on vertex なら [first, last) で頂点属性与えてもいいか
 
   template <
     typename Va = ValueAttribute,
-    typename std::enable_if<std::is_same<Va, value_on_vertex_tag>::value>
+    typename Tp = typename std::enable_if<std::is_same<Va, value_on_vertex_tag>::value, value_type>::type
+  >
+  hl_decomposed_tree(
+      std::vector<Tp> const& vs,
+      std::vector<std::pair<size_type, size_type>> const& es, size_type r = 0
+  ): M_n(vs.size()+1), M_p(M_n, M_n), M_hp(M_n, r), M_in(M_n) {
+    size_type n = M_n-1;
+    std::vector<std::vector<size_type>> al(M_n);
+    for (auto const& [u, v]: es) {
+      al[u].push_back(v);
+      al[v].push_back(u);
+    }
+    al[r].push_back(n);
+    al[n].push_back(r);
+    M_decompose(al);
+
+    std::vector<value_type> a(M_n), d(M_n);
+    for (size_type i = 0; i < n; ++i) a[M_in[i]] = d[M_in[i]] = vs[i];
+    M_fa.assign(a.rbegin(), a.rend());
+    M_fd.assign(d.begin(), d.end());
+  }
+
+  template <
+    typename Va = ValueAttribute,
+    typename Sz = typename std::enable_if<!std::is_same<Va, value_on_vertex_tag>::value, size_type>::type
+  >
+  hl_decomposed_tree(
+      Sz n, std::vector<std::tuple<size_type, size_type, value_type>> const& es,
+      size_type r = 0
+  ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
+    std::vector<std::vector<size_type>> al(n);
+    bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
+    for (auto const& [u, v, w]: es) {
+      al[u].push_back(v);
+      if (undir) al[v].push_back(u);
+    }
+    M_decompose(al);
+
+    std::vector<value_type> a(n), d(n);
+    for (auto const& [u, v, w]: es) {
+      if (u == M_p[v]) {
+        d[M_in[v]] = w;
+        if (undir) a[M_in[v]] = w;
+      } else {
+        a[M_in[u]] = w;
+        if (undir) d[M_in[u]] = w;
+      }
+    }
+
+    M_fa.assign(a.rbegin(), a.rend());
+    M_fd.assign(d.begin(), d.end());
+  }
+
+  template <
+    typename Va = ValueAttribute,
+    typename std::enable_if<std::is_same<Va, value_on_vertex_tag>::value>::type
   >
   void push(size_type u, size_type v);
 
   template <
     typename Va = ValueAttribute,
-    typename std::enable_if<!std::is_same<Va, value_on_vertex_tag>::value>
+    typename std::enable_if<!std::is_same<Va, value_on_vertex_tag>::value>::type
   >
   void push(size_type u, size_type v, value_type x);
 
   void decompose();
 
   value_type fold(size_type u, size_type v) { return M_fold(u, v); }
-  void modify(size_type v, value_type x) { M_modify(v, x); }
-  template <typename Tp>
-  void act(size_type u, size_type v, Tp x) { M_act(u, v, x); }
+  void modify(size_type v, value_type x, bool asc = true) { M_modify(v, x, asc); }
+  // template <typename Tp>
+  // void act(size_type u, size_type v, Tp x) { M_act(u, v, x); }
 };
 
 #endif  /* !defined(H_heavy_light_decomposition) */
