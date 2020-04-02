@@ -110,13 +110,6 @@ layout: default
 * :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
 
-<div id="e77989ed21758e78331b20e477fc5582"></div>
-
-### dev
-
-* :warning: <a href="library/dev/hld.cpp.html">dev/hld.cpp</a>
-
-
 <div id="157db7df530023575515d366c9b672e8"></div>
 
 ### integer
