@@ -2,6 +2,8 @@
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
+ * @see https://judge.yosupo.jp/problem/vertex_add_path_sum
+ * @see https://judge.yosupo.jp/problem/vertex_set_path_composite
  */
 
 #ifndef H_heavy_light_decomposition
