@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 02:50:21+09:00
+    - Last commit date: 2020-04-04 03:48:07+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
@@ -43,6 +43,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
 
 
 ## Code
@@ -188,15 +189,16 @@ private:
     value_type resl = M_fold_one_way(u, w, true);
     value_type resr = M_fold_one_way(v, w, false);
     if (std::is_same<attribute, value_on_vertex_tag>::value) {
-      resl += M_fd.fold(M_in[M_p[w]], M_in[w]);
+      resl += M_fd.fold(M_in[w], M_in[w]+1);
     }
     return resl += resr;
   }
 
   void M_modify(size_type v, value_type x, bool asc) {
-    bool undir = std::is_same<ValueAttribute, value_on_undirected_edge_tag>::value;
-    if (asc || undir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || undir) M_fd.modify(M_in[v], x);
+    // on directed edges or on vertices
+    bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
+    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.modify(M_in[v], x);
   }
 
   template <typename Tp>
@@ -233,7 +235,7 @@ public:
     }
     al[r].push_back(n);
     al[n].push_back(r);
-    M_decompose(al);
+    M_decompose(al, n);
 
     std::vector<value_type> a(M_n), d(M_n);
     for (size_type i = 0; i < n; ++i) a[M_in[i]] = d[M_in[i]] = vs[i];
@@ -425,15 +427,16 @@ private:
     value_type resl = M_fold_one_way(u, w, true);
     value_type resr = M_fold_one_way(v, w, false);
     if (std::is_same<attribute, value_on_vertex_tag>::value) {
-      resl += M_fd.fold(M_in[M_p[w]], M_in[w]);
+      resl += M_fd.fold(M_in[w], M_in[w]+1);
     }
     return resl += resr;
   }
 
   void M_modify(size_type v, value_type x, bool asc) {
-    bool undir = std::is_same<ValueAttribute, value_on_undirected_edge_tag>::value;
-    if (asc || undir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || undir) M_fd.modify(M_in[v], x);
+    // on directed edges or on vertices
+    bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
+    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.modify(M_in[v], x);
   }
 
   template <typename Tp>
@@ -470,7 +473,7 @@ public:
     }
     al[r].push_back(n);
     al[n].push_back(r);
-    M_decompose(al);
+    M_decompose(al, n);
 
     std::vector<value_type> a(M_n), d(M_n);
     for (size_type i = 0; i < n; ++i) a[M_in[i]] = d[M_in[i]] = vs[i];
