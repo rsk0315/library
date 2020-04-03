@@ -62,6 +62,7 @@
 "test/yj_queue_operate_all_composite.test.cpp": "2020-04-04 04:20:17 +0900",
 "test/yj_range_affine_range_sum.test.cpp": "2020-04-04 02:52:37 +0900",
 "test/yj_range_kth_smallest.test.cpp": "2020-04-03 03:18:31 +0900",
+"test/yj_scc.test.cpp": "2020-04-04 05:05:06 +0900",
 "test/yj_staticrmq.test.cpp": "2020-04-03 03:10:59 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900",
 "test/yj_unionfind.test.cpp": "2020-04-03 03:10:59 +0900",
