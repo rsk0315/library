@@ -25,22 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_vertex_add_path_sum.test.cpp
+# :heavy_check_mark: test/yj_vertex_set_path_composite.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_set_path_composite.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-04 03:57:08+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/vertex_set_path_composite">https://judge.yosupo.jp/problem/vertex_set_path_composite</a>
 
 
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 
 
 ## Code
@@ -48,11 +50,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_set_path_composite"
 
 #define CALL_FROM_TEST
 #include "Graph/hl_decomposition.cpp"
 #include "DataStructure/basic_segment_tree.cpp"
+#include "ModularArithmetic/modint.cpp"
+#include "utility/monoid/composite.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstddef>
@@ -61,12 +65,19 @@ layout: default
 #include <utility>
 #include <vector>
 
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
+
 int main() {
   size_t n, q;
   scanf("%zu %zu", &n, &q);
 
-  std::vector<intmax_t> a(n);
-  for (auto& ai: a) scanf("%jd", &ai);
+  std::vector<composite_monoid<mi>> f(n);
+  for (auto& fi: f) {
+    intmax_t a, b;
+    scanf("%jd %jd", &a, &b);
+    fi = {a, b};
+  }
 
   std::vector<std::pair<size_t, size_t>> es;
   es.reserve(n-1);
@@ -76,21 +87,22 @@ int main() {
     es.emplace_back(u, v);
   }
 
-  hl_decomposed_tree<basic_segment_tree<intmax_t>, value_on_vertex_tag> g(a, es);
+  hl_decomposed_tree<basic_segment_tree<composite_monoid<mi>>, value_on_vertex_tag> g(f, es);
   for (size_t i = 0; i < q; ++i) {
     int t;
     scanf("%d", &t);
 
     if (t == 0) {
       size_t p;
-      intmax_t x;
-      scanf("%zu %jd", &p, &x);
-      a[p] += x;
-      g.modify(p, a[p]);
+      intmax_t c, d;
+      scanf("%zu %jd %jd", &p, &c, &d);
+      f[p] = {c, d};
+      g.modify(p, f[p]);
     } else if (t == 1) {
       size_t u, v;
-      scanf("%zu %zu", &u, &v);
-      printf("%jd\n", g.fold(u, v));
+      intmax_t x;
+      scanf("%zu %zu %jd", &u, &v, &x);
+      printf("%jd\n", g.fold(u, v)(x).get());
     }
   }
 }
@@ -101,8 +113,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yj_vertex_add_path_sum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#line 1 "test/yj_vertex_set_path_composite.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_set_path_composite"
 
 #define CALL_FROM_TEST
 #line 1 "Graph/hl_decomposition.cpp"
@@ -471,21 +483,209 @@ public:
 };
 
 #endif  /* !defined(H_basic_segment_tree) */
-#line 6 "test/yj_vertex_add_path_sum.test.cpp"
+#line 1 "ModularArithmetic/modint.cpp"
+/**
+ * @brief 合同算術用クラス
+ * @author えびちゃん
+ */
+
+#ifndef H_modint
+#define H_modint
+
+#include <cstdint>
+#include <type_traits>
+#include <utility>
+
+template <intmax_t Modulo>
+class modint {
+public:
+  using value_type = intmax_t;
+
+private:
+  static constexpr value_type S_cmod = Modulo;  // compile-time
+  static value_type S_rmod;  // runtime
+  value_type M_value = 0;
+
+  static constexpr value_type S_inv(value_type n, value_type m) {
+    value_type x = 0;
+    value_type y = 1;
+    value_type a = n;
+    value_type b = m;
+    for (value_type u = y, v = x; a;) {
+      value_type q = b / a;
+      std::swap(x -= q*u, u);
+      std::swap(y -= q*v, v);
+      std::swap(b -= q*a, a);
+    }
+    if ((x %= m) < 0) x += m;
+    return x;
+  }
+
+  static value_type S_normalize(value_type n, value_type m) {
+    if (n >= m) {
+      n %= m;
+    } else if (n < 0) {
+      if ((n %= m) < 0) n += m;
+    }
+    return n;
+  }
+
+public:
+  modint() = default;
+  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+
+  modint& operator =(value_type n) {
+    M_value = S_normalize(n, get_modulo());
+    return *this;
+  }
+
+  modint& operator +=(modint const& that) {
+    if ((M_value += that.M_value) >= get_modulo()) M_value -= get_modulo();
+    return *this;
+  }
+  modint& operator -=(modint const& that) {
+    if ((M_value -= that.M_value) < 0) M_value += get_modulo();
+    return *this;
+  }
+  modint& operator *=(modint const& that) {
+    (M_value *= that.M_value) %= get_modulo();
+    return *this;
+  }
+  modint& operator /=(modint const& that) {
+    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    return *this;
+  }
+
+  modint operator +(modint const& that) const { return modint(*this) += that; }
+  modint operator -(modint const& that) const { return modint(*this) -= that; }
+  modint operator *(modint const& that) const { return modint(*this) *= that; }
+  modint operator /(modint const& that) const { return modint(*this) /= that; }
+
+  modint operator +() const { return *this; }
+  modint operator -() const {
+    if (M_value == 0) return *this;
+    return modint(get_modulo() - M_value);
+  }
+
+  bool operator ==(modint const& that) const { return M_value == that.M_value; }
+  bool operator !=(modint const& that) const { return !(*this == that); }
+
+  value_type get() const { return M_value; }
+  value_type get_modulo() const { return ((S_cmod > 0)? S_cmod: S_rmod); }
+
+  template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
+  static Tp set_modulo(value_type m) { S_rmod = m; }
+};
+
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator +(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs + lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator -(Tp const& lhs, modint<Modulo> const& rhs) {
+  return -(rhs - lhs);
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator *(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs * lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator /(Tp const& lhs, modint<Modulo> const& rhs) {
+  return modint<Modulo>(lhs) / rhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator ==(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs == lhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
+  return !(lhs == rhs);
+}
+
+template <intmax_t N>
+constexpr intmax_t modint<N>::S_cmod;
+template <intmax_t N>
+intmax_t modint<N>::S_rmod;
+
+#ifndef CALL_FROM_TEST
+// constexpr intmax_t mod = 1000'000'007;
+// constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
+#endif
+
+#endif  /* !defined(H_modint) */
+#line 1 "utility/monoid/composite.cpp"
+/**
+ * @brief 一次関数の合成を得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <algorithm>
+#include <utility>
+
+#ifndef H_composite_monoid
+#define H_composite_monoid
+
+template <typename Tp>
+class composite_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  value_type M_a = 1;
+  value_type M_b = 0;
+
+public:
+  composite_monoid() = default;  // identity
+
+  composite_monoid(value_type a, value_type b): M_a(a), M_b(b) {};
+
+  composite_monoid& operator +=(composite_monoid that) {
+    M_a *= that.M_a;
+    M_b *= that.M_a;
+    M_b += that.M_b;
+    return *this;
+  }
+
+  composite_monoid operator +(composite_monoid const& that) const {
+    return composite_monoid(*this) += that;
+  }
+  composite_monoid operator +(composite_monoid&& that) const {
+    return composite_monoid(*this) += std::move(that);
+  }
+
+  bool operator ==(composite_monoid const& that) const {
+    return (M_a == that.M_a && M_b == that.M_b);
+  }
+  bool operator !=(composite_monoid const& that) const { return !(*this == that); }
+
+  auto get() const { return std::make_pair(M_a, M_b); }
+  value_type operator ()(value_type x) const { return M_a * x + M_b; }
+};
+
+#endif  /* !defined(H_composite_monoid) */
+#line 8 "test/yj_vertex_set_path_composite.test.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
-#include <utility>
+#line 14 "test/yj_vertex_set_path_composite.test.cpp"
 #include <vector>
+
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
 
 int main() {
   size_t n, q;
   scanf("%zu %zu", &n, &q);
 
-  std::vector<intmax_t> a(n);
-  for (auto& ai: a) scanf("%jd", &ai);
+  std::vector<composite_monoid<mi>> f(n);
+  for (auto& fi: f) {
+    intmax_t a, b;
+    scanf("%jd %jd", &a, &b);
+    fi = {a, b};
+  }
 
   std::vector<std::pair<size_t, size_t>> es;
   es.reserve(n-1);
@@ -495,21 +695,22 @@ int main() {
     es.emplace_back(u, v);
   }
 
-  hl_decomposed_tree<basic_segment_tree<intmax_t>, value_on_vertex_tag> g(a, es);
+  hl_decomposed_tree<basic_segment_tree<composite_monoid<mi>>, value_on_vertex_tag> g(f, es);
   for (size_t i = 0; i < q; ++i) {
     int t;
     scanf("%d", &t);
 
     if (t == 0) {
       size_t p;
-      intmax_t x;
-      scanf("%zu %jd", &p, &x);
-      a[p] += x;
-      g.modify(p, a[p]);
+      intmax_t c, d;
+      scanf("%zu %jd %jd", &p, &c, &d);
+      f[p] = {c, d};
+      g.modify(p, f[p]);
     } else if (t == 1) {
       size_t u, v;
-      scanf("%zu %zu", &u, &v);
-      printf("%jd\n", g.fold(u, v));
+      intmax_t x;
+      scanf("%zu %zu %jd", &u, &v, &x);
+      printf("%jd\n", g.fold(u, v)(x).get());
     }
   }
 }

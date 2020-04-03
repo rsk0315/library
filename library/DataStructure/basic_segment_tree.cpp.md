@@ -45,6 +45,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
