@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_queue.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 04:45:44+09:00
+    - Last commit date: 2020-04-04 04:20:17+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
 
 
 ## Code
@@ -74,10 +75,9 @@ private:
       M_back.pop();
     }
     while (!M_back.empty()) {
-      value_type tmp = M_front.top();
-      tmp += std::move(M_back.top());
+      M_back.top() += M_front.top();
+      M_front.push(std::move(M_back.top()));
       M_back.pop();
-      M_front.push(std::move(tmp));
     }
     M_back_folded = value_type{};
   }
@@ -87,8 +87,14 @@ public:
   bool empty() const noexcept { return M_front.empty() && M_back.empty(); }
 
   void push(value_type const& x) {
-    M_back_folded += x;
     M_back.push(x);
+    M_back_folded += M_back.top();
+  }
+
+  template <typename... Args>
+  void emplace(Args&&... args) {
+    M_back.emplace(std::forward<Args>(args)...);
+    M_back_folded += M_back.top();
   }
 
   void pop() {
@@ -139,10 +145,9 @@ private:
       M_back.pop();
     }
     while (!M_back.empty()) {
-      value_type tmp = M_front.top();
-      tmp += std::move(M_back.top());
+      M_back.top() += M_front.top();
+      M_front.push(std::move(M_back.top()));
       M_back.pop();
-      M_front.push(std::move(tmp));
     }
     M_back_folded = value_type{};
   }
@@ -152,8 +157,14 @@ public:
   bool empty() const noexcept { return M_front.empty() && M_back.empty(); }
 
   void push(value_type const& x) {
-    M_back_folded += x;
     M_back.push(x);
+    M_back_folded += M_back.top();
+  }
+
+  template <typename... Args>
+  void emplace(Args&&... args) {
+    M_back.emplace(std::forward<Args>(args)...);
+    M_back_folded += M_back.top();
   }
 
   void pop() {
