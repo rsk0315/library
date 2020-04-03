@@ -26,10 +26,9 @@ private:
       M_back.pop();
     }
     while (!M_back.empty()) {
-      value_type tmp = M_front.top();
-      tmp += std::move(M_back.top());
+      M_back.top() += M_front.top();
+      M_front.push(std::move(M_back.top()));
       M_back.pop();
-      M_front.push(std::move(tmp));
     }
     M_back_folded = value_type{};
   }
@@ -39,8 +38,14 @@ public:
   bool empty() const noexcept { return M_front.empty() && M_back.empty(); }
 
   void push(value_type const& x) {
-    M_back_folded += x;
     M_back.push(x);
+    M_back_folded += M_back.top();
+  }
+
+  template <typename... Args>
+  void emplace(Args&&... args) {
+    M_back.emplace(std::forward<Args>(args)...);
+    M_back_folded += M_back.top();
   }
 
   void pop() {
