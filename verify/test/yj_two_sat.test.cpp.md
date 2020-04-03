@@ -25,21 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 2-SAT <small>(Graph/two_sat.cpp)</small>
+# :heavy_check_mark: test/yj_two_sat.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/two_sat.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_two_sat.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-04 05:20:06+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/two_sat">https://judge.yosupo.jp/problem/two_sat</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code
@@ -47,72 +50,43 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-/**
- * @brief 2-SAT
- * @author えびちゃん
- */
+#define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
-#ifndef H_two_sat
-#define H_two_sat
-
-#ifdef CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/scc.cpp"
-#endif
+#define CALL_FROM_TEST
+#include "Graph/two_sat.cpp"
+#undef CALL_FROM_TEST
 
 #include <cstddef>
+#include <cstdio>
+#include <algorithm>
+#include <string>
 #include <vector>
 
-class two_sat {
-public:
-  using size_type = size_t;
+int main() {
+  size_t n, m;
+  scanf("p cnf %zu %zu", &n, &m);
 
-private:
-  size_type M_n;
-  adjacency_list<weighted_edge<bool>, directed_tag> M_g;
-  std::vector<size_type> M_scc;
-  bool M_sat;
-
-  void M_solve() {
-    if (!M_scc.empty()) return;
-    M_scc = strongly_connected_components(M_g);
-    for (size_type i = 0; i < M_n; ++i)
-      if (M_scc[i] == M_scc[i+M_n]) {
-        M_sat = false;
-        return;
-      }
-    M_sat = true;
+  two_sat ts(n);
+  for (size_t i = 0; i < m; ++i) {
+    int a, b;
+    scanf("%d %d 0", &a, &b);
+    bool pa = (a > 0);
+    bool pb = (b > 0);
+    a = (pa? a: -a) - 1;
+    b = (pb? b: -b) - 1;
+    ts.push(a, pa, b, pb);
   }
 
-public:
-  two_sat() = default;
-  explicit two_sat(size_type n): M_n(n), M_g(n+n) {}
+  if (!ts.satisfiable())
+    return puts("s UNSATISFIABLE"), 0;
 
-  void push(size_type i, bool bi, size_type j, bool bj) {
-    M_scc.clear();
-
-    size_type not_i = i + M_n;
-    size_type not_j = j + M_n;
-    if (!bi) std::swap(i, not_i);
-    if (!bj) std::swap(j, not_j);
-
-    // i or j, (not i => j, not j => i)
-    M_g.emplace(not_i, j, 1);
-    M_g.emplace(not_j, i, 1);
+  puts("s SATISFIABLE");
+  printf("v");
+  for (size_t i = 0; i < n; ++i) {
+    printf(" %s%zu", ts[i]? "": "-", i+1);
   }
-
-  bool satisfiable() {
-    M_solve();
-    return M_sat;    
-  }
-
-  bool operator [](size_type i) {
-    M_solve();
-    return M_scc[i+M_n] < M_scc[i];
-  }
-};
-
-#endif  /* !defined(H_two_sat) */
+  puts(" 0");
+}
 
 ```
 {% endraw %}
@@ -125,6 +99,8 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
     bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
 onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/two_sat.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards

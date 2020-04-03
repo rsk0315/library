@@ -49,6 +49,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 
 
 ## Code

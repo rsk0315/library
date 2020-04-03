@@ -230,6 +230,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
