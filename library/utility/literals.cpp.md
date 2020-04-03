@@ -53,6 +53,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
