@@ -21,5 +21,6 @@
 "test/yj_range_kth_smallest.test.cpp": "2020-04-03 03:17:36 +0900",
 "test/yj_staticrmq.test.cpp": "2020-04-03 03:06:06 +0900",
 "test/yj_unionfind.test.cpp": "2020-04-03 03:01:05 +0900",
-"test/yj_vertex_add_path_sum.test.cpp": "2020-04-04 03:46:11 +0900"
+"test/yj_vertex_add_path_sum.test.cpp": "2020-04-04 03:46:11 +0900",
+"test/yj_vertex_set_path_composite.test.cpp": "2020-04-04 03:54:31 +0900"
 }

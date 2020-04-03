@@ -3,7 +3,6 @@
 #define CALL_FROM_TEST
 #include "Graph/hl_decomposition.cpp"
 #include "DataStructure/basic_segment_tree.cpp"
-#include "utility/stack_extend.cpp"
 #undef CALL_FROM_TEST
 
 #include <cstddef>
@@ -13,8 +12,6 @@
 #include <vector>
 
 int main() {
-  BEGIN_STACK_EXTEND(256*1024*1024);
-
   size_t n, q;
   scanf("%zu %zu", &n, &q);
 
@@ -46,6 +43,4 @@ int main() {
       printf("%jd\n", g.fold(u, v));
     }
   }
-
-  END_STACK_EXTEND;
 }
