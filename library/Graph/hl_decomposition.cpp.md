@@ -31,12 +31,10 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 03:48:07+09:00
+    - Last commit date: 2020-04-04 06:33:31+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
-* see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
-* see: <a href="https://judge.yosupo.jp/problem/vertex_set_path_composite">https://judge.yosupo.jp/problem/vertex_set_path_composite</a>
 
 
 ## Verified with
@@ -56,8 +54,6 @@ layout: default
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
- * @see https://judge.yosupo.jp/problem/vertex_add_path_sum
- * @see https://judge.yosupo.jp/problem/vertex_set_path_composite
  */
 
 #ifndef H_heavy_light_decomposition
@@ -294,8 +290,6 @@ public:
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
- * @see https://judge.yosupo.jp/problem/vertex_add_path_sum
- * @see https://judge.yosupo.jp/problem/vertex_set_path_composite
  */
 
 #ifndef H_heavy_light_decomposition

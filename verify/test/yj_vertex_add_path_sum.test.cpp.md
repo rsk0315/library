@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 03:57:08+09:00
+    - Last commit date: 2020-04-04 06:33:31+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -110,8 +110,6 @@ int main() {
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
- * @see https://judge.yosupo.jp/problem/vertex_add_path_sum
- * @see https://judge.yosupo.jp/problem/vertex_set_path_composite
  */
 
 #ifndef H_heavy_light_decomposition

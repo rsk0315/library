@@ -60,8 +60,6 @@ layout: default
 適宜 deduction guide も置いておくと後々うれしくなりそう
 
 ## 文字列
-- Z algorithm
-- KMP
 - suffix array
   - 機能を増やす
 - Manacher
@@ -73,17 +71,17 @@ layout: default
 - Bellman-Ford
 - 0/1 BFS
 - トポロジカルソート
-- HL 分解
+  - verify
 - 最小費用流
 - 全方位木 DP
+  - 頂点属性？
+  - https://codeforces.com/contest/1324/problem/F
 - Euler tour (いる？)
 
 ## 数学
 - 行列
-- 中国剰余定理
-  - Garner も
 - 多項式諸々
-  - FFT のインタフェースをまともに
+  - 補間
 - BSGS
 - $\mathbb{Z}_p$ での位数
 
