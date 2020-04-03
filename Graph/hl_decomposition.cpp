@@ -136,15 +136,16 @@ private:
     value_type resl = M_fold_one_way(u, w, true);
     value_type resr = M_fold_one_way(v, w, false);
     if (std::is_same<attribute, value_on_vertex_tag>::value) {
-      resl += M_fd.fold(M_in[M_p[w]], M_in[w]);
+      resl += M_fd.fold(M_in[w], M_in[w]+1);
     }
     return resl += resr;
   }
 
   void M_modify(size_type v, value_type x, bool asc) {
-    bool undir = std::is_same<ValueAttribute, value_on_undirected_edge_tag>::value;
-    if (asc || undir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || undir) M_fd.modify(M_in[v], x);
+    // on directed edges or on vertices
+    bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
+    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.modify(M_in[v], x);
   }
 
   template <typename Tp>
@@ -181,7 +182,7 @@ public:
     }
     al[r].push_back(n);
     al[n].push_back(r);
-    M_decompose(al);
+    M_decompose(al, n);
 
     std::vector<value_type> a(M_n), d(M_n);
     for (size_type i = 0; i < n; ++i) a[M_in[i]] = d[M_in[i]] = vs[i];
