@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: min を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small>
+# :heavy_check_mark: 一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/composite.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 22:05:18+09:00
+    - Last commit date: 2020-04-04 02:52:37+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -47,19 +48,15 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief min を得る演算のモノイド
+ * @brief 一次関数の合成を得る演算のモノイド
  * @author えびちゃん
  */
-
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
 
 #include <algorithm>
 #include <utility>
 
-#ifndef H_min_monoid
-#define H_min_monoid
+#ifndef H_composite_monoid
+#define H_composite_monoid
 
 template <typename Tp>
 class composite_monoid {
@@ -89,6 +86,12 @@ public:
     return composite_monoid(*this) += std::move(that);
   }
 
+  bool operator ==(composite_monoid const& that) const {
+    return (M_a == that.M_a && M_b == that.M_b);
+  }
+  bool operator !=(composite_monoid const& that) const { return !(*this == that); }
+
+  auto get() const { return std::make_pair(M_a, M_b); }
   value_type operator ()(value_type x) const { return M_a * x + M_b; }
 };
 
@@ -100,14 +103,56 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/monoid/composite.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "utility/monoid/composite.cpp"
+/**
+ * @brief 一次関数の合成を得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <algorithm>
+#include <utility>
+
+#ifndef H_composite_monoid
+#define H_composite_monoid
+
+template <typename Tp>
+class composite_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  value_type M_a = 1;
+  value_type M_b = 0;
+
+public:
+  composite_monoid() = default;  // identity
+
+  composite_monoid(value_type a, value_type b): M_a(a), M_b(b) {};
+
+  composite_monoid& operator +=(composite_monoid that) {
+    M_a *= that.M_a;
+    M_b *= that.M_a;
+    M_b += that.M_b;
+    return *this;
+  }
+
+  composite_monoid operator +(composite_monoid const& that) const {
+    return composite_monoid(*this) += that;
+  }
+  composite_monoid operator +(composite_monoid&& that) const {
+    return composite_monoid(*this) += std::move(that);
+  }
+
+  bool operator ==(composite_monoid const& that) const {
+    return (M_a == that.M_a && M_b == that.M_b);
+  }
+  bool operator !=(composite_monoid const& that) const { return !(*this == that); }
+
+  auto get() const { return std::make_pair(M_a, M_b); }
+  value_type operator ()(value_type x) const { return M_a * x + M_b; }
+};
+
+#endif  /* !defined(H_composite_monoid) */
 
 ```
 {% endraw %}

@@ -51,7 +51,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
-* :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 
@@ -142,6 +142,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
@@ -156,7 +157,7 @@ layout: default
 
 ### utility/monoid
 
-* :heavy_check_mark: <a href="library/utility/monoid/composite.cpp.html">min を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
@@ -222,6 +223,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>

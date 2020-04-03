@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 02:53:48+09:00
+    - Last commit date: 2020-04-04 02:52:37+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>

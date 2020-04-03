@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small>
+# :heavy_check_mark: 区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 01:39:59+09:00
+    - Last commit date: 2020-04-04 02:52:37+09:00
 
 
 
@@ -41,6 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -49,7 +50,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @brief 区間更新区間和セグメント木
+ * @brief 区間作用・区間和セグメント木
  * @author えびちゃん
  */
 
@@ -150,6 +151,8 @@ public:
     r += M_n;
     size_type l0 = l;
     size_type r0 = r;
+    M_resolve(l0);
+    M_resolve(r0-1);
     while (l < r) {
       if (l & 1) M_apply(l++, x);
       if (r & 1) M_apply(--r, x);

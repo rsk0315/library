@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_G.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 01:39:59+09:00
+    - Last commit date: 2020-04-04 02:52:37+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間更新区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
