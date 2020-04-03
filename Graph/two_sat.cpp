@@ -37,13 +37,7 @@ private:
 
 public:
   two_sat() = default;
-  two_sat(two_sat const&) = default;
-  two_sat(two_sat&&) = default;
-
-  two_sat(size_type n): M_n(n), M_g(n+n) {}
-
-  two_sat& operator =(two_sat const&) = default;
-  two_sat& operator =(two_sat&&) = default;
+  explicit two_sat(size_type n): M_n(n), M_g(n+n) {}
 
   void push(size_type i, bool bi, size_type j, bool bj) {
     M_scc.clear();
