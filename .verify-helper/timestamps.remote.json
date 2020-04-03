@@ -63,5 +63,6 @@
 "test/yj_staticrmq.test.cpp": "2020-04-03 03:10:59 +0900",
 "test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900",
 "test/yj_unionfind.test.cpp": "2020-04-03 03:10:59 +0900",
-"test/yj_vertex_add_path_sum.test.cpp": "2020-04-04 03:48:07 +0900"
+"test/yj_vertex_add_path_sum.test.cpp": "2020-04-04 03:57:08 +0900",
+"test/yj_vertex_set_path_composite.test.cpp": "2020-04-04 03:57:08 +0900"
 }
