@@ -1,5 +1,5 @@
 /**
- * @brief 区間更新区間和セグメント木
+ * @brief 区間作用・区間和セグメント木
  * @author えびちゃん
  */
 
@@ -100,6 +100,8 @@ public:
     r += M_n;
     size_type l0 = l;
     size_type r0 = r;
+    M_resolve(l0);
+    M_resolve(r0-1);
     while (l < r) {
       if (l & 1) M_apply(l++, x);
       if (r & 1) M_apply(--r, x);

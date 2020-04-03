@@ -1,17 +1,13 @@
 /**
- * @brief min を得る演算のモノイド
+ * @brief 一次関数の合成を得る演算のモノイド
  * @author えびちゃん
  */
-
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
 
 #include <algorithm>
 #include <utility>
 
-#ifndef H_min_monoid
-#define H_min_monoid
+#ifndef H_composite_monoid
+#define H_composite_monoid
 
 template <typename Tp>
 class composite_monoid {
@@ -41,6 +37,12 @@ public:
     return composite_monoid(*this) += std::move(that);
   }
 
+  bool operator ==(composite_monoid const& that) const {
+    return (M_a == that.M_a && M_b == that.M_b);
+  }
+  bool operator !=(composite_monoid const& that) const { return !(*this == that); }
+
+  auto get() const { return std::make_pair(M_a, M_b); }
   value_type operator ()(value_type x) const { return M_a * x + M_b; }
 };
 
