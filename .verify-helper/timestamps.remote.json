@@ -56,5 +56,9 @@
 "test/yj_inv_of_formal_power_series.test.cpp": "2020-03-30 14:58:09 +0900",
 "test/yj_many_aplusb.test.cpp": "2020-03-30 15:31:16 +0900",
 "test/yj_multipoint_evaluation.test.cpp": "2020-03-30 14:58:09 +0900",
-"test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900"
+"test/yj_point_add_range_sum.test.cpp": "2020-04-03 03:10:59 +0900",
+"test/yj_range_kth_smallest.test.cpp": "2020-04-03 03:18:31 +0900",
+"test/yj_staticrmq.test.cpp": "2020-04-03 03:10:59 +0900",
+"test/yj_suffixarray.test.cpp": "2020-03-02 03:56:13 +0900",
+"test/yj_unionfind.test.cpp": "2020-04-03 03:10:59 +0900"
 }
