@@ -227,6 +227,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>

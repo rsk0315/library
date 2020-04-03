@@ -48,6 +48,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
 
 
 ## Code
