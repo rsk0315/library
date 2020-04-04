@@ -25,23 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_convolution_mod.test.cpp
+# :heavy_check_mark: 補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yj_convolution_mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:05:36+09:00
+* category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
+* <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/interpolation.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-04 20:25:55+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
 
 
-## Depends on
+## Verified with
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 
 
 ## Code
@@ -49,32 +46,41 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+/**
+ * @brief 補間多項式
+ * @author えびちゃん
+ */
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
+#ifndef H_interpolation
+#define H_interpolation
+
+#ifdef CALL_FROM_TEST
 #include "ModularArithmetic/polynomial.cpp"
-#undef CALL_FROM_TEST
+#include "integer/bit.cpp"
+#endif
 
-#include <cstdio>
+#include <cstddef>
 #include <vector>
 
-using mi = modint<998244353>;
+template <typename ModInt>
+polynomial<ModInt> interpolate(std::vector<ModInt> const& xs, std::vector<ModInt> const& ys) {
+  size_t n = xs.size();
+  size_t n2 = ceil2(n);
+  std::vector<polynomial<ModInt>> mul(n2+n2, {1}), g(n2+n2);
+  for (size_t i = 0; i < n; ++i) mul[n2+i] = {-xs[i], 1};
+  for (size_t i = n2; i-- > 1;) mul[i] = mul[i<<1|0] * mul[i<<1|1];
 
-int main() {
-  size_t n, m;
-  scanf("%zu %zu", &n, &m);
+  auto f = mul[1];
+  f.differentiate();
 
-  std::vector<int> a(n), b(m);
-  for (auto& ai: a) scanf("%d", &ai);
-  for (auto& bi: b) scanf("%d", &bi);
-
-  polynomial<mi> f(a.begin(), a.end()), g(b.begin(), b.end());
-  f *= g;
-
-  for (size_t i = 0; i+1 < n+m; ++i)
-    printf("%jd%c", f[i].get(), i+2<n+m? ' ': '\n');
+  g[1] = f % mul[1];
+  for (size_t i = 2; i < n2+n; ++i) g[i] = g[i>>1] % mul[i];
+  for (size_t i = 0; i < n; ++i) g[n2+i] = {ys[i] / g[n2+i][0]};
+  for (size_t i = n2; i--;) g[i] = g[i<<1|0] * mul[i<<1|1] + g[i<<1|1] * mul[i<<1|0];
+  return g[1];
 }
+
+#endif  /* !defined(H_interpolation) */
 
 ```
 {% endraw %}
@@ -87,11 +93,9 @@ Traceback (most recent call last):
     bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
     bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/polynomial.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/interpolation.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

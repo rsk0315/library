@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_convolution_mod.test.cpp
+# :heavy_check_mark: test/yj_polynomial_interpolation.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yj_convolution_mod.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:05:36+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_polynomial_interpolation.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-04 20:25:55+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
+* see: <a href="https://judge.yosupo.jp/problem/polynomial_interpolation">https://judge.yosupo.jp/problem/polynomial_interpolation</a>
 
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
@@ -49,31 +50,39 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+#define PROBLEM "https://judge.yosupo.jp/problem/polynomial_interpolation"
+
+#include <cstdio>
+#include <string>
 
 #define CALL_FROM_TEST
 #include "ModularArithmetic/modint.cpp"
 #include "ModularArithmetic/polynomial.cpp"
+#include "ModularArithmetic/interpolation.cpp"
 #undef CALL_FROM_TEST
 
+#include <cstddef>
+#include <cstdint>
 #include <cstdio>
+#include <algorithm>
 #include <vector>
 
-using mi = modint<998244353>;
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
 
 int main() {
-  size_t n, m;
-  scanf("%zu %zu", &n, &m);
+  size_t n;
+  scanf("%zu", &n);
 
-  std::vector<int> a(n), b(m);
-  for (auto& ai: a) scanf("%d", &ai);
-  for (auto& bi: b) scanf("%d", &bi);
+  std::vector<intmax_t> x(n), y(n);
+  for (auto& xi: x) scanf("%jd", &xi);
+  for (auto& yi: y) scanf("%jd", &yi);
 
-  polynomial<mi> f(a.begin(), a.end()), g(b.begin(), b.end());
-  f *= g;
+  std::vector<mi> xs(x.begin(), x.end()), ys(y.begin(), y.end());
+  auto f = interpolate(xs, ys);
 
-  for (size_t i = 0; i+1 < n+m; ++i)
-    printf("%jd%c", f[i].get(), i+2<n+m? ' ': '\n');
+  for (size_t i = 0; i < n; ++i)
+    printf("%jd%c", f[i].get(), i+1<n? ' ': '\n');
 }
 
 ```

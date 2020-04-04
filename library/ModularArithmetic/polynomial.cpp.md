@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:58:09+09:00
+    - Last commit date: 2020-04-04 20:05:36+09:00
 
 
 
@@ -42,6 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 
 
 ## Code
@@ -202,11 +203,27 @@ public:
     for (size_type i = m+m; i--;)
       if (vis[i]) vis[i>>1] = true;
     for (size_type i = 1; i < m+m; ++i)
-      if (!vis[i]) mul[i] = mul[i >> 1] % mul[i];
+      if (!vis[i]) mul[i] = mul[i>>1] % mul[i];
 
     std::vector<value_type> ys(m);
     for (size_type i = 0; i < m; ++i) ys[i] = mul[m+i][0];
     return ys;
+  }
+
+  void differentiate() {
+    for (size_type i = 0; i+1 < M_f.size(); ++i) M_f[i] = (i+1) * M_f[i+1];
+    if (!M_f.empty()) M_f.pop_back();
+  }
+
+  void integrate(value_type c = 0) {
+    // for (size_type i = 0; i < M_f.size(); ++i) M_f[i] /= i+1;
+    size_type n = M_f.size();
+    std::vector<value_type> inv(n+1, 1);
+    auto mod = value_type::get_modulo();
+    for (size_type i = 1; i <= n; ++i)
+      inv[i] = -value_type(mod / i) * inv[mod % i];
+    for (size_type i = 0; i < n; ++i) M_f[i] *= inv[i+1];
+    if (!(c == 0 && M_f.empty())) M_f.insert(M_f.begin(), c);
   }
 
   polynomial& operator +=(polynomial const& that) {
@@ -228,6 +245,10 @@ public:
   }
 
   polynomial& operator *=(polynomial that) {
+    if (zero() || that.zero()) {
+      M_f.clear();
+      return *this;
+    }
     if (that.M_f.size() == 1) {
       // scalar multiplication
       auto m = that.M_f[0];
@@ -285,6 +306,9 @@ public:
     return *this;
   }
 
+  polynomial operator +(polynomial const& that) const {
+    return polynomial(*this) += that;
+  }
   polynomial operator -(polynomial const& that) const {
     return polynomial(*this) -= that;
   }
@@ -301,6 +325,8 @@ public:
   value_type const operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
   }
+
+  bool zero() const noexcept { return M_f.empty(); }
 };
 
 #endif  /* !defined(H_mod_polynomial) */
