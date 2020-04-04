@@ -77,4 +77,13 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
   }
 }
 
+template <typename ModPolynomial>
+ModPolynomial log(ModPolynomial const& f) {
+  auto g = f;
+  g.differentiate();
+  g *= f.inverse(f.degree()+1);
+  g.integrate();
+  return g;
+}
+
 #endif  /* !defined(H_mod_operations) */
