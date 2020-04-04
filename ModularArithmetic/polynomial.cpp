@@ -151,11 +151,27 @@ public:
     for (size_type i = m+m; i--;)
       if (vis[i]) vis[i>>1] = true;
     for (size_type i = 1; i < m+m; ++i)
-      if (!vis[i]) mul[i] = mul[i >> 1] % mul[i];
+      if (!vis[i]) mul[i] = mul[i>>1] % mul[i];
 
     std::vector<value_type> ys(m);
     for (size_type i = 0; i < m; ++i) ys[i] = mul[m+i][0];
     return ys;
+  }
+
+  void differentiate() {
+    for (size_type i = 0; i+1 < M_f.size(); ++i) M_f[i] = (i+1) * M_f[i+1];
+    if (!M_f.empty()) M_f.pop_back();
+  }
+
+  void integrate(value_type c = 0) {
+    // for (size_type i = 0; i < M_f.size(); ++i) M_f[i] /= i+1;
+    size_type n = M_f.size();
+    std::vector<value_type> inv(n+1, 1);
+    auto mod = value_type::get_modulo();
+    for (size_type i = 1; i <= n; ++i)
+      inv[i] = -value_type(mod / i) * inv[mod % i];
+    for (size_type i = 0; i < n; ++i) M_f[i] *= inv[i+1];
+    if (!(c == 0 && M_f.empty())) M_f.insert(M_f.begin(), c);
   }
 
   polynomial& operator +=(polynomial const& that) {
@@ -177,6 +193,10 @@ public:
   }
 
   polynomial& operator *=(polynomial that) {
+    if (zero() || that.zero()) {
+      M_f.clear();
+      return *this;
+    }
     if (that.M_f.size() == 1) {
       // scalar multiplication
       auto m = that.M_f[0];
@@ -234,6 +254,9 @@ public:
     return *this;
   }
 
+  polynomial operator +(polynomial const& that) const {
+    return polynomial(*this) += that;
+  }
   polynomial operator -(polynomial const& that) const {
     return polynomial(*this) -= that;
   }
@@ -250,6 +273,8 @@ public:
   value_type const operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
   }
+
+  bool zero() const noexcept { return M_f.empty(); }
 };
 
 #endif  /* !defined(H_mod_polynomial) */
