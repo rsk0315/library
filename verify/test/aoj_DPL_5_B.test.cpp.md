@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:53:49+09:00
+    - Last commit date: 2020-04-04 20:53:29+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 
 
 ## Code
@@ -166,7 +166,7 @@ public:
   bool operator !=(modint const& that) const { return !(*this == that); }
 
   value_type get() const { return M_value; }
-  value_type get_modulo() const { return ((S_cmod > 0)? S_cmod: S_rmod); }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
 
   template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
   static Tp set_modulo(value_type m) { S_rmod = m; }

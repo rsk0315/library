@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/operations.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:53:49+09:00
+    - Last commit date: 2020-04-05 01:11:44+09:00
 
 
 
@@ -43,6 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 
 
 ## Code
@@ -127,6 +128,15 @@ std::vector<ModInt> sqrt_all(ModInt const& n) {
   } catch (std::logic_error const&) {
     return {};
   }
+}
+
+template <typename ModPolynomial>
+ModPolynomial log(ModPolynomial const& f) {
+  auto g = f;
+  g.differentiate();
+  g *= f.inverse(f.degree()+1);
+  g.integrate();
+  return g;
 }
 
 #endif  /* !defined(H_mod_operations) */

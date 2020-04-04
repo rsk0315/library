@@ -25,23 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DPL_5_C.test.cpp
+# :heavy_check_mark: test/yj_log_of_formal_power_series.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_C.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_log_of_formal_power_series.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-05 01:11:44+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_C</a>
+* see: <a href="https://judge.yosupo.jp/problem/log_of_formal_power_series">https://judge.yosupo.jp/problem/log_of_formal_power_series</a>
 
 
 ## Depends on
 
 * :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 * :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
@@ -50,33 +50,30 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_C"
+#define PROBLEM "https://judge.yosupo.jp/problem/log_of_formal_power_series"
 
 #define CALL_FROM_TEST
 #include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/modtable.cpp"
+#include "ModularArithmetic/polynomial.cpp"
 #include "ModularArithmetic/operations.cpp"
 #undef CALL_FROM_TEST
 
-using mi = modint<1000'000'007>;
-
 #include <cstdio>
+#include <algorithm>
+
+using mi = modint<998244353>;
 
 int main() {
-  intmax_t n, k;
-  scanf("%jd %jd", &n, &k);
+  size_t n;
+  scanf("%zu", &n);
 
-  modtable<mi> mt(k);
-  mi res = 0;
-  for (int i = 1; i <= k; ++i) {
-    mi cur = mt.binom(k, i);
-    if ((i-1) % 2) cur = -cur;
-    cur *= pow(mi(k-i), n);
-    res += cur;
-  }
+  std::vector<int> a(n);
+  for (auto& ai: a) scanf("%d", &ai);
 
-  res = pow(mi(k), n) - res;
-  printf("%jd\n", res.get());
+  polynomial<mi> f(a.begin(), a.end());
+  polynomial<mi> g = log(f);
+  for (size_t i = 0; i < n; ++i)
+    printf("%jd%c", g[i].get(), i+1<n? ' ': '\n');
 }
 
 ```
@@ -94,7 +91,7 @@ Traceback (most recent call last):
     self.update(self._resolve(pathlib.Path(included), included_from=path))
   File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
     raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/operations.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/polynomial.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

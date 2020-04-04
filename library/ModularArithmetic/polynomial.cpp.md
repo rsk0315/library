@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:05:36+09:00
+    - Last commit date: 2020-04-05 01:11:37+09:00
 
 
 
@@ -41,6 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 
@@ -220,8 +221,8 @@ public:
     size_type n = M_f.size();
     std::vector<value_type> inv(n+1, 1);
     auto mod = value_type::get_modulo();
-    for (size_type i = 1; i <= n; ++i)
-      inv[i] = -value_type(mod / i) * inv[mod % i];
+    for (size_type i = 2; i <= n; ++i)
+      inv[i] = -value_type(mod / i).get() * inv[mod % i];
     for (size_type i = 0; i < n; ++i) M_f[i] *= inv[i+1];
     if (!(c == 0 && M_f.empty())) M_f.insert(M_f.begin(), c);
   }
@@ -322,11 +323,18 @@ public:
     return polynomial(*this) %= that;
   }
 
-  value_type const operator [](size_type i) const {
+  value_type operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
   }
 
+  value_type operator ()(value_type x) const {
+    value_type y = 0;
+    for (size_type i = M_f.size(); i--;) y = y * x + M_f[i];
+    return y;
+  }
+
   bool zero() const noexcept { return M_f.empty(); }
+  size_type degree() const { return M_f.size()-1; }  // XXX deg(0)
 };
 
 #endif  /* !defined(H_mod_polynomial) */
