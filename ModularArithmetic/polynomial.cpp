@@ -168,8 +168,8 @@ public:
     size_type n = M_f.size();
     std::vector<value_type> inv(n+1, 1);
     auto mod = value_type::get_modulo();
-    for (size_type i = 1; i <= n; ++i)
-      inv[i] = -value_type(mod / i) * inv[mod % i];
+    for (size_type i = 2; i <= n; ++i)
+      inv[i] = -value_type(mod / i).get() * inv[mod % i];
     for (size_type i = 0; i < n; ++i) M_f[i] *= inv[i+1];
     if (!(c == 0 && M_f.empty())) M_f.insert(M_f.begin(), c);
   }
@@ -281,6 +281,7 @@ public:
   }
 
   bool zero() const noexcept { return M_f.empty(); }
+  size_type degree() const { return M_f.size()-1; }  // XXX deg(0)
 };
 
 #endif  /* !defined(H_mod_polynomial) */
