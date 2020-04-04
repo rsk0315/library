@@ -270,8 +270,14 @@ public:
     return polynomial(*this) %= that;
   }
 
-  value_type const operator [](size_type i) const {
+  value_type operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
+  }
+
+  value_type operator ()(value_type x) const {
+    value_type y = 0;
+    for (size_type i = M_f.size(); i--;) y = y * x + M_f[i];
+    return y;
   }
 
   bool zero() const noexcept { return M_f.empty(); }
