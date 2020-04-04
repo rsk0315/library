@@ -85,7 +85,7 @@ public:
   bool operator !=(modint const& that) const { return !(*this == that); }
 
   value_type get() const { return M_value; }
-  value_type get_modulo() const { return ((S_cmod > 0)? S_cmod: S_rmod); }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
 
   template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
   static Tp set_modulo(value_type m) { S_rmod = m; }
