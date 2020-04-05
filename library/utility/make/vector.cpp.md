@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#eea2354d8759bbd52e8bbb508d91fa66">utility/make</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/make/vector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-04-05 15:19:11+09:00
 
 
 
@@ -61,31 +61,23 @@ layout: default
 #include <vector>
 
 namespace detail {
-  template <typename Tp, size_t N>
-  std::vector<Tp> make_vector(
-      std::vector<size_t>& sizes,
-      typename std::enable_if<(N == 1), Tp const&>::type x
-  ) {
-    return std::vector<Tp>(sizes[0], x);
-  }
-  template <typename Tp, size_t N>
-  auto make_vector(
-      std::vector<size_t>& sizes,
-      typename std::enable_if<(N > 1), Tp const&>::type x
-  ) {
-    size_t size = sizes[N-1];
-    sizes.pop_back();
-    return std::vector<decltype(make_vector<Tp, N-1>(sizes, x))>(
-        size, make_vector<Tp, N-1>(sizes, x)
-    );
+  template <typename Tp, size_t Nb>
+  auto make_vector(std::vector<size_t>& sizes, Tp const& x) {
+    if constexpr (Nb == 1) {
+      return std::vector(sizes[0], x);
+    } else {
+      size_t size = sizes[Nb-1];
+      sizes.pop_back();
+      return std::vector(size, make_vector<Tp, Nb-1>(sizes, x));
+    }
   }
 }  // detail::
 
-template <typename Tp, size_t N>
-auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
-  std::vector<size_t> s(N);
-  for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
-  return detail::make_vector<Tp, N>(s, x);
+template <typename Tp, size_t Nb>
+auto make_vector(size_t const(&sizes)[Nb], Tp const& x = Tp()) {
+  std::vector<size_t> s(Nb);
+  for (size_t i = 0; i < Nb; ++i) s[i] = sizes[Nb-i-1];
+  return detail::make_vector<Tp, Nb>(s, x);
 }
 
 #endif  /* !defined(H_make_vector) */
@@ -110,31 +102,23 @@ auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
 #include <vector>
 
 namespace detail {
-  template <typename Tp, size_t N>
-  std::vector<Tp> make_vector(
-      std::vector<size_t>& sizes,
-      typename std::enable_if<(N == 1), Tp const&>::type x
-  ) {
-    return std::vector<Tp>(sizes[0], x);
-  }
-  template <typename Tp, size_t N>
-  auto make_vector(
-      std::vector<size_t>& sizes,
-      typename std::enable_if<(N > 1), Tp const&>::type x
-  ) {
-    size_t size = sizes[N-1];
-    sizes.pop_back();
-    return std::vector<decltype(make_vector<Tp, N-1>(sizes, x))>(
-        size, make_vector<Tp, N-1>(sizes, x)
-    );
+  template <typename Tp, size_t Nb>
+  auto make_vector(std::vector<size_t>& sizes, Tp const& x) {
+    if constexpr (Nb == 1) {
+      return std::vector(sizes[0], x);
+    } else {
+      size_t size = sizes[Nb-1];
+      sizes.pop_back();
+      return std::vector(size, make_vector<Tp, Nb-1>(sizes, x));
+    }
   }
 }  // detail::
 
-template <typename Tp, size_t N>
-auto make_vector(size_t const(&sizes)[N], Tp const& x = Tp()) {
-  std::vector<size_t> s(N);
-  for (size_t i = 0; i < N; ++i) s[i] = sizes[N-i-1];
-  return detail::make_vector<Tp, N>(s, x);
+template <typename Tp, size_t Nb>
+auto make_vector(size_t const(&sizes)[Nb], Tp const& x = Tp()) {
+  std::vector<size_t> s(Nb);
+  for (size_t i = 0; i < Nb; ++i) s[i] = sizes[Nb-i-1];
+  return detail::make_vector<Tp, Nb>(s, x);
 }
 
 #endif  /* !defined(H_make_vector) */

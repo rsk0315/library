@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/two_sat.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-07 05:02:13+09:00
+    - Last commit date: 2020-04-04 05:20:06+09:00
 
 
 
@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 
 
 ## Code
@@ -85,13 +86,7 @@ private:
 
 public:
   two_sat() = default;
-  two_sat(two_sat const&) = default;
-  two_sat(two_sat&&) = default;
-
-  two_sat(size_type n): M_n(n), M_g(n+n) {}
-
-  two_sat& operator =(two_sat const&) = default;
-  two_sat& operator =(two_sat&&) = default;
+  explicit two_sat(size_type n): M_n(n), M_g(n+n) {}
 
   void push(size_type i, bool bi, size_type j, bool bj) {
     M_scc.clear();

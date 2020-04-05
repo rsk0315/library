@@ -31,13 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:53:49+09:00
+    - Last commit date: 2020-04-04 20:53:29+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_B.test.cpp.html">test/aoj_DPL_5_B.test.cpp</a>
@@ -53,7 +54,13 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -148,7 +155,7 @@ public:
   bool operator !=(modint const& that) const { return !(*this == that); }
 
   value_type get() const { return M_value; }
-  value_type get_modulo() const { return ((S_cmod > 0)? S_cmod: S_rmod); }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
 
   template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
   static Tp set_modulo(value_type m) { S_rmod = m; }
@@ -286,7 +293,7 @@ public:
   bool operator !=(modint const& that) const { return !(*this == that); }
 
   value_type get() const { return M_value; }
-  value_type get_modulo() const { return ((S_cmod > 0)? S_cmod: S_rmod); }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
 
   template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
   static Tp set_modulo(value_type m) { S_rmod = m; }

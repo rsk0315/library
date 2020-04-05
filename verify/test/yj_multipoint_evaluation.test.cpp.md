@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_multipoint_evaluation.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:58:09+09:00
+    - Last commit date: 2020-04-05 17:29:39+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/multipoint_evaluation">https://judge.yosupo.jp/problem/multipoint_evaluation</a>
@@ -71,7 +71,7 @@ int main() {
 
   polynomial<mi> f(c.begin(), c.end());
   std::vector<mi> xs(p.begin(), p.end());
-  auto ys = f.multieval(xs);
+  auto ys = f.multipoint_evaluate(xs);
 
   for (size_t i = 0; i < m; ++i)
     printf("%jd%c", ys[i].get(), i+1<m? ' ': '\n');
