@@ -1,21 +1,19 @@
+#ifndef H_lowest_common_ancestor_segment_tree
+#define H_lowest_common_ancestor_segment_tree
+
 /**
  * @brief 最深共通祖先 (segment tree)
  * @author えびちゃん
  */
-
-#ifndef H_lowest_common_ancestor_segment_tree
-#define H_lowest_common_ancestor_segment_tree
-
-#ifdef CALL_FROM_TEST
-#include "integer/bit.cpp"
-#include "utility/literals.cpp"
-#endif
 
 #include <cstddef>
 #include <algorithm>
 #include <tuple>
 #include <utility>
 #include <vector>
+
+#include "integer/bit.cpp"
+#include "utility/literals.cpp"
 
 class lowest_common_ancestor {
 public:

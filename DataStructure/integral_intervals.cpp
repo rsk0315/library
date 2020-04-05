@@ -1,10 +1,10 @@
+#ifndef H_integral_intervals
+#define H_integral_intervals
+
 /**
  * @brief 整数の区間の集合
  * @author えびちゃん
  */
-
-#ifndef H_integral_intervals
-#define H_integral_intervals
 
 #include <cstddef>
 #include <set>

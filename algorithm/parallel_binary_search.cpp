@@ -1,10 +1,10 @@
+#ifndef H_parallel_binary_search
+#define H_parallel_binary_search
+
 /**
  * @brief 並列二分探索
  * @author えびちゃん
  */
-
-#ifndef H_parallel_binary_search
-#define H_parallel_binary_search
 
 #include <cstddef>
 #include <vector>

@@ -1,10 +1,10 @@
+#ifndef H_capacitated_adjacency_list
+#define H_capacitated_adjacency_list
+
 /**
  * @brief 容量つきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_capacitated_adjacency_list
-#define H_capacitated_adjacency_list
 
 #include <cstddef>
 

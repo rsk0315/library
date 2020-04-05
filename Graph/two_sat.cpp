@@ -1,18 +1,16 @@
+#ifndef H_two_sat
+#define H_two_sat
+
 /**
  * @brief 2-SAT
  * @author えびちゃん
  */
 
-#ifndef H_two_sat
-#define H_two_sat
-
-#ifdef CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/scc.cpp"
-#endif
-
 #include <cstddef>
 #include <vector>
+
+#include "Graph/adjacency_list.cpp"
+#include "Graph/scc.cpp"
 
 class two_sat {
 public:

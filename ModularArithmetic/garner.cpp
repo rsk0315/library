@@ -1,10 +1,10 @@
+#ifndef H_garner
+#define H_garner
+
 /**
  * @brief Garner's algorithm
  * @author えびちゃん
  */
-
-#ifndef H_garner
-#define H_garner
 
 #include <algorithm>
 #include <tuple>

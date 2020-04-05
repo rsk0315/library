@@ -1,10 +1,10 @@
+#ifndef H_basic_segment_tree
+#define H_basic_segment_tree
+
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
  */
-
-#ifndef H_basic_segment_tree
-#define H_basic_segment_tree
 
 #include <cstddef>
 #include <vector>

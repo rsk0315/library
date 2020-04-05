@@ -1,10 +1,10 @@
+#ifndef H_foldable_queue
+#define H_foldable_queue
+
 /**
  * @brief fold 可能キュー
  * @author えびちゃん
  */
-
-#ifndef H_foldable_queue
-#define H_foldable_queue
 
 #include <cstddef>
 #include <stack>

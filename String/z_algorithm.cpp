@@ -1,10 +1,10 @@
+#ifndef H_z_algorithm
+#define H_z_algorithm
+
 /**
  * @brief Z algorithm
  * @author えびちゃん
  */
-
-#ifndef H_z_algorithm
-#define H_z_algorithm
 
 #include <cstddef>
 #include <utility>

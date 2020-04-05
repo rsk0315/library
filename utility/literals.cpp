@@ -1,10 +1,10 @@
+#ifndef H_int_literals
+#define H_int_literals
+
 /**
  * @brief ユーザ定義リテラル
  * @author えびちゃん
  */
-
-#ifndef H_int_literals
-#define H_int_literals
 
 #include <cstddef>
 #include <cstdint>

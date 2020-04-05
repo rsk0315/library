@@ -1,20 +1,18 @@
+#ifndef H_wavelet_matrix
+#define H_wavelet_matrix
+
 /**
  * @brief ウェーブレット行列
  * @author えびちゃん
  */
-
-#ifndef H_wavelet_matrix
-#define H_wavelet_matrix
 
 #include <cstddef>
 #include <cstdint>
 #include <array>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
 #include "DataStructure/bit_vector.cpp"
-#endif
 
 template <size_t Nb, typename Tp = uintmax_t, typename Bv = bit_vector>
 class wavelet_matrix {

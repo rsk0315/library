@@ -1,10 +1,10 @@
+#ifndef H_ternary_search
+#define H_ternary_search
+
 /**
  * @brief 黄金比分割探索
  * @author えびちゃん
  */
-
-#ifndef H_ternary_search
-#define H_ternary_search
 
 #include <cmath>
 #include <utility>

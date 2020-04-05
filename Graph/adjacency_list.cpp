@@ -1,10 +1,10 @@
+#ifndef H_adjacency_list
+#define H_adjacency_list
+
 /**
  * @brief 重みつきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_adjacency_list
-#define H_adjacency_list
 
 #include <cstddef>
 #include <algorithm>

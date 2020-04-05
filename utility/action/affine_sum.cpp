@@ -1,15 +1,13 @@
+#ifndef H_action_affine_sum
+#define H_action_affine_sum
+
 /**
  * @brief 区間 Affine 変換・区間加算用のヘルパークラス
  * @author えびちゃん
  */
 
-#ifndef H_action_affine_sum
-#define H_action_affine_sum
-
-#ifdef CALL_FROM_TEST
 #include "utility/monoid/composite.cpp"
 #include "utility/monoid/length.cpp"
-#endif
 
 #include <utility>
 

@@ -1,3 +1,6 @@
+#ifndef H_tree_attack
+#define H_tree_attack
+
 /**
  * @brief ロリハを衝突させるやつ (tree attack)
  * @author えびちゃん
@@ -11,9 +14,7 @@
 #include <tuple>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
-#endif
 
 std::vector<int> tree_attack(intmax_t p, intmax_t b, size_t k, int sigma = 2) {
   struct node {
@@ -86,3 +87,5 @@ std::vector<int> tree_attack(intmax_t p, intmax_t b, size_t k, int sigma = 2) {
   }
   return {};
 }
+
+#endif  /* !defined(H_tree_attack) */

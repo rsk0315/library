@@ -1,10 +1,10 @@
+#ifndef H_topological_sort
+#define H_topological_sort
+
 /**
  * @brief トポロジカルソート
  * @author えびちゃん
  */
-
-#ifndef H_topological_sort
-#define H_topological_sort
 
 #include <queue>
 #include <vector>

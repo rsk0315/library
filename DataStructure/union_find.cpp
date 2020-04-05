@@ -1,10 +1,10 @@
+#ifndef H_union_find
+#define H_union_find
+
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
  */
-
-#ifndef H_union_find
-#define H_union_find
 
 #include <cstddef>
 #include <cstdint>

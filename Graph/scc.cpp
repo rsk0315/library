@@ -1,18 +1,16 @@
+#ifndef H_strongly_connected_components
+#define H_strongly_connected_components
+
 /**
  * @brief 強連結成分分解
  * @author えびちゃん
  */
 
-#ifndef H_strongly_connected_components
-#define H_strongly_connected_components
-
-#ifdef CALL_FROM_TEST
-#include "utility/make/fix_point.cpp"
-#include "Graph/adjacency_list.cpp"
-#endif
-
 #include <cstddef>
 #include <vector>
+
+#include "utility/make/fix_point.cpp"
+#include "Graph/adjacency_list.cpp"
 
 template <typename AdjacencyList>
 auto strongly_connected_components(AdjacencyList const& g) {

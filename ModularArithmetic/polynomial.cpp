@@ -1,19 +1,17 @@
+#ifndef H_mod_polynomial
+#define H_mod_polynomial
+
 /**
  * @brief 多項式
  * @author えびちゃん
  */
 
-#ifndef H_mod_polynomial
-#define H_mod_polynomial
-
-#ifdef CALL_FROM_TEST
-#include "integer/bit.cpp"
-#endif
-
 #include <cstddef>
 #include <climits>
 #include <algorithm>
 #include <vector>
+
+#include "integer/bit.cpp"
 
 template <typename ModInt>
 class polynomial {

@@ -1,10 +1,10 @@
+#ifndef H_tortoise_and_hare
+#define H_tortoise_and_hare
+
 /**
  * @brief 周期検出
  * @author えびちゃん
  */
-
-#ifndef H_tortoise_and_hare
-#define H_tortoise_and_hare
 
 #include <cstdint>
 #include <utility>

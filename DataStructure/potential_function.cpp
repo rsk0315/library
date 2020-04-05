@@ -1,10 +1,10 @@
+#ifndef H_potential_function
+#define H_potential_function
+
 /** 
  * @brief ポテンシャル関数
  * @author えびちゃん
  */
-
-#ifndef H_potential_function
-#define H_potential_function
 
 #include <cstddef>
 #include <stdexcept>

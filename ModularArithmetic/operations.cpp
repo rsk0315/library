@@ -1,17 +1,15 @@
+#ifndef H_mod_operations
+#define H_mod_operations
+
 /**
  * @brief 合同算術の基本演算
  * @author えびちゃん
  */
 
-#ifndef H_mod_operations
-#define H_mod_operations
-
-#ifdef CALL_FROM_TEST
-#include "integer/bit.cpp"
-#endif
-
 #include <stdexcept>
 #include <vector>
+
+#include "integer/bit.cpp"
 
 template <typename ModInt>
 ModInt pow(ModInt const& n, intmax_t iexp) {

@@ -1,17 +1,15 @@
+#ifndef H_segment_tree
+#define H_segment_tree
+
 /**
  * @brief 区間作用・区間和セグメント木
  * @author えびちゃん
  */
 
-#ifndef H_segment_tree
-#define H_segment_tree
-
 #include <cstddef>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "integer/bit.cpp"
-#endif
 
 template <typename Operation>
 class segment_tree {

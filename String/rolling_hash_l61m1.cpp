@@ -1,3 +1,6 @@
+#ifndef H_rolling_hash_l61m1
+#define H_rolling_hash_l61m1
+
 /**
  * @brief mod 2^61-1 のローリングハッシュ
  * @author えびちゃん
@@ -8,9 +11,7 @@
 #include <cstdint>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
-#endif
 
 class rolling_hash_l61m1 {
 public:
@@ -86,3 +87,4 @@ public:
   }
 };
 
+#endif  /* !defined(H_rolling_hash_l61m1) */

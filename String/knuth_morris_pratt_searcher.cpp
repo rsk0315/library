@@ -1,10 +1,10 @@
+#ifndef H_knuth_morris_pratt_searcher
+#define H_knuth_morris_pratt_searcher
+
 /**
  * @brief KMP 法
  * @author えびちゃん
  */
-
-#ifndef H_knuth_morris_pratt_searcher
-#define H_knuth_morris_pratt_searcher
 
 #include <cstddef>
 #include <vector>

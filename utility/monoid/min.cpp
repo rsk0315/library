@@ -1,17 +1,15 @@
+#ifndef H_min_monoid
+#define H_min_monoid
+
 /**
  * @brief min を得る演算のモノイド
  * @author えびちゃん
  */
 
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
-
 #include <algorithm>
 #include <utility>
 
-#ifndef H_min_monoid
-#define H_min_monoid
+#include "utility/limits.cpp"
 
 template <typename Tp>
 class min_monoid {

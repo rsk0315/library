@@ -1,20 +1,18 @@
+#ifndef H_online_to_offline_optimization
+#define H_online_to_offline_optimization
+
 /**
  * @brief オンライン・オフライン変換
  * @author えびちゃん
  */
 
-#ifndef H_online_to_offline_optimization
-#define H_online_to_offline_optimization
-
 #include <cstddef>
 #include <algorithm>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "algorithm/monotone_minima.cpp"
 #include "utility/limits.cpp"
 #include "utility/make/fix_point.cpp"
-#endif
 
 template <typename Fn>
 auto online_to_offline_optimization(Fn&& f, size_t n, decltype(f(n, n)) init = 0) {

@@ -1,14 +1,12 @@
+#ifndef H_action_add_min
+#define H_action_add_min
+
 /**
  * @brief 区間最小値・区間加算用のヘルパークラス
  * @author えびちゃん
  */
 
-#ifndef H_action_add_min
-#define H_action_add_min
-
-#ifdef CALL_FROM_TEST
 #include "utility/monoid/min.cpp"
-#endif
 
 template <typename Tp>
 struct action_add_to_min {

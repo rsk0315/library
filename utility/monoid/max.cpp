@@ -1,17 +1,15 @@
+#ifndef H_max_monoid
+#define H_max_monoid
+
 /**
  * @brief max を得る演算のモノイド
  * @author えびちゃん
  */
 
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
-
 #include <algorithm>
 #include <utility>
 
-#ifndef H_max_monoid
-#define H_max_monoid
+#include "utility/limits.cpp"
 
 template <typename Tp>
 class max_monoid {

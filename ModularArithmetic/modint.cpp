@@ -1,10 +1,10 @@
+#ifndef H_modint
+#define H_modint
+
 /**
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
-
-#ifndef H_modint
-#define H_modint
 
 #include <cstdint>
 #include <type_traits>
@@ -120,11 +120,5 @@ template <intmax_t N>
 constexpr intmax_t modint<N>::S_cmod;
 template <intmax_t N>
 intmax_t modint<N>::S_rmod;
-
-#ifndef CALL_FROM_TEST
-// constexpr intmax_t mod = 1000'000'007;
-// constexpr intmax_t mod = 998244353;
-using mi = modint<mod>;
-#endif
 
 #endif  /* !defined(H_modint) */

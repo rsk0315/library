@@ -1,10 +1,10 @@
+#ifndef H_modtable
+#define H_modtable
+
 /**
  * @brief 合同演算の前計算テーブル
  * @author えびちゃん
  */
-
-#ifndef H_modtable
-#define H_modtable
 
 #include <cstddef>
 #include <vector>

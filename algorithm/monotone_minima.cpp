@@ -1,18 +1,16 @@
+#ifndef H_monotone_minima
+#define H_monotone_minima
+
 /**
  * @brief monotone minima
  * @author えびちゃん
  */
 
-#ifndef H_monotone_minima
-#define H_monotone_minima
-
 #include <cstddef>
 #include <utility>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/make/fix_point.cpp"
-#endif
 
 template <typename Fn>
 auto monotone_minima(Fn&& f, size_t h, size_t w) {

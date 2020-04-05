@@ -1,10 +1,10 @@
+#ifndef H_chinese_remaindering
+#define H_chinese_remaindering
+
 /**
  * @brief 連立合同式の解の構成
  * @author えびちゃん
  */
-
-#ifndef H_chinese_remaindering
-#define H_chinese_remaindering
 
 #include <tuple>
 #include <utility>

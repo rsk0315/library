@@ -1,18 +1,16 @@
+#ifndef H_dp_on_tree
+#define H_dp_on_tree
+
 /**
  * @brief 木 DP
  * @author えびちゃん
  */
 
-#ifndef H_dp_on_tree
-#define H_dp_on_tree
-
-#ifdef CALL_FROM_TEST
-#include "utility/make/fix_point.cpp"
-#endif
-
 #include <cstddef>
 #include <utility>
 #include <vector>
+
+#include "utility/make/fix_point.cpp"
 
 template <typename Monoid, typename AdjacencyList, typename Fn>
 std::vector<Monoid> dp_on_tree(AdjacencyList const& g, Fn f, Monoid e = Monoid{}) {

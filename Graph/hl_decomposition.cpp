@@ -1,11 +1,11 @@
+#ifndef H_heavy_light_decomposition
+#define H_heavy_light_decomposition
+
 /**
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
  */
-
-#ifndef H_heavy_light_decomposition
-#define H_heavy_light_decomposition
 
 #include <cstddef>
 #include <type_traits>

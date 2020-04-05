@@ -1,20 +1,18 @@
+#ifndef H_lowest_common_ancestor_squaring
+#define H_lowest_common_ancestor_squaring
+
 /**
  * @brief 最深共通祖先 (squaring)
  * @author えびちゃん
  */
-
-#ifndef H_lowest_common_ancestor_squaring
-#define H_lowest_common_ancestor_squaring
-
-#ifdef CALL_FROM_TEST
-#include "utility/literals.cpp"
-#endif
 
 #include <cstddef>
 #include <algorithm>
 #include <tuple>
 #include <utility>
 #include <vector>
+
+#include "utility/literals.cpp"
 
 class lowest_common_ancestor {
 public:

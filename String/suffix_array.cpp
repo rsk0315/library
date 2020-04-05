@@ -1,19 +1,17 @@
+#ifndef H_suffix_array
+#define H_suffix_array
+
 /**
  * @brief 接尾辞配列
  * @author えびちゃん
  */
-
-#ifndef H_suffix_array
-#define H_suffix_array
 
 #include <cstddef>
 #include <algorithm>
 #include <numeric>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
-#endif
 
 template <typename Tp>
 class suffix_array {

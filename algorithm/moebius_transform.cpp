@@ -1,15 +1,13 @@
+#ifndef H_moebius_transform
+#define H_moebius_transform
+
 /**
  * @brief 高速 Möbius 変換
  * @author えびちゃん
  */
 
-#ifndef H_moebius_transform
-#define H_moebius_transform
-
-#ifdef CALL_FROM_TEST
 #include "integer/bit.cpp"
 #include "utility/literals.cpp"
-#endif
 
 template <typename RandomIt>
 void moebius_transform(RandomIt first, RandomIt last) {

@@ -1,10 +1,10 @@
+#ifndef H_mo_algo
+#define H_mo_algo
+
 /**
  * @brief Mo's algorithm
  * @author えびちゃん
  */
-
-#ifndef H_mo_algo
-#define H_mo_algo
 
 #include <algorithm>
 #include <numeric>
@@ -12,9 +12,7 @@
 #include <utility>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "integer/sqrt.cpp"
-#endif
 
 template <typename Rf, typename Args>
 auto mo(Rf&& rf, std::vector<std::tuple<size_t, size_t, Args>> const& qs)

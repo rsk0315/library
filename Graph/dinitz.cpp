@@ -1,21 +1,19 @@
+#ifndef H_max_flow_dinitz
+#define H_max_flow_dinitz
+
 /**
  * @brief 最大流 (Dinitz)
  * @author えびちゃん
  */
 
-#ifndef H_max_flow_dinitz
-#define H_max_flow_dinitz
+#include <queue>
+#include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
 #include "utility/limits.cpp"
 #include "utility/make/fix_point.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "Graph/capacitated_list.cpp"
-#endif
-
-#include <queue>
-#include <vector>
 
 struct dinitz_tag {} dinitz;
 

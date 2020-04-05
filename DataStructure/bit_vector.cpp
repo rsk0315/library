@@ -1,19 +1,17 @@
+#ifndef H_bit_vector
+#define H_bit_vector
+
 /**
  * @brief rank/select 辞書
  * @author えびちゃん
  */
-
-#ifndef H_bit_vector
-#define H_bit_vector
 
 #include <climits>
 #include <cstddef>
 #include <cstdint>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
-#endif
 
 class bit_vector {
 public:

@@ -1,20 +1,18 @@
+#ifndef H_dynamic_bitvector
+#define H_dynamic_bitvector
+
 /**
  * @brief 動的ビットベクトル
  * @author えびちゃん
  */
 
-#ifndef H_dynamic_bitvector
-#define H_dynamic_bitvector
-
-#ifdef CALL_FROM_TEST
-#include "utility/literals.cpp"
-#include "integer/bit.cpp"
-#endif
-
 #include <cstddef>
 #include <climits>
 #include <array>
 #include <memory>
+
+#include "utility/literals.cpp"
+#include "integer/bit.cpp"
 
 class dynamic_bitvector {
 public:

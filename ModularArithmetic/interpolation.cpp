@@ -1,18 +1,16 @@
+#ifndef H_interpolation
+#define H_interpolation
+
 /**
  * @brief 補間多項式
  * @author えびちゃん
  */
 
-#ifndef H_interpolation
-#define H_interpolation
-
-#ifdef CALL_FROM_TEST
-#include "ModularArithmetic/polynomial.cpp"
-#include "integer/bit.cpp"
-#endif
-
 #include <cstddef>
 #include <vector>
+
+#include "ModularArithmetic/polynomial.cpp"
+#include "integer/bit.cpp"
 
 template <typename ModInt>
 polynomial<ModInt> interpolate(std::vector<ModInt> const& xs, std::vector<ModInt> const& ys) {
