@@ -134,27 +134,17 @@ public:
     return res;
   }
 
-  std::vector<value_type> multieval(std::vector<value_type> const& xs) const {
+  std::vector<value_type> multipoint_evaluate(std::vector<value_type> const& xs) const {
     size_type m = xs.size();
-    std::vector<polynomial> mul(m+m);
-    for (size_type i = 0; i < m; ++i)
-      mul[m+i] = polynomial({-xs[i], 1});
-    for (size_type i = m; i-- > 1;)
-      mul[i] = mul[i<<1|0] * mul[i<<1|1];
+    size_type m2 = ceil2(m);
+    std::vector<polynomial> g(m2+m2, {1});
+    for (size_type i = 0; i < m; ++i) g[m2+i] = {-xs[i], 1};
+    for (size_type i = m2; i-- > 1;) g[i] = g[i<<1|0] * g[i<<1|1];
 
-    std::vector<bool> vis(m+m, false);
-    vis[0] = true;
-    for (size_type l = m, r = m+m; l < r; l >>= 1, r >>= 1) {
-      if (l & 1) vis[l] = true, mul[l] = *this % mul[l], ++l;
-      if (r & 1) --r, vis[r] = true, mul[r] = *this % mul[r];
-    }
-    for (size_type i = m+m; i--;)
-      if (vis[i]) vis[i>>1] = true;
-    for (size_type i = 1; i < m+m; ++i)
-      if (!vis[i]) mul[i] = mul[i>>1] % mul[i];
-
+    g[1] = (*this) % g[1];
+    for (size_type i = 2; i < m2+m; ++i) g[i] = g[i>>1] % g[i];
     std::vector<value_type> ys(m);
-    for (size_type i = 0; i < m; ++i) ys[i] = mul[m+i][0];
+    for (size_type i = 0; i < m; ++i) ys[i] = g[m2+i][0];
     return ys;
   }
 

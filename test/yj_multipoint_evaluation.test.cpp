@@ -20,7 +20,7 @@ int main() {
 
   polynomial<mi> f(c.begin(), c.end());
   std::vector<mi> xs(p.begin(), p.end());
-  auto ys = f.multieval(xs);
+  auto ys = f.multipoint_evaluate(xs);
 
   for (size_t i = 0; i < m; ++i)
     printf("%jd%c", ys[i].get(), i+1<m? ' ': '\n');
