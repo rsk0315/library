@@ -36,6 +36,7 @@ $(function() {
         $(element).attr({id: `code-${index}`});
 
         $(element).parent().parent().prepend(`<div class="div-btn-copy"><span class="btn-copy btn-pre" tabindex="0" data-toggle="tooltip" data-trigger="manual" title="Copied!" data-original-title="Copied!" data-target="code-${index}">Copy</span></div>`);
+        $(element).parent().parent().prepend(`<div class="div-btn-copy"><span class="btn-bundle btn-pre code-bundle-btn" tabindex="0" data-target="code-${index}">Bundle</span></div>`);
     });
 
     // $('[data-toggle="tooltip"]').tooltip();

@@ -4,8 +4,8 @@
 }
 .btn-pre {
     position: absolute;
-    top: 0;
-    right: 0;
+    /* top: 0; */
+    /* right: 0; */
     display: block;
     padding: 0 6px;
     font-size: 12px;
@@ -24,6 +24,15 @@
 }
 .btn-copy {
     vertical-align: top;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 0;
+}
+.btn-bundle {
+    vertical-align: top;
+    top: 0;
+    right: 3.4em;
+    border-top-right-radius: 0;
 }
 /* .code-copy-btn { */
 /*     top: 0px; */
