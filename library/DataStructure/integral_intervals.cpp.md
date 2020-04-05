@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/integral_intervals.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_integral_intervals
+#define H_integral_intervals
+
 /**
  * @brief 整数の区間の集合
  * @author えびちゃん
  */
-
-#ifndef H_integral_intervals
-#define H_integral_intervals
 
 #include <cstddef>
 #include <set>
@@ -191,13 +191,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "DataStructure/integral_intervals.cpp"
+
+
+
 /**
  * @brief 整数の区間の集合
  * @author えびちゃん
  */
-
-#ifndef H_integral_intervals
-#define H_integral_intervals
 
 #include <cstddef>
 #include <set>
@@ -327,7 +327,7 @@ public:
   size_type count() const { return intervals.size(); }
 };
 
-#endif  /* !defined(H_integral_intervals) */
+
 
 ```
 {% endraw %}

@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small>
+# :x: fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_queue.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 04:20:17+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :x: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
 
 
 ## Code
@@ -47,13 +47,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_foldable_queue
+#define H_foldable_queue
+
 /**
  * @brief fold 可能キュー
  * @author えびちゃん
  */
-
-#ifndef H_foldable_queue
-#define H_foldable_queue
 
 #include <cstddef>
 #include <stack>
@@ -117,13 +117,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "DataStructure/foldable_queue.cpp"
+
+
+
 /**
  * @brief fold 可能キュー
  * @author えびちゃん
  */
-
-#ifndef H_foldable_queue
-#define H_foldable_queue
 
 #include <cstddef>
 #include <stack>
@@ -178,7 +178,7 @@ public:
   }
 };
 
-#endif  /* !defined(H_foldable_queue) */
+
 
 ```
 {% endraw %}

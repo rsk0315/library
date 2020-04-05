@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_zalgorithm.test.cpp
+# :x: test/yj_zalgorithm.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_zalgorithm.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 05:24:25+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/zalgorithm">https://judge.yosupo.jp/problem/zalgorithm</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
+* :question: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 ## Code
@@ -49,13 +49,10 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 
-#define CALL_FROM_TEST
-#include "String/z_algorithm.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdio>
 #include <string>
+
+#include "String/z_algorithm.cpp"
 
 int main() {
   char buf[524288];
@@ -77,15 +74,17 @@ int main() {
 #line 1 "test/yj_zalgorithm.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+#include <string>
+
 #line 1 "String/z_algorithm.cpp"
+
+
+
 /**
  * @brief Z algorithm
  * @author えびちゃん
  */
-
-#ifndef H_z_algorithm
-#define H_z_algorithm
 
 #include <cstddef>
 #include <utility>
@@ -190,13 +189,8 @@ template <typename RandomIt1>
 z_array(RandomIt1 pat_first, RandomIt1 pat_last) -> z_array<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_z_algorithm) */
-#line 5 "test/yj_zalgorithm.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstddef>
-#include <cstdio>
-#include <string>
+#line 7 "test/yj_zalgorithm.test.cpp"
 
 int main() {
   char buf[524288];

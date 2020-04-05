@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_z.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 22:00:05+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
+* :question: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 ## Code
@@ -49,14 +49,12 @@ layout: default
 ```cpp
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
-#include "String/z_algorithm.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "String/z_algorithm.cpp"
 
 int main() {
   char buf[1048576];
@@ -87,19 +85,23 @@ int main() {
 #line 1 "test/aoj_ALDS1_14_B_z.test.cpp"
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+#include <algorithm>
+#include <string>
+#include <vector>
+
 #line 1 "String/z_algorithm.cpp"
+
+
+
 /**
  * @brief Z algorithm
  * @author えびちゃん
  */
 
-#ifndef H_z_algorithm
-#define H_z_algorithm
-
 #include <cstddef>
 #include <utility>
-#include <vector>
+#line 12 "String/z_algorithm.cpp"
 
 template <typename RandomIt1>
 class z_array {
@@ -200,14 +202,8 @@ template <typename RandomIt1>
 z_array(RandomIt1 pat_first, RandomIt1 pat_last) -> z_array<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_z_algorithm) */
-#line 5 "test/aoj_ALDS1_14_B_z.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
-#include <algorithm>
-#include <string>
-#include <vector>
+#line 9 "test/aoj_ALDS1_14_B_z.test.cpp"
 
 int main() {
   char buf[1048576];

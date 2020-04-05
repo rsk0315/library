@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_l61m1.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 21:03:05+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>
@@ -40,7 +40,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -50,14 +50,12 @@ layout: default
 ```cpp
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
-#include "String/rolling_hash_l61m1.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <chrono>
 #include <random>
 #include <string>
+
+#include "String/rolling_hash_l61m1.cpp"
 
 int main() {
   char buf[1048576];
@@ -87,16 +85,145 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: String/rolling_hash_l61m1.cpp: line 12: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "test/aoj_ALDS1_14_B_l61m1.test.cpp"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
+
+#include <cstdio>
+#include <chrono>
+#include <random>
+#include <string>
+
+#line 1 "String/rolling_hash_l61m1.cpp"
+
+
+
+/**
+ * @brief mod 2^61-1 のローリングハッシュ
+ * @author えびちゃん
+ * @see https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
+ */
+
+#include <cstddef>
+#include <cstdint>
+#include <vector>
+
+#line 1 "utility/literals.cpp"
+
+
+
+/**
+ * @brief ユーザ定義リテラル
+ * @author えびちゃん
+ */
+
+#line 11 "utility/literals.cpp"
+
+constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
+constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
+constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
+constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+
+
+#line 15 "String/rolling_hash_l61m1.cpp"
+
+class rolling_hash_l61m1 {
+public:
+  using size_type = size_t;
+  using value_type = uintmax_t;
+  static value_type const mod = (1_ju << 61) - 1;
+  static size_type const npos = -1;
+
+private:
+  value_type M_b;
+  std::vector<value_type> M_c, M_p;
+
+  static value_type S_fma(value_type a, value_type b, value_type c) {
+    value_type au = a >> 31;
+    value_type al = a & ((1u << 31) - 1);
+    value_type bu = b >> 31;
+    value_type bl = b & ((1u << 31) - 1);
+
+    value_type x = au*bl + al*bu;
+    value_type xu = x >> 30;
+    value_type xl = x & ((1u << 30) - 1);
+
+    value_type y = ((au*bu) << 1) + (xu + (xl << 31)) + (al*bl);
+    value_type yu = y >> 61;
+    value_type yl = y & ((1_ju << 61) - 1);
+
+    value_type z = yu + yl + c;
+    if (z >= mod) z -= mod;
+    return z;
+  }
+
+  void M_build() {
+    for (size_type i = 1; i < M_c.size(); ++i)
+      M_c[i] = S_fma(M_c[i-1], M_b, M_c[i]);
+    M_c.insert(M_c.begin(), 0);
+
+    M_p.assign(M_c.size(), 1);
+    for (size_type i = 1; i < M_p.size(); ++i)
+      M_p[i] = S_fma(M_p[i-1], M_b, 0);
+  }
+
+public:
+  rolling_hash_l61m1() = default;
+
+  template <typename InputIt>
+  rolling_hash_l61m1(InputIt first, InputIt last, value_type base): M_b(base) {
+    assign(first, last);
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last) {
+    M_c.assign(first, last);
+    M_build();
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last, value_type base) {
+    M_b = base;
+    M_c.assign(first, last);
+    M_build();
+  }
+
+  value_type substr(size_type pos, size_type len = npos) {
+    size_type n = M_c.size() - 1;
+    if (len == npos) len = n - pos;
+    size_type endpos = pos + len;
+    value_type hr = M_c[endpos];
+    value_type hl = M_c[pos];
+    value_type hs = hr - S_fma(hl, M_p[len], 0);
+    if (hs >= mod)  // "negative"
+      hs += mod;
+    return hs;
+  }
+};
+
+
+#line 9 "test/aoj_ALDS1_14_B_l61m1.test.cpp"
+
+int main() {
+  char buf[1048576];
+  scanf("%s", buf);
+  std::string t = buf;
+  scanf("%s", buf);
+  std::string p = buf;
+
+  std::seed_seq ss{
+    static_cast<uintmax_t>(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count()),
+    static_cast<uintmax_t>(__builtin_ia32_rdtsc()),
+  };
+  std::mt19937 rng(ss);
+  uintmax_t base = std::uniform_int_distribution<uintmax_t>(0, rolling_hash_l61m1::mod-1)(rng);
+
+  uintmax_t crit = rolling_hash_l61m1(p.begin(), p.end(), base).substr(0);
+  rolling_hash_l61m1 rt(t.begin(), t.end(), base);
+  for (size_t i = 0; i + p.length() <= t.length(); ++i) {
+    if (rt.substr(i, p.length()) == crit)
+      printf("%zu\n", i);
+  }
+}
 
 ```
 {% endraw %}

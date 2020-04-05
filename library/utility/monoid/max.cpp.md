@@ -31,9 +31,14 @@ layout: default
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/max.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-22 02:59:14+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Verified with
@@ -46,20 +51,18 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_max_monoid
+#define H_max_monoid
+
 /**
  * @brief max を得る演算のモノイド
  * @author えびちゃん
  */
 
-#ifdef CALL_FROM_TEST
-#include "utility/limits.cpp"
-#endif
-
 #include <algorithm>
 #include <utility>
 
-#ifndef H_max_monoid
-#define H_max_monoid
+#include "utility/limits.cpp"
 
 template <typename Tp>
 class max_monoid {
@@ -107,14 +110,74 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/monoid/max.cpp: line 7: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "utility/monoid/max.cpp"
+
+
+
+/**
+ * @brief max を得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <algorithm>
+#include <utility>
+
+#line 1 "utility/limits.cpp"
+/**
+ * @brief 型依存の定数
+ * @author えびちゃん
+ */
+
+#include <limits>
+
+#ifndef H_limits
+#define H_limits
+
+template <typename Tp>
+class limits: public std::numeric_limits<Tp> {};
+
+#endif  /* !defined(H_limits) */
+#line 13 "utility/monoid/max.cpp"
+
+template <typename Tp>
+class max_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  value_type M_x = limits<value_type>::min();
+
+public:
+  max_monoid() = default;  // identity
+  max_monoid(max_monoid const&) = default;
+  max_monoid(max_monoid&&) = default;
+
+  max_monoid(value_type const& x): M_x(x) {};
+  max_monoid(value_type&& x): M_x(std::move(x)) {};
+
+  max_monoid& operator =(max_monoid const&) = default;
+  max_monoid& operator =(max_monoid&&) = default;
+
+  max_monoid& operator +=(max_monoid const& that) {
+    M_x = std::max(M_x, that.M_x);
+    return *this;
+  }
+  max_monoid& operator +=(max_monoid&& that) {
+    M_x = std::max(M_x, std::move(that.M_x));
+    return *this;
+  }
+
+  max_monoid operator +(max_monoid const& that) const {
+    return max_monoid(*this) += that;
+  }
+  max_monoid operator +(max_monoid&& that) const {
+    return max_monoid(*this) += std::move(that);
+  }
+
+  value_type const& get() const { return M_x; }
+};
+
+
 
 ```
 {% endraw %}

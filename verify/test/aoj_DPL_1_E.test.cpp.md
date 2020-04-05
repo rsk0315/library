@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-05 15:19:11+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -49,15 +49,13 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#define CALL_FROM_TEST
-#include "utility/make/vector.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "utility/make/vector.cpp"
 
 int main() {
   char buf[1024];
@@ -91,7 +89,12 @@ int main() {
 #line 1 "test/aoj_DPL_1_E.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+#include <algorithm>
+#include <string>
+#include <vector>
+
 #line 1 "utility/make/vector.cpp"
 /**
  * @brief 多次元 vector の作成
@@ -103,7 +106,7 @@ int main() {
 
 #include <cstddef>
 #include <type_traits>
-#include <vector>
+#line 12 "utility/make/vector.cpp"
 
 namespace detail {
   template <typename Tp, size_t Nb>
@@ -126,14 +129,7 @@ auto make_vector(size_t const(&sizes)[Nb], Tp const& x = Tp()) {
 }
 
 #endif  /* !defined(H_make_vector) */
-#line 5 "test/aoj_DPL_1_E.test.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstdint>
-#include <cstdio>
-#include <algorithm>
-#include <string>
-#include <vector>
+#line 10 "test/aoj_DPL_1_E.test.cpp"
 
 int main() {
   char buf[1024];

@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small>
+# :x: Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/garner.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-25 00:08:02+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :x: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 
 
 ## Code
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_garner
+#define H_garner
+
 /**
  * @brief Garner's algorithm
  * @author えびちゃん
  */
-
-#ifndef H_garner
-#define H_garner
 
 #include <algorithm>
 #include <tuple>
@@ -119,13 +119,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "ModularArithmetic/garner.cpp"
+
+
+
 /**
  * @brief Garner's algorithm
  * @author えびちゃん
  */
-
-#ifndef H_garner
-#define H_garner
 
 #include <algorithm>
 #include <tuple>
@@ -183,7 +183,7 @@ public:
   }
 };
 
-#endif  /* !defined(H_garner) */
+
 
 ```
 {% endraw %}

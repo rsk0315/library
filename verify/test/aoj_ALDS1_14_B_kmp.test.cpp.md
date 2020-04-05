@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_kmp.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 22:09:46+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B">https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B</a>
@@ -49,14 +49,12 @@ layout: default
 ```cpp
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
-#include "String/knuth_morris_pratt_searcher.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "String/knuth_morris_pratt_searcher.cpp"
 
 int main() {
   char buf[1048576];
@@ -87,18 +85,22 @@ int main() {
 #line 1 "test/aoj_ALDS1_14_B_kmp.test.cpp"
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+#include <algorithm>
+#include <string>
+#include <vector>
+
 #line 1 "String/knuth_morris_pratt_searcher.cpp"
+
+
+
 /**
  * @brief KMP 法
  * @author えびちゃん
  */
 
-#ifndef H_knuth_morris_pratt_searcher
-#define H_knuth_morris_pratt_searcher
-
 #include <cstddef>
-#include <vector>
+#line 11 "String/knuth_morris_pratt_searcher.cpp"
 
 template <typename RandomIt1>
 class knuth_morris_pratt_searcher {
@@ -172,14 +174,8 @@ knuth_morris_pratt_searcher(RandomIt1 pat_first, RandomIt1 pat_last)
   -> knuth_morris_pratt_searcher<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_knuth_morris_pratt_searcher) */
-#line 5 "test/aoj_ALDS1_14_B_kmp.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
-#include <algorithm>
-#include <string>
-#include <vector>
+#line 9 "test/aoj_ALDS1_14_B_kmp.test.cpp"
 
 int main() {
   char buf[1048576];

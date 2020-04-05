@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 素集合データ構造 <small>(DataStructure/union_find.cpp)</small>
+# :question: 素集合データ構造 <small>(DataStructure/union_find.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/union_find.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
+* :x: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
 
 
 ## Code
@@ -49,13 +49,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_union_find
+#define H_union_find
+
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
  */
-
-#ifndef H_union_find
-#define H_union_find
 
 #include <cstddef>
 #include <cstdint>
@@ -115,13 +115,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "DataStructure/union_find.cpp"
+
+
+
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
  */
-
-#ifndef H_union_find
-#define H_union_find
 
 #include <cstddef>
 #include <cstdint>
@@ -172,7 +172,7 @@ public:
   }
 };
 
-#endif  /* !defined(H_union_find) */
+
 
 ```
 {% endraw %}

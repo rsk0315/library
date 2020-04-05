@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/tortoise_and_hare.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-15 02:55:29+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_tortoise_and_hare
+#define H_tortoise_and_hare
+
 /**
  * @brief 周期検出
  * @author えびちゃん
  */
-
-#ifndef H_tortoise_and_hare
-#define H_tortoise_and_hare
 
 #include <cstdint>
 #include <utility>
@@ -93,13 +93,13 @@ std::pair<intmax_t, intmax_t> detect_cycle(Generator g) {
 {% raw %}
 ```cpp
 #line 1 "algorithm/tortoise_and_hare.cpp"
+
+
+
 /**
  * @brief 周期検出
  * @author えびちゃん
  */
-
-#ifndef H_tortoise_and_hare
-#define H_tortoise_and_hare
 
 #include <cstdint>
 #include <utility>
@@ -131,7 +131,7 @@ std::pair<intmax_t, intmax_t> detect_cycle(Generator g) {
   return {mu, lambda};
 }
 
-#endif  /* !defined(H_tortoise_and_hare) */
+
 
 ```
 {% endraw %}

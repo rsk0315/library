@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
+# :x: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 06:33:31+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -50,14 +50,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_heavy_light_decomposition
+#define H_heavy_light_decomposition
+
 /**
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
  */
-
-#ifndef H_heavy_light_decomposition
-#define H_heavy_light_decomposition
 
 #include <cstddef>
 #include <type_traits>
@@ -286,14 +286,14 @@ public:
 {% raw %}
 ```cpp
 #line 1 "Graph/hl_decomposition.cpp"
+
+
+
 /**
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
  */
-
-#ifndef H_heavy_light_decomposition
-#define H_heavy_light_decomposition
 
 #include <cstddef>
 #include <type_traits>
@@ -513,7 +513,7 @@ public:
   void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };
 
-#endif  /* !defined(H_heavy_light_decomposition) */
+
 
 ```
 {% endraw %}

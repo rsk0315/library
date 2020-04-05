@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_10_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:47:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code
@@ -49,13 +49,11 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#define CALL_FROM_TEST
-#include "utility/make/fix_point.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "utility/make/fix_point.cpp"
 
 int main() {
   int n;
@@ -81,7 +79,10 @@ int main() {
 #line 1 "test/aoj_ALDS1_10_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+
 #line 1 "utility/make/fix_point.cpp"
 /**
  * @brief ラムダ式の再帰
@@ -110,12 +111,7 @@ static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
 }
 
 #endif  /* !defined(H_make_fix_point) */
-#line 5 "test/aoj_ALDS1_10_A.test.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstdint>
-#include <cstdio>
-#include <vector>
+#line 8 "test/aoj_ALDS1_10_A.test.cpp"
 
 int main() {
   int n;

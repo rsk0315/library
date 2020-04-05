@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_vertex_set_path_composite.test.cpp
+# :x: test/yj_vertex_set_path_composite.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_set_path_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:53:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_set_path_composite">https://judge.yosupo.jp/problem/vertex_set_path_composite</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :x: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :x: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 
 
 ## Code
@@ -52,18 +52,15 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_set_path_composite"
 
-#define CALL_FROM_TEST
-#include "Graph/hl_decomposition.cpp"
-#include "DataStructure/basic_segment_tree.cpp"
-#include "ModularArithmetic/modint.cpp"
-#include "utility/monoid/composite.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <utility>
 #include <vector>
+
+#include "Graph/hl_decomposition.cpp"
+#include "DataStructure/basic_segment_tree.cpp"
+#include "ModularArithmetic/modint.cpp"
+#include "utility/monoid/composite.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
@@ -116,21 +113,24 @@ int main() {
 #line 1 "test/yj_vertex_set_path_composite.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_set_path_composite"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+#include <utility>
+#include <vector>
+
 #line 1 "Graph/hl_decomposition.cpp"
+
+
+
 /**
  * @brief HL 分解
  * @author えびちゃん
  * @see https://codeforces.com/blog/entry/53170
  */
 
-#ifndef H_heavy_light_decomposition
-#define H_heavy_light_decomposition
-
 #include <cstddef>
 #include <type_traits>
-#include <utility>
-#include <vector>
+#line 14 "Graph/hl_decomposition.cpp"
 
 struct value_on_directed_edge_tag {};
 struct value_on_undirected_edge_tag {};
@@ -345,18 +345,17 @@ public:
   void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };
 
-#endif  /* !defined(H_heavy_light_decomposition) */
+
 #line 1 "DataStructure/basic_segment_tree.cpp"
+
+
+
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
  */
 
-#ifndef H_basic_segment_tree
-#define H_basic_segment_tree
-
-#include <cstddef>
-#include <vector>
+#line 11 "DataStructure/basic_segment_tree.cpp"
 
 template <typename Monoid>
 class basic_segment_tree {
@@ -480,19 +479,19 @@ public:
   }
 };
 
-#endif  /* !defined(H_basic_segment_tree) */
+
 #line 1 "ModularArithmetic/modint.cpp"
+
+
+
 /**
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
 
-#ifndef H_modint
-#define H_modint
-
-#include <cstdint>
+#line 10 "ModularArithmetic/modint.cpp"
 #include <type_traits>
-#include <utility>
+#line 12 "ModularArithmetic/modint.cpp"
 
 template <intmax_t Modulo>
 class modint {
@@ -605,13 +604,7 @@ constexpr intmax_t modint<N>::S_cmod;
 template <intmax_t N>
 intmax_t modint<N>::S_rmod;
 
-#ifndef CALL_FROM_TEST
-// constexpr intmax_t mod = 1000'000'007;
-// constexpr intmax_t mod = 998244353;
-using mi = modint<mod>;
-#endif
 
-#endif  /* !defined(H_modint) */
 #line 1 "utility/monoid/composite.cpp"
 /**
  * @brief 一次関数の合成を得る演算のモノイド
@@ -619,7 +612,7 @@ using mi = modint<mod>;
  */
 
 #include <algorithm>
-#include <utility>
+#line 8 "utility/monoid/composite.cpp"
 
 #ifndef H_composite_monoid
 #define H_composite_monoid
@@ -662,14 +655,7 @@ public:
 };
 
 #endif  /* !defined(H_composite_monoid) */
-#line 8 "test/yj_vertex_set_path_composite.test.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
-#include <cstdint>
-#include <cstdio>
-#line 14 "test/yj_vertex_set_path_composite.test.cpp"
-#include <vector>
+#line 12 "test/yj_vertex_set_path_composite.test.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

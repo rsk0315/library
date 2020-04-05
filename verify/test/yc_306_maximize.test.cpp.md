@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yc_306_maximize.test.cpp
+# :x: test/yc_306_maximize.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_306_maximize.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:42:16+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/306">https://yukicoder.me/problems/no/306</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
+* :x: <a href="../../library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
 
 
 ## Code
@@ -50,12 +50,10 @@ layout: default
 #define PROBLEM "https://yukicoder.me/problems/no/306"
 #define ERROR 1e-6
 
-#define CALL_FROM_TEST
-#include "algorithm/ternary_search.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <cmath>
+
+#include "algorithm/ternary_search.cpp"
 
 int main() {
   long double xa, ya, xb, yb;
@@ -76,17 +74,19 @@ int main() {
 #define PROBLEM "https://yukicoder.me/problems/no/306"
 #define ERROR 1e-6
 
-#define CALL_FROM_TEST
+#include <cstdio>
+#include <cmath>
+
 #line 1 "algorithm/ternary_search.cpp"
+
+
+
 /**
  * @brief 黄金比分割探索
  * @author えびちゃん
  */
 
-#ifndef H_ternary_search
-#define H_ternary_search
-
-#include <cmath>
+#line 10 "algorithm/ternary_search.cpp"
 #include <utility>
 
 template <typename Fn, typename Tp>
@@ -116,12 +116,8 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
   return std::make_pair(xml, yml);
 }
 
-#endif  /* !defined(H_ternary_search) */
-#line 6 "test/yc_306_maximize.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
-#include <cmath>
+#line 8 "test/yc_306_maximize.test.cpp"
 
 int main() {
   long double xa, ya, xb, yb;

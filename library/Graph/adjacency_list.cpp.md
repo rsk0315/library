@@ -25,15 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small>
+# :question: 重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/adjacency_list.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-21 16:32:25+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
+* :question: <a href="scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :question: <a href="two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 
 
 ## Verified with
@@ -44,12 +51,12 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
+* :x: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
+* :x: <a href="../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
+* :x: <a href="../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 
 
 ## Code
@@ -57,13 +64,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_adjacency_list
+#define H_adjacency_list
+
 /**
  * @brief 重みつきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_adjacency_list
-#define H_adjacency_list
 
 #include <cstddef>
 #include <algorithm>
@@ -150,13 +157,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "Graph/adjacency_list.cpp"
+
+
+
 /**
  * @brief 重みつきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_adjacency_list
-#define H_adjacency_list
 
 #include <cstddef>
 #include <algorithm>
@@ -234,7 +241,7 @@ public:
   auto const& operator [](size_type i) const { return M_g[i]; }
 };
 
-#endif  /* !defined(H_adjacency_list) */
+
 
 ```
 {% endraw %}

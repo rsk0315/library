@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:47:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
 ## Code
@@ -49,11 +49,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 
-#define CALL_FROM_TEST
-#include "DataStructure/union_find.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "DataStructure/union_find.cpp"
 
 int main() {
   size_t n, q;
@@ -85,15 +83,16 @@ int main() {
 #line 1 "test/aoj_DSL_1_A.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #line 1 "DataStructure/union_find.cpp"
+
+
+
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
  */
-
-#ifndef H_union_find
-#define H_union_find
 
 #include <cstddef>
 #include <cstdint>
@@ -144,11 +143,8 @@ public:
   }
 };
 
-#endif  /* !defined(H_union_find) */
-#line 5 "test/aoj_DSL_1_A.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
+#line 6 "test/aoj_DSL_1_A.test.cpp"
 
 int main() {
   size_t n, q;

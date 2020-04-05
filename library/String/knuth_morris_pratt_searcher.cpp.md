@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/knuth_morris_pratt_searcher.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 22:09:46+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_knuth_morris_pratt_searcher
+#define H_knuth_morris_pratt_searcher
+
 /**
  * @brief KMP 法
  * @author えびちゃん
  */
-
-#ifndef H_knuth_morris_pratt_searcher
-#define H_knuth_morris_pratt_searcher
 
 #include <cstddef>
 #include <vector>
@@ -138,13 +138,13 @@ knuth_morris_pratt_searcher(RandomIt1 pat_first, RandomIt1 pat_last)
 {% raw %}
 ```cpp
 #line 1 "String/knuth_morris_pratt_searcher.cpp"
+
+
+
 /**
  * @brief KMP 法
  * @author えびちゃん
  */
-
-#ifndef H_knuth_morris_pratt_searcher
-#define H_knuth_morris_pratt_searcher
 
 #include <cstddef>
 #include <vector>
@@ -221,7 +221,7 @@ knuth_morris_pratt_searcher(RandomIt1 pat_first, RandomIt1 pat_last)
   -> knuth_morris_pratt_searcher<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_knuth_morris_pratt_searcher) */
+
 
 ```
 {% endraw %}

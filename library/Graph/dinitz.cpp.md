@@ -31,9 +31,18 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinitz.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-09 19:15:55+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="capacitated_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_list.cpp)</small></a>
+* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Verified with
@@ -47,24 +56,22 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_max_flow_dinitz
+#define H_max_flow_dinitz
+
 /**
  * @brief 最大流 (Dinitz)
  * @author えびちゃん
  */
 
-#ifndef H_max_flow_dinitz
-#define H_max_flow_dinitz
+#include <queue>
+#include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
 #include "utility/limits.cpp"
 #include "utility/make/fix_point.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "Graph/capacitated_list.cpp"
-#endif
-
-#include <queue>
-#include <vector>
 
 struct dinitz_tag {} dinitz;
 
@@ -138,14 +145,312 @@ auto max_flow(AdjacencyList& g, size_t s, size_t t, dinitz_tag) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: Graph/dinitz.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "Graph/dinitz.cpp"
+
+
+
+/**
+ * @brief 最大流 (Dinitz)
+ * @author えびちゃん
+ */
+
+#include <queue>
+#include <vector>
+
+#line 1 "utility/literals.cpp"
+
+
+
+/**
+ * @brief ユーザ定義リテラル
+ * @author えびちゃん
+ */
+
+#include <cstddef>
+#include <cstdint>
+
+constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
+constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
+constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
+constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+
+
+#line 1 "utility/limits.cpp"
+/**
+ * @brief 型依存の定数
+ * @author えびちゃん
+ */
+
+#include <limits>
+
+#ifndef H_limits
+#define H_limits
+
+template <typename Tp>
+class limits: public std::numeric_limits<Tp> {};
+
+#endif  /* !defined(H_limits) */
+#line 1 "utility/make/fix_point.cpp"
+/**
+ * @brief ラムダ式の再帰
+ * @author えびちゃん
+ */
+
+#ifndef H_make_fix_point
+#define H_make_fix_point
+
+#include <utility>
+
+template <typename Fn>
+class fix_point: Fn {
+public:
+  explicit constexpr fix_point(Fn&& f) noexcept: Fn(std::forward<Fn>(f)) {}
+
+  template <typename... Args>
+  constexpr decltype(auto) operator ()(Args&&... args) const {
+    return Fn::operator ()(*this, std::forward<Args>(args)...);
+  }
+};
+
+template <typename Fn>
+static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
+  return fix_point<Fn>{std::forward<Fn>(f)};
+}
+
+#endif  /* !defined(H_make_fix_point) */
+#line 1 "Graph/adjacency_list.cpp"
+
+
+
+/**
+ * @brief 重みつきグラフの隣接リスト
+ * @author えびちゃん
+ */
+
+#line 10 "Graph/adjacency_list.cpp"
+#include <algorithm>
+#include <type_traits>
+#line 13 "Graph/adjacency_list.cpp"
+
+template <typename WeightType>
+class weighted_edge {
+public:
+  using size_type = size_t;
+  using weight_type = WeightType;
+
+protected:
+  size_type M_src, M_dst;
+  weight_type M_weight;
+
+public:
+  weighted_edge() = default;
+  weighted_edge(weighted_edge const&) = default;
+  weighted_edge(weighted_edge&&) = default;
+
+  weighted_edge(size_type s, size_type d, weight_type w):
+    M_src(s), M_dst(d), M_weight(w)
+  {}
+
+  weighted_edge& operator =(weighted_edge const&) = default;
+  weighted_edge& operator =(weighted_edge&&) = default;
+
+  bool operator <(weighted_edge const& other) const {
+    if (M_weight < other.M_weight) return true;
+    if (other.M_weight < M_weight) return false;
+    if (M_src != other.M_src) return M_src < other.M_src;
+    return M_dst < other.M_dst;
+  }
+
+  size_type source() const { return M_src; }
+  size_type target() const { return M_dst; }
+  weight_type weight() const { return M_weight; }
+};
+
+struct directed_tag {};
+struct undirected_tag {};
+
+template <typename Edge, typename Directedness>
+class adjacency_list {
+public:
+  using size_type = size_t;
+  using edge_type = Edge;
+  using weight_type = typename Edge::weight_type;
+
+private:
+  std::vector<std::vector<edge_type>> M_g;
+
+public:
+  adjacency_list() = default;
+  adjacency_list(adjacency_list const&) = default;
+  adjacency_list(adjacency_list&&) = default;
+  explicit adjacency_list(size_type n): M_g(n) {}
+
+  template <typename... Args>
+  void emplace(size_type src, size_type dst, Args... args) {
+    M_g[src].emplace_back(src, dst, args...);
+    if (std::is_same<Directedness, undirected_tag>::value)
+      M_g[dst].emplace_back(dst, src, args...);
+  }
+
+  void sort_by_index() {
+    auto cmp = [](auto const& e1, auto const& e2) {
+      return e1.target() < e2.target();
+    };
+    for (auto v: M_g) std::sort(v.begin(), v.end(), cmp);
+  }
+
+  size_type size() const { return M_g.size(); }
+  auto const& operator [](size_type i) const { return M_g[i]; }
+};
+
+
+#line 1 "Graph/capacitated_list.cpp"
+
+
+
+/**
+ * @brief 容量つきグラフの隣接リスト
+ * @author えびちゃん
+ */
+
+#line 10 "Graph/capacitated_list.cpp"
+
+template <typename WeightType>
+class capacitated_edge {
+public:
+  using size_type = size_t;
+  using weight_type = WeightType;
+
+protected:
+  size_type M_src, M_dst;
+  weight_type M_capacity;
+  size_type M_rev;
+
+public:
+  capacitated_edge() = default;
+  capacitated_edge(capacitated_edge const&) = default;
+  capacitated_edge(capacitated_edge&&) = default;
+
+  capacitated_edge(size_type s, size_type d, weight_type c, size_type r):
+    M_src(s), M_dst(d), M_capacity(c), M_rev(r)
+  {}
+
+  capacitated_edge& operator =(capacitated_edge const&) = default;
+  capacitated_edge& operator =(capacitated_edge&&) = default;
+
+  bool operator <(capacitated_edge const& other) const {
+    if (M_capacity < other.M_capacity) return true;
+    if (other.M_capacity < M_capacity) return false;
+    if (M_src != other.M_src) return M_src < other.M_src;
+    return M_dst < other.M_dst;
+  }
+
+  size_type source() const { return M_src; }
+  size_type target() const { return M_dst; }
+  weight_type capacity() const { return M_capacity; }
+  weight_type& capacity() { return M_capacity; }
+  size_type reversed() const { return M_rev; }
+};
+
+template <typename WeightType, typename Directedness>
+class adjacency_list<capacitated_edge<WeightType>, Directedness> {
+public:
+  using size_type = size_t;
+  using edge_type = capacitated_edge<WeightType>;
+  using weight_type = WeightType;
+
+private:
+  std::vector<std::vector<edge_type>> M_g;
+
+public:
+  adjacency_list() = default;
+  adjacency_list(adjacency_list const&) = default;
+  adjacency_list(adjacency_list&&) = default;
+  explicit adjacency_list(size_type n): M_g(n) {}
+
+  template <typename... Args>
+  void emplace(size_type src, size_type dst, weight_type cap) {
+    M_g[src].emplace_back(src, dst, cap, M_g[dst].size());
+    if (std::is_same<Directedness, directed_tag>::value) {
+      M_g[dst].emplace_back(dst, src, weight_type{0}, M_g[src].size()-1);
+    } else if (std::is_same<Directedness, undirected_tag>::value) {
+      M_g[dst].emplace_back(dst, src, cap, M_g[src].size()-1);
+    }
+  }
+
+  size_type size() const { return M_g.size(); }
+  auto const& operator [](size_type i) const { return M_g[i]; }
+  auto& operator [](size_type i) { return M_g[i]; }
+};
+
+
+#line 17 "Graph/dinitz.cpp"
+
+struct dinitz_tag {} dinitz;
+
+template <typename AdjacencyList>
+auto max_flow(AdjacencyList& g, size_t s, size_t t,
+              typename AdjacencyList::weight_type fl, dinitz_tag) {
+
+  using size_type = typename AdjacencyList::size_type;
+  using weight_type = typename AdjacencyList::weight_type;
+  size_type n = g.size();
+  std::vector<size_type> level(n), iter(n);
+
+  auto bfs = [&](size_type s) -> void {
+    level.assign(n, -1_zu);
+    std::queue<size_type> q;
+    level[s] = 0;
+    q.push(s);
+    while (!q.empty()) {
+      size_type v = q.front();
+      q.pop();
+      for (auto const& e: g[v]) {
+        if (e.capacity() > weight_type(0) && level[e.target()] == -1_zu) {
+          level[e.target()] = level[e.source()] + 1;
+          q.push(e.target());
+        }
+      }
+    }
+  };
+
+  auto dfs = make_fix_point([&](auto dfs_, size_type v, weight_type f) -> weight_type {
+      if (v == t) return f;
+      for (size_type& i = iter[v]; i < g[v].size(); ++i) {
+        auto& e = g[v][i];
+        if (e.capacity() > weight_type(0) && level[v] < level[e.target()]) {
+          weight_type f0 = dfs_(e.target(), std::min(f, e.capacity()));
+          if (f0 > weight_type(0)) {
+            e.capacity() -= f0;
+            g[e.target()][e.reversed()].capacity() += f0;
+            return f0;
+          }
+        }
+      }
+      return weight_type(0);
+  });
+
+  weight_type res{0};
+  while (true) {
+    bfs(s);
+    if (level[t] == -1_zu) return res;
+    iter.assign(n, 0);
+    weight_type f;
+    while ((f = dfs(s, fl)) > weight_type(0)) {
+      res += f;
+      fl -= f;
+      if (fl == weight_type(0)) return res;
+    }
+  }
+}
+
+template <typename AdjacencyList>
+auto max_flow(AdjacencyList& g, size_t s, size_t t, dinitz_tag) {
+  auto fl = limits<typename AdjacencyList::weight_type>::max();
+  return max_flow(g, s, t, fl, dinitz);
+}
+
+
 
 ```
 {% endraw %}

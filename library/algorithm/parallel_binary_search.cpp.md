@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/parallel_binary_search.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-15 13:36:40+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_parallel_binary_search
+#define H_parallel_binary_search
+
 /**
  * @brief 並列二分探索
  * @author えびちゃん
  */
-
-#ifndef H_parallel_binary_search
-#define H_parallel_binary_search
 
 #include <cstddef>
 #include <vector>
@@ -98,13 +98,13 @@ std::vector<size_t> parallel_binary_search(
 {% raw %}
 ```cpp
 #line 1 "algorithm/parallel_binary_search.cpp"
+
+
+
 /**
  * @brief 並列二分探索
  * @author えびちゃん
  */
-
-#ifndef H_parallel_binary_search
-#define H_parallel_binary_search
 
 #include <cstddef>
 #include <vector>
@@ -141,7 +141,7 @@ std::vector<size_t> parallel_binary_search(
   return ub;
 }
 
-#endif  /* !defined(H_parallel_binary_search) */
+
 
 ```
 {% endraw %}

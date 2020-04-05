@@ -31,10 +31,15 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/rolling_hash_l61m1.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:44:01+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 * see: <a href="https://qiita.com/keymoon/items/11fac5627672a6d6a9f6">https://qiita.com/keymoon/items/11fac5627672a6d6a9f6</a>
+
+
+## Depends on
+
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Verified with
@@ -47,6 +52,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_rolling_hash_l61m1
+#define H_rolling_hash_l61m1
+
 /**
  * @brief mod 2^61-1 のローリングハッシュ
  * @author えびちゃん
@@ -57,9 +65,122 @@ layout: default
 #include <cstdint>
 #include <vector>
 
-#ifdef CALL_FROM_TEST
 #include "utility/literals.cpp"
-#endif
+
+class rolling_hash_l61m1 {
+public:
+  using size_type = size_t;
+  using value_type = uintmax_t;
+  static value_type const mod = (1_ju << 61) - 1;
+  static size_type const npos = -1;
+
+private:
+  value_type M_b;
+  std::vector<value_type> M_c, M_p;
+
+  static value_type S_fma(value_type a, value_type b, value_type c) {
+    value_type au = a >> 31;
+    value_type al = a & ((1u << 31) - 1);
+    value_type bu = b >> 31;
+    value_type bl = b & ((1u << 31) - 1);
+
+    value_type x = au*bl + al*bu;
+    value_type xu = x >> 30;
+    value_type xl = x & ((1u << 30) - 1);
+
+    value_type y = ((au*bu) << 1) + (xu + (xl << 31)) + (al*bl);
+    value_type yu = y >> 61;
+    value_type yl = y & ((1_ju << 61) - 1);
+
+    value_type z = yu + yl + c;
+    if (z >= mod) z -= mod;
+    return z;
+  }
+
+  void M_build() {
+    for (size_type i = 1; i < M_c.size(); ++i)
+      M_c[i] = S_fma(M_c[i-1], M_b, M_c[i]);
+    M_c.insert(M_c.begin(), 0);
+
+    M_p.assign(M_c.size(), 1);
+    for (size_type i = 1; i < M_p.size(); ++i)
+      M_p[i] = S_fma(M_p[i-1], M_b, 0);
+  }
+
+public:
+  rolling_hash_l61m1() = default;
+
+  template <typename InputIt>
+  rolling_hash_l61m1(InputIt first, InputIt last, value_type base): M_b(base) {
+    assign(first, last);
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last) {
+    M_c.assign(first, last);
+    M_build();
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last, value_type base) {
+    M_b = base;
+    M_c.assign(first, last);
+    M_build();
+  }
+
+  value_type substr(size_type pos, size_type len = npos) {
+    size_type n = M_c.size() - 1;
+    if (len == npos) len = n - pos;
+    size_type endpos = pos + len;
+    value_type hr = M_c[endpos];
+    value_type hl = M_c[pos];
+    value_type hs = hr - S_fma(hl, M_p[len], 0);
+    if (hs >= mod)  // "negative"
+      hs += mod;
+    return hs;
+  }
+};
+
+#endif  /* !defined(H_rolling_hash_l61m1) */
+
+```
+{% endraw %}
+
+<a id="bundled"></a>
+{% raw %}
+```cpp
+#line 1 "String/rolling_hash_l61m1.cpp"
+
+
+
+/**
+ * @brief mod 2^61-1 のローリングハッシュ
+ * @author えびちゃん
+ * @see https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
+ */
+
+#include <cstddef>
+#include <cstdint>
+#include <vector>
+
+#line 1 "utility/literals.cpp"
+
+
+
+/**
+ * @brief ユーザ定義リテラル
+ * @author えびちゃん
+ */
+
+#line 11 "utility/literals.cpp"
+
+constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
+constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
+constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
+constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+
+
+#line 15 "String/rolling_hash_l61m1.cpp"
 
 class rolling_hash_l61m1 {
 public:
@@ -136,20 +257,6 @@ public:
 };
 
 
-```
-{% endraw %}
-
-<a id="bundled"></a>
-{% raw %}
-```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: String/rolling_hash_l61m1.cpp: line 12: unable to process #include in #if / #ifdef / #ifndef other than include guards
 
 ```
 {% endraw %}

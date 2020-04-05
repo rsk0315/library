@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_many_aplusb.test.cpp
+# :x: test/yj_many_aplusb.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_many_aplusb.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 15:31:16+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/many_aplusb">https://judge.yosupo.jp/problem/many_aplusb</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
+* :x: <a href="../../library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 
 
 ## Code
@@ -49,11 +49,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/many_aplusb"
 
-#define CALL_FROM_TEST
-#include "utility/fast_io.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
+
+#include "utility/fast_io.cpp"
 
 int main() {
   unsigned t;
@@ -75,7 +73,8 @@ int main() {
 #line 1 "test/yj_many_aplusb.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/many_aplusb"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+
 #line 1 "utility/fast_io.cpp"
 /**
  * @brief 高速入出力
@@ -87,7 +86,7 @@ int main() {
 #define H_fast_io
 
 #include <cstddef>
-#include <cstdint>
+#line 12 "utility/fast_io.cpp"
 #include <cstdio>
 #include <cstring>
 #include <limits>
@@ -383,10 +382,7 @@ fast::scanner cin;
 fast::printer cout;
 
 #endif  /* !defined(H_fast_io) */
-#line 5 "test/yj_many_aplusb.test.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstdint>
+#line 6 "test/yj_many_aplusb.test.cpp"
 
 int main() {
   unsigned t;

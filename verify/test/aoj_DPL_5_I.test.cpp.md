@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_I.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-05 01:11:44+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Code
@@ -52,15 +52,14 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+
 #include "ModularArithmetic/modint.cpp"
 #include "ModularArithmetic/modtable.cpp"
 #include "ModularArithmetic/operations.cpp"
-#undef CALL_FROM_TEST
 
 using mi = modint<1000'000'007>;
-
-#include <cstdio>
 
 int main() {
   intmax_t n, k;
@@ -84,16 +83,363 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: ModularArithmetic/operations.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "test/aoj_DPL_5_I.test.cpp"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
+
+#include <cstdint>
+#include <cstdio>
+
+#line 1 "ModularArithmetic/modint.cpp"
+
+
+
+/**
+ * @brief 合同算術用クラス
+ * @author えびちゃん
+ */
+
+#line 10 "ModularArithmetic/modint.cpp"
+#include <type_traits>
+#include <utility>
+
+template <intmax_t Modulo>
+class modint {
+public:
+  using value_type = intmax_t;
+
+private:
+  static constexpr value_type S_cmod = Modulo;  // compile-time
+  static value_type S_rmod;  // runtime
+  value_type M_value = 0;
+
+  static constexpr value_type S_inv(value_type n, value_type m) {
+    value_type x = 0;
+    value_type y = 1;
+    value_type a = n;
+    value_type b = m;
+    for (value_type u = y, v = x; a;) {
+      value_type q = b / a;
+      std::swap(x -= q*u, u);
+      std::swap(y -= q*v, v);
+      std::swap(b -= q*a, a);
+    }
+    if ((x %= m) < 0) x += m;
+    return x;
+  }
+
+  static value_type S_normalize(value_type n, value_type m) {
+    if (n >= m) {
+      n %= m;
+    } else if (n < 0) {
+      if ((n %= m) < 0) n += m;
+    }
+    return n;
+  }
+
+public:
+  modint() = default;
+  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+
+  modint& operator =(value_type n) {
+    M_value = S_normalize(n, get_modulo());
+    return *this;
+  }
+
+  modint& operator +=(modint const& that) {
+    if ((M_value += that.M_value) >= get_modulo()) M_value -= get_modulo();
+    return *this;
+  }
+  modint& operator -=(modint const& that) {
+    if ((M_value -= that.M_value) < 0) M_value += get_modulo();
+    return *this;
+  }
+  modint& operator *=(modint const& that) {
+    (M_value *= that.M_value) %= get_modulo();
+    return *this;
+  }
+  modint& operator /=(modint const& that) {
+    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    return *this;
+  }
+
+  modint operator +(modint const& that) const { return modint(*this) += that; }
+  modint operator -(modint const& that) const { return modint(*this) -= that; }
+  modint operator *(modint const& that) const { return modint(*this) *= that; }
+  modint operator /(modint const& that) const { return modint(*this) /= that; }
+
+  modint operator +() const { return *this; }
+  modint operator -() const {
+    if (M_value == 0) return *this;
+    return modint(get_modulo() - M_value);
+  }
+
+  bool operator ==(modint const& that) const { return M_value == that.M_value; }
+  bool operator !=(modint const& that) const { return !(*this == that); }
+
+  value_type get() const { return M_value; }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
+
+  template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
+  static Tp set_modulo(value_type m) { S_rmod = m; }
+};
+
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator +(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs + lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator -(Tp const& lhs, modint<Modulo> const& rhs) {
+  return -(rhs - lhs);
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator *(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs * lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator /(Tp const& lhs, modint<Modulo> const& rhs) {
+  return modint<Modulo>(lhs) / rhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator ==(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs == lhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
+  return !(lhs == rhs);
+}
+
+template <intmax_t N>
+constexpr intmax_t modint<N>::S_cmod;
+template <intmax_t N>
+intmax_t modint<N>::S_rmod;
+
+
+#line 1 "ModularArithmetic/modtable.cpp"
+
+
+
+/**
+ * @brief 合同演算の前計算テーブル
+ * @author えびちゃん
+ */
+
+#include <cstddef>
+#include <vector>
+
+template <typename ModInt>
+class modtable {
+public:
+  using value_type = ModInt;
+  using size_type = size_t;
+  using underlying_type = typename ModInt::value_type;
+
+private:
+  std::vector<value_type> M_f, M_i, M_fi;
+
+public:
+  modtable() = default;
+
+  explicit modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
+    M_f[0] = 1;
+    for (underlying_type i = 1; i <= n; ++i)
+      M_f[i] = M_f[i-1] * i;
+
+    underlying_type mod = M_f[0].get_modulo();
+    M_i[1] = 1;
+    for (underlying_type i = 2; i <= n; ++i)
+      M_i[i] = -value_type(mod / i) * M_i[mod % i];
+
+    M_fi[0] = 1;
+    for (underlying_type i = 1; i <= n; ++i)
+      M_fi[i] = M_fi[i-1] * M_i[i];
+  }
+
+  value_type inverse(underlying_type n) const { return M_i[n]; }
+  value_type factorial(underlying_type n) const { return M_f[n]; }
+  value_type factorial_inverse(underlying_type n) const { return M_fi[n]; }
+
+  value_type binom(underlying_type n, underlying_type k) const {
+    if (n < 0 || n < k || k < 0) return 0;
+    // assumes n < mod
+    return M_f[n] * M_fi[k] * M_fi[n-k];
+  }
+};
+
+
+#line 1 "ModularArithmetic/operations.cpp"
+
+
+
+/**
+ * @brief 合同算術の基本演算
+ * @author えびちゃん
+ */
+
+#include <stdexcept>
+#line 11 "ModularArithmetic/operations.cpp"
+
+#line 1 "integer/bit.cpp"
+/** 
+ * @brief ビット演算
+ * @author えびちゃん
+ */
+
+#ifndef H_bit
+#define H_bit
+
+#include <climits>
+#include <type_traits>
+
+// #ifdef __has_builtin
+int clz(unsigned n) { return __builtin_clz(n); }
+int clz(unsigned long n) { return __builtin_clzl(n); }
+int clz(unsigned long long n) { return __builtin_clzll(n); }
+int ctz(unsigned n) { return __builtin_ctz(n); }
+int ctz(unsigned long n) { return __builtin_ctzl(n); }
+int ctz(unsigned long long n) { return __builtin_ctzll(n); }
+int popcount(unsigned n) { return __builtin_popcount(n); }
+int popcount(unsigned long n) { return __builtin_popcountl(n); }
+int popcount(unsigned long long n) { return __builtin_popcountll(n); }
+// #else
+// TODO: implement
+// #endif
+
+template <typename Tp>
+auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+auto ctz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return ctz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return popcount(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+
+template <typename Tp>
+int parity(Tp n) { return popcount(n) & 1; }
+template <typename Tp>
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+Tp ceil2(Tp n) {
+  if (!(n & (n-1))) return n;
+  return Tp(2) << ilog2(n);
+}
+template <typename Tp>
+Tp reverse(Tp n) {
+  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
+  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
+  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
+  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
+  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
+  n = ((n & b1) << 1) | ((n >> 1) & b1);
+  n = ((n & b2) << 2) | ((n >> 2) & b2);
+  n = ((n & b4) << 4) | ((n >> 4) & b4);
+  n = ((n & b8) << 8) | ((n >> 8) & b8);
+  n = ((n & bx) << 16) | ((n >> 16) & bx);
+  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+  return n;
+}
+
+#endif  /* !defined(H_bit) */
+#line 13 "ModularArithmetic/operations.cpp"
+
+template <typename ModInt>
+ModInt pow(ModInt const& n, intmax_t iexp) {
+  ModInt res(1);
+  for (ModInt dbl = n; iexp; iexp >>= 1) {
+    if (iexp & 1) res *= dbl;
+    dbl *= dbl;
+  }
+  return res;
+}
+
+template <typename ModInt>
+ModInt sqrt(ModInt const& n) {
+  if (n == 0) return n;
+
+  using value_type = typename ModInt::value_type;
+
+  intmax_t const p = n.get_modulo();
+  if (p % 4 == 3) {
+    ModInt r = pow(n, (p+1) / 4);
+    if (r * r == n) return r;
+    throw std::logic_error("quadratic nonresidue");
+  }
+
+  value_type s = ctz(p-1);
+  value_type q = (p-1) >> s;
+
+  ModInt z;
+  for (value_type z0 = 2; z0 < p; ++z0) {
+    z = ModInt(z0);
+    if (pow(z, (p-1) / 2) == -1) break;
+  }
+
+  value_type m = s;
+  ModInt c = pow(z, q);
+  ModInt t = pow(n, q);
+  ModInt r = pow(n, (q+1) / 2);
+
+  while (true) {
+    if (t == 0) return 0;
+    if (t == 1) return r;
+
+    value_type i = 0;
+    for (auto tt = t; tt != 1; ++i) tt *= tt;
+    if (i == m) throw std::logic_error("quadratic nonresidue");
+    auto b = c;
+    for (value_type j = 0; j < m-i-1; ++j) b *= b;
+    m = i;
+    c = b * b;
+    t *= c;
+    r *= b;
+  }
+}
+
+template <typename ModInt>
+std::vector<ModInt> sqrt_all(ModInt const& n) {
+  try {
+    auto r = sqrt(n);
+    if (r == -r) return {r};
+    return {r, -r};
+  } catch (std::logic_error const&) {
+    return {};
+  }
+}
+
+template <typename ModPolynomial>
+ModPolynomial log(ModPolynomial const& f) {
+  auto g = f;
+  g.differentiate();
+  g *= f.inverse(f.degree()+1);
+  g.integrate();
+  return g;
+}
+
+
+#line 9 "test/aoj_DPL_5_I.test.cpp"
+
+using mi = modint<1000'000'007>;
+
+int main() {
+  intmax_t n, k;
+  scanf("%jd %jd", &n, &k);
+
+  modtable<mi> mt(n+k);
+  mi res = 0;
+  for (int i = 1; i <= k; ++i) {
+    mi cur = mt.binom(k, i);
+    if ((i-1) % 2) cur = -cur;
+    cur *= pow(mi(k-i), n);
+    res += cur;
+  }
+  res = (pow(mi(k), n) - res) * mt.factorial_inverse(k);
+  printf("%jd\n", res.get());
+}
 
 ```
 {% endraw %}

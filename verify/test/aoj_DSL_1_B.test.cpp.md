@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_1_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 04:47:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B</a>
@@ -49,11 +49,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#define CALL_FROM_TEST
-#include "DataStructure/potential_function.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "DataStructure/potential_function.cpp"
 
 int main() {
   size_t n, q;
@@ -90,15 +88,16 @@ int main() {
 #line 1 "test/aoj_DSL_1_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #line 1 "DataStructure/potential_function.cpp"
+
+
+
 /** 
  * @brief ポテンシャル関数
  * @author えびちゃん
  */
-
-#ifndef H_potential_function
-#define H_potential_function
 
 #include <cstddef>
 #include <stdexcept>
@@ -156,11 +155,8 @@ public:
   size_type count(size_type x) const { return -M_c[representative(x)]; }
 };
 
-#endif  /* !defined(H_potential_function) */
-#line 5 "test/aoj_DSL_1_B.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
+#line 6 "test/aoj_DSL_1_B.test.cpp"
 
 int main() {
   size_t n, q;

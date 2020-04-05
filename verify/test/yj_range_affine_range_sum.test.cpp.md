@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_range_affine_range_sum.test.cpp
+# :x: test/yj_range_affine_range_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_range_affine_range_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:53:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_affine_range_sum">https://judge.yosupo.jp/problem/range_affine_range_sum</a>
@@ -39,12 +39,12 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :x: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :x: <a href="../../library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
+* :x: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :x: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 
 
 ## Code
@@ -54,16 +54,13 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 
-#define CALL_FROM_TEST
-#include "DataStructure/segment_tree.cpp"
-#include "utility/action/affine_sum.cpp"
-#include "ModularArithmetic/modint.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/segment_tree.cpp"
+#include "utility/action/affine_sum.cpp"
+#include "ModularArithmetic/modint.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
@@ -100,16 +97,498 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 282, in update
-    self.update(self._resolve(pathlib.Path(included), included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: DataStructure/segment_tree.cpp: line 13: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "test/yj_range_affine_range_sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
+
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+
+#line 1 "DataStructure/segment_tree.cpp"
+
+
+
+/**
+ * @brief 区間作用・区間和セグメント木
+ * @author えびちゃん
+ */
+
+#include <cstddef>
+#line 11 "DataStructure/segment_tree.cpp"
+
+#line 1 "integer/bit.cpp"
+/** 
+ * @brief ビット演算
+ * @author えびちゃん
+ */
+
+#ifndef H_bit
+#define H_bit
+
+#include <climits>
+#include <type_traits>
+
+// #ifdef __has_builtin
+int clz(unsigned n) { return __builtin_clz(n); }
+int clz(unsigned long n) { return __builtin_clzl(n); }
+int clz(unsigned long long n) { return __builtin_clzll(n); }
+int ctz(unsigned n) { return __builtin_ctz(n); }
+int ctz(unsigned long n) { return __builtin_ctzl(n); }
+int ctz(unsigned long long n) { return __builtin_ctzll(n); }
+int popcount(unsigned n) { return __builtin_popcount(n); }
+int popcount(unsigned long n) { return __builtin_popcountl(n); }
+int popcount(unsigned long long n) { return __builtin_popcountll(n); }
+// #else
+// TODO: implement
+// #endif
+
+template <typename Tp>
+auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+auto ctz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return ctz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
+  return popcount(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+
+template <typename Tp>
+int parity(Tp n) { return popcount(n) & 1; }
+template <typename Tp>
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+Tp ceil2(Tp n) {
+  if (!(n & (n-1))) return n;
+  return Tp(2) << ilog2(n);
+}
+template <typename Tp>
+Tp reverse(Tp n) {
+  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
+  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
+  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
+  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
+  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
+  n = ((n & b1) << 1) | ((n >> 1) & b1);
+  n = ((n & b2) << 2) | ((n >> 2) & b2);
+  n = ((n & b4) << 4) | ((n >> 4) & b4);
+  n = ((n & b8) << 8) | ((n >> 8) & b8);
+  n = ((n & bx) << 16) | ((n >> 16) & bx);
+  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+  return n;
+}
+
+#endif  /* !defined(H_bit) */
+#line 13 "DataStructure/segment_tree.cpp"
+
+template <typename Operation>
+class segment_tree {
+public:
+  using size_type = size_t;
+  using operation = Operation;
+  using operand_type = typename operation::operand_type;
+  using action_type = typename operation::action_type;
+  using value_type = operand_type;
+
+private:
+  size_type M_n;
+  std::vector<operand_type> M_c;
+  std::vector<action_type> M_d;  // deferred
+
+  void M_build(size_type i) {
+    while (i > 1) {
+      i >>= 1;
+      M_c[i] = (M_c[i<<1|0] + M_c[i<<1|1]);
+      operation::act(M_c[i], M_d[i]);
+    }
+  }
+
+  void M_resolve(size_type i) {
+    size_type h = ilog2(M_n) + 2;  // ilog2p1(M_n*2)
+    for (size_type s = h; s > 0; --s) {
+      size_type p = i >> s;
+      action_type id{};
+      if (M_d[p] != id) {
+        M_apply(p<<1|0, M_d[p]);
+        M_apply(p<<1|1, M_d[p]);
+        M_d[p] = id;
+      }
+    }
+  }
+
+  void M_apply(size_type i, action_type const& x) {
+    operation::act(M_c[i], x);
+    if (i < M_n) M_d[i] += x;
+  }
+
+public:
+  segment_tree() = default;
+  explicit segment_tree(size_type n):
+    M_n(n), M_c(n+n, operand_type{}), M_d(n, action_type{}) {}
+
+  segment_tree(size_type n, operand_type const& x):
+    M_n(n), M_c(n+n, x), M_d(n, action_type{})
+  {
+    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  template <typename InputIt>
+  segment_tree(InputIt first, InputIt last): M_c(first, last) {
+    M_n = M_c.size();
+    M_d.assign(M_n, action_type{});
+    M_c.insert(M_c.begin(), M_n, operand_type{});
+    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  void assign(size_type n) {
+    M_n = n;
+    M_c(n+n, operand_type{});
+    M_d(n, action_type{});
+  }
+
+  void assign(size_type n, operand_type const& x) {
+    M_n = n;
+    M_c(n+n, x);
+    M_d(n, action_type{});
+    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  template <typename InputIt>
+  void assign(InputIt first, InputIt last) {
+    M_c.assign(first, last);
+    M_n = M_c.size();
+    M_d.assign(M_n, action_type{});
+    M_c.insert(M_c.begin(), M_n, operand_type{});
+    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
+  }
+
+  void act(size_type l, size_type r, action_type const& x) {
+    if (l == r) return;
+    l += M_n;
+    r += M_n;
+    size_type l0 = l;
+    size_type r0 = r;
+    M_resolve(l0);
+    M_resolve(r0-1);
+    while (l < r) {
+      if (l & 1) M_apply(l++, x);
+      if (r & 1) M_apply(--r, x);
+      l >>= 1;
+      r >>= 1;
+    }
+    M_build(l0);
+    M_build(r0-1);
+  }
+
+  operand_type fold(size_type l, size_type r) {
+    operand_type resl{}, resr{};
+    if (l == r) return resl;
+
+    l += M_n;
+    r += M_n;
+    M_resolve(l);
+    M_resolve(r-1);
+    while (l < r) {
+      if (l & 1) resl += M_c[l++];
+      if (r & 1) resr = M_c[--r] + std::move(resr);
+      l >>= 1;
+      r >>= 1;
+    }
+    return resl += resr;
+  }
+
+  operand_type operator [](size_type i) {
+    i += M_n;
+    M_resolve(i);
+    return M_c[i];
+  }
+};
+
+
+#line 1 "utility/action/affine_sum.cpp"
+
+
+
+/**
+ * @brief 区間 Affine 変換・区間加算用のヘルパークラス
+ * @author えびちゃん
+ */
+
+#line 1 "utility/monoid/composite.cpp"
+/**
+ * @brief 一次関数の合成を得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <algorithm>
+#include <utility>
+
+#ifndef H_composite_monoid
+#define H_composite_monoid
+
+template <typename Tp>
+class composite_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  value_type M_a = 1;
+  value_type M_b = 0;
+
+public:
+  composite_monoid() = default;  // identity
+
+  composite_monoid(value_type a, value_type b): M_a(a), M_b(b) {};
+
+  composite_monoid& operator +=(composite_monoid that) {
+    M_a *= that.M_a;
+    M_b *= that.M_a;
+    M_b += that.M_b;
+    return *this;
+  }
+
+  composite_monoid operator +(composite_monoid const& that) const {
+    return composite_monoid(*this) += that;
+  }
+  composite_monoid operator +(composite_monoid&& that) const {
+    return composite_monoid(*this) += std::move(that);
+  }
+
+  bool operator ==(composite_monoid const& that) const {
+    return (M_a == that.M_a && M_b == that.M_b);
+  }
+  bool operator !=(composite_monoid const& that) const { return !(*this == that); }
+
+  auto get() const { return std::make_pair(M_a, M_b); }
+  value_type operator ()(value_type x) const { return M_a * x + M_b; }
+};
+
+#endif  /* !defined(H_composite_monoid) */
+#line 1 "utility/monoid/length.cpp"
+/**
+ * @brief 和と長さを得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#line 8 "utility/monoid/length.cpp"
+
+#ifndef H_length_monoid
+#define H_length_monoid
+
+template <typename Tp>
+class length_monoid {
+public:
+  using value_type = Tp;
+  using size_type = size_t;
+
+private:
+  value_type M_x{};
+  size_type M_l = 1;
+
+public:
+  length_monoid() = default;  // identity
+
+  length_monoid(value_type const& x, size_type l = 1): M_x(x), M_l(l) {};
+  length_monoid(value_type&& x, size_type l = 1): M_x(std::move(x)), M_l(l) {};
+
+  length_monoid& operator +=(length_monoid const& that) {
+    M_x += that.M_x;
+    M_l += that.M_l;
+    return *this;
+  }
+  length_monoid& operator +=(length_monoid&& that) {
+    M_x += std::move(that.M_x);
+    M_l += that.M_l;
+    return *this;
+  }
+
+  length_monoid operator +(length_monoid const& that) const {
+    return length_monoid(*this) += that;
+  }
+  length_monoid operator +(length_monoid&& that) const {
+    return length_monoid(*this) += std::move(that);
+  }
+
+  value_type const& get() const { return M_x; }
+  size_type length() const { return M_l; }
+};
+
+#endif  /* !defined(H_length_monoid) */
+#line 11 "utility/action/affine_sum.cpp"
+
+#line 13 "utility/action/affine_sum.cpp"
+
+template <typename Tp>
+struct action_affine_to_sum {
+  using operand_type = length_monoid<Tp>;
+  using action_type = composite_monoid<Tp>;
+
+  static void act(operand_type& op, action_type const& f) {
+    auto [a, b] = f.get();
+    op = operand_type(a * op.get() + op.length() * b, op.length());
+  }
+};
+
+
+#line 1 "ModularArithmetic/modint.cpp"
+
+
+
+/**
+ * @brief 合同算術用クラス
+ * @author えびちゃん
+ */
+
+#line 10 "ModularArithmetic/modint.cpp"
+#include <type_traits>
+#line 12 "ModularArithmetic/modint.cpp"
+
+template <intmax_t Modulo>
+class modint {
+public:
+  using value_type = intmax_t;
+
+private:
+  static constexpr value_type S_cmod = Modulo;  // compile-time
+  static value_type S_rmod;  // runtime
+  value_type M_value = 0;
+
+  static constexpr value_type S_inv(value_type n, value_type m) {
+    value_type x = 0;
+    value_type y = 1;
+    value_type a = n;
+    value_type b = m;
+    for (value_type u = y, v = x; a;) {
+      value_type q = b / a;
+      std::swap(x -= q*u, u);
+      std::swap(y -= q*v, v);
+      std::swap(b -= q*a, a);
+    }
+    if ((x %= m) < 0) x += m;
+    return x;
+  }
+
+  static value_type S_normalize(value_type n, value_type m) {
+    if (n >= m) {
+      n %= m;
+    } else if (n < 0) {
+      if ((n %= m) < 0) n += m;
+    }
+    return n;
+  }
+
+public:
+  modint() = default;
+  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+
+  modint& operator =(value_type n) {
+    M_value = S_normalize(n, get_modulo());
+    return *this;
+  }
+
+  modint& operator +=(modint const& that) {
+    if ((M_value += that.M_value) >= get_modulo()) M_value -= get_modulo();
+    return *this;
+  }
+  modint& operator -=(modint const& that) {
+    if ((M_value -= that.M_value) < 0) M_value += get_modulo();
+    return *this;
+  }
+  modint& operator *=(modint const& that) {
+    (M_value *= that.M_value) %= get_modulo();
+    return *this;
+  }
+  modint& operator /=(modint const& that) {
+    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    return *this;
+  }
+
+  modint operator +(modint const& that) const { return modint(*this) += that; }
+  modint operator -(modint const& that) const { return modint(*this) -= that; }
+  modint operator *(modint const& that) const { return modint(*this) *= that; }
+  modint operator /(modint const& that) const { return modint(*this) /= that; }
+
+  modint operator +() const { return *this; }
+  modint operator -() const {
+    if (M_value == 0) return *this;
+    return modint(get_modulo() - M_value);
+  }
+
+  bool operator ==(modint const& that) const { return M_value == that.M_value; }
+  bool operator !=(modint const& that) const { return !(*this == that); }
+
+  value_type get() const { return M_value; }
+  static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
+
+  template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
+  static Tp set_modulo(value_type m) { S_rmod = m; }
+};
+
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator +(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs + lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator -(Tp const& lhs, modint<Modulo> const& rhs) {
+  return -(rhs - lhs);
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator *(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs * lhs;
+}
+template <typename Tp, intmax_t Modulo>
+modint<Modulo> operator /(Tp const& lhs, modint<Modulo> const& rhs) {
+  return modint<Modulo>(lhs) / rhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator ==(Tp const& lhs, modint<Modulo> const& rhs) {
+  return rhs == lhs;
+}
+template <typename Tp, intmax_t Modulo>
+bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
+  return !(lhs == rhs);
+}
+
+template <intmax_t N>
+constexpr intmax_t modint<N>::S_cmod;
+template <intmax_t N>
+intmax_t modint<N>::S_rmod;
+
+
+#line 10 "test/yj_range_affine_range_sum.test.cpp"
+
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
+
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
+
+  std::vector<intmax_t> a(n);
+  for (auto& ai: a) scanf("%jd", &ai);
+
+  segment_tree<action_affine_to_sum<mi>> st(a.begin(), a.end());
+
+  for (size_t i = 0; i < q; ++i) {
+    int t;
+    scanf("%d", &t);
+
+    if (t == 0) {
+      size_t l, r;
+      intmax_t b, c;
+      scanf("%zu %zu %jd %jd", &l, &r, &b, &c);
+      st.act(l, r, {b, c});
+    } else if (t == 1) {
+      size_t l, r;
+      scanf("%zu %zu", &l, &r);
+      printf("%jd\n", st.fold(l, r).get().get());
+    }
+  }
+}
 
 ```
 {% endraw %}

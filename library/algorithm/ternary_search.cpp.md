@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
+# :x: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/ternary_search.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-14 12:07:36+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
+* :x: <a href="../../verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
+* :x: <a href="../../verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
 
 
 ## Code
@@ -47,13 +47,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_ternary_search
+#define H_ternary_search
+
 /**
  * @brief 黄金比分割探索
  * @author えびちゃん
  */
-
-#ifndef H_ternary_search
-#define H_ternary_search
 
 #include <cmath>
 #include <utility>
@@ -94,13 +94,13 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 {% raw %}
 ```cpp
 #line 1 "algorithm/ternary_search.cpp"
+
+
+
 /**
  * @brief 黄金比分割探索
  * @author えびちゃん
  */
-
-#ifndef H_ternary_search
-#define H_ternary_search
 
 #include <cmath>
 #include <utility>
@@ -132,7 +132,7 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
   return std::make_pair(xml, yml);
 }
 
-#endif  /* !defined(H_ternary_search) */
+
 
 ```
 {% endraw %}

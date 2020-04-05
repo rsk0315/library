@@ -25,21 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small>
+# :x: 区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_sum.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-22 02:59:14+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Depends on
+
+* :x: <a href="../monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
 
 
 ## Code
@@ -47,17 +52,15 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_action_add_sum
+#define H_action_add_sum
+
 /**
  * @brief 区間和・区間加算用のヘルパークラス
  * @author えびちゃん
  */
 
-#ifndef H_action_add_sum
-#define H_action_add_sum
-
-#ifdef CALL_FROM_TEST
 #include "utility/monoid/length.cpp"
-#endif
 
 template <typename Tp>
 struct action_add_to_sum {
@@ -77,14 +80,79 @@ struct action_add_to_sum {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 340, in write_contents
-    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 170, in bundle
-    bundler.update(path)
-  File "/opt/hostedtoolcache/Python/3.8.2/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 281, in update
-    raise BundleError(path, i + 1, "unable to process #include in #if / #ifdef / #ifndef other than include guards")
-onlinejudge_verify.languages.cplusplus_bundle.BundleError: utility/action/add_sum.cpp: line 10: unable to process #include in #if / #ifdef / #ifndef other than include guards
+#line 1 "utility/action/add_sum.cpp"
+
+
+
+/**
+ * @brief 区間和・区間加算用のヘルパークラス
+ * @author えびちゃん
+ */
+
+#line 1 "utility/monoid/length.cpp"
+/**
+ * @brief 和と長さを得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <cstddef>
+#include <utility>
+
+#ifndef H_length_monoid
+#define H_length_monoid
+
+template <typename Tp>
+class length_monoid {
+public:
+  using value_type = Tp;
+  using size_type = size_t;
+
+private:
+  value_type M_x{};
+  size_type M_l = 1;
+
+public:
+  length_monoid() = default;  // identity
+
+  length_monoid(value_type const& x, size_type l = 1): M_x(x), M_l(l) {};
+  length_monoid(value_type&& x, size_type l = 1): M_x(std::move(x)), M_l(l) {};
+
+  length_monoid& operator +=(length_monoid const& that) {
+    M_x += that.M_x;
+    M_l += that.M_l;
+    return *this;
+  }
+  length_monoid& operator +=(length_monoid&& that) {
+    M_x += std::move(that.M_x);
+    M_l += that.M_l;
+    return *this;
+  }
+
+  length_monoid operator +(length_monoid const& that) const {
+    return length_monoid(*this) += that;
+  }
+  length_monoid operator +(length_monoid&& that) const {
+    return length_monoid(*this) += std::move(that);
+  }
+
+  value_type const& get() const { return M_x; }
+  size_type length() const { return M_l; }
+};
+
+#endif  /* !defined(H_length_monoid) */
+#line 10 "utility/action/add_sum.cpp"
+
+template <typename Tp>
+struct action_add_to_sum {
+  using operand_type = length_monoid<Tp>;
+  using action_type = Tp;
+
+  static void act(operand_type& op, action_type const& a) {
+    op += operand_type(a * op.length(), 0);
+  }
+};
+
+
 
 ```
 {% endraw %}

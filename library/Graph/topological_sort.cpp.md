@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/topological_sort.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-31 04:28:00+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -41,13 +41,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_topological_sort
+#define H_topological_sort
+
 /**
  * @brief トポロジカルソート
  * @author えびちゃん
  */
-
-#ifndef H_topological_sort
-#define H_topological_sort
 
 #include <queue>
 #include <vector>
@@ -84,13 +84,13 @@ std::vector<size_t> topological_sort(AdjacencyList const& g) {
 {% raw %}
 ```cpp
 #line 1 "Graph/topological_sort.cpp"
+
+
+
 /**
  * @brief トポロジカルソート
  * @author えびちゃん
  */
-
-#ifndef H_topological_sort
-#define H_topological_sort
 
 #include <queue>
 #include <vector>
@@ -118,7 +118,7 @@ std::vector<size_t> topological_sort(AdjacencyList const& g) {
   return ord;
 }
 
-#endif  /* !defined(H_topological_sort) */
+
 
 ```
 {% endraw %}

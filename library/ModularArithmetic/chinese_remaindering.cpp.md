@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/chinese_remaindering.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-25 00:08:02+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_chinese_remaindering
+#define H_chinese_remaindering
+
 /**
  * @brief 連立合同式の解の構成
  * @author えびちゃん
  */
-
-#ifndef H_chinese_remaindering
-#define H_chinese_remaindering
 
 #include <tuple>
 #include <utility>
@@ -108,13 +108,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "ModularArithmetic/chinese_remaindering.cpp"
+
+
+
 /**
  * @brief 連立合同式の解の構成
  * @author えびちゃん
  */
-
-#ifndef H_chinese_remaindering
-#define H_chinese_remaindering
 
 #include <tuple>
 #include <utility>
@@ -161,7 +161,7 @@ public:
   auto get() const { return std::make_pair(M_sol, M_mod); }
 };
 
-#endif  /* !defined(H_chinese_remaindering) */
+
 
 ```
 {% endraw %}

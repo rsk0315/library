@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_F.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-04 20:53:29+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_F">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_F</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 
 
@@ -50,14 +50,13 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_F"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+
 #include "ModularArithmetic/modint.cpp"
 #include "ModularArithmetic/modtable.cpp"
-#undef CALL_FROM_TEST
 
 using mi = modint<1000'000'007>;
-
-#include <cstdio>
 
 int main() {
   intmax_t n, k;
@@ -76,17 +75,19 @@ int main() {
 #line 1 "test/aoj_DPL_5_F.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_F"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+
 #line 1 "ModularArithmetic/modint.cpp"
+
+
+
 /**
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
 
-#ifndef H_modint
-#define H_modint
-
-#include <cstdint>
+#line 10 "ModularArithmetic/modint.cpp"
 #include <type_traits>
 #include <utility>
 
@@ -201,21 +202,15 @@ constexpr intmax_t modint<N>::S_cmod;
 template <intmax_t N>
 intmax_t modint<N>::S_rmod;
 
-#ifndef CALL_FROM_TEST
-// constexpr intmax_t mod = 1000'000'007;
-// constexpr intmax_t mod = 998244353;
-using mi = modint<mod>;
-#endif
 
-#endif  /* !defined(H_modint) */
 #line 1 "ModularArithmetic/modtable.cpp"
+
+
+
 /**
  * @brief 合同演算の前計算テーブル
  * @author えびちゃん
  */
-
-#ifndef H_modtable
-#define H_modtable
 
 #include <cstddef>
 #include <vector>
@@ -259,13 +254,10 @@ public:
   }
 };
 
-#endif  /* !defined(H_modtable) */
-#line 6 "test/aoj_DPL_5_F.test.cpp"
-#undef CALL_FROM_TEST
+
+#line 8 "test/aoj_DPL_5_F.test.cpp"
 
 using mi = modint<1000'000'007>;
-
-#include <cstdio>
 
 int main() {
   intmax_t n, k;

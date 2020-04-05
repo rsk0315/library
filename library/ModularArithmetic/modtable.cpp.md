@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modtable.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 14:53:49+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -51,13 +51,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_modtable
+#define H_modtable
+
 /**
  * @brief 合同演算の前計算テーブル
  * @author えびちゃん
  */
-
-#ifndef H_modtable
-#define H_modtable
 
 #include <cstddef>
 #include <vector>
@@ -110,13 +110,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "ModularArithmetic/modtable.cpp"
+
+
+
 /**
  * @brief 合同演算の前計算テーブル
  * @author えびちゃん
  */
-
-#ifndef H_modtable
-#define H_modtable
 
 #include <cstddef>
 #include <vector>
@@ -160,7 +160,7 @@ public:
   }
 };
 
-#endif  /* !defined(H_modtable) */
+
 
 ```
 {% endraw %}

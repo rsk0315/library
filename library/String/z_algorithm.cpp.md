@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: Z algorithm <small>(String/z_algorithm.cpp)</small>
+# :question: Z algorithm <small>(String/z_algorithm.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/z_algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-23 22:00:05+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
+* :x: <a href="../../verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
 
 
 ## Code
@@ -47,13 +47,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_z_algorithm
+#define H_z_algorithm
+
 /**
  * @brief Z algorithm
  * @author えびちゃん
  */
-
-#ifndef H_z_algorithm
-#define H_z_algorithm
 
 #include <cstddef>
 #include <utility>
@@ -167,13 +167,13 @@ z_array(RandomIt1 pat_first, RandomIt1 pat_last) -> z_array<RandomIt1>;
 {% raw %}
 ```cpp
 #line 1 "String/z_algorithm.cpp"
+
+
+
 /**
  * @brief Z algorithm
  * @author えびちゃん
  */
-
-#ifndef H_z_algorithm
-#define H_z_algorithm
 
 #include <cstddef>
 #include <utility>
@@ -278,7 +278,7 @@ template <typename RandomIt1>
 z_array(RandomIt1 pat_first, RandomIt1 pat_last) -> z_array<RandomIt1>;
 #endif
 
-#endif  /* !defined(H_z_algorithm) */
+
 
 ```
 {% endraw %}

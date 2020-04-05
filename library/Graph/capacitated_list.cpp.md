@@ -31,9 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/capacitated_list.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-09 19:15:55+09:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
 
 
 ## Verified with
@@ -47,13 +52,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_capacitated_adjacency_list
+#define H_capacitated_adjacency_list
+
 /**
  * @brief 容量つきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_capacitated_adjacency_list
-#define H_capacitated_adjacency_list
 
 #include <cstddef>
 
@@ -134,13 +139,13 @@ public:
 {% raw %}
 ```cpp
 #line 1 "Graph/capacitated_list.cpp"
+
+
+
 /**
  * @brief 容量つきグラフの隣接リスト
  * @author えびちゃん
  */
-
-#ifndef H_capacitated_adjacency_list
-#define H_capacitated_adjacency_list
 
 #include <cstddef>
 
@@ -212,7 +217,7 @@ public:
   auto& operator [](size_type i) { return M_g[i]; }
 };
 
-#endif  /* !defined(H_capacitated_adjacency_list) */
+
 
 ```
 {% endraw %}

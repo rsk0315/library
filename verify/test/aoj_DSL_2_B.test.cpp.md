@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DSL_2_B.test.cpp
+# :x: test/aoj_DSL_2_B.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:56:31+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 
 
 ## Code
@@ -49,13 +49,11 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
-#define CALL_FROM_TEST
-#include "DataStructure/basic_segment_tree.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/basic_segment_tree.cpp"
 
 int main() {
   size_t n, q;
@@ -90,18 +88,21 @@ int main() {
 #line 1 "test/aoj_DSL_2_B.test.cpp"
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+#include <vector>
+
 #line 1 "DataStructure/basic_segment_tree.cpp"
+
+
+
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
  */
 
-#ifndef H_basic_segment_tree
-#define H_basic_segment_tree
-
 #include <cstddef>
-#include <vector>
+#line 11 "DataStructure/basic_segment_tree.cpp"
 
 template <typename Monoid>
 class basic_segment_tree {
@@ -225,13 +226,8 @@ public:
   }
 };
 
-#endif  /* !defined(H_basic_segment_tree) */
-#line 5 "test/aoj_DSL_2_B.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdint>
-#include <cstdio>
-#include <vector>
+#line 8 "test/aoj_DSL_2_B.test.cpp"
 
 int main() {
   size_t n, q;

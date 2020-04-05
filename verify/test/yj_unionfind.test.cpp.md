@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_unionfind.test.cpp
+# :x: test/yj_unionfind.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-03 03:10:59+09:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
 
 
 ## Code
@@ -49,11 +49,9 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#define CALL_FROM_TEST
-#include "DataStructure/union_find.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "DataStructure/union_find.cpp"
 
 int main() {
   size_t n, q;
@@ -82,15 +80,16 @@ int main() {
 #line 1 "test/yj_unionfind.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #line 1 "DataStructure/union_find.cpp"
+
+
+
 /**
  * @brief 素集合データ構造
  * @author えびちゃん
  */
-
-#ifndef H_union_find
-#define H_union_find
 
 #include <cstddef>
 #include <cstdint>
@@ -141,11 +140,8 @@ public:
   }
 };
 
-#endif  /* !defined(H_union_find) */
-#line 5 "test/yj_unionfind.test.cpp"
-#undef CALL_FROM_TEST
 
-#include <cstdio>
+#line 6 "test/yj_unionfind.test.cpp"
 
 int main() {
   size_t n, q;
