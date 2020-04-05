@@ -1,14 +1,12 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
-#define CALL_FROM_TEST
-#include "DataStructure/dynamic_bitvector.cpp"
-#include "DataStructure/wavelet_matrix.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
 #include <numeric>
 #include <vector>
+
+#include "DataStructure/dynamic_bitvector.cpp"
+#include "DataStructure/wavelet_matrix.cpp"
 
 int main() {
   size_t n;

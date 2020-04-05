@@ -1,14 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/scc"
 
-#define CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/scc.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdio>
 #include <algorithm>
 #include <vector>
+
+#include "Graph/adjacency_list.cpp"
+#include "Graph/scc.cpp"
 
 int main() {
   size_t n, m;

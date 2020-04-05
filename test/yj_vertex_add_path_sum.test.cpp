@@ -1,15 +1,12 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
 
-#define CALL_FROM_TEST
-#include "Graph/hl_decomposition.cpp"
-#include "DataStructure/basic_segment_tree.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <utility>
 #include <vector>
+
+#include "Graph/hl_decomposition.cpp"
+#include "DataStructure/basic_segment_tree.cpp"
 
 int main() {
   size_t n, q;

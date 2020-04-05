@@ -1,15 +1,13 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2748"
 #define ERROR 1e-5
 
-#define CALL_FROM_TEST
-#include "Graph/adjacency_list.cpp"
-#include "Graph/scc.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
 #include <utility>
 #include <vector>
+
+#include "Graph/adjacency_list.cpp"
+#include "Graph/scc.cpp"
 
 int testcase_ends() {
   size_t n;

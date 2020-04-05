@@ -1,17 +1,15 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3110"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "utility/literals.cpp"
-#include "utility/make/vector.cpp"
-#undef CALL_FROM_TEST
-
-constexpr intmax_t mod = 1000'000'007;
-using mi = modint<mod>;
-
 #include <cstdio>
 #include <array>
 #include <string>
+
+#include "ModularArithmetic/modint.cpp"
+#include "utility/literals.cpp"
+#include "utility/make/vector.cpp"
+
+constexpr intmax_t mod = 1000'000'007;
+using mi = modint<mod>;
 
 int main() {
   char buf[262144];

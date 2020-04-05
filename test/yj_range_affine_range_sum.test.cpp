@@ -1,15 +1,12 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 
-#define CALL_FROM_TEST
-#include "DataStructure/segment_tree.cpp"
-#include "utility/action/affine_sum.cpp"
-#include "ModularArithmetic/modint.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/segment_tree.cpp"
+#include "utility/action/affine_sum.cpp"
+#include "ModularArithmetic/modint.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

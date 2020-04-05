@@ -1,9 +1,5 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2313"
 
-#define CALL_FROM_TEST
-#include "Graph/dinitz.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
@@ -11,6 +7,8 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
+#include "Graph/dinitz.cpp"
 
 int main() {
   size_t n, e, q;

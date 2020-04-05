@@ -1,14 +1,12 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 
-#define CALL_FROM_TEST
-#include "utility/make/vector.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "utility/make/vector.cpp"
 
 int main() {
   char buf[1024];

@@ -1,13 +1,11 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
-#include "String/z_algorithm.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "String/z_algorithm.cpp"
 
 int main() {
   char buf[1048576];

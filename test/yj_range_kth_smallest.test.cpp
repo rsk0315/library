@@ -1,13 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_kth_smallest"
 
-#define CALL_FROM_TEST
-#include "DataStructure/wavelet_matrix.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/wavelet_matrix.cpp"
 
 int main() {
   size_t n, q;

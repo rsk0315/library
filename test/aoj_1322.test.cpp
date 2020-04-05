@@ -1,17 +1,14 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1322"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/operations.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdio>
 #include <cassert>
 #include <cctype>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/operations.cpp"
 
 using mi = modint<2011>;
 

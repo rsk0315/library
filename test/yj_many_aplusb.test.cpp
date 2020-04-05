@@ -1,10 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/many_aplusb"
 
-#define CALL_FROM_TEST
-#include "utility/fast_io.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
+
+#include "utility/fast_io.cpp"
 
 int main() {
   unsigned t;

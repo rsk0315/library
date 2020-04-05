@@ -1,10 +1,8 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
-#define CALL_FROM_TEST
-#include "DataStructure/potential_function.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "DataStructure/potential_function.cpp"
 
 int main() {
   size_t n, q;

@@ -1,15 +1,12 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 
-#define CALL_FROM_TEST
-#include "DataStructure/basic_segment_tree.cpp"
-#include "utility/monoid/composite.cpp"
-#include "ModularArithmetic/modint.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/basic_segment_tree.cpp"
+#include "utility/monoid/composite.cpp"
+#include "ModularArithmetic/modint.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

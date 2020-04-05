@@ -1,14 +1,12 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/polynomial.cpp"
-#include "ModularArithmetic/garner.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/polynomial.cpp"
+#include "ModularArithmetic/garner.cpp"
 
 constexpr intmax_t mod1 = 998244353;
 constexpr intmax_t mod2 = 469762049;

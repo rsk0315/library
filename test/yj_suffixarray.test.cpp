@@ -1,11 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
 
-#define CALL_FROM_TEST
-#include "String/sa_is.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <string>
+
+#include "String/sa_is.cpp"
 
 int main() {
   char buf[524288];

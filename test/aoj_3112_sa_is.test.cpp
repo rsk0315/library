@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3112"
 
-#define CALL_FROM_TEST
-#include "String/sa_is.cpp"
-#include "utility/literals.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <string>
+
+#include "String/sa_is.cpp"
+#include "utility/literals.cpp"
 
 int main() {
   char buf[262144];

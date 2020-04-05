@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_10_A"
 
-#define CALL_FROM_TEST
-#include "utility/make/fix_point.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "utility/make/fix_point.cpp"
 
 int main() {
   int n;

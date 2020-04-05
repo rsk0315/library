@@ -1,14 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+
 #include "utility/monoid/composite.cpp"
 #include "ModularArithmetic/modint.cpp"
 #include "DataStructure/foldable_queue.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
-#include <cstdint>
-#include <cstdio>
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

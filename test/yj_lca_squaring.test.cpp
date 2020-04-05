@@ -1,12 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #include "Graph/adjacency_list.cpp"
 #include "Graph/lowest_common_ancestor_squaring.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
-#include <cstdio>
 
 int main() {
   size_t n, q;

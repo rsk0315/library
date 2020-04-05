@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
 
-#define CALL_FROM_TEST
-#include "DataStructure/wavelet_matrix.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/wavelet_matrix.cpp"
 
 int main() {
   size_t n;

@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
-#define CALL_FROM_TEST
-#include "DataStructure/foldable_queue.cpp"
-#include "utility/monoid/min.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/foldable_queue.cpp"
+#include "utility/monoid/min.cpp"
 
 int main() {
   size_t n, k;

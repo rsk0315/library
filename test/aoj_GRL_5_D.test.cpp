@@ -1,19 +1,14 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D"
 
-#define CALL_FROM_TEST
-// #include "utility/stack_extend.cpp"
-#include "DataStructure/basic_segment_tree.cpp"
-#include "Graph/hl_decomposition.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <cassert>
 #include <tuple>
 #include <vector>
 
-int main() {
-  // BEGIN_STACK_EXTEND(256*1024*1024);
+#include "DataStructure/basic_segment_tree.cpp"
+#include "Graph/hl_decomposition.cpp"
 
+int main() {
   size_t n;
   scanf("%zu", &n);
 
@@ -53,6 +48,4 @@ int main() {
       printf("%d\n", res);
     }
   }
-
-  // END_STACK_EXTEND;
 }

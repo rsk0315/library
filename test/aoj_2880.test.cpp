@@ -1,14 +1,12 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880"
 
-#define CALL_FROM_TEST
-#include "DataStructure/integral_intervals.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <tuple>
 #include <vector>
+
+#include "DataStructure/integral_intervals.cpp"
 
 int main() {
   size_t n, m, q;

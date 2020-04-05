@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
-#define CALL_FROM_TEST
-#include "DataStructure/basic_segment_tree.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "DataStructure/basic_segment_tree.cpp"
 
 int main() {
   size_t n, q;

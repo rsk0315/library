@@ -1,12 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 
-#define CALL_FROM_TEST
-#include "String/z_algorithm.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdio>
 #include <string>
+
+#include "String/z_algorithm.cpp"
 
 int main() {
   char buf[524288];

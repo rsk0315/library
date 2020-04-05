@@ -1,15 +1,14 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0425"
 
-#define CALL_FROM_TEST
-#include "algorithm/mo.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <numeric>
 #include <tuple>
+#include <utility>
 #include <vector>
+
+#include "algorithm/mo.cpp"
 
 class range_function {
   size_t M_n;

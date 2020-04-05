@@ -1,15 +1,13 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446"
 #define ERROR 1e-7
 
-#define CALL_FROM_TEST
-#include "algorithm/moebius_transform.cpp"
-#include "utility/literals.cpp"
-#include "integer/gcd.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "algorithm/moebius_transform.cpp"
+#include "utility/literals.cpp"
+#include "integer/gcd.cpp"
 
 bool lcm_overflow(intmax_t m, intmax_t n, intmax_t& res) {
   return __builtin_mul_overflow(m / gcd(m, n), n, &res);

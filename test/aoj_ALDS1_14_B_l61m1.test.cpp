@@ -1,13 +1,11 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_14_B"
 
-#define CALL_FROM_TEST
-#include "String/rolling_hash_l61m1.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <chrono>
 #include <random>
 #include <string>
+
+#include "String/rolling_hash_l61m1.cpp"
 
 int main() {
   char buf[1048576];

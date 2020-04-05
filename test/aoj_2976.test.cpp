@@ -1,13 +1,11 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2976"
 
-#define CALL_FROM_TEST
-#include "Graph/dinitz.cpp"
-#include "DataStructure/union_find.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <utility>
 #include <vector>
+
+#include "Graph/dinitz.cpp"
+#include "DataStructure/union_find.cpp"
 
 int main() {
   size_t n, m;

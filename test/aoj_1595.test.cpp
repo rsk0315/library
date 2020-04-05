@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1595"
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #include "algorithm/dp_on_tree.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "utility/monoid/max.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstdio>
 
 int main() {
   size_t n;

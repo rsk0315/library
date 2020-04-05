@@ -1,14 +1,12 @@
 #define PROBLEM "https://yukicoder.me/problems/no/551"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/operations.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/operations.cpp"
 
 int main() {
   intmax_t p;

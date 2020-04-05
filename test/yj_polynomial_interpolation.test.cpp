@@ -1,19 +1,13 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/polynomial_interpolation"
 
-#include <cstdio>
-#include <string>
-
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/polynomial.cpp"
-#include "ModularArithmetic/interpolation.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/polynomial.cpp"
+#include "ModularArithmetic/interpolation.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

@@ -1,13 +1,11 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_J"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#undef CALL_FROM_TEST
-
-using mi = modint<1000'000'007>;
-
 #include <cstdio>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+
+using mi = modint<1000'000'007>;
 
 int main() {
   size_t n, k;

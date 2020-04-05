@@ -2,12 +2,10 @@
 #define IGNORE  /* requires a special judge */
 // @ignore
 
-#define CALL_FROM_TEST
+#include <cstdio>
+
 #include "Graph/adjacency_list.cpp"
 #include "Graph/topological_sort.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstdio>
 
 int main() {
   size_t n, m;

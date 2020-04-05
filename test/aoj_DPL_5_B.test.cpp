@@ -1,12 +1,11 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_B"
 
-#define CALL_FROM_TEST
+#include <cstdint>
+#include <cstdio>
+
 #include "ModularArithmetic/modint.cpp"
-#undef CALL_FROM_TEST
 
 using mi = modint<1000'000'007>;
-
-#include <cstdio>
 
 int main() {
   intmax_t n, k;

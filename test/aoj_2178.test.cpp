@@ -1,15 +1,13 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2178"
 
-#define CALL_FROM_TEST
-#include "utility/literals.cpp"
-#include "Graph/two_sat.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <array>
 #include <map>
 #include <vector>
+
+#include "utility/literals.cpp"
+#include "Graph/two_sat.cpp"
 
 constexpr std::array<size_t, 4> di{{-1_zu, 0, 1, 0}};
 constexpr std::array<size_t, 4> dj{{0, -1_zu, 0, 1}};

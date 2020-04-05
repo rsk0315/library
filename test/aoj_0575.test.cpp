@@ -1,12 +1,5 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0575"
 
-#define CALL_FROM_TEST
-#include "algorithm/parallel_binary_search.cpp"
-#include "DataStructure/union_find.cpp"
-#include "Graph/adjacency_list.cpp"
-#include "utility/limits.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
@@ -14,6 +7,11 @@
 #include <map>
 #include <queue>
 #include <vector>
+
+#include "algorithm/parallel_binary_search.cpp"
+#include "DataStructure/union_find.cpp"
+#include "Graph/adjacency_list.cpp"
+#include "utility/limits.cpp"
 
 class spred {
   disjoint_set M_ds;

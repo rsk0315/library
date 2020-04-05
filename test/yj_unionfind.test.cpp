@@ -1,10 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#define CALL_FROM_TEST
-#include "DataStructure/union_find.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "DataStructure/union_find.cpp"
 
 int main() {
   size_t n, q;

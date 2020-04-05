@@ -1,12 +1,10 @@
 #define PROBLEM "https://yukicoder.me/problems/no/306"
 #define ERROR 1e-6
 
-#define CALL_FROM_TEST
-#include "algorithm/ternary_search.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <cmath>
+
+#include "algorithm/ternary_search.cpp"
 
 int main() {
   long double xa, ya, xb, yb;

@@ -1,13 +1,11 @@
 #define PROBLEM "https://yukicoder.me/problems/no/703"
 
-#define CALL_FROM_TEST
-#include "algorithm/online_to_offline_optimization.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <algorithm>
 #include <vector>
+
+#include "algorithm/online_to_offline_optimization.cpp"
 
 int main() {
   size_t n;

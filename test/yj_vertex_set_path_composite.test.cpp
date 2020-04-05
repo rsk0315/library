@@ -1,17 +1,14 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/vertex_set_path_composite"
 
-#define CALL_FROM_TEST
-#include "Graph/hl_decomposition.cpp"
-#include "DataStructure/basic_segment_tree.cpp"
-#include "ModularArithmetic/modint.cpp"
-#include "utility/monoid/composite.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <utility>
 #include <vector>
+
+#include "Graph/hl_decomposition.cpp"
+#include "DataStructure/basic_segment_tree.cpp"
+#include "ModularArithmetic/modint.cpp"
+#include "utility/monoid/composite.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;

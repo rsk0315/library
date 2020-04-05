@@ -1,14 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
-#define CALL_FROM_TEST
-#include "Graph/two_sat.cpp"
-#undef CALL_FROM_TEST
-
-#include <cstddef>
 #include <cstdio>
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "Graph/two_sat.cpp"
 
 int main() {
   size_t n, m;

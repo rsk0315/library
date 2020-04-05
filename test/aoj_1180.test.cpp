@@ -1,13 +1,11 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1180&lang=jp"
 
-#define CALL_FROM_TEST
-#include "algorithm/tortoise_and_hare.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <cstdint>
 #include <algorithm>
 #include <string>
+
+#include "algorithm/tortoise_and_hare.cpp"
 
 class generator {
   int M_a, M_l;

@@ -1,19 +1,16 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2580"
 
-#include "utility/literals.cpp"
-#include "utility/make/vector.cpp"
-#include "utility/make/fix_point.cpp"
-
-#define CALL_FROM_TEST
-#include "algorithm/monotone_minima.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <algorithm>
 #include <vector>
 #include <utility>
+
+#include "utility/literals.cpp"
+#include "utility/make/vector.cpp"
+#include "utility/make/fix_point.cpp"
+#include "algorithm/monotone_minima.cpp"
 
 int main() {
   size_t n, m, d;

@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/multipoint_evaluation"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/polynomial.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <vector>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/polynomial.cpp"
 
 using mi = modint<998244353>;
 

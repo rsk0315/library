@@ -2,14 +2,12 @@
 #define IGNORE  /* requires a special judge */
 // @ignore
 
-#define CALL_FROM_TEST
-#include "utility/literals.cpp"
-#include "Graph/two_sat.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "utility/literals.cpp"
+#include "Graph/two_sat.cpp"
 
 int main() {
   size_t n, x, a, o;

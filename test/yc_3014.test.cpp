@@ -1,12 +1,12 @@
 #define PROBLEM "https://yukicoder.me/problems/no/3014"
 
-#define CALL_FROM_TEST
-#include "String/tree_attack.cpp"
-#undef CALL_FROM_TEST
-
+#include <cstdint>
 #include <cstdio>
 #include <cassert>
 #include <string>
+#include <vector>
+
+#include "String/tree_attack.cpp"
 
 int main() {
   intmax_t p, b;

@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/inv_of_formal_power_series"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/polynomial.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
 #include <algorithm>
+
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/polynomial.cpp"
 
 using mi = modint<998244353>;
 

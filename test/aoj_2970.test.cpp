@@ -1,12 +1,10 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2970"
 
-#define CALL_FROM_TEST
-#include "ModularArithmetic/chinese_remaindering.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdint>
 #include <cstdio>
 #include <vector>
+
+#include "ModularArithmetic/chinese_remaindering.cpp"
 
 int main() {
   size_t n;
