@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/limits.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-22 15:16:30+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -39,8 +39,9 @@ layout: default
 ## Required by
 
 * :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
-* :x: <a href="../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
-* :x: <a href="action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :heavy_check_mark: <a href="../Math/lp_solver.cpp.html">simplex 法による線形計画法ソルバ <small>(Math/lp_solver.cpp)</small></a>
+* :heavy_check_mark: <a href="../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
+* :heavy_check_mark: <a href="action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :heavy_check_mark: <a href="monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :question: <a href="monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
@@ -50,13 +51,14 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2911.test.cpp.html">test/aoj_2911.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
-* :x: <a href="../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
-* :x: <a href="../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
-* :x: <a href="../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :x: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
@@ -65,15 +67,15 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_limits
+#define H_limits
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
  */
 
 #include <limits>
-
-#ifndef H_limits
-#define H_limits
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
@@ -87,6 +89,9 @@ class limits: public std::numeric_limits<Tp> {};
 {% raw %}
 ```cpp
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -94,13 +99,10 @@ class limits: public std::numeric_limits<Tp> {};
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 
 ```
 {% endraw %}

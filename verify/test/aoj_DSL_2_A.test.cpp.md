@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -106,6 +106,9 @@ int main() {
 #include <utility>
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -113,13 +116,10 @@ int main() {
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 13 "utility/monoid/min.cpp"
 
 template <typename Tp>

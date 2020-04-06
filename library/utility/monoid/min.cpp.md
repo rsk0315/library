@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/min.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -43,14 +43,14 @@ layout: default
 
 ## Required by
 
-* :x: <a href="../action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :heavy_check_mark: <a href="../action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :x: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :x: <a href="../../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
 * :x: <a href="../../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
@@ -131,6 +131,9 @@ public:
 #include <utility>
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -138,13 +141,10 @@ public:
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 13 "utility/monoid/min.cpp"
 
 template <typename Tp>

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinitz.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -176,6 +176,9 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -183,13 +186,10 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 1 "utility/make/fix_point.cpp"
 /**
  * @brief ラムダ式の再帰

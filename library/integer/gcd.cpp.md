@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/gcd.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:54:23+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -46,13 +46,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_gcd
+#define H_gcd
+
 /** 
  * @brief 最大公約数
  * @author えびちゃん
  */
-
-#ifndef H_gcd
-#define H_gcd
 
 #include <utility>
 
@@ -71,13 +71,13 @@ Tp gcd(Tp m, Tp n) {
 {% raw %}
 ```cpp
 #line 1 "integer/gcd.cpp"
+
+
+
 /** 
  * @brief 最大公約数
  * @author えびちゃん
  */
-
-#ifndef H_gcd
-#define H_gcd
 
 #include <utility>
 
@@ -87,7 +87,7 @@ Tp gcd(Tp m, Tp n) {
   return m;
 }
 
-#endif  /* !defined(H_gcd) */
+
 
 ```
 {% endraw %}

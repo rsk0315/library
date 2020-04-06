@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
+# :heavy_check_mark: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,8 +38,8 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
-* :x: <a href="../../verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
 
 
 ## Code

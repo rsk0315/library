@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small>
+# :heavy_check_mark: スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/stack_extend.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-17 11:00:02+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="http://sigma425.hatenablog.com/entry/2016/03/26/221844">http://sigma425.hatenablog.com/entry/2016/03/26/221844</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 
 
 ## Code
@@ -48,14 +48,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_stack_extend
+#define H_stack_extend
+
 /**
  * @brief スタック拡張マクロ（魔法）
  * @author えびちゃん
  * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
  */
-
-#ifndef H_stack_extend
-#define H_stack_extend
 
 #include <cstdlib>
 
@@ -79,14 +79,14 @@ layout: default
 {% raw %}
 ```cpp
 #line 1 "utility/stack_extend.cpp"
+
+
+
 /**
  * @brief スタック拡張マクロ（魔法）
  * @author えびちゃん
  * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
  */
-
-#ifndef H_stack_extend
-#define H_stack_extend
 
 #include <cstdlib>
 
@@ -101,7 +101,7 @@ layout: default
   asm volatile ("mov %%rax, %%rsp"::"a"(stack_extend_origin_memory_));  \
   free(stack_extend_memory_);
 
-#endif  /* !defined(H_stack_extend) */
+
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/max.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -123,6 +123,9 @@ public:
 #include <utility>
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -130,13 +133,10 @@ public:
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 13 "utility/monoid/max.cpp"
 
 template <typename Tp>

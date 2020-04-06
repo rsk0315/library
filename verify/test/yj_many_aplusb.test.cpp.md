@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_many_aplusb.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/many_aplusb">https://judge.yosupo.jp/problem/many_aplusb</a>
@@ -76,14 +76,14 @@ int main() {
 #include <cstdint>
 
 #line 1 "utility/fast_io.cpp"
+
+
+
 /**
  * @brief 高速入出力
  * @author えびちゃん
  * @see https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4
  */
-
-#ifndef H_fast_io
-#define H_fast_io
 
 #include <cstddef>
 #line 12 "utility/fast_io.cpp"
@@ -381,7 +381,7 @@ namespace fast {
 fast::scanner cin;
 fast::printer cout;
 
-#endif  /* !defined(H_fast_io) */
+
 #line 6 "test/yj_many_aplusb.test.cpp"
 
 int main() {

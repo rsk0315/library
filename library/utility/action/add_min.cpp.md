@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: 区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small>
+# :heavy_check_mark: 区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_min.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -44,7 +44,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
 
 
 ## Code
@@ -102,6 +102,9 @@ struct action_add_to_min {
 #include <utility>
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -109,13 +112,10 @@ struct action_add_to_min {
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 13 "utility/monoid/min.cpp"
 
 template <typename Tp>

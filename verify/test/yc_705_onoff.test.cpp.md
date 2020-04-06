@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yc_705_onoff.test.cpp
+# :heavy_check_mark: test/yc_705_onoff.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_705_onoff.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/705">https://yukicoder.me/problems/no/705</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :x: <a href="../../library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
 * :question: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
@@ -175,6 +175,9 @@ auto monotone_minima(Fn&& f, size_t h, size_t w) {
 
 
 #line 1 "utility/limits.cpp"
+
+
+
 /**
  * @brief 型依存の定数
  * @author えびちゃん
@@ -182,13 +185,10 @@ auto monotone_minima(Fn&& f, size_t h, size_t w) {
 
 #include <limits>
 
-#ifndef H_limits
-#define H_limits
-
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
-#endif  /* !defined(H_limits) */
+
 #line 1 "utility/make/fix_point.cpp"
 /**
  * @brief ラムダ式の再帰

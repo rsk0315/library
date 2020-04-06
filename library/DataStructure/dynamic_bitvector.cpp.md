@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/dynamic_bitvector.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -507,13 +507,13 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
 
 #line 1 "integer/bit.cpp"
+
+
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #line 10 "integer/bit.cpp"
 #include <type_traits>
@@ -572,7 +572,7 @@ Tp reverse(Tp n) {
   return n;
 }
 
-#endif  /* !defined(H_bit) */
+
 #line 16 "DataStructure/dynamic_bitvector.cpp"
 
 class dynamic_bitvector {

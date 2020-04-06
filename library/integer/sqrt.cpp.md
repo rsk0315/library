@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/sqrt.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-22 04:15:15+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -51,13 +51,13 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_int_sqrt
+#define H_int_sqrt
+
 /**
  * @brief 整数の平方根
  * @author えびちゃん
  */
-
-#ifndef H_int_sqrt
-#define H_int_sqrt
 
 #include <climits>
 
@@ -82,13 +82,13 @@ Tp isqrt(Tp n) {
 {% raw %}
 ```cpp
 #line 1 "integer/sqrt.cpp"
+
+
+
 /**
  * @brief 整数の平方根
  * @author えびちゃん
  */
-
-#ifndef H_int_sqrt
-#define H_int_sqrt
 
 #include <climits>
 
@@ -104,7 +104,7 @@ Tp isqrt(Tp n) {
   return lb;
 }
 
-#endif  /* !defined(H_int_sqrt) */
+
 
 ```
 {% endraw %}

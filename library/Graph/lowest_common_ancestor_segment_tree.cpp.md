@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small>
+# :heavy_check_mark: 最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/lowest_common_ancestor_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -44,7 +44,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 
 
 ## Code
@@ -157,13 +157,13 @@ public:
 #include <vector>
 
 #line 1 "integer/bit.cpp"
+
+
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #include <climits>
 #include <type_traits>
@@ -222,7 +222,7 @@ Tp reverse(Tp n) {
   return n;
 }
 
-#endif  /* !defined(H_bit) */
+
 #line 1 "utility/literals.cpp"
 
 

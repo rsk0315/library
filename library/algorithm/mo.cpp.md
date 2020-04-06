@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/mo.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -128,13 +128,13 @@ auto mo(Rf&& rf, std::vector<std::tuple<size_t, size_t, Args>> const& qs)
 #include <vector>
 
 #line 1 "integer/sqrt.cpp"
+
+
+
 /**
  * @brief 整数の平方根
  * @author えびちゃん
  */
-
-#ifndef H_int_sqrt
-#define H_int_sqrt
 
 #include <climits>
 
@@ -150,7 +150,7 @@ Tp isqrt(Tp n) {
   return lb;
 }
 
-#endif  /* !defined(H_int_sqrt) */
+
 #line 16 "algorithm/mo.cpp"
 
 template <typename Rf, typename Args>

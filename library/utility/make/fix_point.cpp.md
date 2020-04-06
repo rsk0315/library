@@ -42,8 +42,8 @@ layout: default
 * :question: <a href="../../Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
 * :question: <a href="../../Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 * :heavy_check_mark: <a href="../../algorithm/dp_on_tree.cpp.html">木 DP <small>(algorithm/dp_on_tree.cpp)</small></a>
-* :question: <a href="../../algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :x: <a href="../../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
+* :heavy_check_mark: <a href="../../algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
+* :heavy_check_mark: <a href="../../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
 
 
 ## Verified with
@@ -55,9 +55,9 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
-* :x: <a href="../../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
-* :x: <a href="../../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
-* :x: <a href="../../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :x: <a href="../../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
 * :x: <a href="../../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj_GRL_5_C_segment_tree.test.cpp
+# :heavy_check_mark: test/aoj_GRL_5_C_segment_tree.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_segment_tree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -40,10 +40,10 @@ layout: default
 ## Depends on
 
 * :question: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :x: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :x: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
 ## Code
@@ -105,14 +105,14 @@ int main() {
 #include <vector>
 
 #line 1 "utility/stack_extend.cpp"
+
+
+
 /**
  * @brief スタック拡張マクロ（魔法）
  * @author えびちゃん
  * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
  */
-
-#ifndef H_stack_extend
-#define H_stack_extend
 
 #include <cstdlib>
 
@@ -127,7 +127,7 @@ int main() {
   asm volatile ("mov %%rax, %%rsp"::"a"(stack_extend_origin_memory_));  \
   free(stack_extend_memory_);
 
-#endif  /* !defined(H_stack_extend) */
+
 #line 1 "Graph/adjacency_list.cpp"
 
 
@@ -229,13 +229,13 @@ public:
 #line 14 "Graph/lowest_common_ancestor_segment_tree.cpp"
 
 #line 1 "integer/bit.cpp"
+
+
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #include <climits>
 #include <type_traits>
@@ -294,7 +294,7 @@ Tp reverse(Tp n) {
   return n;
 }
 
-#endif  /* !defined(H_bit) */
+
 #line 1 "utility/literals.cpp"
 
 

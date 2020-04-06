@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small>
+# :question: 区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 
@@ -43,9 +43,9 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
 * :x: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
@@ -211,13 +211,13 @@ public:
 #include <vector>
 
 #line 1 "integer/bit.cpp"
+
+
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #include <climits>
 #include <type_traits>
@@ -276,7 +276,7 @@ Tp reverse(Tp n) {
   return n;
 }
 
-#endif  /* !defined(H_bit) */
+
 #line 13 "DataStructure/segment_tree.cpp"
 
 template <typename Operation>

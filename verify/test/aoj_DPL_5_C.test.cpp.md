@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_C.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_C">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_C</a>
@@ -280,13 +280,13 @@ public:
 #line 11 "ModularArithmetic/operations.cpp"
 
 #line 1 "integer/bit.cpp"
+
+
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #include <climits>
 #include <type_traits>
@@ -345,7 +345,7 @@ Tp reverse(Tp n) {
   return n;
 }
 
-#endif  /* !defined(H_bit) */
+
 #line 13 "ModularArithmetic/operations.cpp"
 
 template <typename ModInt>

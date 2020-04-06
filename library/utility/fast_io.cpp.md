@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/fast_io.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-30 15:31:16+09:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
 * see: <a href="https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4">https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4</a>
@@ -47,14 +47,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_fast_io
+#define H_fast_io
+
 /**
  * @brief 高速入出力
  * @author えびちゃん
  * @see https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4
  */
-
-#ifndef H_fast_io
-#define H_fast_io
 
 #include <cstddef>
 #include <cstdint>
@@ -361,14 +361,14 @@ fast::printer cout;
 {% raw %}
 ```cpp
 #line 1 "utility/fast_io.cpp"
+
+
+
 /**
  * @brief 高速入出力
  * @author えびちゃん
  * @see https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4
  */
-
-#ifndef H_fast_io
-#define H_fast_io
 
 #include <cstddef>
 #include <cstdint>
@@ -666,7 +666,7 @@ namespace fast {
 fast::scanner cin;
 fast::printer cout;
 
-#endif  /* !defined(H_fast_io) */
+
 
 ```
 {% endraw %}
