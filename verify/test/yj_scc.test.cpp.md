@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_scc.test.cpp
+# :heavy_check_mark: test/yj_scc.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :question: <a href="../../library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
-* :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code

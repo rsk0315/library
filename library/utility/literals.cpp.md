@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
+# :heavy_check_mark: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,16 +38,16 @@ layout: default
 
 ## Required by
 
-* :question: <a href="../DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
 * :heavy_check_mark: <a href="../DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
-* :question: <a href="../DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
 * :heavy_check_mark: <a href="../Math/lp_solver.cpp.html">simplex 法による線形計画法ソルバ <small>(Math/lp_solver.cpp)</small></a>
 * :heavy_check_mark: <a href="../String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
-* :question: <a href="../String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
+* :heavy_check_mark: <a href="../String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
 * :heavy_check_mark: <a href="../String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
 * :heavy_check_mark: <a href="../String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
@@ -72,8 +72,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
-* :x: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
-* :x: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
 
 ## Code

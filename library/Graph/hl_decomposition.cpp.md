@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
+# :heavy_check_mark: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -41,8 +41,8 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code

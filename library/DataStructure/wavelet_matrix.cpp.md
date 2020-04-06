@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small>
+# :heavy_check_mark: ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,15 +38,15 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_ALDS1_5_D.test.cpp.html">test/aoj_ALDS1_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
-* :x: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
 
 
 ## Code

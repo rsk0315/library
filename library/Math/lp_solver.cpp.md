@@ -38,8 +38,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Verified with

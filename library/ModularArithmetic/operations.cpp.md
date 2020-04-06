@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Verified with

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 素集合データ構造 <small>(DataStructure/union_find.cpp)</small>
+# :heavy_check_mark: 素集合データ構造 <small>(DataStructure/union_find.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -41,7 +41,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
-* :x: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
 
 
 ## Code

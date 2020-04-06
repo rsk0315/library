@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small>
+# :heavy_check_mark: 接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,13 +39,13 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
-* :x: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
 
 ## Code

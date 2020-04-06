@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
+# :heavy_check_mark: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -59,8 +59,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
-* :x: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
