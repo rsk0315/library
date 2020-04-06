@@ -57,7 +57,6 @@
 "test/yj_convolution_mod_1000000007.test.cpp": "2020-04-06 23:03:06 +0900",
 "test/yj_inv_of_formal_power_series.test.cpp": "2020-04-06 23:03:06 +0900",
 "test/yj_lca_squaring.test.cpp": "2020-04-06 05:07:20 +0900",
-"test/yj_log_of_formal_power_series.test.cpp": "2020-04-05 17:29:39 +0900",
 "test/yj_many_aplusb.test.cpp": "2020-03-30 15:31:16 +0900",
 "test/yj_multipoint_evaluation.test.cpp": "2020-04-05 17:29:39 +0900",
 "test/yj_point_add_range_sum.test.cpp": "2020-04-03 03:10:59 +0900",
