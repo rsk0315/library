@@ -25,21 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DSL_3_D.test.cpp
+# :x: test/aoj_DSL_3_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_3_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-04-07 01:37:10+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D</a>
 
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
+* :x: <a href="../../library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
 * :question: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :question: <a href="../../library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
@@ -49,7 +49,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
 #include <cstdio>
 #include <vector>
@@ -88,7 +88,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "test/aoj_DSL_3_D.test.cpp"
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 
 #include <cstdio>
 #include <vector>

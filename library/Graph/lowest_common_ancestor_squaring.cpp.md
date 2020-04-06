@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small>
+# :question: 最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -43,7 +43,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 
 

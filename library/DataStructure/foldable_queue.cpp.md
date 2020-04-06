@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small>
+# :x: fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
 * :x: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
 
 

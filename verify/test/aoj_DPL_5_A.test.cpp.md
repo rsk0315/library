@@ -31,10 +31,10 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-04-07 01:37:10+09:00
 
 
-* see: <a href="https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A">https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A</a>
 
 
 ## Depends on
@@ -49,7 +49,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
 
 #include <cstdio>
 
@@ -71,7 +71,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "test/aoj_DPL_5_A.test.cpp"
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_A"
 
 #include <cstdio>
 
