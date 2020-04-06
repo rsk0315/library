@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3110"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3110"
 
 #include <cstdio>
 #include <array>

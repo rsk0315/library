@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2748"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2748"
 #define ERROR 1e-5
 
 #include <cstdio>
