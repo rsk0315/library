@@ -1,10 +1,10 @@
+#ifndef H_bit
+#define H_bit
+
 /** 
  * @brief ビット演算
  * @author えびちゃん
  */
-
-#ifndef H_bit
-#define H_bit
 
 #include <climits>
 #include <type_traits>

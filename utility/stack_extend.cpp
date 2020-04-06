@@ -1,11 +1,11 @@
+#ifndef H_stack_extend
+#define H_stack_extend
+
 /**
  * @brief スタック拡張マクロ（魔法）
  * @author えびちゃん
  * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
  */
-
-#ifndef H_stack_extend
-#define H_stack_extend
 
 #include <cstdlib>
 

@@ -1,11 +1,11 @@
+#ifndef H_fast_io
+#define H_fast_io
+
 /**
  * @brief 高速入出力
  * @author えびちゃん
  * @see https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4
  */
-
-#ifndef H_fast_io
-#define H_fast_io
 
 #include <cstddef>
 #include <cstdint>

@@ -1,10 +1,10 @@
+#ifndef H_gcd
+#define H_gcd
+
 /** 
  * @brief 最大公約数
  * @author えびちゃん
  */
-
-#ifndef H_gcd
-#define H_gcd
 
 #include <utility>
 

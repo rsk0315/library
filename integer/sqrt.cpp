@@ -1,10 +1,10 @@
+#ifndef H_int_sqrt
+#define H_int_sqrt
+
 /**
  * @brief 整数の平方根
  * @author えびちゃん
  */
-
-#ifndef H_int_sqrt
-#define H_int_sqrt
 
 #include <climits>
 
