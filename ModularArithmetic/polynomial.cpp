@@ -12,6 +12,8 @@
 #include <vector>
 
 #include "integer/bit.cpp"
+#include "ModularArithmetic/modint.cpp"
+#include "ModularArithmetic/garner.cpp"
 
 template <typename ModInt>
 class polynomial {
@@ -98,6 +100,29 @@ private:
     M_normalize();
   }
 
+  void M_arbitrary_modulo_convolve(polynomial that) {
+    size_type n = M_f.size() + that.M_f.size() - 1;
+    std::vector<intmax_t> f(n, 0), g(n, 0);
+    for (size_type i = 0; i < M_f.size(); ++i) f[i] = M_f[i].get();
+    for (size_type i = 0; i < that.M_f.size(); ++i) g[i] = that.M_f[i].get();
+    polynomial<modint<998244353>> f1(f.begin(), f.end()), g1(g.begin(), g.end());
+    polynomial<modint<163577857>> f2(f.begin(), f.end()), g2(g.begin(), g.end());
+    polynomial<modint<167772161>> f3(f.begin(), f.end()), g3(g.begin(), g.end());
+
+    f1 *= g1;
+    f2 *= g2;
+    f3 *= g3;
+    M_f.resize(n);
+    for (size_type i = 0; i < n; ++i) {
+      simultaneous_congruences_garner scg;
+      scg.push(f1[i].get(), 998244353);
+      scg.push(f2[i].get(), 163577857);
+      scg.push(f3[i].get(), 167772161);
+      M_f[i] = scg.get(value_type::get_modulo());
+    }
+    M_normalize();
+  }
+
   polynomial(size_type n, value_type x): M_f(n, x) {}  // not normalized
 
 public:
@@ -108,6 +133,7 @@ public:
   polynomial(std::initializer_list<value_type> il): polynomial(il.begin(), il.end()) {}
 
   polynomial inverse(size_type m) const {
+    // XXX only for friendly moduli
     polynomial res{1 / M_f[0]};
     for (size_type d = 1; d < m; d *= 2) {
       polynomial f(d+d, 0), g(d+d, 0);
@@ -197,6 +223,12 @@ public:
     }
 
     size_type n = ceil2(M_f.size() + that.M_f.size() - 1);
+
+    if (ctz(n) > ctz(value_type::get_modulo()-1)) {
+      M_arbitrary_modulo_convolve(std::move(that));
+      return *this;
+    }
+
     M_f.resize(n, 0);
     that.M_f.resize(n, 0);
     M_fft();
@@ -258,7 +290,7 @@ public:
     return polynomial(*this) %= that;
   }
 
-  value_type operator [](size_type i) const {
+  value_type const operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
   }
 
@@ -270,6 +302,9 @@ public:
 
   bool zero() const noexcept { return M_f.empty(); }
   size_type degree() const { return M_f.size()-1; }  // XXX deg(0)
+
+  void fft(size_type n = 0) { if (n) M_f.resize(n, value_type{0}); M_fft(); }
+  void ifft(size_type n = 0) { if (n) M_f.resize(n, value_type{0}); M_ifft(); }
 };
 
 #endif  /* !defined(H_mod_polynomial) */
