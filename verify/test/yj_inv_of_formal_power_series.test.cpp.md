@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_inv_of_formal_power_series.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-04-08 03:27:03+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/inv_of_formal_power_series">https://judge.yosupo.jp/problem/inv_of_formal_power_series</a>
@@ -39,9 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Code
@@ -270,8 +271,17 @@ int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
 }
 template <typename Tp>
+bool is_pow2(Tp n) {
+  return (n > 0) && ((n & (n-1)) == 0);
+}
+template <typename Tp>
+Tp floor2(Tp n) {
+  if (is_pow2(n)) return n;
+  return Tp(1) << ilog2(n);
+}
+template <typename Tp>
 Tp ceil2(Tp n) {
-  if (!(n & (n-1))) return n;
+  if (is_pow2(n)) return n;
   return Tp(2) << ilog2(n);
 }
 template <typename Tp>
@@ -291,7 +301,73 @@ Tp reverse(Tp n) {
 }
 
 
-#line 15 "ModularArithmetic/polynomial.cpp"
+#line 1 "ModularArithmetic/garner.cpp"
+
+
+
+/**
+ * @brief Garner's algorithm
+ * @author えびちゃん
+ */
+
+#line 10 "ModularArithmetic/garner.cpp"
+#include <tuple>
+#line 12 "ModularArithmetic/garner.cpp"
+
+class simultaneous_congruences_garner {
+public:
+  using value_type = intmax_t;
+  using size_type = size_t;
+
+private:
+  value_type M_mod = 1;
+  value_type M_sol = 0;
+  std::vector<value_type> M_c, M_m;
+
+  static auto S_gcd_bezout(value_type a, value_type b) {
+    value_type x{1}, y{0};
+    for (value_type u{y}, v{x}; b != 0;) {
+      value_type q{a/b};
+      std::swap(x -= q*u, u);
+      std::swap(y -= q*v, v);
+      std::swap(a -= q*b, b);
+    }
+    return std::make_tuple(a, x, y);
+  }
+
+public:
+  simultaneous_congruences_garner() = default;
+
+  void push(value_type a, value_type m) {
+    if (M_c.empty()) {
+      M_c.push_back(a);
+      M_m.push_back(m);
+      return;
+    }
+
+    value_type c = M_c.back();
+    value_type mi = M_m.back();
+    for (size_type i = M_c.size()-1; i--;) {
+      c = (c * M_m[i] + M_c[i]) % m;
+      (mi *= M_m[i]) %= m;
+    }
+    c = (a-c) * std::get<1>(S_gcd_bezout(mi, m)) % m;
+    if (c < 0) c += m;
+    M_c.push_back(c);
+    M_m.push_back(m);
+  }
+
+  auto get(value_type m) const {
+    value_type x = M_c.back() % m;
+    for (size_type i = M_c.size()-1; i--;) {
+      x = (x * M_m[i] + M_c[i]) % m;
+    }
+    return x;
+  }
+};
+
+
+#line 17 "ModularArithmetic/polynomial.cpp"
 
 template <typename ModInt>
 class polynomial {
@@ -378,6 +454,29 @@ private:
     M_normalize();
   }
 
+  void M_arbitrary_modulo_convolve(polynomial that) {
+    size_type n = M_f.size() + that.M_f.size() - 1;
+    std::vector<intmax_t> f(n, 0), g(n, 0);
+    for (size_type i = 0; i < M_f.size(); ++i) f[i] = M_f[i].get();
+    for (size_type i = 0; i < that.M_f.size(); ++i) g[i] = that.M_f[i].get();
+    polynomial<modint<998244353>> f1(f.begin(), f.end()), g1(g.begin(), g.end());
+    polynomial<modint<163577857>> f2(f.begin(), f.end()), g2(g.begin(), g.end());
+    polynomial<modint<167772161>> f3(f.begin(), f.end()), g3(g.begin(), g.end());
+
+    f1 *= g1;
+    f2 *= g2;
+    f3 *= g3;
+    M_f.resize(n);
+    for (size_type i = 0; i < n; ++i) {
+      simultaneous_congruences_garner scg;
+      scg.push(f1[i].get(), 998244353);
+      scg.push(f2[i].get(), 163577857);
+      scg.push(f3[i].get(), 167772161);
+      M_f[i] = scg.get(value_type::get_modulo());
+    }
+    M_normalize();
+  }
+
   polynomial(size_type n, value_type x): M_f(n, x) {}  // not normalized
 
 public:
@@ -388,6 +487,7 @@ public:
   polynomial(std::initializer_list<value_type> il): polynomial(il.begin(), il.end()) {}
 
   polynomial inverse(size_type m) const {
+    // XXX only for friendly moduli
     polynomial res{1 / M_f[0]};
     for (size_type d = 1; d < m; d *= 2) {
       polynomial f(d+d, 0), g(d+d, 0);
@@ -477,6 +577,12 @@ public:
     }
 
     size_type n = ceil2(M_f.size() + that.M_f.size() - 1);
+
+    if (ctz(n) > ctz(value_type::get_modulo()-1)) {
+      M_arbitrary_modulo_convolve(std::move(that));
+      return *this;
+    }
+
     M_f.resize(n, 0);
     that.M_f.resize(n, 0);
     M_fft();
@@ -538,7 +644,7 @@ public:
     return polynomial(*this) %= that;
   }
 
-  value_type operator [](size_type i) const {
+  value_type const operator [](size_type i) const {
     return ((i < M_f.size())? M_f[i]: 0);
   }
 
@@ -550,6 +656,9 @@ public:
 
   bool zero() const noexcept { return M_f.empty(); }
   size_type degree() const { return M_f.size()-1; }  // XXX deg(0)
+
+  void fft(size_type n = 0) { if (n) M_f.resize(n, value_type{0}); M_fft(); }
+  void ifft(size_type n = 0) { if (n) M_f.resize(n, value_type{0}); M_ifft(); }
 };
 
 

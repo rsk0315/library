@@ -31,14 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/operations.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-04-08 03:27:03+09:00
 
 
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Verified with
@@ -209,8 +209,17 @@ int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
 }
 template <typename Tp>
+bool is_pow2(Tp n) {
+  return (n > 0) && ((n & (n-1)) == 0);
+}
+template <typename Tp>
+Tp floor2(Tp n) {
+  if (is_pow2(n)) return n;
+  return Tp(1) << ilog2(n);
+}
+template <typename Tp>
 Tp ceil2(Tp n) {
-  if (!(n & (n-1))) return n;
+  if (is_pow2(n)) return n;
   return Tp(2) << ilog2(n);
 }
 template <typename Tp>

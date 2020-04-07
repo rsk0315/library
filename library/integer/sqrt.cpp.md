@@ -38,12 +38,14 @@ layout: default
 
 ## Required by
 
+* :heavy_check_mark: <a href="../ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 
 
 ## Code
