@@ -1,11 +1,9 @@
 #define IGNORE
 // @ignore
 
-#define CALL_FROM_TEST
-#include "utility/fast_io.cpp"
-#undef CALL_FROM_TEST
-
 #include <cstdio>
+
+#include "utility/fast_io.cpp"
 
 int main() {
   int a, b, c;
