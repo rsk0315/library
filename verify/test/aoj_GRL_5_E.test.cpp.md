@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-08 03:27:03+09:00
+    - Last commit date: 2020-04-10 05:36:19+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E</a>
@@ -39,11 +39,11 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :question: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 
 
 ## Code
@@ -213,69 +213,103 @@ struct action_add_to_sum {
  * @author えびちゃん
  */
 
+// XXX integral promotion 関連の注意をあまりしていません
+
 #include <climits>
 #include <type_traits>
 
-// #ifdef __has_builtin
-int clz(unsigned n) { return __builtin_clz(n); }
-int clz(unsigned long n) { return __builtin_clzl(n); }
-int clz(unsigned long long n) { return __builtin_clzll(n); }
-int ctz(unsigned n) { return __builtin_ctz(n); }
-int ctz(unsigned long n) { return __builtin_ctzl(n); }
-int ctz(unsigned long long n) { return __builtin_ctzll(n); }
-int popcount(unsigned n) { return __builtin_popcount(n); }
-int popcount(unsigned long n) { return __builtin_popcountl(n); }
-int popcount(unsigned long long n) { return __builtin_popcountll(n); }
-// #else
-// TODO: implement
-// #endif
-
 template <typename Tp>
-auto clz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
-  return clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+constexpr auto countl_zero(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  int bits = (sizeof(value_type) * CHAR_BIT);
+  if (n == 0) return bits;
+  int res = 0;
+  for (int i = bits / 2; i > 0; i /= 2) {
+    value_type mask = ((static_cast<value_type>(1) << i) - 1) << i;
+    if (n & mask) n >>= i;
+    else res += i;
+  }
+  return res;
 }
 template <typename Tp>
-auto ctz(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
-  return ctz(static_cast<typename std::make_unsigned<Tp>::type>(n));
-}
-template <typename Tp>
-auto popcount(Tp n) -> typename std::enable_if<std::is_signed<Tp>::value, int>::type {
-  return popcount(static_cast<typename std::make_unsigned<Tp>::type>(n));
+constexpr auto countl_one(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  return countl_zero(static_cast<value_type>(~n));
 }
 
 template <typename Tp>
-int parity(Tp n) { return popcount(n) & 1; }
+constexpr auto countr_zero(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  int bits = (sizeof(value_type) * CHAR_BIT);
+  if (n == 0) return bits;
+  int res = 0;
+  for (int i = bits / 2; i > 0; i /= 2) {
+    value_type mask = ((static_cast<value_type>(1) << i) - 1);
+    if (!(n & mask)) res += i, n >>= i;
+  }
+  return res;
+}
+template <typename Tp>
+constexpr auto countr_one(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  return countr_zero(static_cast<value_type>(~n));
+}
+
+constexpr unsigned long long half_mask[] = {
+  0x5555555555555555uLL, 0x3333333333333333uLL, 0x0F0F0F0F0F0F0F0FuLL,
+  0x00FF00FF00FF00FFuLL, 0x0000FFFF0000FFFFuLL, 0x00000000FFFFFFFFuLL
+};
+
+template <typename Tp>
+constexpr auto popcount(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  int bits = static_cast<int>((sizeof n) * CHAR_BIT);
+  for (int i = 0, j = 1; j < bits; ++i, j *= 2) {
+    if (j <= 8) n = (n & half_mask[i]) + ((n >> j) & half_mask[i]);
+    else n += n >> j;
+  }
+  return n & 0xFF;
+}
+
+template <typename Tp>
+constexpr auto parity(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{ return popcount(n) & 1; }
+
+
+template <typename Tp>
+int clz(Tp n) { return countl_zero(static_cast<typename std::make_unsigned<Tp>::type>(n)); }
+template <typename Tp>
+int ctz(Tp n) { return countr_zero(static_cast<typename std::make_unsigned<Tp>::type>(n)); }
+
 template <typename Tp>
 int ilog2(Tp n) {
   return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
 }
 template <typename Tp>
-bool is_pow2(Tp n) {
-  return (n > 0) && ((n & (n-1)) == 0);
-}
+bool is_pow2(Tp n) { return (n > 0) && ((n & (n-1)) == 0); }
 template <typename Tp>
-Tp floor2(Tp n) {
-  if (is_pow2(n)) return n;
-  return Tp(1) << ilog2(n);
-}
+Tp floor2(Tp n) { return is_pow2(n)? n: static_cast<Tp>(1) << ilog2(n); }
 template <typename Tp>
-Tp ceil2(Tp n) {
-  if (is_pow2(n)) return n;
-  return Tp(2) << ilog2(n);
-}
+Tp ceil2(Tp n) { return is_pow2(n)? n: static_cast<Tp>(2) << ilog2(n); }
+
 template <typename Tp>
-Tp reverse(Tp n) {
-  static constexpr Tp b1 = static_cast<Tp>(0x5555555555555555);
-  static constexpr Tp b2 = static_cast<Tp>(0x3333333333333333);
-  static constexpr Tp b4 = static_cast<Tp>(0x0F0F0F0F0F0F0F0F);
-  static constexpr Tp b8 = static_cast<Tp>(0x00FF00FF00FF00FF);
-  static constexpr Tp bx = static_cast<Tp>(0x0000FFFF0000FFFF);
-  n = ((n & b1) << 1) | ((n >> 1) & b1);
-  n = ((n & b2) << 2) | ((n >> 2) & b2);
-  n = ((n & b4) << 4) | ((n >> 4) & b4);
-  n = ((n & b8) << 8) | ((n >> 8) & b8);
-  n = ((n & bx) << 16) | ((n >> 16) & bx);
-  if ((sizeof n) > 4) n = (n << 32) | (n >> 32);
+constexpr auto reverse(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, Tp>::type
+{
+  int bits = static_cast<int>((sizeof n) * CHAR_BIT);
+  for (int i = 0, j = 1; j < bits; ++i, j *= 2) {
+    n = ((n & half_mask[i]) << j) | ((n >> j) & half_mask[i]);
+  }
   return n;
 }
 
