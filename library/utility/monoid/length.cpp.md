@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: 和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small>
+# :heavy_check_mark: 和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,14 +39,14 @@ layout: default
 ## Required by
 
 * :heavy_check_mark: <a href="../action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
-* :x: <a href="../action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="../action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :x: <a href="../../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
