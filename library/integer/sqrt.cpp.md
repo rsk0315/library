@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 整数の平方根 <small>(integer/sqrt.cpp)</small>
+# :heavy_check_mark: 整数の平方根 <small>(integer/sqrt.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,14 +38,14 @@ layout: default
 
 ## Required by
 
-* :x: <a href="../ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :heavy_check_mark: <a href="../ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
-* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 
 
 ## Code

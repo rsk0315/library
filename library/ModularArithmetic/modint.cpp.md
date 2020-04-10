@@ -38,9 +38,9 @@ layout: default
 
 ## Required by
 
-* :x: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :heavy_check_mark: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :x: <a href="interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
-* :x: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :question: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 
 
 ## Verified with
@@ -55,12 +55,12 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
-* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
-* :x: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
-* :x: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
-* :x: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :x: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :x: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 * :x: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>

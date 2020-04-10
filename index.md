@@ -84,13 +84,13 @@ layout: default
 ### ModularArithmetic
 
 * :heavy_check_mark: <a href="library/ModularArithmetic/chinese_remaindering.cpp.html">連立合同式の解の構成 <small>(ModularArithmetic/chinese_remaindering.cpp)</small></a>
-* :x: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
-* :x: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
 * :x: <a href="library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
 * :question: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :question: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :question: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
-* :x: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 
 
 <div id="27118326006d3829667a400ad23d5d98"></div>
@@ -125,7 +125,7 @@ layout: default
 
 * :question: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :question: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
 <div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
@@ -213,8 +213,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_1_B.test.cpp.html">test/aoj_DSL_1_B.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
@@ -230,13 +230,13 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
-* :x: <a href="verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
-* :x: <a href="verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
-* :x: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
-* :x: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :x: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 * :x: <a href="verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>

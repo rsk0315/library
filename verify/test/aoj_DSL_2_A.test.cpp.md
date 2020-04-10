@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-04-10 20:33:44+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -75,7 +75,7 @@ int main() {
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);
-      printf("%jd\n", st.fold(x, y+1).get());
+      printf("%d\n", st.fold(x, y+1).get());
     }
   }
 }
@@ -315,7 +315,7 @@ int main() {
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);
-      printf("%jd\n", st.fold(x, y+1).get());
+      printf("%d\n", st.fold(x, y+1).get());
     }
   }
 }

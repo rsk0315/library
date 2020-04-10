@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small>
+# :heavy_check_mark: 合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :x: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :heavy_check_mark: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 
 
 ## Verified with
@@ -49,7 +49,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
-* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 
 
 ## Code

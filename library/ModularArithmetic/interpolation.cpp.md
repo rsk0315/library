@@ -38,9 +38,9 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :question: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
 * :question: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :x: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :question: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 * :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
