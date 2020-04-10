@@ -24,4 +24,4 @@ jobs:
         GH_PAT: ${{ secrets.GH_PAT }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
         CXXFLAGS: -I ./ --std=c++17
-      run: oj-verify all
+      run: oj-verify all --timeout 120

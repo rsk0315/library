@@ -5,6 +5,7 @@
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
+//
 
 #include <cstdint>
 #include <type_traits>
