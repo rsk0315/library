@@ -24,7 +24,7 @@ int main() {
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);
-      printf("%jd\n", st.fold(x, y+1).get());
+      printf("%d\n", st.fold(x, y+1).get());
     }
   }
 }
