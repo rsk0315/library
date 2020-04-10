@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DPL_5_L.test.cpp
+# :x: test/aoj_DPL_5_L.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_L.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-04-10 16:57:52+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_L">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_L</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 
 
 ## Code
@@ -91,6 +91,7 @@ int main() {
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
+//
 
 #include <cstdint>
 #include <type_traits>
