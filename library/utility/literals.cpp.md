@@ -51,6 +51,8 @@ layout: default
 * :heavy_check_mark: <a href="../String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
 * :heavy_check_mark: <a href="../String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
+* :warning: <a href="../integer/mulhu.cpp.html">符号なし整数の乗算の上位ワード <small>(integer/mulhu.cpp)</small></a>
+* :warning: <a href="../integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
 
 
 ## Verified with
