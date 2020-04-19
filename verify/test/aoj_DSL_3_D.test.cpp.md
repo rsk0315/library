@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_3_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-04-19 19:24:42+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D</a>
@@ -116,7 +116,7 @@ private:
   std::stack<value_type> M_front, M_back;
   value_type M_back_folded{};
 
-  void M_move_to_front() {
+  void M_distribute_to_front() {
     if (!M_back.empty()) {
       M_front.push(std::move(M_back.top()));
       M_back.pop();
@@ -145,7 +145,7 @@ public:
   }
 
   void pop() {
-    if (M_front.empty()) M_move_to_front();
+    if (M_front.empty()) M_distribute_to_front();
     M_front.pop();
   }
 

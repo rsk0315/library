@@ -48,7 +48,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
-* :warning: <a href="library/DataStructure/foldable_deque.cpp.html">fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/foldable_deque.cpp.html">fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
 * :warning: <a href="library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
@@ -140,6 +140,13 @@ layout: default
 * :warning: <a href="library/interface/monoid.cpp.html">モノイドクラス <small>(interface/monoid.cpp)</small></a>
 
 
+<div id="9a6d2aa7b36e38045ca314a0baa2d4bd"></div>
+
+### test/mini
+
+* :warning: <a href="library/test/mini/foldable_deque.cpp.html">test/mini/foldable_deque.cpp</a>
+
+
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
@@ -182,6 +189,7 @@ layout: default
 * :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/rolling_hash.cpp.html">ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small></a>
 
 
 ## Verify Files
@@ -193,6 +201,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
