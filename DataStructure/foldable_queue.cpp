@@ -20,7 +20,7 @@ private:
   std::stack<value_type> M_front, M_back;
   value_type M_back_folded{};
 
-  void M_move_to_front() {
+  void M_distribute_to_front() {
     if (!M_back.empty()) {
       M_front.push(std::move(M_back.top()));
       M_back.pop();
@@ -49,7 +49,7 @@ public:
   }
 
   void pop() {
-    if (M_front.empty()) M_move_to_front();
+    if (M_front.empty()) M_distribute_to_front();
     M_front.pop();
   }
 
