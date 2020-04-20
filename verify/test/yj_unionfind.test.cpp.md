@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-20 20:08:25+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -102,18 +102,19 @@ public:
 
 private:
   mutable std::vector<intmax_t> M_c;
+  std::vector<bool> M_cycle;
 
 public:
   disjoint_set() = default;
   disjoint_set(disjoint_set const&) = default;
   disjoint_set(disjoint_set&&) = default;
 
-  explicit disjoint_set(size_type n): M_c(n, -1) {}
+  explicit disjoint_set(size_type n): M_c(n, -1), M_cycle(n, false) {}
 
   disjoint_set& operator =(disjoint_set const&) = default;
   disjoint_set& operator =(disjoint_set&&) = default;
 
-  void reset() { M_c.assign(M_c.size(), -1); }
+  void reset() { M_c.assign(M_c.size(), -1), M_cycle.assign(M_c.size(), false); }
 
   size_type representative(size_type v) const {
     if (M_c[v] < 0) return v;
@@ -123,10 +124,14 @@ public:
   bool unite(size_type u, size_type v) {
     u = representative(u);
     v = representative(v);
-    if (u == v) return false;
+    if (u == v) {
+      M_cycle[u] = true;
+      return false;
+    }
     if (-M_c[u] > -M_c[v]) std::swap(u, v);
     M_c[v] += M_c[u];
     M_c[u] = v;
+    if (M_cycle[u]) M_cycle[v] = true;
     return true;
   }
 
@@ -138,6 +143,8 @@ public:
   size_type count(size_type v) const {
     return -M_c[representative(v)];
   }
+
+  bool has_cycle(size_type v) const noexcept { return M_cycle[representative(v)]; }
 };
 
 
