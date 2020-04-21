@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73f33be586ad6030eddb73b8318d3cf9">misc/interface</a>
 * <a href="{{ site.github.repository_url }}/blob/master/misc/interface/monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 01:31:12+09:00
+    - Last commit date: 2020-04-22 04:41:43+09:00
 
 
 
@@ -56,22 +56,16 @@ private:
 
 public:
   monoid() = default;  // identity
-  monoid(monoid const&) = default;
-  monoid(monoid&&) = default;
 
   monoid(value_type const&);
-  monoid(value_type&&);
-
-  monoid& operator =(monoid const&) = default;
-  monoid& operator =(monoid&&) = default;
 
   monoid& operator +=(monoid const&);
-  monoid& operator +=(monoid&&);
+  friend bool operator ==(monoid const& lhs, monoid const& rhs);
 
-  monoid operator +(monoid const&) const&;
-  monoid operator +(monoid const&) &&;
-  monoid operator +(monoid&&) const&;
-  monoid operator +(monoid&&) &&;
+  friend monoid operator +(monoid lhs, monoid const& rhs) {return lhs += rhs; }
+  friend bool operator !=(monoid const& lhs, monoid const& rhs) {
+    return !(lhs == rhs);
+  }
 
   value_type const& get() const;
 };
@@ -98,22 +92,16 @@ private:
 
 public:
   monoid() = default;  // identity
-  monoid(monoid const&) = default;
-  monoid(monoid&&) = default;
 
   monoid(value_type const&);
-  monoid(value_type&&);
-
-  monoid& operator =(monoid const&) = default;
-  monoid& operator =(monoid&&) = default;
 
   monoid& operator +=(monoid const&);
-  monoid& operator +=(monoid&&);
+  friend bool operator ==(monoid const& lhs, monoid const& rhs);
 
-  monoid operator +(monoid const&) const&;
-  monoid operator +(monoid const&) &&;
-  monoid operator +(monoid&&) const&;
-  monoid operator +(monoid&&) &&;
+  friend monoid operator +(monoid lhs, monoid const& rhs) {return lhs += rhs; }
+  friend bool operator !=(monoid const& lhs, monoid const& rhs) {
+    return !(lhs == rhs);
+  }
 
   value_type const& get() const;
 };
