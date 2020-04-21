@@ -7,6 +7,7 @@
  */
 
 #include <cstddef>
+#include <algorithm>
 #include <vector>
 
 template <typename Monoid>
@@ -35,8 +36,6 @@ private:
 
 public:
   basic_segment_tree() = default;
-  basic_segment_tree(basic_segment_tree const&) = default;
-  basic_segment_tree(basic_segment_tree&&) = default;
 
   explicit basic_segment_tree(size_type n): M_c(n+n), M_n(n) {}
   explicit basic_segment_tree(size_type n, value_type const& x):
