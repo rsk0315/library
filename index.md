@@ -140,6 +140,13 @@ layout: default
 * :warning: <a href="library/interface/monoid.cpp.html">モノイドクラス <small>(interface/monoid.cpp)</small></a>
 
 
+<div id="73f33be586ad6030eddb73b8318d3cf9"></div>
+
+### misc/interface
+
+* :warning: <a href="library/misc/interface/monoid.cpp.html">モノイドクラス <small>(misc/interface/monoid.cpp)</small></a>
+
+
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
