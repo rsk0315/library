@@ -13,22 +13,16 @@ private:
 
 public:
   monoid() = default;  // identity
-  monoid(monoid const&) = default;
-  monoid(monoid&&) = default;
 
   monoid(value_type const&);
-  monoid(value_type&&);
-
-  monoid& operator =(monoid const&) = default;
-  monoid& operator =(monoid&&) = default;
 
   monoid& operator +=(monoid const&);
-  monoid& operator +=(monoid&&);
+  friend bool operator ==(monoid const& lhs, monoid const& rhs);
 
-  monoid operator +(monoid const&) const&;
-  monoid operator +(monoid const&) &&;
-  monoid operator +(monoid&&) const&;
-  monoid operator +(monoid&&) &&;
+  friend monoid operator +(monoid lhs, monoid const& rhs) {return lhs += rhs; }
+  friend bool operator !=(monoid const& lhs, monoid const& rhs) {
+    return !(lhs == rhs);
+  }
 
   value_type const& get() const;
 };
