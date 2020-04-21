@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: to-do リスト
+# :warning: TODO
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#8ef655987a464acd81c7f1a3ecbbc7e3">(Meta)</a>
 * <a href="{{ site.github.repository_url }}/blob/master/meta/todo.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 05:56:22+09:00
+    - Last commit date: 2020-04-22 02:06:40+09:00
 
 
 * see: <a href="https://kmyk.github.io/online-judge-verify-helper/document.ja.html">https://kmyk.github.io/online-judge-verify-helper/document.ja.html</a>
@@ -108,7 +108,7 @@ layout: default
 {% raw %}
 ```cpp
 /**
- * @title to-do リスト
+ * @title TODO
  * @category (Meta)
  * @docs todo.md
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
@@ -123,7 +123,7 @@ layout: default
 ```cpp
 #line 1 "meta/todo.cpp"
 /**
- * @title to-do リスト
+ * @title TODO
  * @category (Meta)
  * @docs todo.md
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html

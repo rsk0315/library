@@ -38,7 +38,8 @@ layout: default
 
 ### (Meta)
 
-* :warning: <a href="library/meta/todo.cpp.html">to-do リスト</a>
+* :warning: <a href="library/meta/license.cpp.html">LICENSE</a>
+* :warning: <a href="library/meta/todo.cpp.html">TODO</a>
 
 
 <div id="5e248f107086635fddcead5bf28943fc"></div>
