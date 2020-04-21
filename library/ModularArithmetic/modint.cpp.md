@@ -41,8 +41,6 @@ layout: default
 * :heavy_check_mark: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
 * :heavy_check_mark: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
-* :warning: <a href="../test/mini/fft.cpp.html">test/mini/fft.cpp</a>
-* :warning: <a href="../test/mini/modint.cpp.html">test/mini/modint.cpp</a>
 
 
 ## Verified with

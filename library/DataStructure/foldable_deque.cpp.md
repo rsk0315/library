@@ -36,11 +36,6 @@ layout: default
 
 
 
-## Required by
-
-* :warning: <a href="../test/mini/foldable_deque.cpp.html">test/mini/foldable_deque.cpp</a>
-
-
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>

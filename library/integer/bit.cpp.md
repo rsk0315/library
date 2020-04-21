@@ -47,7 +47,6 @@ layout: default
 * :heavy_check_mark: <a href="../ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
 * :heavy_check_mark: <a href="../ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
-* :warning: <a href="../test/mini/fft.cpp.html">test/mini/fft.cpp</a>
 
 
 ## Verified with

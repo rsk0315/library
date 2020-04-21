@@ -140,15 +140,6 @@ layout: default
 * :warning: <a href="library/interface/monoid.cpp.html">モノイドクラス <small>(interface/monoid.cpp)</small></a>
 
 
-<div id="9a6d2aa7b36e38045ca314a0baa2d4bd"></div>
-
-### test/mini
-
-* :warning: <a href="library/test/mini/fft.cpp.html">test/mini/fft.cpp</a>
-* :warning: <a href="library/test/mini/foldable_deque.cpp.html">test/mini/foldable_deque.cpp</a>
-* :warning: <a href="library/test/mini/modint.cpp.html">test/mini/modint.cpp</a>
-
-
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
