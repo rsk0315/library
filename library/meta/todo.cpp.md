@@ -81,12 +81,17 @@ layout: default
 ## 数学
 - 行列
 - 多項式諸々
-  - 補間
+  - `exp` とか `sqrt` とか
+  - あと高速化
 - BSGS
 - $\mathbb{Z}_p$ での位数
+- 合成数での `dlog`
 
 ## 整数
-- todo をふやす
+- 計算途中でオーバーフローしない複合演算
+  - fused multiply-add など
+- オーバーフロー検出
+  - `__builtin_mul_overflow` 系のやつ
 
 ## アルゴリズム
 - SMAWK
@@ -99,8 +104,7 @@ layout: default
 - ほんとに？
 
 ## その他
-- モノイドクラス用のロリハ演算
-
+- なにか
 
 ## Code
 
