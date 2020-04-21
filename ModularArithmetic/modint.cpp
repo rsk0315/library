@@ -5,7 +5,6 @@
  * @brief 合同算術用クラス
  * @author えびちゃん
  */
-//
 
 #include <cstdint>
 #include <type_traits>
@@ -71,10 +70,22 @@ public:
     return *this;
   }
 
-  modint operator +(modint const& that) const { return modint(*this) += that; }
-  modint operator -(modint const& that) const { return modint(*this) -= that; }
-  modint operator *(modint const& that) const { return modint(*this) *= that; }
-  modint operator /(modint const& that) const { return modint(*this) /= that; }
+  modint& operator ++() {
+    if (++M_value == get_modulo()) M_value = 0;
+    return *this;
+  }
+  modint& operator --() {
+    if (M_value-- == 0) M_value = get_modulo()-1;
+    return *this;
+  }
+
+  modint operator ++(int) { modint tmp(*this); ++*this; return tmp; }
+  modint operator --(int) { modint tmp(*this); --*this; return tmp; }
+
+  friend modint operator +(modint lhs, modint const& rhs) { return lhs += rhs; }
+  friend modint operator -(modint lhs, modint const& rhs) { return lhs -= rhs; }
+  friend modint operator *(modint lhs, modint const& rhs) { return lhs *= rhs; }
+  friend modint operator /(modint lhs, modint const& rhs) { return lhs /= rhs; }
 
   modint operator +() const { return *this; }
   modint operator -() const {
@@ -82,8 +93,12 @@ public:
     return modint(get_modulo() - M_value);
   }
 
-  bool operator ==(modint const& that) const { return M_value == that.M_value; }
-  bool operator !=(modint const& that) const { return !(*this == that); }
+  friend bool operator ==(modint const& lhs, modint const& rhs) {
+    return lhs.M_value == rhs.M_value;
+  }
+  friend bool operator !=(modint const& lhs, modint const& rhs) {
+    return !(lhs == rhs);
+  }
 
   value_type get() const { return M_value; }
   static value_type get_modulo() { return ((S_cmod > 0)? S_cmod: S_rmod); }
@@ -91,31 +106,6 @@ public:
   template <int M = Modulo, typename Tp = typename std::enable_if<(M <= 0)>::type>
   static Tp set_modulo(value_type m) { S_rmod = m; }
 };
-
-template <typename Tp, intmax_t Modulo>
-modint<Modulo> operator +(Tp const& lhs, modint<Modulo> const& rhs) {
-  return rhs + lhs;
-}
-template <typename Tp, intmax_t Modulo>
-modint<Modulo> operator -(Tp const& lhs, modint<Modulo> const& rhs) {
-  return -(rhs - lhs);
-}
-template <typename Tp, intmax_t Modulo>
-modint<Modulo> operator *(Tp const& lhs, modint<Modulo> const& rhs) {
-  return rhs * lhs;
-}
-template <typename Tp, intmax_t Modulo>
-modint<Modulo> operator /(Tp const& lhs, modint<Modulo> const& rhs) {
-  return modint<Modulo>(lhs) / rhs;
-}
-template <typename Tp, intmax_t Modulo>
-bool operator ==(Tp const& lhs, modint<Modulo> const& rhs) {
-  return rhs == lhs;
-}
-template <typename Tp, intmax_t Modulo>
-bool operator !=(Tp const& lhs, modint<Modulo> const& rhs) {
-  return !(lhs == rhs);
-}
 
 template <intmax_t N>
 constexpr intmax_t modint<N>::S_cmod;
