@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
@@ -191,11 +191,11 @@ private:
     return resl += resr;
   }
 
-  void M_modify(size_type v, value_type x, bool asc) {
+  void M_set(size_type v, value_type x, bool asc) {
     // on directed edges or on vertices
     bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
-    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || !dir) M_fd.modify(M_in[v], x);
+    if (asc || !dir) M_fa.set(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.set(M_in[v], x);
   }
 
   template <typename Tp>
@@ -272,7 +272,7 @@ public:
   }
 
   value_type fold(size_type u, size_type v) { return M_fold(u, v); }
-  void modify(size_type v, value_type x, bool asc = true) { M_modify(v, x, asc); }
+  void set(size_type v, value_type x, bool asc = true) { M_set(v, x, asc); }
   template <typename Rq = RangeQuery, typename Ta = typename Rq::action_type>
   void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };
@@ -427,11 +427,11 @@ private:
     return resl += resr;
   }
 
-  void M_modify(size_type v, value_type x, bool asc) {
+  void M_set(size_type v, value_type x, bool asc) {
     // on directed edges or on vertices
     bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
-    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || !dir) M_fd.modify(M_in[v], x);
+    if (asc || !dir) M_fa.set(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.set(M_in[v], x);
   }
 
   template <typename Tp>
@@ -508,7 +508,7 @@ public:
   }
 
   value_type fold(size_type u, size_type v) { return M_fold(u, v); }
-  void modify(size_type v, value_type x, bool asc = true) { M_modify(v, x, asc); }
+  void set(size_type v, value_type x, bool asc = true) { M_set(v, x, asc); }
   template <typename Rq = RangeQuery, typename Ta = typename Rq::action_type>
   void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };

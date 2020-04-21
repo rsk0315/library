@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/wavelet_matrix.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 
@@ -352,7 +352,7 @@ public:
     }
   }
 
-  void modify(size_type t, value_type x) {
+  void set(size_type t, value_type x) {
     erase(t);
     insert(t, x);
   }
@@ -855,7 +855,7 @@ public:
     }
   }
 
-  void modify(size_type t, value_type x) {
+  void set(size_type t, value_type x) {
     erase(t);
     insert(t, x);
   }

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -83,7 +83,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &p, &x);
       a[p] += x;
-      g.modify(p, a[p]);
+      g.set(p, a[p]);
     } else if (t == 1) {
       size_t u, v;
       scanf("%zu %zu", &u, &v);
@@ -247,11 +247,11 @@ private:
     return resl += resr;
   }
 
-  void M_modify(size_type v, value_type x, bool asc) {
+  void M_set(size_type v, value_type x, bool asc) {
     // on directed edges or on vertices
     bool dir = std::is_same<ValueAttribute, value_on_directed_edge_tag>::value;
-    if (asc || !dir) M_fa.modify(M_n-1 - M_in[v], x);
-    if (!asc || !dir) M_fd.modify(M_in[v], x);
+    if (asc || !dir) M_fa.set(M_n-1 - M_in[v], x);
+    if (!asc || !dir) M_fd.set(M_in[v], x);
   }
 
   template <typename Tp>
@@ -328,7 +328,7 @@ public:
   }
 
   value_type fold(size_type u, size_type v) { return M_fold(u, v); }
-  void modify(size_type v, value_type x, bool asc = true) { M_modify(v, x, asc); }
+  void set(size_type v, value_type x, bool asc = true) { M_set(v, x, asc); }
   template <typename Rq = RangeQuery, typename Ta = typename Rq::action_type>
   void act(size_type u, size_type v, Ta x) { M_act(u, v, x); }
 };
@@ -405,7 +405,7 @@ public:
     for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
   }
 
-  void modify(size_type i, value_type const& x) {
+  void set(size_type i, value_type const& x) {
     i += M_n;
     M_c[i] = x;
     while (i > 1) {
@@ -414,7 +414,7 @@ public:
     }
   }
 
-  void modify(size_type i, value_type&& x) {
+  void set(size_type i, value_type&& x) {
     i += M_n;
     M_c[i] = std::move(x);
     while (i > 1) {
@@ -495,7 +495,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &p, &x);
       a[p] += x;
-      g.modify(p, a[p]);
+      g.set(p, a[p]);
     } else if (t == 1) {
       size_t u, v;
       scanf("%zu %zu", &u, &v);

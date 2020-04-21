@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 
@@ -124,7 +124,7 @@ public:
     for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
   }
 
-  void modify(size_type i, value_type const& x) {
+  void set(size_type i, value_type const& x) {
     i += M_n;
     M_c[i] = x;
     while (i > 1) {
@@ -133,7 +133,7 @@ public:
     }
   }
 
-  void modify(size_type i, value_type&& x) {
+  void set(size_type i, value_type&& x) {
     i += M_n;
     M_c[i] = std::move(x);
     while (i > 1) {
@@ -266,7 +266,7 @@ public:
     for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
   }
 
-  void modify(size_type i, value_type const& x) {
+  void set(size_type i, value_type const& x) {
     i += M_n;
     M_c[i] = x;
     while (i > 1) {
@@ -275,7 +275,7 @@ public:
     }
   }
 
-  void modify(size_type i, value_type&& x) {
+  void set(size_type i, value_type&& x) {
     i += M_n;
     M_c[i] = std::move(x);
     while (i > 1) {

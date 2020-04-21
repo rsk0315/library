@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-10 05:36:19+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D</a>
@@ -81,7 +81,7 @@ int main() {
   for (size_t i = 0; i < n; ++i) {
     size_t j = p[i];
     auto cur = ((j > 0)? wm.quantile(j-1, 0, j): 0) + 1;
-    wm.modify(j, cur);
+    wm.set(j, cur);
   }
 
   printf("%ju\n", wm.quantile(n-1, 0, n));
@@ -1108,7 +1108,7 @@ public:
     }
   }
 
-  void modify(size_type t, value_type x) {
+  void set(size_type t, value_type x) {
     erase(t);
     insert(t, x);
   }
@@ -1141,7 +1141,7 @@ int main() {
   for (size_t i = 0; i < n; ++i) {
     size_t j = p[i];
     auto cur = ((j > 0)? wm.quantile(j-1, 0, j): 0) + 1;
-    wm.modify(j, cur);
+    wm.set(j, cur);
   }
 
   printf("%ju\n", wm.quantile(n-1, 0, n));

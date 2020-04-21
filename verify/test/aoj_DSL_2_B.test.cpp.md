@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_B.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B</a>
@@ -69,7 +69,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &i, &x);
       --i;
-      st.modify(i, st[i]+x);
+      st.set(i, st[i]+x);
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);
@@ -164,7 +164,7 @@ public:
     for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
   }
 
-  void modify(size_type i, value_type const& x) {
+  void set(size_type i, value_type const& x) {
     i += M_n;
     M_c[i] = x;
     while (i > 1) {
@@ -173,7 +173,7 @@ public:
     }
   }
 
-  void modify(size_type i, value_type&& x) {
+  void set(size_type i, value_type&& x) {
     i += M_n;
     M_c[i] = std::move(x);
     while (i > 1) {
@@ -243,7 +243,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &i, &x);
       --i;
-      st.modify(i, st[i]+x);
+      st.set(i, st[i]+x);
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);

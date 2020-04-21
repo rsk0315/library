@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_range_kth_smallest.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 05:07:20+09:00
+    - Last commit date: 2020-04-21 20:24:07+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/range_kth_smallest">https://judge.yosupo.jp/problem/range_kth_smallest</a>
@@ -570,7 +570,7 @@ public:
     }
   }
 
-  void modify(size_type t, value_type x) {
+  void set(size_type t, value_type x) {
     erase(t);
     insert(t, x);
   }
