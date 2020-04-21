@@ -29,9 +29,9 @@ layout: default
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#8ef655987a464acd81c7f1a3ecbbc7e3">(Meta)</a>
-* <a href="{{ site.github.repository_url }}/blob/master/meta/license.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:06:40+09:00
+* category: <a href="../../index.html#dcaf23bbd71caccee83ae655fb01a59a">!PREFACE!</a>
+* <a href="{{ site.github.repository_url }}/blob/master/preface/license.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-22 02:17:04+09:00
 
 
 * see: <a href="https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/">https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/</a>
@@ -51,7 +51,7 @@ layout: default
 ```cpp
 /**
  * @title LICENSE
- * @category (Meta)
+ * @category !PREFACE!
  * @docs license.md
  * @see https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/
  */
@@ -62,10 +62,10 @@ layout: default
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "meta/license.cpp"
+#line 1 "preface/license.cpp"
 /**
  * @title LICENSE
- * @category (Meta)
+ * @category !PREFACE!
  * @docs license.md
  * @see https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/
  */
