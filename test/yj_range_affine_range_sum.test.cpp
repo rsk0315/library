@@ -26,8 +26,8 @@ int main() {
 
     if (t == 0) {
       size_t l, r;
-      intmax_t b, c;
-      scanf("%zu %zu %jd %jd", &l, &r, &b, &c);
+      int b, c;
+      scanf("%zu %zu %d %d", &l, &r, &b, &c);
       st.act(l, r, {b, c});
     } else if (t == 1) {
       size_t l, r;

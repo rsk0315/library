@@ -17,8 +17,8 @@ int main() {
 
   std::vector<composite_monoid<mi>> f(n);
   for (size_t i = 0; i < n; ++i) {
-    intmax_t a, b;
-    scanf("%jd %jd", &a, &b);
+    int a, b;
+    scanf("%d %d", &a, &b);
     f[i] = {a, b};
   }
 
@@ -29,8 +29,8 @@ int main() {
 
     if (t == 0) {
       size_t p;
-      intmax_t c, d;
-      scanf("%zu %jd %jd", &p, &c, &d);
+      int c, d;
+      scanf("%zu %d %d", &p, &c, &d);
       st.set(p, {c, d});
     } else if (t == 1) {
       size_t l, r;
