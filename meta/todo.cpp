@@ -1,5 +1,5 @@
 /**
- * @title to-do リスト
+ * @title TODO
  * @category (Meta)
  * @docs todo.md
  * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
