@@ -144,7 +144,9 @@ layout: default
 
 ### test/mini
 
+* :warning: <a href="library/test/mini/fft.cpp.html">test/mini/fft.cpp</a>
 * :warning: <a href="library/test/mini/foldable_deque.cpp.html">test/mini/foldable_deque.cpp</a>
+* :warning: <a href="library/test/mini/modint.cpp.html">test/mini/modint.cpp</a>
 
 
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
@@ -251,6 +253,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>

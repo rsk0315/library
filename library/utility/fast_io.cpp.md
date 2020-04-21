@@ -39,6 +39,7 @@ layout: default
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_many_aplusb.test.cpp.html">test/yj_many_aplusb.test.cpp</a>
 
 

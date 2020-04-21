@@ -21,26 +21,24 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_DPL_5_D.test.cpp
+# :warning: test/mini/modint.cpp
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_D.test.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#9a6d2aa7b36e38045ca314a0baa2d4bd">test/mini</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/mini/modint.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-21 19:27:29+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
+* :heavy_check_mark: <a href="../../ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 
 
 ## Code
@@ -48,21 +46,19 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D"
-
+#include <cstdint>
 #include <cstdio>
 
 #include "ModularArithmetic/modint.cpp"
-#include "ModularArithmetic/modtable.cpp"
 
-using mi = modint<1000'000'007>;
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
 
 int main() {
-  intmax_t n, k;
-  scanf("%jd %jd", &n, &k);
-
-  modtable<mi> mt(n+k);
-  printf("%jd\n", mt.binom(n+k-1, k-1).get());
+  printf("%jd\n", (mi(2) - 3).get());
+  printf("%jd\n", (2 - mi(3)).get());
+  printf("%jd\n", (mi(1) / 2).get());
+  printf("%jd\n", (1 / mi(2)).get());
 }
 
 ```
@@ -71,9 +67,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj_DPL_5_D.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_D"
-
+#line 1 "test/mini/modint.cpp"
+#include <cstdint>
 #include <cstdio>
 
 #line 1 "ModularArithmetic/modint.cpp"
@@ -85,7 +80,7 @@ int main() {
  * @author えびちゃん
  */
 
-#include <cstdint>
+#line 10 "ModularArithmetic/modint.cpp"
 #include <type_traits>
 #include <utility>
 
@@ -192,72 +187,20 @@ template <intmax_t N>
 intmax_t modint<N>::S_rmod;
 
 
-#line 1 "ModularArithmetic/modtable.cpp"
+#line 5 "test/mini/modint.cpp"
 
-
-
-/**
- * @brief 合同演算の前計算テーブル
- * @author えびちゃん
- */
-
-#include <cstddef>
-#include <vector>
-
-template <typename ModInt>
-class modtable {
-public:
-  using value_type = ModInt;
-  using size_type = size_t;
-  using underlying_type = typename ModInt::value_type;
-
-private:
-  std::vector<value_type> M_f, M_i, M_fi;
-
-public:
-  modtable() = default;
-
-  explicit modtable(underlying_type n): M_f(n+1), M_i(n+1), M_fi(n+1) {
-    M_f[0] = 1;
-    for (underlying_type i = 1; i <= n; ++i)
-      M_f[i] = M_f[i-1] * i;
-
-    underlying_type mod = M_f[0].get_modulo();
-    M_i[1] = 1;
-    for (underlying_type i = 2; i <= n; ++i)
-      M_i[i] = -value_type(mod / i) * M_i[mod % i];
-
-    M_fi[0] = 1;
-    for (underlying_type i = 1; i <= n; ++i)
-      M_fi[i] = M_fi[i-1] * M_i[i];
-  }
-
-  value_type inverse(underlying_type n) const { return M_i[n]; }
-  value_type factorial(underlying_type n) const { return M_f[n]; }
-  value_type factorial_inverse(underlying_type n) const { return M_fi[n]; }
-
-  value_type binom(underlying_type n, underlying_type k) const {
-    if (n < 0 || n < k || k < 0) return 0;
-    // assumes n < mod
-    return M_f[n] * M_fi[k] * M_fi[n-k];
-  }
-};
-
-
-#line 7 "test/aoj_DPL_5_D.test.cpp"
-
-using mi = modint<1000'000'007>;
+constexpr intmax_t mod = 998244353;
+using mi = modint<mod>;
 
 int main() {
-  intmax_t n, k;
-  scanf("%jd %jd", &n, &k);
-
-  modtable<mi> mt(n+k);
-  printf("%jd\n", mt.binom(n+k-1, k-1).get());
+  printf("%jd\n", (mi(2) - 3).get());
+  printf("%jd\n", (2 - mi(3)).get());
+  printf("%jd\n", (mi(1) / 2).get());
+  printf("%jd\n", (1 / mi(2)).get());
 }
 
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
