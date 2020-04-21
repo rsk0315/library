@@ -25,30 +25,30 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small>
+# :heavy_check_mark: 階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/factorial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:48:46+09:00
+    - Last commit date: 2020-04-22 03:17:15+09:00
 
 
 
 
 ## Depends on
 
-* :question: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
-* :question: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :question: <a href="modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
-* :question: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
-* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :question: <a href="../integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
+* :heavy_check_mark: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :heavy_check_mark: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
+* :heavy_check_mark: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 
 
 ## Code
@@ -77,24 +77,25 @@ template <intmax_t Mod>
 modint<Mod> factorial(intmax_t n) {
   if (n == 0) return 1;
   if (n >= Mod) return 0;
-  intmax_t v = ceil2(isqrt(n));
   using value_type = modint<Mod>;
+  using int_type = typename value_type::value_type;
+  int_type v = ceil2(isqrt(n));
   modtable<value_type> mt(v);
 
   std::vector<value_type> g{1, v+1};
-  for (intmax_t d = 1; d < v; d <<= 1) {
+  for (int_type d = 1; d < v; d <<= 1) {
     std::vector<value_type> a(d+1);
-    for (intmax_t i = 0; i <= d; ++i) {
+    for (int_type i = 0; i <= d; ++i) {
       a[i] = g[i] * mt.factorial_inverse(i) * mt.factorial_inverse(d-i);
       if ((d-i) % 2 != 0) a[i] = -a[i];
     }
 
-    auto shift = [&](intmax_t m0) {
+    auto shift = [&](int_type m0) {
       m0 = (value_type(m0) / v).get();
-      intmax_t m = std::max(m0, d+1);
+      int_type m = std::max(m0, d+1);
 
       std::vector<value_type> b(d+1), c(d+1);
-      for (intmax_t i = 0; i <= d; ++i) {
+      for (int_type i = 0; i <= d; ++i) {
         b[i] = value_type{1} / (m+i);
         c[d-i] = value_type{1} / (m-i-1);
       }
@@ -110,8 +111,8 @@ modint<Mod> factorial(intmax_t n) {
         if (k < d) mul *= value_type(m+k+1) / value_type(m+k-d);
       }
       if (m0 <= d) {
-        for (intmax_t i = m0; i--;) res[d-(m0-i-1)] = res[i];
-        for (intmax_t i = m0; i <= d; ++i) res[i-m0] = g[i];
+        for (int_type i = m0; i--;) res[d-(m0-i-1)] = res[i];
+        for (int_type i = m0; i <= d; ++i) res[i-m0] = g[i];
       }
       return res;
     };
@@ -120,12 +121,12 @@ modint<Mod> factorial(intmax_t n) {
     std::vector<value_type> gdvd = shift(d*v+d);
 
     g.resize(2*d+1);
-    for (intmax_t i = 0; i < d; ++i) g[i] *= gd[i];
-    for (intmax_t i = 0; i <= d; ++i) g[d+i] = gdv[i] * gdvd[i];
+    for (int_type i = 0; i < d; ++i) g[i] *= gd[i];
+    for (int_type i = 0; i <= d; ++i) g[d+i] = gdv[i] * gdvd[i];
   }
 
   value_type res = 1;
-  intmax_t i = 0;
+  int_type i = 0;
   for (size_t j = 0; i+v <= n && j < g.size(); i += v, ++j) res *= g[j];
   for (++i; i <= n; ++i) res *= i;
   return res;
@@ -840,24 +841,25 @@ template <intmax_t Mod>
 modint<Mod> factorial(intmax_t n) {
   if (n == 0) return 1;
   if (n >= Mod) return 0;
-  intmax_t v = ceil2(isqrt(n));
   using value_type = modint<Mod>;
+  using int_type = typename value_type::value_type;
+  int_type v = ceil2(isqrt(n));
   modtable<value_type> mt(v);
 
   std::vector<value_type> g{1, v+1};
-  for (intmax_t d = 1; d < v; d <<= 1) {
+  for (int_type d = 1; d < v; d <<= 1) {
     std::vector<value_type> a(d+1);
-    for (intmax_t i = 0; i <= d; ++i) {
+    for (int_type i = 0; i <= d; ++i) {
       a[i] = g[i] * mt.factorial_inverse(i) * mt.factorial_inverse(d-i);
       if ((d-i) % 2 != 0) a[i] = -a[i];
     }
 
-    auto shift = [&](intmax_t m0) {
+    auto shift = [&](int_type m0) {
       m0 = (value_type(m0) / v).get();
-      intmax_t m = std::max(m0, d+1);
+      int_type m = std::max(m0, d+1);
 
       std::vector<value_type> b(d+1), c(d+1);
-      for (intmax_t i = 0; i <= d; ++i) {
+      for (int_type i = 0; i <= d; ++i) {
         b[i] = value_type{1} / (m+i);
         c[d-i] = value_type{1} / (m-i-1);
       }
@@ -873,8 +875,8 @@ modint<Mod> factorial(intmax_t n) {
         if (k < d) mul *= value_type(m+k+1) / value_type(m+k-d);
       }
       if (m0 <= d) {
-        for (intmax_t i = m0; i--;) res[d-(m0-i-1)] = res[i];
-        for (intmax_t i = m0; i <= d; ++i) res[i-m0] = g[i];
+        for (int_type i = m0; i--;) res[d-(m0-i-1)] = res[i];
+        for (int_type i = m0; i <= d; ++i) res[i-m0] = g[i];
       }
       return res;
     };
@@ -883,12 +885,12 @@ modint<Mod> factorial(intmax_t n) {
     std::vector<value_type> gdvd = shift(d*v+d);
 
     g.resize(2*d+1);
-    for (intmax_t i = 0; i < d; ++i) g[i] *= gd[i];
-    for (intmax_t i = 0; i <= d; ++i) g[d+i] = gdv[i] * gdvd[i];
+    for (int_type i = 0; i < d; ++i) g[i] *= gd[i];
+    for (int_type i = 0; i <= d; ++i) g[d+i] = gdv[i] * gdvd[i];
   }
 
   value_type res = 1;
-  intmax_t i = 0;
+  int_type i = 0;
   for (size_t j = 0; i+v <= n && j < g.size(); i += v, ++j) res *= g[j];
   for (++i; i <= n; ++i) res *= i;
   return res;

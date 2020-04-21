@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_vertex_set_path_composite.test.cpp
+# :heavy_check_mark: test/yj_vertex_set_path_composite.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_set_path_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:48:46+09:00
+    - Last commit date: 2020-04-22 03:17:15+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_set_path_composite">https://judge.yosupo.jp/problem/vertex_set_path_composite</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
-* :question: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :question: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 
 
 ## Code
@@ -71,8 +71,8 @@ int main() {
 
   std::vector<composite_monoid<mi>> f(n);
   for (auto& fi: f) {
-    intmax_t a, b;
-    scanf("%jd %jd", &a, &b);
+    int a, b;
+    scanf("%d %d", &a, &b);
     fi = {a, b};
   }
 
@@ -91,14 +91,14 @@ int main() {
 
     if (t == 0) {
       size_t p;
-      intmax_t c, d;
-      scanf("%zu %jd %jd", &p, &c, &d);
+      int c, d;
+      scanf("%zu %d %d", &p, &c, &d);
       f[p] = {c, d};
       g.set(p, f[p]);
     } else if (t == 1) {
       size_t u, v;
-      intmax_t x;
-      scanf("%zu %zu %jd", &u, &v, &x);
+      int x;
+      scanf("%zu %zu %d", &u, &v, &x);
       printf("%d\n", g.fold(u, v)(x).get());
     }
   }
@@ -694,8 +694,8 @@ int main() {
 
   std::vector<composite_monoid<mi>> f(n);
   for (auto& fi: f) {
-    intmax_t a, b;
-    scanf("%jd %jd", &a, &b);
+    int a, b;
+    scanf("%d %d", &a, &b);
     fi = {a, b};
   }
 
@@ -714,14 +714,14 @@ int main() {
 
     if (t == 0) {
       size_t p;
-      intmax_t c, d;
-      scanf("%zu %jd %jd", &p, &c, &d);
+      int c, d;
+      scanf("%zu %d %d", &p, &c, &d);
       f[p] = {c, d};
       g.set(p, f[p]);
     } else if (t == 1) {
       size_t u, v;
-      intmax_t x;
-      scanf("%zu %zu %jd", &u, &v, &x);
+      int x;
+      scanf("%zu %zu %d", &u, &v, &x);
       printf("%d\n", g.fold(u, v)(x).get());
     }
   }
