@@ -33,7 +33,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &p, &x);
       a[p] += x;
-      g.modify(p, a[p]);
+      g.set(p, a[p]);
     } else if (t == 1) {
       size_t u, v;
       scanf("%zu %zu", &u, &v);

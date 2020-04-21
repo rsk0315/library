@@ -20,7 +20,7 @@ int main() {
       intmax_t x;
       scanf("%zu %jd", &i, &x);
       --i;
-      st.modify(i, st[i]+x);
+      st.set(i, st[i]+x);
     } else if (com == 1) {
       size_t x, y;
       scanf("%zu %zu", &x, &y);

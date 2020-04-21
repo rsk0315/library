@@ -22,7 +22,7 @@ int main() {
       size_t p;
       intmax_t x;
       scanf("%zu %jd", &p, &x);
-      st.modify(p, st[p]+x);
+      st.set(p, st[p]+x);
     } else if (t == 1) {
       size_t l, r;
       scanf("%zu %zu", &l, &r);

@@ -296,7 +296,7 @@ public:
     }
   }
 
-  void modify(size_type t, value_type x) {
+  void set(size_type t, value_type x) {
     erase(t);
     insert(t, x);
   }

@@ -42,7 +42,7 @@ int main() {
       intmax_t c, d;
       scanf("%zu %jd %jd", &p, &c, &d);
       f[p] = {c, d};
-      g.modify(p, f[p]);
+      g.set(p, f[p]);
     } else if (t == 1) {
       size_t u, v;
       intmax_t x;

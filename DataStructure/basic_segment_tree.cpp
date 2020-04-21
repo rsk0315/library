@@ -69,7 +69,7 @@ public:
     for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
   }
 
-  void modify(size_type i, value_type const& x) {
+  void set(size_type i, value_type const& x) {
     i += M_n;
     M_c[i] = x;
     while (i > 1) {
@@ -78,7 +78,7 @@ public:
     }
   }
 
-  void modify(size_type i, value_type&& x) {
+  void set(size_type i, value_type&& x) {
     i += M_n;
     M_c[i] = std::move(x);
     while (i > 1) {

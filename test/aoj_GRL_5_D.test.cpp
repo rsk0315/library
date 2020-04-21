@@ -39,7 +39,7 @@ int main() {
       int w;
       scanf("%zu %d", &v, &w);
       w += g.fold(v, par[v]);
-      g.modify(v, w);
+      g.set(v, w);
     } else if (t == 1) {
       size_t u;
       scanf("%zu", &u);

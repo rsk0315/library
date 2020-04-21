@@ -31,7 +31,7 @@ int main() {
       size_t p;
       intmax_t c, d;
       scanf("%zu %jd %jd", &p, &c, &d);
-      st.modify(p, {c, d});
+      st.set(p, {c, d});
     } else if (t == 1) {
       size_t l, r;
       intmax_t x;

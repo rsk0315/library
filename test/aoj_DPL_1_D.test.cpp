@@ -28,7 +28,7 @@ int main() {
   for (size_t i = 0; i < n; ++i) {
     size_t j = p[i];
     auto cur = ((j > 0)? wm.quantile(j-1, 0, j): 0) + 1;
-    wm.modify(j, cur);
+    wm.set(j, cur);
   }
 
   printf("%ju\n", wm.quantile(n-1, 0, n));
