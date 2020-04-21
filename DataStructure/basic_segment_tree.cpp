@@ -103,10 +103,10 @@ public:
   }
 
   template <typename Predicate>
-  size_type partition_point(size_type l, Predicate pred) const {
+  size_type foldl_bisect(size_type l, Predicate pred) const {
     if (l == M_n) return l;
     value_type x{};
-    size_type v = M_n + M_n;
+    size_type v = M_n+M_n;
     std::vector<size_type> cs = M_covering_segments(l, M_n);
 
     // search the subroot
@@ -123,6 +123,37 @@ public:
       v <<= 1;
       if (pred(x + M_c[v])) {
         x += M_c[v];
+        v |= 1;
+      }
+    }
+
+    return v - M_n;
+  }
+
+  template <typename Predicate>
+  size_type foldr_bisect(size_type r, Predicate pred) const {
+    if (r == 0) return r;
+    value_type x{};
+    size_type v = M_n+M_n;
+    std::vector<size_type> cs = M_covering_segments(0, r);
+    std::reverse(cs.begin(), cs.end());
+
+    // search the subroot
+    for (auto s: cs) {
+      if (!pred(M_c[s] + x)) {
+        v = s;
+        break;
+      }
+      x = M_c[s] + std::move(x);
+    }
+    if (v == M_n+M_n) return -1;  // always true
+
+    // search the leaf
+    while (v < M_n) {
+      v <<= 1;
+      if (pred(M_c[v|1] + x)) {
+        x = M_c[v|1] + std::move(x);
+      } else {
         v |= 1;
       }
     }
