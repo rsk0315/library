@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
+# :question: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/modint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 19:27:29+09:00
+    - Last commit date: 2020-04-22 02:48:46+09:00
 
 
 
 
 ## Required by
 
-* :heavy_check_mark: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :x: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
-* :heavy_check_mark: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :question: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 
 
 ## Verified with
@@ -58,7 +58,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
@@ -66,11 +66,11 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :x: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_queue_operate_all_composite.test.cpp.html">test/yj_queue_operate_all_composite.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :x: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -87,13 +87,16 @@ layout: default
  */
 
 #include <cstdint>
+#include <limits>
 #include <type_traits>
 #include <utility>
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -142,11 +145,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -188,9 +195,9 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 #endif  /* !defined(H_modint) */
 
@@ -210,13 +217,16 @@ intmax_t modint<N>::S_rmod;
  */
 
 #include <cstdint>
+#include <limits>
 #include <type_traits>
 #include <utility>
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -265,11 +275,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -311,9 +325,9 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 
 

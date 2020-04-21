@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_queue_operate_all_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 19:27:29+09:00
+    - Last commit date: 2020-04-22 02:48:46+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/queue_operate_all_composite">https://judge.yosupo.jp/problem/queue_operate_all_composite</a>
@@ -40,8 +40,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../../library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 
 
 ## Code
@@ -79,7 +79,7 @@ int main() {
     } else if (t == 2) {
       intmax_t x;
       scanf("%jd", &x);
-      printf("%jd\n", fq.fold()(x).get());
+      printf("%d\n", fq.fold()(x).get());
     }
   }
 }
@@ -156,13 +156,16 @@ public:
  */
 
 #line 10 "ModularArithmetic/modint.cpp"
+#include <limits>
 #include <type_traits>
-#line 12 "ModularArithmetic/modint.cpp"
+#line 13 "ModularArithmetic/modint.cpp"
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -211,11 +214,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -257,9 +264,9 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 
 #line 1 "DataStructure/foldable_queue.cpp"
@@ -348,7 +355,7 @@ int main() {
     } else if (t == 2) {
       intmax_t x;
       scanf("%jd", &x);
-      printf("%jd\n", fq.fold()(x).get());
+      printf("%d\n", fq.fold()(x).get());
     }
   }
 }

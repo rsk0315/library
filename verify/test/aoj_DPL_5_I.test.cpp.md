@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_5_I.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 19:27:29+09:00
+    - Last commit date: 2020-04-22 02:48:46+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Code
@@ -74,7 +74,7 @@ int main() {
     res += cur;
   }
   res = (pow(mi(k), n) - res) * mt.factorial_inverse(k);
-  printf("%jd\n", res.get());
+  printf("%d\n", res.get());
 }
 
 ```
@@ -99,13 +99,16 @@ int main() {
  */
 
 #line 10 "ModularArithmetic/modint.cpp"
+#include <limits>
 #include <type_traits>
 #include <utility>
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -154,11 +157,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -200,9 +207,9 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 
 #line 1 "ModularArithmetic/modtable.cpp"
@@ -472,7 +479,7 @@ int main() {
     res += cur;
   }
   res = (pow(mi(k), n) - res) * mt.factorial_inverse(k);
-  printf("%jd\n", res.get());
+  printf("%d\n", res.get());
 }
 
 ```

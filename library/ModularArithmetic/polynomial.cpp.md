@@ -25,33 +25,33 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 多項式 <small>(ModularArithmetic/polynomial.cpp)</small>
+# :question: 多項式 <small>(ModularArithmetic/polynomial.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 19:27:29+09:00
+    - Last commit date: 2020-04-22 02:48:46+09:00
 
 
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
-* :heavy_check_mark: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :question: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :question: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Required by
 
-* :heavy_check_mark: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :x: <a href="factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :x: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
@@ -516,13 +516,16 @@ constexpr auto reverse(Tp n)
  */
 
 #include <cstdint>
+#include <limits>
 #include <type_traits>
 #include <utility>
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -571,11 +574,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -617,9 +624,9 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 
 #line 1 "ModularArithmetic/garner.cpp"
