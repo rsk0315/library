@@ -1,5 +1,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
+/**
+ * @see http://wwwa.pikara.ne.jp/okojisan/stockham/
+ */
+
 #include <cstdio>
 #include <utility>
 #include <vector>
