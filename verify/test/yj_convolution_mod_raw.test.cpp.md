@@ -31,9 +31,10 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_convolution_mod_raw.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:48:46+09:00
+    - Last commit date: 2020-04-22 03:41:43+09:00
 
 
+* see: <a href="http://wwwa.pikara.ne.jp/okojisan/stockham/">http://wwwa.pikara.ne.jp/okojisan/stockham/</a>
 * see: <a href="https://judge.yosupo.jp/problem/convolution_mod">https://judge.yosupo.jp/problem/convolution_mod</a>
 
 
@@ -50,6 +51,10 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+
+/**
+ * @see http://wwwa.pikara.ne.jp/okojisan/stockham/
+ */
 
 #include <cstdio>
 #include <utility>
@@ -157,6 +162,10 @@ int main() {
 ```cpp
 #line 1 "test/yj_convolution_mod_raw.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
+
+/**
+ * @see http://wwwa.pikara.ne.jp/okojisan/stockham/
+ */
 
 #include <cstdio>
 #include <utility>
@@ -395,7 +404,7 @@ constexpr auto reverse(Tp n)
 }
 
 
-#line 9 "test/yj_convolution_mod_raw.test.cpp"
+#line 13 "test/yj_convolution_mod_raw.test.cpp"
 
 constexpr intmax_t mod = 998244353;
 using mi = modint<mod>;
@@ -766,7 +775,7 @@ fast::scanner cin;
 fast::printer cout;
 
 
-#line 74 "test/yj_convolution_mod_raw.test.cpp"
+#line 78 "test/yj_convolution_mod_raw.test.cpp"
 
 int main() {
   size_t n, m;
