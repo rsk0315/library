@@ -65,7 +65,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/capacitated_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_list.cpp)</small></a>
-* :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
@@ -79,7 +79,7 @@ layout: default
 
 ### Math
 
-* :heavy_check_mark: <a href="library/Math/lp_solver.cpp.html">simplex 法による線形計画法ソルバ <small>(Math/lp_solver.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
 
 
 <div id="495e431c85de4c533fce4ff12db613fe"></div>

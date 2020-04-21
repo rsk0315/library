@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small>
+# :heavy_check_mark: 最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinitz.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-04-22 02:22:06+09:00
 
 
 
@@ -60,7 +60,7 @@ layout: default
 #define H_max_flow_dinitz
 
 /**
- * @brief 最大流 (Dinitz)
+ * @brief 最大流 (Dinitz 法)
  * @author えびちゃん
  */
 
@@ -150,7 +150,7 @@ auto max_flow(AdjacencyList& g, size_t s, size_t t, dinitz_tag) {
 
 
 /**
- * @brief 最大流 (Dinitz)
+ * @brief 最大流 (Dinitz 法)
  * @author えびちゃん
  */
 

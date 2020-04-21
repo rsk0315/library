@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :heavy_check_mark: <a href="dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
+* :heavy_check_mark: <a href="dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
 * :heavy_check_mark: <a href="scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
 * :heavy_check_mark: <a href="two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 

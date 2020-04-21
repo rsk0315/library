@@ -39,8 +39,8 @@ layout: default
 ## Required by
 
 * :warning: <a href="../DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
-* :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz) <small>(Graph/dinitz.cpp)</small></a>
-* :heavy_check_mark: <a href="../Math/lp_solver.cpp.html">simplex 法による線形計画法ソルバ <small>(Math/lp_solver.cpp)</small></a>
+* :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
+* :heavy_check_mark: <a href="../Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
 * :heavy_check_mark: <a href="action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :heavy_check_mark: <a href="monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>

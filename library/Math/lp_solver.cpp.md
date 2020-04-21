@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: simplex 法による線形計画法ソルバ <small>(Math/lp_solver.cpp)</small>
+# :heavy_check_mark: 線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/lp_solver.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:16:06+09:00
+    - Last commit date: 2020-04-22 02:22:06+09:00
 
 
 
@@ -56,7 +56,7 @@ layout: default
 #define H_lp_solver
 
 /**
- * @brief simplex 法による線形計画法ソルバ
+ * @brief 線形計画法ソルバ (simplex 法)
  * @author えびちゃん
  */
 
@@ -239,7 +239,7 @@ constexpr Tp const lp_solver<Tp>::S_unbounded;
 
 
 /**
- * @brief simplex 法による線形計画法ソルバ
+ * @brief 線形計画法ソルバ (simplex 法)
  * @author えびちゃん
  */
 
