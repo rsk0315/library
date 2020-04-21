@@ -2,7 +2,7 @@
 #define H_lp_solver
 
 /**
- * @brief simplex 法による線形計画法ソルバ
+ * @brief 線形計画法ソルバ (simplex 法)
  * @author えびちゃん
  */
 

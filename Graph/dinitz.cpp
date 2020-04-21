@@ -2,7 +2,7 @@
 #define H_max_flow_dinitz
 
 /**
- * @brief 最大流 (Dinitz)
+ * @brief 最大流 (Dinitz 法)
  * @author えびちゃん
  */
 
