@@ -1,3 +1,6 @@
+#define IGNORE
+// @ignore
+
 #include <cstdint>
 #include <cstdio>
 

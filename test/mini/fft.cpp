@@ -1,3 +1,6 @@
+#define IGNORE
+// @ignore
+
 #include <cstdio>
 #include <utility>
 #include <vector>
