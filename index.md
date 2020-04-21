@@ -133,13 +133,6 @@ layout: default
 * :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
-<div id="8eb58dd5e328e978169c7b0cbd30d43f"></div>
-
-### interface
-
-* :warning: <a href="library/interface/monoid.cpp.html">モノイドクラス <small>(interface/monoid.cpp)</small></a>
-
-
 <div id="73f33be586ad6030eddb73b8318d3cf9"></div>
 
 ### misc/interface
