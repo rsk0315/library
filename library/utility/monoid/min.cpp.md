@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small>
+# :question: min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Required by
@@ -51,7 +51,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :x: <a href="../../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
 ## Code

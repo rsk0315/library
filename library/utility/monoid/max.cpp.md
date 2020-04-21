@@ -38,12 +38,14 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
 
 
 ## Code

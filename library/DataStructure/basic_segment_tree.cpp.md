@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
+# :question: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 20:24:07+09:00
+    - Last commit date: 2020-04-21 22:54:48+09:00
 
 
 
@@ -39,13 +39,15 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
+* :x: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
+* :x: <a href="../../verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
+* :x: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :x: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -158,10 +160,10 @@ public:
   }
 
   template <typename Predicate>
-  size_type partition_point(size_type l, Predicate pred) const {
+  size_type foldl_bisect(size_type l, Predicate pred) const {
     if (l == M_n) return l;
     value_type x{};
-    size_type v = M_n + M_n;
+    size_type v = M_n+M_n;
     std::vector<size_type> cs = M_covering_segments(l, M_n);
 
     // search the subroot
@@ -178,6 +180,37 @@ public:
       v <<= 1;
       if (pred(x + M_c[v])) {
         x += M_c[v];
+        v |= 1;
+      }
+    }
+
+    return v - M_n;
+  }
+
+  template <typename Predicate>
+  size_type foldr_bisect(size_type r, Predicate pred) const {
+    if (r == 0) return r;
+    value_type x{};
+    size_type v = M_n+M_n;
+    std::vector<size_type> cs = M_covering_segments(0, r);
+    std::reverse(cs.begin(), cs.end());
+
+    // search the subroot
+    for (auto s: cs) {
+      if (!pred(M_c[s] + x)) {
+        v = s;
+        break;
+      }
+      x = M_c[s] + std::move(x);
+    }
+    if (v == M_n+M_n) return -1;  // always true
+
+    // search the leaf
+    while (v < M_n) {
+      v <<= 1;
+      if (pred(M_c[v|1] + x)) {
+        x = M_c[v|1] + std::move(x);
+      } else {
         v |= 1;
       }
     }
@@ -300,10 +333,10 @@ public:
   }
 
   template <typename Predicate>
-  size_type partition_point(size_type l, Predicate pred) const {
+  size_type foldl_bisect(size_type l, Predicate pred) const {
     if (l == M_n) return l;
     value_type x{};
-    size_type v = M_n + M_n;
+    size_type v = M_n+M_n;
     std::vector<size_type> cs = M_covering_segments(l, M_n);
 
     // search the subroot
@@ -320,6 +353,37 @@ public:
       v <<= 1;
       if (pred(x + M_c[v])) {
         x += M_c[v];
+        v |= 1;
+      }
+    }
+
+    return v - M_n;
+  }
+
+  template <typename Predicate>
+  size_type foldr_bisect(size_type r, Predicate pred) const {
+    if (r == 0) return r;
+    value_type x{};
+    size_type v = M_n+M_n;
+    std::vector<size_type> cs = M_covering_segments(0, r);
+    std::reverse(cs.begin(), cs.end());
+
+    // search the subroot
+    for (auto s: cs) {
+      if (!pred(M_c[s] + x)) {
+        v = s;
+        break;
+      }
+      x = M_c[s] + std::move(x);
+    }
+    if (v == M_n+M_n) return -1;  // always true
+
+    // search the leaf
+    while (v < M_n) {
+      v <<= 1;
+      if (pred(M_c[v|1] + x)) {
+        x = M_c[v|1] + std::move(x);
+      } else {
         v |= 1;
       }
     }
