@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
+# :heavy_check_mark: 単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 22:54:48+09:00
+    - Last commit date: 2020-04-21 23:29:30+09:00
 
 
 
@@ -39,15 +39,15 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
-* :x: <a href="../../verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
-* :x: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
-* :x: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_point_add_range_sum.test.cpp.html">test/yj_point_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_point_set_range_composite.test.cpp.html">test/yj_point_set_range_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -64,6 +64,7 @@ layout: default
  */
 
 #include <cstddef>
+#include <algorithm>
 #include <vector>
 
 template <typename Monoid>
@@ -92,8 +93,6 @@ private:
 
 public:
   basic_segment_tree() = default;
-  basic_segment_tree(basic_segment_tree const&) = default;
-  basic_segment_tree(basic_segment_tree&&) = default;
 
   explicit basic_segment_tree(size_type n): M_c(n+n), M_n(n) {}
   explicit basic_segment_tree(size_type n, value_type const& x):
@@ -237,6 +236,7 @@ public:
  */
 
 #include <cstddef>
+#include <algorithm>
 #include <vector>
 
 template <typename Monoid>
@@ -265,8 +265,6 @@ private:
 
 public:
   basic_segment_tree() = default;
-  basic_segment_tree(basic_segment_tree const&) = default;
-  basic_segment_tree(basic_segment_tree&&) = default;
 
   explicit basic_segment_tree(size_type n): M_c(n+n), M_n(n) {}
   explicit basic_segment_tree(size_type n, value_type const& x):

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj_GRL_5_D.test.cpp
+# :heavy_check_mark: test/aoj_GRL_5_D.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 22:54:48+09:00
+    - Last commit date: 2020-04-21 23:29:30+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
-* :question: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 
 
 ## Code
@@ -124,7 +124,8 @@ int main() {
  */
 
 #include <cstddef>
-#line 11 "DataStructure/basic_segment_tree.cpp"
+#include <algorithm>
+#line 12 "DataStructure/basic_segment_tree.cpp"
 
 template <typename Monoid>
 class basic_segment_tree {
@@ -152,8 +153,6 @@ private:
 
 public:
   basic_segment_tree() = default;
-  basic_segment_tree(basic_segment_tree const&) = default;
-  basic_segment_tree(basic_segment_tree&&) = default;
 
   explicit basic_segment_tree(size_type n): M_c(n+n), M_n(n) {}
   explicit basic_segment_tree(size_type n, value_type const& x):

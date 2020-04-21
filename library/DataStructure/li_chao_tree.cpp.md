@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Code
