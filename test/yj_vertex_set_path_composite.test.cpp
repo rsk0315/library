@@ -47,7 +47,7 @@ int main() {
       size_t u, v;
       intmax_t x;
       scanf("%zu %zu %jd", &u, &v, &x);
-      printf("%jd\n", g.fold(u, v)(x).get());
+      printf("%d\n", g.fold(u, v)(x).get());
     }
   }
 }

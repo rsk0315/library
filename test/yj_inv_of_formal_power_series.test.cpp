@@ -19,5 +19,5 @@ int main() {
   polynomial<mi> g = f.inverse(n);
 
   for (size_t i = 0; i < n; ++i)
-    printf("%jd%c", g[i].get(), i+1<n? ' ': '\n');
+    printf("%d%c", g[i].get(), i+1<n? ' ': '\n');
 }

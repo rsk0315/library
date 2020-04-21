@@ -12,5 +12,5 @@ int main() {
   scanf("%jd %jd", &n, &k);
 
   modtable<mi> mt(n+k);
-  printf("%jd\n", mt.binom(n+k-1, k-1).get());
+  printf("%d\n", mt.binom(n+k-1, k-1).get());
 }

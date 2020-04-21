@@ -49,8 +49,8 @@ int main() {
       dq2.pop_back();
     }
 
-    intmax_t x1 = dq1.fold().get().get();
-    intmax_t x2 = dq2.fold().get().get();
+    int x1 = dq1.fold().get().get();
+    int x2 = dq2.fold().get().get();
     seen.emplace(x1, x2);
   }
 

@@ -21,5 +21,5 @@ int main() {
   auto ys = f.multipoint_evaluate(xs);
 
   for (size_t i = 0; i < m; ++i)
-    printf("%jd%c", ys[i].get(), i+1<m? ' ': '\n');
+    printf("%d%c", ys[i].get(), i+1<m? ' ': '\n');
 }

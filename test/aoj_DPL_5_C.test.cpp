@@ -23,5 +23,5 @@ int main() {
   }
 
   res = pow(mi(k), n) - res;
-  printf("%jd\n", res.get());
+  printf("%d\n", res.get());
 }

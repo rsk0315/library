@@ -28,7 +28,7 @@ int main() {
     } else if (t == 2) {
       intmax_t x;
       scanf("%jd", &x);
-      printf("%jd\n", fq.fold()(x).get());
+      printf("%d\n", fq.fold()(x).get());
     }
   }
 }

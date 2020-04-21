@@ -10,5 +10,5 @@ using mi = modint<1000'000'007>;
 int main() {
   intmax_t n, k;
   scanf("%jd %jd", &n, &k);
-  printf("%jd\n", pow(mi(k), n).get());
+  printf("%d\n", pow(mi(k), n).get());
 }

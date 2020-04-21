@@ -24,5 +24,5 @@ int main() {
   auto f = interpolate(xs, ys);
 
   for (size_t i = 0; i < n; ++i)
-    printf("%jd%c", f[i].get(), i+1<n? ' ': '\n');
+    printf("%d%c", f[i].get(), i+1<n? ' ': '\n');
 }

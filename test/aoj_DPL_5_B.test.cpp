@@ -15,5 +15,5 @@ int main() {
 
   mi res = 1;
   for (int i = 0; i < n; ++i) res *= k-i;
-  printf("%jd\n", res.get());
+  printf("%d\n", res.get());
 }

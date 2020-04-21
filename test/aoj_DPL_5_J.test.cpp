@@ -17,5 +17,5 @@ int main() {
     for (size_t j = i; j <= n; ++j)
       dp[j] += dp[j-i];
 
-  printf("%jd\n", dp[n].get());
+  printf("%d\n", dp[n].get());
 }

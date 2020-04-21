@@ -81,7 +81,7 @@ int testcase_ends() {
   }
 
   size_t l = 0;
-  printf("%jd\n", parse(s, l, 0, n).get());
+  printf("%d\n", parse(s, l, 0, n).get());
   return 0;
 }
 

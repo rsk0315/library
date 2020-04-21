@@ -36,7 +36,7 @@ int main() {
       size_t l, r;
       intmax_t x;
       scanf("%zu %zu %jd", &l, &r, &x);
-      printf("%jd\n", st.fold(l, r)(x).get());
+      printf("%d\n", st.fold(l, r)(x).get());
     }
   }
 }

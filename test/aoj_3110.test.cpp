@@ -37,5 +37,5 @@ int main() {
     }
   }
 
-  printf("%jd\n", (dp1[n][loose] + dp1[n][tight]).get());
+  printf("%d\n", (dp1[n][loose] + dp1[n][tight]).get());
 }

@@ -8,5 +8,5 @@ constexpr intmax_t mod = 1000'000'007;
 int main() {
   intmax_t n;
   scanf("%jd", &n);
-  printf("%jd\n", factorial<mod>(n).get());
+  printf("%d\n", factorial<mod>(n).get());
 }

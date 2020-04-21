@@ -7,13 +7,16 @@
  */
 
 #include <cstdint>
+#include <limits>
 #include <type_traits>
 #include <utility>
 
 template <intmax_t Modulo>
 class modint {
 public:
-  using value_type = intmax_t;
+  using value_type = typename std::conditional<
+  (0 < Modulo && Modulo < std::numeric_limits<int>::max() / 2), int, intmax_t
+ >::type;
 
 private:
   static constexpr value_type S_cmod = Modulo;  // compile-time
@@ -62,11 +65,15 @@ public:
     return *this;
   }
   modint& operator *=(modint const& that) {
-    (M_value *= that.M_value) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= that.M_value;
+    M_value = tmp % get_modulo();
     return *this;
   }
   modint& operator /=(modint const& that) {
-    (M_value *= S_inv(that.M_value, get_modulo())) %= get_modulo();
+    intmax_t tmp = M_value;
+    tmp *= S_inv(that.M_value, get_modulo());
+    M_value = tmp % get_modulo();
     return *this;
   }
 
@@ -108,8 +115,8 @@ public:
 };
 
 template <intmax_t N>
-constexpr intmax_t modint<N>::S_cmod;
+constexpr typename modint<N>::value_type modint<N>::S_cmod;
 template <intmax_t N>
-intmax_t modint<N>::S_rmod;
+typename modint<N>::value_type modint<N>::S_rmod;
 
 #endif  /* !defined(H_modint) */

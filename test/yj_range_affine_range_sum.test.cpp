@@ -32,7 +32,7 @@ int main() {
     } else if (t == 1) {
       size_t l, r;
       scanf("%zu %zu", &l, &r);
-      printf("%jd\n", st.fold(l, r).get().get());
+      printf("%d\n", st.fold(l, r).get().get());
     }
   }
 }

@@ -22,5 +22,5 @@ int main() {
     res += cur;
   }
   res = (pow(mi(k), n) - res) * mt.factorial_inverse(k);
-  printf("%jd\n", res.get());
+  printf("%d\n", res.get());
 }

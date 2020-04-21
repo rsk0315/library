@@ -42,5 +42,5 @@ int main() {
   }
 
   for (size_t i = 0; i+1 < n+m; ++i)
-    printf("%jd%c", f[i].get(), i+2<n+m? ' ': '\n');
+    printf("%d%c", f[i].get(), i+2<n+m? ' ': '\n');
 }

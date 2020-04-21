@@ -19,5 +19,5 @@ int main() {
   polynomial<mi> f(a.begin(), a.end());
   polynomial<mi> g = log(f);
   for (size_t i = 0; i < n; ++i)
-    printf("%jd%c", g[i].get(), i+1<n? ' ': '\n');
+    printf("%d%c", g[i].get(), i+1<n? ' ': '\n');
 }
