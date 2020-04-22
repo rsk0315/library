@@ -13,7 +13,7 @@
 
 template <typename Tp>
 auto add_overflow(Tp x, Tp y, Tp& z)
-  -> typename std::enable_if<std::is_integral_v<Tp>::value, bool>::type
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
@@ -26,7 +26,7 @@ auto add_overflow(Tp x, Tp y, Tp& z)
 
 template <typename Tp>
 auto sub_overflow(Tp x, Tp y, Tp& z)
-  -> typename std::enable_if<std::is_integral_v<Tp>::value, bool>::type
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   if (y == 0) return (z = x), false;
@@ -37,7 +37,7 @@ auto sub_overflow(Tp x, Tp y, Tp& z)
 
 template <typename Tp>
 auto mul_overflow(Tp x, Tp y, Tp& z)
-  -> typename std::enable_if<std::is_integral_v<Tp>::value, bool>::type
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
