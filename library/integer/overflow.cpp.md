@@ -25,26 +25,31 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small>
+# :heavy_check_mark: オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/overflow.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:27:15+09:00
+    - Last commit date: 2020-04-23 22:32:03+09:00
 
 
 
 
 ## Depends on
 
-* :warning: <a href="mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :heavy_check_mark: <a href="mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
 * :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Required by
 
-* :warning: <a href="fused_multiply.cpp.html">乗算との複合演算 <small>(integer/fused_multiply.cpp)</small></a>
+* :heavy_check_mark: <a href="fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 
 
 ## Code
@@ -95,9 +100,8 @@ auto mul_overflow(Tp x, Tp y, Tp& z)
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
-  unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
-  unsigned_type hi = mul_upper(x, y);
-  if ((hi & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
+  unsigned_type sign_bit = ~(~unsigned_type(0) >> 1);
+  if (((ux * uy) & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
   z = x * y;
   return false;
 }
@@ -162,7 +166,7 @@ auto mul_upper(Tp u, Tp v)
 {
   using value_type = Tp;
   using unsigned_type = typename std::make_unsigned<Tp>::type;
-  value_type hi;
+  unsigned_type hi;
   int const bits = CHAR_BIT * sizeof(value_type);
   if (false && (sizeof u) < sizeof(uintmax_t)) {
     uintmax_t mul = uintmax_t(u) * v;
@@ -218,9 +222,8 @@ auto mul_overflow(Tp x, Tp y, Tp& z)
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
-  unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
-  unsigned_type hi = mul_upper(x, y);
-  if ((hi & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
+  unsigned_type sign_bit = ~(~unsigned_type(0) >> 1);
+  if (((ux * uy) & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
   z = x * y;
   return false;
 }

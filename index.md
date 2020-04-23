@@ -128,10 +128,10 @@ layout: default
 ### integer
 
 * :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :warning: <a href="library/integer/fused_multiply.cpp.html">乗算との複合演算 <small>(integer/fused_multiply.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :warning: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
-* :warning: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
@@ -140,6 +140,13 @@ layout: default
 ### misc/interface
 
 * :warning: <a href="library/misc/interface/monoid.cpp.html">モノイドクラス <small>(misc/interface/monoid.cpp)</small></a>
+
+
+<div id="9a6d2aa7b36e38045ca314a0baa2d4bd"></div>
+
+### test/mini
+
+* :heavy_check_mark: <a href="library/test/mini/qq.cpp.html">test/mini/qq.cpp</a>
 
 
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
@@ -159,6 +166,13 @@ layout: default
 * :heavy_check_mark: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
+
+
+<div id="ace665e51d5ef826ab32c568535c1658"></div>
+
+### utility/macro
+
+* :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">utility/macro/assert_eq.cpp</a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
@@ -236,6 +250,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
