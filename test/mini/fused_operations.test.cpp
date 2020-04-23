@@ -62,5 +62,8 @@ int main() {
   assert_eq(fused_mul_min(100, -100, 0), -10000);
   assert_eq(fused_mul_min(-100, -100, 0), 0);
 
+  assert_eq(fused_mul_mod(1000000000000000000L, 1000000000000000000L, 2305843009213693951L),
+            1824060670036424877L);
+
   qq();  // dummy
 }
