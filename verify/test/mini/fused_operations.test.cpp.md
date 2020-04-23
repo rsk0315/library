@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/mini/fused_operations.test.cpp
+# :heavy_check_mark: test/mini/fused_operations.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#9a6d2aa7b36e38045ca314a0baa2d4bd">test/mini</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/mini/fused_operations.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-24 01:14:46+09:00
+    - Last commit date: 2020-04-24 01:26:24+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000</a>
@@ -39,11 +39,11 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../../library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
-* :question: <a href="../../../library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
-* :question: <a href="../../../library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
-* :question: <a href="../../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :x: <a href="../../../library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../../../library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
 
 
 ## Code
@@ -84,14 +84,14 @@ int main() {
   assert_eq(fused_mul_mod(-1000000000, -1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, -1000000007), -999999958);
 
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49);
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49u);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49u);
 
   assert_eq(fused_add_mod(2, 3, +5), 0);
   assert_eq(fused_add_mod(2, 3, -5), 0);
@@ -114,6 +114,9 @@ int main() {
   assert_eq(fused_mul_min(1000, 1000, 2000000000), 1000000);
   assert_eq(fused_mul_min(100, -100, 0), -10000);
   assert_eq(fused_mul_min(-100, -100, 0), 0);
+
+  assert_eq(fused_mul_mod(1000000000000000000L, 1000000000000000000L, 2305843009213693951L),
+            1824060670036424877L);
 
   qq();  // dummy
 }
@@ -384,14 +387,14 @@ int main() {
   assert_eq(fused_mul_mod(-1000000000, -1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, -1000000007), -999999958);
 
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49);
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49u);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49u);
 
   assert_eq(fused_add_mod(2, 3, +5), 0);
   assert_eq(fused_add_mod(2, 3, -5), 0);
@@ -414,6 +417,9 @@ int main() {
   assert_eq(fused_mul_min(1000, 1000, 2000000000), 1000000);
   assert_eq(fused_mul_min(100, -100, 0), -10000);
   assert_eq(fused_mul_min(-100, -100, 0), 0);
+
+  assert_eq(fused_mul_mod(1000000000000000000L, 1000000000000000000L, 2305843009213693951L),
+            1824060670036424877L);
 
   qq();  // dummy
 }
