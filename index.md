@@ -80,6 +80,7 @@ layout: default
 ### Math
 
 * :heavy_check_mark: <a href="library/Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Math/remainder_sum.cpp.html">$i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small></a>
 
 
 <div id="495e431c85de4c533fce4ff12db613fe"></div>
@@ -129,7 +130,7 @@ layout: default
 * :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :warning: <a href="library/integer/fused_multiply.cpp.html">乗算との複合演算 <small>(integer/fused_multiply.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :warning: <a href="library/integer/mulhu.cpp.html">符号なし整数の乗算の上位ワード <small>(integer/mulhu.cpp)</small></a>
+* :warning: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
 * :warning: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
@@ -243,6 +244,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_752.test.cpp.html">test/yc_752.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>

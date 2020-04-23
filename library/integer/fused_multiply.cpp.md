@@ -31,9 +31,16 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/fused_multiply.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-15 23:17:44+09:00
+    - Last commit date: 2020-04-23 19:27:15+09:00
 
 
+
+
+## Depends on
+
+* :warning: <a href="mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :warning: <a href="overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -49,19 +56,48 @@ layout: default
  * @author えびちゃん
  */
 
+#include <climits>
+#include <algorithm>
+#include <type_traits>
+
+#include "integer/overflow.cpp"
+#include "integer/mul_upper.cpp"
+
 template <typename Tp>
-Tp fmadd(Tp x, Tp y, Tp z) {
-  // x * y + z
+Tp fused_mul_add(Tp x, Tp y, Tp z) {
+  // Return x * y + z without overflow
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y, uz = z;
+  unsigned_type lo = ux * uy;
+  return lo + z;
 }
 
 template <typename Tp>
-Tp fmmin(Tp x, Tp y, Tp z) {
-  // min(x * y, z)
+Tp fused_mul_min(Tp x, Tp y, Tp z) {
+  // min(x * y, z) without oveflow
+  Tp w;
+  if (mul_overflow(x, y, w)) return z;  // undefined if x*y < minimum
+  return std::min(w, z);
 }
 
+#include <cassert>
+
 template <typename Tp>
-Tp fmmod(Tp x, Tp y, Tp z) {
-  // (x * y) % z, same sign as z
+Tp fused_mul_mod(Tp x, Tp y, Tp z) {
+  // (x * y) % z, same sign as z, without oveflow
+  assert(z > 0);  // XXX
+  if ((x %= z) < 0) x += z;
+  if ((y %= z) < 0) y += z;
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y, uz = z;
+  unsigned_type hi = mul_upper(ux, uy) % uz;
+  unsigned_type lo = ux * uy % uz;
+  fprintf(stderr, "%u %u (%u %% %u)\n", hi, lo, ux*uy, uz);
+  for (size_t i = 0; i < (CHAR_BIT * sizeof(Tp)); ++i) {
+    if ((hi += hi) >= uz) hi -= uz;  // XXX use fused_add_mod
+  }
+  if ((lo += hi) >= uz) lo -= uz;
+  return lo;
 }
 
 #endif  /* !defined(H_fused_multiply) */
@@ -81,19 +117,163 @@ Tp fmmod(Tp x, Tp y, Tp z) {
  * @author えびちゃん
  */
 
+#include <climits>
+#include <algorithm>
+#include <type_traits>
+
+#line 1 "integer/overflow.cpp"
+
+
+
+/**
+ * @brief オーバーフロー判定つき演算
+ * @author えびちゃん
+ */
+
+#line 10 "integer/overflow.cpp"
+#include <type_traits>
+
+#line 1 "integer/mul_upper.cpp"
+
+
+
+/**
+ * @brief 整数の乗算の上位ワード
+ * @author えびちゃん
+ */
+
+#include <cstdint>
+#line 11 "integer/mul_upper.cpp"
+#include <type_traits>
+#include <utility>
+
+#line 1 "utility/literals.cpp"
+
+
+
+/**
+ * @brief ユーザ定義リテラル
+ * @author えびちゃん
+ */
+
+#include <cstddef>
+#line 11 "utility/literals.cpp"
+
+constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
+constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
+constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
+constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+
+
+#line 15 "integer/mul_upper.cpp"
+
 template <typename Tp>
-Tp fmadd(Tp x, Tp y, Tp z) {
-  // x * y + z
+auto mul_upper(Tp u, Tp v)
+  -> typename std::enable_if<std::is_integral_v<Tp>, Tp>::type
+{
+  using value_type = Tp;
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  value_type hi;
+  int const bits = CHAR_BIT * sizeof(value_type);
+  if (false && (sizeof u) < sizeof(uintmax_t)) {
+    uintmax_t mul = uintmax_t(u) * v;
+    hi = mul >> bits;
+    // XXX unsigned only
+  } else {
+    int const half_bits = bits / 2;
+    unsigned_type const half_mask = (unsigned_type(1) << half_bits) - 1;
+    unsigned_type u0 = u & half_mask, v0 = v & half_mask;
+    unsigned_type u1 = unsigned_type(u) >> half_bits, v1 = unsigned_type(v) >> half_bits;
+    unsigned_type w0 = u0 * v0;
+    unsigned_type t = u1 * v0 + (w0 >> half_bits);
+    unsigned_type w1 = t & half_mask;
+    unsigned_type w2 = t >> half_bits;
+    w1 += u0 * v1;
+    hi = u1 * v1 + w2 + (w1 >> half_bits);
+    if (u < 0) hi -= v;
+    if (v < 0) hi -= u;
+  }
+  return hi;
+}
+
+
+#line 13 "integer/overflow.cpp"
+
+template <typename Tp>
+auto add_overflow(Tp x, Tp y, Tp& z)
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
+{
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y;
+  unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
+  if ((ux & sign_bit) ^ (uy & sign_bit)) return (z = x + y), false;
+  if (((ux + uy) & sign_bit) != (ux & sign_bit)) return true;
+  z = x + y;
+  return false;
 }
 
 template <typename Tp>
-Tp fmmin(Tp x, Tp y, Tp z) {
-  // min(x * y, z)
+auto sub_overflow(Tp x, Tp y, Tp& z)
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
+{
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  if (y == 0) return (z = x), false;
+  unsigned_type uy = y;
+  if (~(uy | (uy-1)) == 0 && y < 0) return true;
+  return add_overflow(x, -y, z);
 }
 
 template <typename Tp>
-Tp fmmod(Tp x, Tp y, Tp z) {
-  // (x * y) % z, same sign as z
+auto mul_overflow(Tp x, Tp y, Tp& z)
+  -> typename std::enable_if<std::is_integral_v<Tp>, bool>::type
+{
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y;
+  unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
+  unsigned_type hi = mul_upper(x, y);
+  if ((hi & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
+  z = x * y;
+  return false;
+}
+
+
+#line 15 "integer/fused_multiply.cpp"
+
+template <typename Tp>
+Tp fused_mul_add(Tp x, Tp y, Tp z) {
+  // Return x * y + z without overflow
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y, uz = z;
+  unsigned_type lo = ux * uy;
+  return lo + z;
+}
+
+template <typename Tp>
+Tp fused_mul_min(Tp x, Tp y, Tp z) {
+  // min(x * y, z) without oveflow
+  Tp w;
+  if (mul_overflow(x, y, w)) return z;  // undefined if x*y < minimum
+  return std::min(w, z);
+}
+
+#include <cassert>
+
+template <typename Tp>
+Tp fused_mul_mod(Tp x, Tp y, Tp z) {
+  // (x * y) % z, same sign as z, without oveflow
+  assert(z > 0);  // XXX
+  if ((x %= z) < 0) x += z;
+  if ((y %= z) < 0) y += z;
+  using unsigned_type = typename std::make_unsigned<Tp>::type;
+  unsigned_type ux = x, uy = y, uz = z;
+  unsigned_type hi = mul_upper(ux, uy) % uz;
+  unsigned_type lo = ux * uy % uz;
+  fprintf(stderr, "%u %u (%u %% %u)\n", hi, lo, ux*uy, uz);
+  for (size_t i = 0; i < (CHAR_BIT * sizeof(Tp)); ++i) {
+    if ((hi += hi) >= uz) hi -= uz;  // XXX use fused_add_mod
+  }
+  if ((lo += hi) >= uz) lo -= uz;
+  return lo;
 }
 
 
