@@ -19,7 +19,7 @@ auto mul_upper(Tp u, Tp v)
 {
   using value_type = Tp;
   using unsigned_type = typename std::make_unsigned<Tp>::type;
-  value_type hi;
+  unsigned_type hi;
   int const bits = CHAR_BIT * sizeof(value_type);
   if (false && (sizeof u) < sizeof(uintmax_t)) {
     uintmax_t mul = uintmax_t(u) * v;

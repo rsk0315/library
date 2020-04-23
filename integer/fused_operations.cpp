@@ -17,37 +17,48 @@ template <typename Tp>
 Tp fused_mul_add(Tp x, Tp y, Tp z) {
   // Return x * y + z without overflow
   using unsigned_type = typename std::make_unsigned<Tp>::type;
-  unsigned_type ux = x, uy = y, uz = z;
+  unsigned_type ux = x, uy = y;
   unsigned_type lo = ux * uy;
   return lo + z;
 }
 
 template <typename Tp>
 Tp fused_mul_min(Tp x, Tp y, Tp z) {
-  // min(x * y, z) without oveflow
+  // min(x * y, z) without overflow
   Tp w;
   if (mul_overflow(x, y, w)) return z;  // undefined if x*y < minimum
   return std::min(w, z);
 }
 
-#include <cassert>
+template <typename Tp>
+Tp fused_add_mod(Tp x, Tp y, Tp z) {
+  // (x + y) % z, same sign as z, without overflow
+  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
+  x -= z - y;
+  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  return x;
+}
 
 template <typename Tp>
 Tp fused_mul_mod(Tp x, Tp y, Tp z) {
-  // (x * y) % z, same sign as z, without oveflow
-  assert(z > 0);  // XXX
-  if ((x %= z) < 0) x += z;
-  if ((y %= z) < 0) y += z;
+  // (x * y) % z, same sign as z, without overflow
+  using value_type = Tp;
   using unsigned_type = typename std::make_unsigned<Tp>::type;
-  unsigned_type ux = x, uy = y, uz = z;
-  unsigned_type hi = mul_upper(ux, uy) % uz;
-  unsigned_type lo = ux * uy % uz;
-  fprintf(stderr, "%u %u (%u %% %u)\n", hi, lo, ux*uy, uz);
-  for (size_t i = 0; i < (CHAR_BIT * sizeof(Tp)); ++i) {
-    if ((hi += hi) >= uz) hi -= uz;  // XXX use fused_add_mod
+  unsigned_type ux = x, uy = y;
+  value_type hi = mul_upper(x, y) % z;
+  int const bits = CHAR_BIT * sizeof(Tp);
+  for (int i = 0; i < bits; ++i) {
+    hi = fused_add_mod(hi, hi, z);
   }
-  if ((lo += hi) >= uz) lo -= uz;
-  return lo;
+  unsigned_type uxy = ux * uy;
+  value_type loh = uxy >> (bits/2);
+  value_type lol = uxy & (~unsigned_type(0) >> (bits/2));
+  for (int i = 0; i < bits/2; ++i) {
+    loh = fused_add_mod(loh, loh, z);
+  }
+  lol = fused_add_mod(loh, lol, z);
+  return fused_add_mod(hi, lol, z);
 }
 
 #endif  /* !defined(H_fused_operations) */

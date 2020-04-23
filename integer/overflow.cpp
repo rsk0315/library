@@ -41,9 +41,8 @@ auto mul_overflow(Tp x, Tp y, Tp& z)
 {
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
-  unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
-  unsigned_type hi = mul_upper(x, y);
-  if ((hi & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
+  unsigned_type sign_bit = ~(~unsigned_type(0) >> 1);
+  if (((ux * uy) & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
   z = x * y;
   return false;
 }
