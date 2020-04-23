@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#495e431c85de4c533fce4ff12db613fe">ModularArithmetic</a>
 * <a href="{{ site.github.repository_url }}/blob/master/ModularArithmetic/polynomial.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:48:46+09:00
+    - Last commit date: 2020-04-23 19:40:18+09:00
 
 
 
@@ -547,7 +547,7 @@ private:
     return x;
   }
 
-  static value_type S_normalize(value_type n, value_type m) {
+  static value_type S_normalize(intmax_t n, value_type m) {
     if (n >= m) {
       n %= m;
     } else if (n < 0) {
@@ -558,9 +558,9 @@ private:
 
 public:
   modint() = default;
-  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+  modint(intmax_t n): M_value(S_normalize(n, get_modulo())) {}
 
-  modint& operator =(value_type n) {
+  modint& operator =(intmax_t n) {
     M_value = S_normalize(n, get_modulo());
     return *this;
   }

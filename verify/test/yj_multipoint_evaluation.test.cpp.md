@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_multipoint_evaluation.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:48:46+09:00
+    - Last commit date: 2020-04-23 19:40:18+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/multipoint_evaluation">https://judge.yosupo.jp/problem/multipoint_evaluation</a>
@@ -129,7 +129,7 @@ private:
     return x;
   }
 
-  static value_type S_normalize(value_type n, value_type m) {
+  static value_type S_normalize(intmax_t n, value_type m) {
     if (n >= m) {
       n %= m;
     } else if (n < 0) {
@@ -140,9 +140,9 @@ private:
 
 public:
   modint() = default;
-  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+  modint(intmax_t n): M_value(S_normalize(n, get_modulo())) {}
 
-  modint& operator =(value_type n) {
+  modint& operator =(intmax_t n) {
     M_value = S_normalize(n, get_modulo());
     return *this;
   }
