@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: utility/macro/assert_eq.cpp
+# :heavy_check_mark: 等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ace665e51d5ef826ab32c568535c1658">utility/macro</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/macro/assert_eq.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 22:46:40+09:00
+    - Last commit date: 2020-04-23 23:31:34+09:00
 
 
 
@@ -49,6 +49,11 @@ layout: default
 #ifndef H_assert_eq
 #define H_assert_eq
 
+/**
+ * @brief 等値判定のテスト用マクロ
+ * @author えびちゃん
+ */
+
 #include <iomanip>
 #include <iostream>
 
@@ -64,7 +69,7 @@ layout: default
     assert(found == expected);                                          \
   } while (false)
 
-#endif  /* !defined(H_assert) */
+#endif  /* !defined(H_assert_eq) */
 
 ```
 {% endraw %}
@@ -75,6 +80,11 @@ layout: default
 #line 1 "utility/macro/assert_eq.cpp"
 
 
+
+/**
+ * @brief 等値判定のテスト用マクロ
+ * @author えびちゃん
+ */
 
 #include <iomanip>
 #include <iostream>

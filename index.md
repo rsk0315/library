@@ -142,13 +142,6 @@ layout: default
 * :warning: <a href="library/misc/interface/monoid.cpp.html">モノイドクラス <small>(misc/interface/monoid.cpp)</small></a>
 
 
-<div id="9a6d2aa7b36e38045ca314a0baa2d4bd"></div>
-
-### test/mini
-
-* :heavy_check_mark: <a href="library/test/mini/qq.cpp.html">test/mini/qq.cpp</a>
-
-
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
@@ -172,7 +165,7 @@ layout: default
 
 ### utility/macro
 
-* :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">utility/macro/assert_eq.cpp</a>
+* :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#9a6d2aa7b36e38045ca314a0baa2d4bd">test/mini</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/mini/fused_operations.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 22:47:10+09:00
+    - Last commit date: 2020-04-23 23:31:34+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000</a>
@@ -42,9 +42,8 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/test/mini/qq.cpp.html">test/mini/qq.cpp</a>
 * :heavy_check_mark: <a href="../../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/utility/macro/assert_eq.cpp.html">utility/macro/assert_eq.cpp</a>
+* :heavy_check_mark: <a href="../../../library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
 
 
 ## Code
@@ -297,6 +296,11 @@ Tp fused_mul_mod(Tp x, Tp y, Tp z) {
 
 
 
+/**
+ * @brief 等値判定のテスト用マクロ
+ * @author えびちゃん
+ */
+
 #include <iomanip>
 #include <iostream>
 
@@ -318,6 +322,8 @@ Tp fused_mul_mod(Tp x, Tp y, Tp z) {
 #line 1 "test/mini/qq.cpp"
 
 
+
+// @ignore
 
 #include <cstdio>
 
