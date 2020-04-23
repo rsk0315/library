@@ -55,6 +55,7 @@
 "test/yc_703_onoff.test.cpp": "2020-04-06 23:03:06 +0900",
 "test/yc_704_onoff.test.cpp": "2020-04-06 23:03:06 +0900",
 "test/yc_705_onoff.test.cpp": "2020-04-06 23:03:06 +0900",
+"test/yc_752.test.cpp": "2020-04-23 19:23:57 +0900",
 "test/yc_878.test.cpp": "2020-04-21 23:29:30 +0900",
 "test/yc_878_reversed.test.cpp": "2020-04-21 23:29:30 +0900",
 "test/yj_convolution_mod.test.cpp": "2020-04-22 02:48:46 +0900",
