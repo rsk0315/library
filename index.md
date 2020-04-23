@@ -128,10 +128,10 @@ layout: default
 ### integer
 
 * :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
+* :question: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :heavy_check_mark: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
-* :heavy_check_mark: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
+* :question: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :question: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
@@ -148,7 +148,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small></a>
 
 
@@ -165,7 +165,7 @@ layout: default
 
 ### utility/macro
 
-* :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
+* :x: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
@@ -243,7 +243,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
+* :x: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>

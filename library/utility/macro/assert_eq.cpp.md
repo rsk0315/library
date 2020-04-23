@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small>
+# :x: 等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ace665e51d5ef826ab32c568535c1658">utility/macro</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/macro/assert_eq.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 23:31:34+09:00
+    - Last commit date: 2020-04-24 01:14:46+09:00
 
 
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
+* :x: <a href="../../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 
 
 ## Code
@@ -54,11 +54,13 @@ layout: default
  * @author えびちゃん
  */
 
+#include <cassert>
 #include <iomanip>
 #include <iostream>
 
-#define assert_eq(expr, expected) do {                                  \
-    auto found = expr;                                                  \
+#define assert_eq(expr, expected_) do {                                 \
+    auto found = (expr);                                                \
+    auto expected = (expected_);                                        \
     std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
     std::cerr << "expr:     " << #expr << '\n';                         \
     std::cerr << "expected: " << expected << '\n';                      \
@@ -86,11 +88,13 @@ layout: default
  * @author えびちゃん
  */
 
+#include <cassert>
 #include <iomanip>
 #include <iostream>
 
-#define assert_eq(expr, expected) do {                                  \
-    auto found = expr;                                                  \
+#define assert_eq(expr, expected_) do {                                 \
+    auto found = (expr);                                                \
+    auto expected = (expected_);                                        \
     std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
     std::cerr << "expr:     " << #expr << '\n';                         \
     std::cerr << "expected: " << expected << '\n';                      \

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small>
+# :question: オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,18 +38,20 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
-* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Required by
 
-* :heavy_check_mark: <a href="fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
+* :heavy_check_mark: <a href="../ModularArithmetic/chinese_remaindering.cpp.html">連立合同式の解の構成 <small>(ModularArithmetic/chinese_remaindering.cpp)</small></a>
+* :question: <a href="fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2970.test.cpp.html">test/aoj_2970.test.cpp</a>
+* :x: <a href="../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 
 
 ## Code
