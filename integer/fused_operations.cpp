@@ -33,10 +33,16 @@ Tp fused_mul_min(Tp x, Tp y, Tp z) {
 template <typename Tp>
 Tp fused_add_mod(Tp x, Tp y, Tp z) {
   // (x + y) % z, same sign as z, without overflow
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
-  if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
-  x -= z - y;
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  if (std::is_signed_v<Tp>) {
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+    if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
+    x -= z - y;
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  } else {
+    x %= z;
+    y %= z;
+    x += ((x < z-y)? y: y-z);
+  }
   return x;
 }
 
