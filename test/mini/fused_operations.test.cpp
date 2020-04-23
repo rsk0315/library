@@ -31,14 +31,14 @@ int main() {
   assert_eq(fused_mul_mod(-1000000000, -1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, -1000000007), -999999958);
 
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49);
-  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096);
-  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781);
-  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49u);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096u);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781u);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49u);
 
   assert_eq(fused_add_mod(2, 3, +5), 0);
   assert_eq(fused_add_mod(2, 3, -5), 0);
