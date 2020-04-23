@@ -11,7 +11,7 @@
 #include <type_traits>
 
 #include "integer/overflow.cpp"
-#include "integer/mulhu.cpp"
+#include "integer/mul_upper.cpp"
 
 template <typename Tp>
 Tp fused_mul_add(Tp x, Tp y, Tp z) {
@@ -40,7 +40,7 @@ Tp fused_mul_mod(Tp x, Tp y, Tp z) {
   if ((y %= z) < 0) y += z;
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y, uz = z;
-  unsigned_type hi = mulhu(ux, uy) % uz;
+  unsigned_type hi = mul_upper(ux, uy) % uz;
   unsigned_type lo = ux * uy % uz;
   fprintf(stderr, "%u %u (%u %% %u)\n", hi, lo, ux*uy, uz);
   for (size_t i = 0; i < (CHAR_BIT * sizeof(Tp)); ++i) {

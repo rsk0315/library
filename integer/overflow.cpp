@@ -9,7 +9,7 @@
 #include <climits>
 #include <type_traits>
 
-#include "integer/mulhu.cpp"
+#include "integer/mul_upper.cpp"
 
 template <typename Tp>
 auto add_overflow(Tp x, Tp y, Tp& z)
@@ -42,7 +42,7 @@ auto mul_overflow(Tp x, Tp y, Tp& z)
   using unsigned_type = typename std::make_unsigned<Tp>::type;
   unsigned_type ux = x, uy = y;
   unsigned_type sign_bit = unsigned_type{1} << ((CHAR_BIT * sizeof(Tp)) - 1);
-  unsigned_type hi = mulhu(x, y);
+  unsigned_type hi = mul_upper(x, y);
   if ((hi & sign_bit) != ((ux & sign_bit) ^ (uy & sign_bit))) return true;
   z = x * y;
   return false;

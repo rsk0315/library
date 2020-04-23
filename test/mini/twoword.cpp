@@ -5,12 +5,12 @@
 #include <cstdint>
 #include <cassert>
 
-#include "integer/twoword.cpp"
-// deprecated; use mulhu.cpp
+#include "integer/mul_upper.cpp"
 
 template <typename Tp>
 void test(Tp u, Tp v) {
-  auto [hi, lo] = multiply_halves(u, v);
+  Tp hi = mul_upper(u, v);
+  Tp lo = u * v;
   fprintf(stderr, "%08x * %08x: ", u, v);
   fprintf(stderr, "%08x %08x == %016jx\n", hi, lo, uintmax_t(u) * v);
   assert((uintmax_t(hi) << 32 | lo) == uintmax_t(u) * v);
