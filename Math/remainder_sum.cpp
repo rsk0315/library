@@ -36,7 +36,7 @@ public:
     for (size_t i = 1; i < M_d.size(); ++i) {
       intmax_t dl = M_d[i-1] + 1;
       intmax_t dr = M_d[i];
-      value_type sum = value_type((n % dl) + (n % dr)) * (dr-dl+1) / 2;
+      value_type sum = value_type(n % dl + n % dr) * value_type(dr-dl+1) / 2;
       M_s.push_back(sum);
     }
 
@@ -50,7 +50,7 @@ public:
     size_t j = it - M_d.begin();
     intmax_t dl = it[-1] + 1;
     intmax_t dr = r;
-    return M_s[j] + value_type((M_n % dl) + (M_n % dr)) * (dr-dl+1) / 2;
+    return M_s[j] + value_type(M_n % dl + M_n % dr) * value_type(dr-dl+1) / 2;
   }
 };
 
