@@ -6,11 +6,13 @@
  * @author えびちゃん
  */
 
+#include <cassert>
 #include <iomanip>
 #include <iostream>
 
-#define assert_eq(expr, expected) do {                                  \
-    auto found = expr;                                                  \
+#define assert_eq(expr, expected_) do {                                 \
+    auto found = (expr);                                                \
+    auto expected = (expected_);                                        \
     std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
     std::cerr << "expr:     " << #expr << '\n';                         \
     std::cerr << "expected: " << expected << '\n';                      \
