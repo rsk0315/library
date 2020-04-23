@@ -18,7 +18,6 @@ public:
 private:
   value_type M_mod = 1;
   value_type M_sol = 0;
-  using safe_type = intmax_t;
 
   static auto S_gcd_bezout(value_type a, value_type b) {
     value_type x{1}, y{0};
@@ -36,12 +35,14 @@ public:
 
   bool push(value_type a, value_type m) {
     if (M_mod == 0) return false;
+    if ((a %= m) < 0) a += m;
 
     auto [g, x, y] = S_gcd_bezout(M_mod, m);
     value_type mod = M_mod / g * m;
     value_type sol0 = fused_mul_mod(fused_mul_mod(M_mod / g, a, mod), x, mod);
     value_type sol1 = fused_mul_mod(fused_mul_mod(m / g, M_sol, mod), y, mod);
     value_type sol = fused_add_mod(sol0, sol1, mod);
+
     if (g > 1 && (sol % M_mod != M_sol || sol % m != a)) {
       M_mod = M_sol = 0;
       return false;
