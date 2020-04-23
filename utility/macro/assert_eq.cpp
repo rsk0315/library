@@ -1,6 +1,11 @@
 #ifndef H_assert_eq
 #define H_assert_eq
 
+/**
+ * @brief 等値判定のテスト用マクロ
+ * @author えびちゃん
+ */
+
 #include <iomanip>
 #include <iostream>
 
@@ -16,4 +21,4 @@
     assert(found == expected);                                          \
   } while (false)
 
-#endif  /* !defined(H_assert) */
+#endif  /* !defined(H_assert_eq) */

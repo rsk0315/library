@@ -1,6 +1,8 @@
 #ifndef H_qq
 #define H_qq
 
+// @ignore
+
 #include <cstdio>
 
 void qq() {
