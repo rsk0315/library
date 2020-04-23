@@ -38,7 +38,7 @@ private:
     return x;
   }
 
-  static value_type S_normalize(value_type n, value_type m) {
+  static value_type S_normalize(intmax_t n, value_type m) {
     if (n >= m) {
       n %= m;
     } else if (n < 0) {
@@ -49,9 +49,9 @@ private:
 
 public:
   modint() = default;
-  modint(value_type n): M_value(S_normalize(n, get_modulo())) {}
+  modint(intmax_t n): M_value(S_normalize(n, get_modulo())) {}
 
-  modint& operator =(value_type n) {
+  modint& operator =(intmax_t n) {
     M_value = S_normalize(n, get_modulo());
     return *this;
   }
