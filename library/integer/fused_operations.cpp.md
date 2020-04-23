@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/fused_operations.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 22:32:03+09:00
+    - Last commit date: 2020-04-23 23:53:28+09:00
 
 
 
@@ -88,10 +88,16 @@ Tp fused_mul_min(Tp x, Tp y, Tp z) {
 template <typename Tp>
 Tp fused_add_mod(Tp x, Tp y, Tp z) {
   // (x + y) % z, same sign as z, without overflow
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
-  if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
-  x -= z - y;
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  if (std::is_signed_v<Tp>) {
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+    if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
+    x -= z - y;
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  } else {
+    x %= z;
+    y %= z;
+    x += ((x < z-y)? y: y-z);
+  }
   return x;
 }
 
@@ -274,10 +280,16 @@ Tp fused_mul_min(Tp x, Tp y, Tp z) {
 template <typename Tp>
 Tp fused_add_mod(Tp x, Tp y, Tp z) {
   // (x + y) % z, same sign as z, without overflow
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
-  if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
-  x -= z - y;
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  if (std::is_signed_v<Tp>) {
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+    if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
+    x -= z - y;
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  } else {
+    x %= z;
+    y %= z;
+    x += ((x < z-y)? y: y-z);
+  }
   return x;
 }
 

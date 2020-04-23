@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#9a6d2aa7b36e38045ca314a0baa2d4bd">test/mini</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/mini/fused_operations.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 23:31:34+09:00
+    - Last commit date: 2020-04-23 23:53:28+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0000</a>
@@ -56,8 +56,8 @@ layout: default
 #include <cassert>
 #include <climits>
 
-#include "integer/fused_operations.cpp"
 #include "utility/macro/assert_eq.cpp"
+#include "integer/fused_operations.cpp"
 
 #include "test/mini/qq.cpp"
 
@@ -67,6 +67,14 @@ int main() {
   assert_eq(fused_add_mod(2000000000, 2000000000, 2100000000), 1900000000);
   assert_eq(fused_mul_mod(1000000, 1000000, 998244353), 757402647);
 
+  assert_eq(fused_mul_add(65536u, 32768u, -1u), 2147483647u);
+  assert_eq(fused_add_mod(1000u, 1000u, 900u), 200u);
+  assert_eq(fused_add_mod(2000000000u, 2000000000u, 2100000000u), 1900000000u);
+  assert_eq(fused_mul_mod(1000000u, 1000000u, 998244353u), 757402647u);
+
+  assert_eq(fused_add_mod(1, 3, -3), -2);
+  assert_eq(fused_add_mod(1, -3, 3), 1);
+
   assert_eq(fused_mul_mod(+1000000000, +1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(+1000000000, +1000000000, -1000000007), -999999958);
   assert_eq(fused_mul_mod(+1000000000, -1000000000, +1000000007), 999999958);
@@ -75,6 +83,15 @@ int main() {
   assert_eq(fused_mul_mod(-1000000000, +1000000000, -1000000007), -49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, -1000000007), -999999958);
+
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49);
 
   assert_eq(fused_add_mod(2, 3, +5), 0);
   assert_eq(fused_add_mod(2, 3, -5), 0);
@@ -112,6 +129,31 @@ int main() {
 
 #include <cassert>
 #include <climits>
+
+#line 1 "utility/macro/assert_eq.cpp"
+
+
+
+/**
+ * @brief 等値判定のテスト用マクロ
+ * @author えびちゃん
+ */
+
+#include <iomanip>
+#include <iostream>
+
+#define assert_eq(expr, expected) do {                                  \
+    auto found = expr;                                                  \
+    std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
+    std::cerr << "expr:     " << #expr << '\n';                         \
+    std::cerr << "expected: " << expected << '\n';                      \
+    std::cerr << "found:    ";                                          \
+    std::cerr << ((found != expected)? "\x1b[1;91m": "\x1b[1;92m");     \
+    std::cerr << found << "\x1b[m" << '\n';                             \
+    std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
+    assert(found == expected);                                          \
+  } while (false)
+
 
 #line 1 "integer/fused_operations.cpp"
 
@@ -263,10 +305,16 @@ Tp fused_mul_min(Tp x, Tp y, Tp z) {
 template <typename Tp>
 Tp fused_add_mod(Tp x, Tp y, Tp z) {
   // (x + y) % z, same sign as z, without overflow
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
-  if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
-  x -= z - y;
-  if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  if (std::is_signed_v<Tp>) {
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+    if ((y %= z) != 0 && ((y < 0) != (z < 0))) y += z;
+    x -= z - y;
+    if ((x %= z) != 0 && ((x < 0) != (z < 0))) x += z;
+  } else {
+    x %= z;
+    y %= z;
+    x += ((x < z-y)? y: y-z);
+  }
   return x;
 }
 
@@ -290,31 +338,6 @@ Tp fused_mul_mod(Tp x, Tp y, Tp z) {
   lol = fused_add_mod(loh, lol, z);
   return fused_add_mod(hi, lol, z);
 }
-
-
-#line 1 "utility/macro/assert_eq.cpp"
-
-
-
-/**
- * @brief 等値判定のテスト用マクロ
- * @author えびちゃん
- */
-
-#include <iomanip>
-#include <iostream>
-
-#define assert_eq(expr, expected) do {                                  \
-    auto found = expr;                                                  \
-    std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
-    std::cerr << "expr:     " << #expr << '\n';                         \
-    std::cerr << "expected: " << expected << '\n';                      \
-    std::cerr << "found:    ";                                          \
-    std::cerr << ((found != expected)? "\x1b[1;91m": "\x1b[1;92m");     \
-    std::cerr << found << "\x1b[m" << '\n';                             \
-    std::cerr << std::setw(64) << std::setfill('-') << "\n";            \
-    assert(found == expected);                                          \
-  } while (false)
 
 
 #line 8 "test/mini/fused_operations.test.cpp"
@@ -342,6 +365,14 @@ int main() {
   assert_eq(fused_add_mod(2000000000, 2000000000, 2100000000), 1900000000);
   assert_eq(fused_mul_mod(1000000, 1000000, 998244353), 757402647);
 
+  assert_eq(fused_mul_add(65536u, 32768u, -1u), 2147483647u);
+  assert_eq(fused_add_mod(1000u, 1000u, 900u), 200u);
+  assert_eq(fused_add_mod(2000000000u, 2000000000u, 2100000000u), 1900000000u);
+  assert_eq(fused_mul_mod(1000000u, 1000000u, 998244353u), 757402647u);
+
+  assert_eq(fused_add_mod(1, 3, -3), -2);
+  assert_eq(fused_add_mod(1, -3, 3), 1);
+
   assert_eq(fused_mul_mod(+1000000000, +1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(+1000000000, +1000000000, -1000000007), -999999958);
   assert_eq(fused_mul_mod(+1000000000, -1000000000, +1000000007), 999999958);
@@ -350,6 +381,15 @@ int main() {
   assert_eq(fused_mul_mod(-1000000000, +1000000000, -1000000007), -49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, +1000000007), 49);
   assert_eq(fused_mul_mod(-1000000000, -1000000000, -1000000007), -999999958);
+
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, +1000000007u), 49);
+  assert_eq(fused_mul_mod(+1000000000u, +1000000000u, -1000000007u), 1609396939);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, +1000000007u), 935229096);
+  assert_eq(fused_mul_mod(+1000000000u, -1000000000u, -1000000007u), 410065422);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, +1000000007u), 935229096);
+  assert_eq(fused_mul_mod(-1000000000u, +1000000000u, -1000000007u), 410065422);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, +1000000007u), 711885781);
+  assert_eq(fused_mul_mod(-1000000000u, -1000000000u, -1000000007u), 49);
 
   assert_eq(fused_add_mod(2, 3, +5), 0);
   assert_eq(fused_add_mod(2, 3, -5), 0);
