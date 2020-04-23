@@ -1,5 +1,5 @@
-#ifndef H_fused_multiply
-#define H_fused_multiply
+#ifndef H_fused_operations
+#define H_fused_operations
 
 /**
  * @brief 乗算との複合演算
@@ -50,4 +50,4 @@ Tp fused_mul_mod(Tp x, Tp y, Tp z) {
   return lo;
 }
 
-#endif  /* !defined(H_fused_multiply) */
+#endif  /* !defined(H_fused_operations) */
