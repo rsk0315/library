@@ -142,6 +142,13 @@ layout: default
 * :warning: <a href="library/misc/interface/monoid.cpp.html">モノイドクラス <small>(misc/interface/monoid.cpp)</small></a>
 
 
+<div id="098f6bcd4621d373cade4e832627b4f6"></div>
+
+### test
+
+* :warning: <a href="library/test/yc_1036_test.cpp.html">test/yc_1036_test.cpp</a>
+
+
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
