@@ -24,6 +24,7 @@
 "test/yc_752.test.cpp": "2020-04-23 19:23:12 +0900",
 "test/yc_878.test.cpp": "2020-04-21 22:22:13 +0900",
 "test/yc_878_reversed.test.cpp": "2020-04-21 22:53:55 +0900",
+"test/yj_bipartitematching.test.cpp": "2020-04-24 10:00:58 +0900",
 "test/yj_convolution_mod.test.cpp": "2020-04-10 16:57:49 +0900",
 "test/yj_convolution_mod_1000000007.test.cpp": "2020-03-30 14:56:58 +0900",
 "test/yj_convolution_mod_raw.test.cpp": "2020-04-23 19:39:29 +0900",
