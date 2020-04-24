@@ -8,6 +8,8 @@
 
 #include <cstddef>
 
+#include "Graph/adjacency_list.cpp"
+
 template <typename WeightType>
 class capacitated_edge {
 public:

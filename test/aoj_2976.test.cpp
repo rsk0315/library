@@ -4,6 +4,7 @@
 #include <utility>
 #include <vector>
 
+#include "Graph/capacitated_adjacency_list.cpp"
 #include "Graph/dinitz.cpp"
 #include "DataStructure/union_find.cpp"
 

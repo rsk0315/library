@@ -8,6 +8,7 @@
 #include <utility>
 #include <vector>
 
+#include "Graph/capacitated_adjacency_list.cpp"
 #include "Graph/dinitz.cpp"
 
 int main() {
