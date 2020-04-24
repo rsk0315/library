@@ -52,7 +52,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/foldable_deque.cpp.html">fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
-* :warning: <a href="library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
@@ -260,6 +260,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_many_aplusb.test.cpp.html">test/yj_many_aplusb.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
@@ -270,6 +271,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>

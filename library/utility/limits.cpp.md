@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :warning: <a href="../DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
 * :heavy_check_mark: <a href="../Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
 * :heavy_check_mark: <a href="../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
@@ -62,6 +62,8 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
