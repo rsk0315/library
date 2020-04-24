@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_1036_test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-25 02:58:44+09:00
+    - Last commit date: 2020-04-25 03:00:04+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/1036">https://yukicoder.me/problems/no/1036</a>
@@ -78,7 +78,7 @@ public:
     return lhs.M_x == rhs.M_x;
   }
 
-  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) {return lhs += rhs; }
+  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) { return lhs += rhs; }
   friend bool operator !=(gcd_monoid const& lhs, gcd_monoid const& rhs) {
     return !(lhs == rhs);
   }
@@ -207,7 +207,7 @@ public:
     return lhs.M_x == rhs.M_x;
   }
 
-  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) {return lhs += rhs; }
+  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) { return lhs += rhs; }
   friend bool operator !=(gcd_monoid const& lhs, gcd_monoid const& rhs) {
     return !(lhs == rhs);
   }
