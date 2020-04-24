@@ -28,6 +28,8 @@ private:
   std::vector<value_type> M_x;
   std::vector<value_type> M_a, M_b;
 
+  // FIXME: use fused_mul_add_min(a, x, b, y)
+
   void M_descend(size_type i, value_type a, value_type b) {
     size_type n = M_x.size();
     size_type l = i, r = l+1;
