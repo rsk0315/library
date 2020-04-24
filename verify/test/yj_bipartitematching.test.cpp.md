@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_2313.test.cpp
+# :heavy_check_mark: test/yj_bipartitematching.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_2313.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-24 09:56:38+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_bipartitematching.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-24 10:01:40+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2313">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2313</a>
+* see: <a href="https://judge.yosupo.jp/problem/bipartitematching">https://judge.yosupo.jp/problem/bipartitematching</a>
 
 
 ## Depends on
@@ -52,96 +52,37 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2313"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
-#include <cstdint>
 #include <cstdio>
-#include <algorithm>
-#include <set>
-#include <tuple>
-#include <utility>
 #include <vector>
 
 #include "Graph/capacitated_adjacency_list.cpp"
 #include "Graph/dinitz.cpp"
 
 int main() {
-  size_t n, e, q;
-  scanf("%zu %zu %zu", &n, &e, &q);
+  size_t l, r, m;
+  scanf("%zu %zu %zu", &l, &r, &m);
 
-  adjacency_list<capacitated_edge<intmax_t>, undirected_tag> g(n);
-  std::set<std::pair<size_t, size_t>> es0;
-  for (size_t i = 0; i < e; ++i) {
-    size_t f, t;
-    scanf("%zu %zu", &f, &t);
-    --f, --t;
-    g.emplace(f, t, 1);
-    es0.insert(std::minmax(f, t));
-  }
-
-  std::vector<std::tuple<int, size_t, size_t>> qs;
-  std::set<std::pair<size_t, size_t>> es;
-
-  for (size_t i = 0; i < q; ++i) {
-    int m;
+  adjacency_list<capacitated_edge<int>, directed_tag> g(l+r+2);
+  size_t source = l+r;
+  size_t sink = source+1;
+  for (size_t i = 0; i < m; ++i) {
     size_t a, b;
-    scanf("%d %zu %zu", &m, &a, &b);
-    --a, --b;
-    if (a > b) std::swap(a, b);
-    qs.emplace_back(m, a, b);
-    if (!es0.count(std::make_pair(a, b))) es.emplace(a, b);
+    scanf("%zu %zu", &a, &b);
+    g.emplace(a, l+b, 1);
   }
 
-  for (auto const& e: es) {
-    auto [s, d] = e;
-    g.emplace(s, d, 0);
-  }
+  for (size_t i = 0; i < l; ++i) g.emplace(source, i, 1);
+  for (size_t i = 0; i < r; ++i) g.emplace(l+i, sink, 1);
 
-  intmax_t first = max_flow(g, 0, n-1, dinitz);
+  printf("%d\n", max_flow(g, source, sink, dinitz));
 
-  for (size_t i = 0; i < q; ++i) {
-    auto [m, a, b] = qs[i];
-    intmax_t df = 0;
-
-    if (m == 1) {
-      // connect
-      for (auto& e: g[a]) {
-        if (e.target() != b) continue;
-        e.capacity() = 1;
-        g[b][e.reversed()].capacity() = 1;
-        df = max_flow(g, 0, n-1, dinitz);
-        break;
-      }
-      first += df;
-      printf("%jd\n", first);
-      continue;
-    }
-    if (m == 2) {
-      // disconnect
-      for (auto& e: g[a]) {
-        if (e.target() != b) continue;
-        if (e.capacity() > 0 && g[b][e.reversed()].capacity() > 0) {
-          e.capacity() = 0;
-          g[b][e.reversed()].capacity() = 0;
-          break;
-        }
-        if (e.capacity() == 0 || g[b][e.reversed()].capacity() == 0) {
-          size_t u = e.source();
-          size_t v = e.target();
-          if (e.capacity() != 0) std::swap(u, v);
-          intmax_t tmp = max_flow(g, u, v, 1, dinitz);
-          if (tmp == 0) {
-            df = -max_flow(g, n-1, 0, 1, dinitz);
-            max_flow(g, u, v, 1, dinitz);
-          }
-          e.capacity() = 0;
-          g[b][e.reversed()].capacity() = 0;
-          break;
-        }
-      }
-      first += df;
-      printf("%jd\n", first);
-      continue;
+  for (size_t i = 0; i < l; ++i) {
+    for (auto const& e: g[i]) {
+      size_t j = e.target();
+      if (j == source) continue;
+      if (e.capacity() == 0) printf("%zu %zu\n", i, j-l);
     }
   }
 }
@@ -152,15 +93,10 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj_2313.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2313"
+#line 1 "test/yj_bipartitematching.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
-#include <cstdint>
 #include <cstdio>
-#include <algorithm>
-#include <set>
-#include <tuple>
-#include <utility>
 #include <vector>
 
 #line 1 "Graph/capacitated_adjacency_list.cpp"
@@ -183,7 +119,8 @@ int main() {
  * @author えびちゃん
  */
 
-#line 11 "Graph/adjacency_list.cpp"
+#line 10 "Graph/adjacency_list.cpp"
+#include <algorithm>
 #include <type_traits>
 #line 13 "Graph/adjacency_list.cpp"
 
@@ -351,7 +288,8 @@ public:
  * @author えびちゃん
  */
 
-#line 11 "utility/literals.cpp"
+#line 10 "utility/literals.cpp"
+#include <cstdint>
 
 constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
 constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
@@ -383,7 +321,7 @@ class limits: public std::numeric_limits<Tp> {};
 #ifndef H_make_fix_point
 #define H_make_fix_point
 
-#line 10 "utility/make/fix_point.cpp"
+#include <utility>
 
 template <typename Fn>
 class fix_point: Fn {
@@ -469,85 +407,31 @@ auto max_flow(AdjacencyList& g, size_t s, size_t t, dinitz_tag) {
 }
 
 
-#line 13 "test/aoj_2313.test.cpp"
+#line 8 "test/yj_bipartitematching.test.cpp"
 
 int main() {
-  size_t n, e, q;
-  scanf("%zu %zu %zu", &n, &e, &q);
+  size_t l, r, m;
+  scanf("%zu %zu %zu", &l, &r, &m);
 
-  adjacency_list<capacitated_edge<intmax_t>, undirected_tag> g(n);
-  std::set<std::pair<size_t, size_t>> es0;
-  for (size_t i = 0; i < e; ++i) {
-    size_t f, t;
-    scanf("%zu %zu", &f, &t);
-    --f, --t;
-    g.emplace(f, t, 1);
-    es0.insert(std::minmax(f, t));
-  }
-
-  std::vector<std::tuple<int, size_t, size_t>> qs;
-  std::set<std::pair<size_t, size_t>> es;
-
-  for (size_t i = 0; i < q; ++i) {
-    int m;
+  adjacency_list<capacitated_edge<int>, directed_tag> g(l+r+2);
+  size_t source = l+r;
+  size_t sink = source+1;
+  for (size_t i = 0; i < m; ++i) {
     size_t a, b;
-    scanf("%d %zu %zu", &m, &a, &b);
-    --a, --b;
-    if (a > b) std::swap(a, b);
-    qs.emplace_back(m, a, b);
-    if (!es0.count(std::make_pair(a, b))) es.emplace(a, b);
+    scanf("%zu %zu", &a, &b);
+    g.emplace(a, l+b, 1);
   }
 
-  for (auto const& e: es) {
-    auto [s, d] = e;
-    g.emplace(s, d, 0);
-  }
+  for (size_t i = 0; i < l; ++i) g.emplace(source, i, 1);
+  for (size_t i = 0; i < r; ++i) g.emplace(l+i, sink, 1);
 
-  intmax_t first = max_flow(g, 0, n-1, dinitz);
+  printf("%d\n", max_flow(g, source, sink, dinitz));
 
-  for (size_t i = 0; i < q; ++i) {
-    auto [m, a, b] = qs[i];
-    intmax_t df = 0;
-
-    if (m == 1) {
-      // connect
-      for (auto& e: g[a]) {
-        if (e.target() != b) continue;
-        e.capacity() = 1;
-        g[b][e.reversed()].capacity() = 1;
-        df = max_flow(g, 0, n-1, dinitz);
-        break;
-      }
-      first += df;
-      printf("%jd\n", first);
-      continue;
-    }
-    if (m == 2) {
-      // disconnect
-      for (auto& e: g[a]) {
-        if (e.target() != b) continue;
-        if (e.capacity() > 0 && g[b][e.reversed()].capacity() > 0) {
-          e.capacity() = 0;
-          g[b][e.reversed()].capacity() = 0;
-          break;
-        }
-        if (e.capacity() == 0 || g[b][e.reversed()].capacity() == 0) {
-          size_t u = e.source();
-          size_t v = e.target();
-          if (e.capacity() != 0) std::swap(u, v);
-          intmax_t tmp = max_flow(g, u, v, 1, dinitz);
-          if (tmp == 0) {
-            df = -max_flow(g, n-1, 0, 1, dinitz);
-            max_flow(g, u, v, 1, dinitz);
-          }
-          e.capacity() = 0;
-          g[b][e.reversed()].capacity() = 0;
-          break;
-        }
-      }
-      first += df;
-      printf("%jd\n", first);
-      continue;
+  for (size_t i = 0; i < l; ++i) {
+    for (auto const& e: g[i]) {
+      size_t j = e.target();
+      if (j == source) continue;
+      if (e.capacity() == 0) printf("%zu %zu\n", i, j-l);
     }
   }
 }

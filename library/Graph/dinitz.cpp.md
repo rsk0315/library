@@ -31,15 +31,13 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinitz.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:22:06+09:00
+    - Last commit date: 2020-04-24 09:56:38+09:00
 
 
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :heavy_check_mark: <a href="capacitated_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_list.cpp)</small></a>
 * :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :heavy_check_mark: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
@@ -49,6 +47,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
 
 
 ## Code
@@ -70,8 +69,6 @@ layout: default
 #include "utility/literals.cpp"
 #include "utility/limits.cpp"
 #include "utility/make/fix_point.cpp"
-#include "Graph/adjacency_list.cpp"
-#include "Graph/capacitated_list.cpp"
 
 struct dinitz_tag {} dinitz;
 
@@ -218,173 +215,7 @@ static inline constexpr decltype(auto) make_fix_point(Fn&& f) noexcept {
 }
 
 #endif  /* !defined(H_make_fix_point) */
-#line 1 "Graph/adjacency_list.cpp"
-
-
-
-/**
- * @brief 重みつきグラフの隣接リスト
- * @author えびちゃん
- */
-
-#line 10 "Graph/adjacency_list.cpp"
-#include <algorithm>
-#include <type_traits>
-#line 13 "Graph/adjacency_list.cpp"
-
-template <typename WeightType>
-class weighted_edge {
-public:
-  using size_type = size_t;
-  using weight_type = WeightType;
-
-protected:
-  size_type M_src, M_dst;
-  weight_type M_weight;
-
-public:
-  weighted_edge() = default;
-  weighted_edge(weighted_edge const&) = default;
-  weighted_edge(weighted_edge&&) = default;
-
-  weighted_edge(size_type s, size_type d, weight_type w):
-    M_src(s), M_dst(d), M_weight(w)
-  {}
-
-  weighted_edge& operator =(weighted_edge const&) = default;
-  weighted_edge& operator =(weighted_edge&&) = default;
-
-  bool operator <(weighted_edge const& other) const {
-    if (M_weight < other.M_weight) return true;
-    if (other.M_weight < M_weight) return false;
-    if (M_src != other.M_src) return M_src < other.M_src;
-    return M_dst < other.M_dst;
-  }
-
-  size_type source() const { return M_src; }
-  size_type target() const { return M_dst; }
-  weight_type weight() const { return M_weight; }
-};
-
-struct directed_tag {};
-struct undirected_tag {};
-
-template <typename Edge, typename Directedness>
-class adjacency_list {
-public:
-  using size_type = size_t;
-  using edge_type = Edge;
-  using weight_type = typename Edge::weight_type;
-
-private:
-  std::vector<std::vector<edge_type>> M_g;
-
-public:
-  adjacency_list() = default;
-  adjacency_list(adjacency_list const&) = default;
-  adjacency_list(adjacency_list&&) = default;
-  explicit adjacency_list(size_type n): M_g(n) {}
-
-  template <typename... Args>
-  void emplace(size_type src, size_type dst, Args... args) {
-    M_g[src].emplace_back(src, dst, args...);
-    if (std::is_same<Directedness, undirected_tag>::value)
-      M_g[dst].emplace_back(dst, src, args...);
-  }
-
-  void sort_by_index() {
-    auto cmp = [](auto const& e1, auto const& e2) {
-      return e1.target() < e2.target();
-    };
-    for (auto v: M_g) std::sort(v.begin(), v.end(), cmp);
-  }
-
-  size_type size() const { return M_g.size(); }
-  auto const& operator [](size_type i) const { return M_g[i]; }
-};
-
-
-#line 1 "Graph/capacitated_list.cpp"
-
-
-
-/**
- * @brief 容量つきグラフの隣接リスト
- * @author えびちゃん
- */
-
-#line 10 "Graph/capacitated_list.cpp"
-
-template <typename WeightType>
-class capacitated_edge {
-public:
-  using size_type = size_t;
-  using weight_type = WeightType;
-
-protected:
-  size_type M_src, M_dst;
-  weight_type M_capacity;
-  size_type M_rev;
-
-public:
-  capacitated_edge() = default;
-  capacitated_edge(capacitated_edge const&) = default;
-  capacitated_edge(capacitated_edge&&) = default;
-
-  capacitated_edge(size_type s, size_type d, weight_type c, size_type r):
-    M_src(s), M_dst(d), M_capacity(c), M_rev(r)
-  {}
-
-  capacitated_edge& operator =(capacitated_edge const&) = default;
-  capacitated_edge& operator =(capacitated_edge&&) = default;
-
-  bool operator <(capacitated_edge const& other) const {
-    if (M_capacity < other.M_capacity) return true;
-    if (other.M_capacity < M_capacity) return false;
-    if (M_src != other.M_src) return M_src < other.M_src;
-    return M_dst < other.M_dst;
-  }
-
-  size_type source() const { return M_src; }
-  size_type target() const { return M_dst; }
-  weight_type capacity() const { return M_capacity; }
-  weight_type& capacity() { return M_capacity; }
-  size_type reversed() const { return M_rev; }
-};
-
-template <typename WeightType, typename Directedness>
-class adjacency_list<capacitated_edge<WeightType>, Directedness> {
-public:
-  using size_type = size_t;
-  using edge_type = capacitated_edge<WeightType>;
-  using weight_type = WeightType;
-
-private:
-  std::vector<std::vector<edge_type>> M_g;
-
-public:
-  adjacency_list() = default;
-  adjacency_list(adjacency_list const&) = default;
-  adjacency_list(adjacency_list&&) = default;
-  explicit adjacency_list(size_type n): M_g(n) {}
-
-  template <typename... Args>
-  void emplace(size_type src, size_type dst, weight_type cap) {
-    M_g[src].emplace_back(src, dst, cap, M_g[dst].size());
-    if (std::is_same<Directedness, directed_tag>::value) {
-      M_g[dst].emplace_back(dst, src, weight_type{0}, M_g[src].size()-1);
-    } else if (std::is_same<Directedness, undirected_tag>::value) {
-      M_g[dst].emplace_back(dst, src, cap, M_g[src].size()-1);
-    }
-  }
-
-  size_type size() const { return M_g.size(); }
-  auto const& operator [](size_type i) const { return M_g[i]; }
-  auto& operator [](size_type i) { return M_g[i]; }
-};
-
-
-#line 17 "Graph/dinitz.cpp"
+#line 15 "Graph/dinitz.cpp"
 
 struct dinitz_tag {} dinitz;
 
