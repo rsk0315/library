@@ -142,13 +142,6 @@ layout: default
 * :warning: <a href="library/misc/interface/monoid.cpp.html">モノイドクラス <small>(misc/interface/monoid.cpp)</small></a>
 
 
-<div id="098f6bcd4621d373cade4e832627b4f6"></div>
-
-### test
-
-* :warning: <a href="library/test/yc_1036_test.cpp.html">test/yc_1036_test.cpp</a>
-
-
 <div id="67b732dc42aaffa9056d34cc477c863c"></div>
 
 ### utility
@@ -251,6 +244,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_1036.test.cpp.html">test/yc_1036.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
