@@ -29,7 +29,7 @@ public:
     return lhs.M_x == rhs.M_x;
   }
 
-  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) {return lhs += rhs; }
+  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) { return lhs += rhs; }
   friend bool operator !=(gcd_monoid const& lhs, gcd_monoid const& rhs) {
     return !(lhs == rhs);
   }
