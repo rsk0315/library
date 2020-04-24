@@ -76,6 +76,7 @@
 "test/yj_range_kth_smallest.test.cpp": "2020-04-21 20:24:07 +0900",
 "test/yj_scc.test.cpp": "2020-04-06 05:07:20 +0900",
 "test/yj_segment_add_get_min.test.cpp": "2020-04-24 09:40:47 +0900",
+"test/yj_static_range_sum.test.cpp": "2020-04-24 09:47:53 +0900",
 "test/yj_staticrmq.test.cpp": "2020-04-21 23:29:30 +0900",
 "test/yj_suffixarray.test.cpp": "2020-04-06 05:07:20 +0900",
 "test/yj_two_sat.test.cpp": "2020-04-06 05:07:20 +0900",
