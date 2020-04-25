@@ -24,7 +24,6 @@ int main() {
   std::vector<int> res(q+1, -1);
   make_fix_point([&](auto&& dfs, size_t k) -> void {
     for (auto [t, i, u, v]: qs[k]) {
-      fprintf(stderr, "i: %zu\n", i);
       if (t == 0) ds.unite(u, v);
       if (t == 1) res[i] = ds.equivalent(u, v);
       dfs(i);
