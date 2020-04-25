@@ -10,6 +10,7 @@
 #include <cstdint>
 #include <array>
 #include <optional>
+#include <tuple>
 #include <vector>
 
 #include "DataStructure/bit_vector.cpp"
@@ -222,8 +223,9 @@ public:
   }
 
   value_type sum_within(size_type s, size_type t, int_type x, int_type y) {
-    auto [x_lt, x_eq, x_gt] = sum_3way(s, t, x);
-    auto [y_lt, y_eq, y_gt] = sum_3way(s, t, y);
+    value_type x_lt = sum_3way(s, t, x)[0];
+    auto tmp = sum_3way(s, t, y);
+    value_type y_lt = tmp[0], y_eq = tmp[1];
     return y_eq + y_lt - x_lt;
   }
 };
