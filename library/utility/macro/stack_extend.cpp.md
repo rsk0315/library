@@ -21,17 +21,17 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: スタック拡張マクロ（魔法） <small>(utility/stack_extend.cpp)</small>
+# :x: スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small>
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/stack_extend.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+* category: <a href="../../../index.html#ace665e51d5ef826ab32c568535c1658">utility/macro</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/macro/stack_extend.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-25 23:58:41+09:00
 
 
 * see: <a href="http://sigma425.hatenablog.com/entry/2016/03/26/221844">http://sigma425.hatenablog.com/entry/2016/03/26/221844</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
 
 
 ## Code
@@ -78,7 +78,7 @@ layout: default
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "utility/stack_extend.cpp"
+#line 1 "utility/macro/stack_extend.cpp"
 
 
 
@@ -106,5 +106,5 @@ layout: default
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
