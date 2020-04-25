@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_rectangle_sum.test.cpp
+# :heavy_check_mark: test/yj_rectangle_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_rectangle_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-25 22:50:10+09:00
+    - Last commit date: 2020-04-25 23:21:24+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :x: <a href="../../library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
-* :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -113,7 +113,7 @@ int main() {
 #line 11 "DataStructure/rectangle_query.cpp"
 #include <array>
 #include <optional>
-#line 14 "DataStructure/rectangle_query.cpp"
+#line 15 "DataStructure/rectangle_query.cpp"
 
 #line 1 "DataStructure/bit_vector.cpp"
 
@@ -302,7 +302,7 @@ public:
 };
 
 
-#line 16 "DataStructure/rectangle_query.cpp"
+#line 17 "DataStructure/rectangle_query.cpp"
 
 template <size_t Nb, typename Group = uintmax_t, typename Int = uintmax_t>
 class rectangle_query {
@@ -512,8 +512,9 @@ public:
   }
 
   value_type sum_within(size_type s, size_type t, int_type x, int_type y) {
-    auto [x_lt, x_eq, x_gt] = sum_3way(s, t, x);
-    auto [y_lt, y_eq, y_gt] = sum_3way(s, t, y);
+    value_type x_lt = sum_3way(s, t, x)[0];
+    auto tmp = sum_3way(s, t, y);
+    value_type y_lt = tmp[0], y_eq = tmp[1];
     return y_eq + y_lt - x_lt;
   }
 };
