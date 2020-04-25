@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <vector>
 
-#include "utility/stack_extend.cpp"
+#include "utility/macro/stack_extend.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "Graph/lowest_common_ancestor_sparse_table.cpp"
 
