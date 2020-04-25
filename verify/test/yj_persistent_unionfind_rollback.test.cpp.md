@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_persistent_unionfind_rollback.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 00:01:52+09:00
+    - Last commit date: 2020-04-26 00:03:52+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/persistent_unionfind">https://judge.yosupo.jp/problem/persistent_unionfind</a>
@@ -75,7 +75,6 @@ int main() {
   std::vector<int> res(q+1, -1);
   make_fix_point([&](auto&& dfs, size_t k) -> void {
     for (auto [t, i, u, v]: qs[k]) {
-      fprintf(stderr, "i: %zu\n", i);
       if (t == 0) ds.unite(u, v);
       if (t == 1) res[i] = ds.equivalent(u, v);
       dfs(i);
@@ -254,7 +253,6 @@ int main() {
   std::vector<int> res(q+1, -1);
   make_fix_point([&](auto&& dfs, size_t k) -> void {
     for (auto [t, i, u, v]: qs[k]) {
-      fprintf(stderr, "i: %zu\n", i);
       if (t == 0) ds.unite(u, v);
       if (t == 1) res[i] = ds.equivalent(u, v);
       dfs(i);
