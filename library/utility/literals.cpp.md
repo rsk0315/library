@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
+# :question: ユーザ定義リテラル <small>(utility/literals.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,8 +38,9 @@ layout: default
 
 ## Required by
 
-* :heavy_check_mark: <a href="../DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :question: <a href="../DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
 * :heavy_check_mark: <a href="../DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
+* :x: <a href="../DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
 * :heavy_check_mark: <a href="../DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="../DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
@@ -84,6 +85,7 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_range_kth_smallest.test.cpp.html">test/yj_range_kth_smallest.test.cpp</a>
+* :x: <a href="../../verify/test/yj_rectangle_sum.test.cpp.html">test/yj_rectangle_sum.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 
 

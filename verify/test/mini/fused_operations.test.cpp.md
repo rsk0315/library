@@ -42,7 +42,7 @@ layout: default
 * :heavy_check_mark: <a href="../../../library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
-* :heavy_check_mark: <a href="../../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="../../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :heavy_check_mark: <a href="../../../library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
 
 

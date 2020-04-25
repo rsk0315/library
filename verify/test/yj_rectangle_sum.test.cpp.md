@@ -25,22 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/aoj_ALDS1_5_D.test.cpp
+# :x: test/yj_rectangle_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 20:24:07+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/yj_rectangle_sum.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-25 22:50:10+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D</a>
+* see: <a href="https://judge.yosupo.jp/problem/rectangle_sum">https://judge.yosupo.jp/problem/rectangle_sum</a>
 
 
 ## Depends on
 
 * :question: <a href="../../library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
+* :x: <a href="../../library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
 * :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
@@ -49,27 +49,40 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
+#define PROBLEM "https://judge.yosupo.jp/problem/rectangle_sum"
 
 #include <cstdint>
 #include <cstdio>
+#include <algorithm>
+#include <tuple>
 #include <vector>
 
-#include "DataStructure/wavelet_matrix.cpp"
+#include "DataStructure/rectangle_query.cpp"
 
 int main() {
-  size_t n;
-  scanf("%zu", &n);
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-  std::vector<int> a(n);
-  for (auto& ai: a) scanf("%d", &ai);
+  std::vector<std::tuple<int, int, intmax_t>> xyz(n);
+  for (auto& [x, y, z]: xyz)
+    scanf("%d %d %jd", &x, &y, &z);
 
-  wavelet_matrix<31> wm(a.begin(), a.end());
-  intmax_t res = 0;
-  for (size_t i = 1; i < n; ++i) {
-    res += wm.rank_3way(a[i], 0, i)[2];
+  std::sort(xyz.begin(), xyz.end());
+  std::vector<int> x(n), y(n);
+  std::vector<intmax_t> z(n);
+  for (size_t i = 0; i < n; ++i)
+    std::tie(x[i], y[i], z[i]) = xyz[i];
+
+  rectangle_query<30, intmax_t> rq(y.begin(), y.end(), z.begin(), z.end());
+
+  for (size_t i = 0; i < q; ++i) {
+    int l, d, r, u;
+    scanf("%d %d %d %d", &l, &d, &r, &u);
+    size_t il = std::lower_bound(x.begin(), x.end(), l) - x.begin();
+    size_t ir = std::lower_bound(x.begin(), x.end(), r) - x.begin();
+    intmax_t res = rq.sum_within(il, ir, d, u-1);
+    printf("%jd\n", res);
   }
-  printf("%jd\n", res);
 }
 
 ```
@@ -78,26 +91,41 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/aoj_ALDS1_5_D.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
+#line 1 "test/yj_rectangle_sum.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/rectangle_sum"
 
 #include <cstdint>
 #include <cstdio>
+#include <algorithm>
+#include <tuple>
 #include <vector>
 
-#line 1 "DataStructure/wavelet_matrix.cpp"
+#line 1 "DataStructure/rectangle_query.cpp"
 
 
 
 /**
- * @brief ウェーブレット行列
+ * @brief 矩形クエリ
  * @author えびちゃん
  */
 
 #include <cstddef>
-#line 11 "DataStructure/wavelet_matrix.cpp"
+#line 11 "DataStructure/rectangle_query.cpp"
 #include <array>
-#line 13 "DataStructure/wavelet_matrix.cpp"
+#include <optional>
+#line 14 "DataStructure/rectangle_query.cpp"
+
+#line 1 "DataStructure/bit_vector.cpp"
+
+
+
+/**
+ * @brief rank/select 辞書
+ * @author えびちゃん
+ */
+
+#include <climits>
+#line 13 "DataStructure/bit_vector.cpp"
 
 #line 1 "utility/literals.cpp"
 
@@ -115,18 +143,6 @@ constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
 constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
 constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
-
-#line 1 "DataStructure/bit_vector.cpp"
-
-
-
-/**
- * @brief rank/select 辞書
- * @author えびちゃん
- */
-
-#include <climits>
-#line 13 "DataStructure/bit_vector.cpp"
 
 #line 15 "DataStructure/bit_vector.cpp"
 
@@ -286,26 +302,23 @@ public:
 };
 
 
-#line 16 "DataStructure/wavelet_matrix.cpp"
+#line 16 "DataStructure/rectangle_query.cpp"
 
-template <size_t Nb, typename Tp = uintmax_t, typename Bv = bit_vector>
-class wavelet_matrix {
+template <size_t Nb, typename Group = uintmax_t, typename Int = uintmax_t>
+class rectangle_query {
 public:
-  using value_type = Tp;
+  using int_type = Int;
+  using value_type = Group;
   using size_type = size_t;
-  using difference_type = ptrdiff_t;
-  using bitvector_type = Bv;
+  using optional_type = std::optional<int_type>;
 
 private:
-  std::array<bitvector_type, Nb> M_a = {};
+  std::array<bit_vector, Nb> M_a = {};
+  std::array<std::vector<value_type>, Nb> M_s = {};
   std::array<size_type, Nb> M_z = {};
-  std::vector<value_type> M_c;
-  enum S_three_way { S_less = 0, S_equal, S_greater };
-  static const value_type S_fail = -1;  // XXX use std::optional?
 
-  size_type M_startpos(value_type x) /* const */ {
-    size_type s = 0;
-    size_type t = 0;
+  size_type M_startpos(int_type x) const {
+    size_type s = 0, t = 0;
     for (size_type i = Nb; i-- > 1;) {
       size_type j = Nb-i-1;
       if (x >> i & 1) {
@@ -320,36 +333,57 @@ private:
   }
 
 public:
-  wavelet_matrix() = default;
+  rectangle_query() = default;
 
-  template <typename InputIt>
-  wavelet_matrix(InputIt first, InputIt last) { assign(first, last); }
-  wavelet_matrix(std::initializer_list<value_type> il):
-    wavelet_matrix(il.begin(), il.end()) {}
+  template <typename InputItY, typename InputItZ>
+  rectangle_query(
+      InputItY y_first, InputItY y_last, InputItZ z_first, InputItZ z_last
+  ) { assign(y_first, y_last, z_first, z_last); }
+  rectangle_query(
+      std::initializer_list<int_type> y_il,
+      std::initializer_list<value_type> z_il
+  ) { assign(y_il, z_il); }
 
-  template <typename InputIt>
-  void assign(InputIt first, InputIt last) {
-    M_c.assign(first, last);
-    M_z = {{}};
-    size_type n = M_c.size();
-    std::vector<value_type> whole = M_c;
+  template <typename ForwardIt>
+  rectangle_query(ForwardIt first, ForwardIt last) { assign(first, last); }
+
+  template <typename InputItY, typename InputItZ>
+  void assign(InputItY y_first, InputItY y_last, InputItZ z_first, InputItZ z_last) {
+    std::vector<int_type> y_whole(y_first, y_last);
+    std::vector<value_type> z_whole(z_first, z_last);
+    M_z = {};
+    M_s = {};
+    size_type n = y_whole.size();
     for (size_type i = Nb; i--;) {
-      std::vector<value_type> zero, one;
+      std::vector<int_type> y_zero, y_one;
+      std::vector<value_type> z_zero, z_one;
       std::vector<bool> vb(n);
       for (size_type j = 0; j < n; ++j) {
-        ((whole[j] >> i & 1)? one: zero).push_back(whole[j]);
-        vb[j] = (whole[j] >> i & 1);
+        ((y_whole[j] >> i & 1)? y_one: y_zero).push_back(y_whole[j]);
+        ((y_whole[j] >> i & 1)? z_one: z_zero).push_back(z_whole[j]);
+        vb[j] = (y_whole[j] >> i & 1);
       }
 
-      M_z[Nb-i-1] = zero.size();
-      M_a[Nb-i-1] = bitvector_type(vb.begin(), vb.end());
-      if (i == 0) break;
-      whole = std::move(zero);
-      whole.insert(whole.end(), one.begin(), one.end());
+      M_z[Nb-i-1] = y_zero.size();
+      M_a[Nb-i-1] = bit_vector(vb.begin(), vb.end());
+      y_whole = std::move(y_zero);
+      y_whole.insert(y_whole.end(), y_one.begin(), y_one.end());
+      z_whole = std::move(z_zero);
+      z_whole.insert(z_whole.end(), z_one.begin(), z_one.end());
+      M_s[Nb-i-1] = z_whole;
+      M_s[Nb-i-1].insert(M_s[Nb-i-1].begin(), value_type{});
+      for (size_type j = 1; j <= n; ++j) M_s[Nb-i-1][j] += M_s[Nb-i-1][j-1];
     }
   }
 
-  size_type rank(value_type x, size_type s, size_type t) /* const */ {
+  void assign(
+      std::initializer_list<int_type> y_il, std::initializer_list<value_type> z_il
+  ) { assign(y_il.begin(), y_il.end(), z_il.begin(), z_il.end()); }
+  void assign(std::initializer_list<int_type> il) { assign(il, il); }
+  template <typename ForwardIt>
+  void assign(ForwardIt first, ForwardIt last) { assign(first, last, first, last); }
+
+  size_type rank(size_type s, size_type t, int_type x) const {
     if (s == t) return 0;
     for (size_type i = Nb; i--;) {
       size_type j = Nb-i-1;
@@ -364,43 +398,39 @@ public:
     return t - s;
   }
 
-  size_type select(value_type x, size_type n) /* const */ {
-    if (n == 0) return 0;
-    if (rank(x, 0, M_c.size()) < n) return -1;
+  size_type select(value_type x, int_type k) const {
+    if (k == 0) return 0;
+    if (rank(0, M_z.size(), x) < k) return -1;
     size_type si = M_startpos(x);
     if (x & 1) {
-      n += M_a[Nb-1].rank1(si);
-      n = M_a[Nb-1].select1(n);
+      k += M_a[Nb-1].rank1(si);
+      k = M_a[Nb-1].select1(k);
     } else {
-      n += M_a[Nb-1].rank0(si);
-      n = M_a[Nb-1].select0(n);
+      k += M_a[Nb-1].rank0(si);
+      k = M_a[Nb-1].select0(k);
     }
 
     for (size_type i = 1; i < Nb; ++i) {
       size_type j = Nb-i-1;
       if (x >> i & 1) {
-        n -= M_z[j];
-        n = M_a[j].select1(n);
+        k -= M_z[j];
+        k = M_a[j].select1(k);
       } else {
-        n = M_a[j].select0(n);
+        k = M_a[j].seelct0(k);
       }
     }
-    return n;
-  }
-  size_type select(value_type x, size_type n, size_type s) /* const */ {
-    if (n == 0) return s;
-    n += rank(x, 0, s);
-    return select(x, n);
+    return k;
   }
 
-  std::array<size_type, 3> rank_3way(value_type x,
-                                     size_type s, size_type t) /* const */ {
+  size_type select(int_type x, size_type k, size_type s) const {
+    if (k == 0) return s;
+    k += rank(0, s, x);
+    return select(x, k);
+  }
 
+  std::array<size_type, 3> count_3way(size_type s, size_type t, int_type x) const {
     if (s == t) return {0, 0, 0};
-
-    size_type lt = 0;
-    size_type eq = t-s;
-    size_type gt = 0;
+    size_type lt = 0, eq = t-s, gt = 0;
     for (size_type i = Nb; i--;) {
       size_type j = Nb-i-1;
       size_type tmp = t-s;
@@ -418,34 +448,8 @@ public:
     return {lt, eq, gt};
   }
 
-  std::array<size_type, 3> xored_rank_3way(value_type x, value_type y,
-                                           size_type s, size_type t) /* const */ {
-
-    if (s == t) return {0, 0, 0};
-
-    size_type lt = 0;
-    size_type eq = t-s;
-    size_type gt = 0;
-    for (size_type i = Nb; i--;) {
-      size_type j = Nb-i-1;
-      size_type tmp = t-s;
-      if ((x ^ y) >> i & 1) {
-        s = M_z[j] + M_a[j].rank1(s);
-        t = M_z[j] + M_a[j].rank1(t);
-      } else {
-        s = M_a[j].rank0(s);
-        t = M_a[j].rank0(t);
-      }
-
-      size_type d = tmp - (t-s);
-      eq -= d;
-      ((y >> i & 1)? lt: gt) += d;
-    }
-    return {lt, eq, gt};
-  }
-
-  value_type quantile(size_type k, size_type s, size_type t) /* const */ {
-    value_type res = 0;
+  int_type quantile(size_type s, size_type t, size_type k) const {
+    int_type res = 0;
     for (size_type i = Nb; i--;) {
       size_type j = Nb-i-1;
       size_type z = M_a[j].rank0(s, t);
@@ -453,7 +457,7 @@ public:
         s = M_a[j].rank0(s);
         t = M_a[j].rank0(t);
       } else {
-        res |= 1_ju << i;
+        res |= static_cast<value_type>(1) << i;
         s = M_z[j] + M_a[j].rank1(s);
         t = M_z[j] + M_a[j].rank1(t);
         k -= z;
@@ -462,140 +466,85 @@ public:
     return res;
   }
 
-  value_type min_greater(value_type x, size_type s, size_type t) /* const */ {
-    auto r3 = rank_3way(x, s, t);
-    size_type k = r3[S_less] + r3[S_equal];
-    if (k == t-s) return S_fail;
-    return quantile(k, s, t);
-  }
-  value_type min_greater_equal(value_type x, size_type s, size_type t) /* const */ {
-    auto r3 = rank_3way(x, s, t);
-    size_type k = r3[S_less];
-    if (k == t-s) return S_fail;
-    return quantile(k, s, t);
-  }
-  value_type max_less(value_type x, size_type s, size_type t) /* const */ {
-    auto r3 = rank_3way(x, s, t);
-    size_type k = r3[S_less];
-    if (k == 0) return S_fail;
-    return quantile(k-1, s, t);
-  }
-  value_type max_less_equal(value_type x, size_type s, size_type t) /* const */ {
-    auto r3 = rank_3way(x, s, t);
-    size_type k = r3[S_less] + r3[S_equal];
-    if (k == 0) return S_fail;
-    return quantile(k-1, s, t);
+  optional_type min_greater(size_type s, size_type t, int_type x) const {
+    auto [lt, eq, gt] = count_3way(s, t, x);
+    if (lt+eq == t-s) return {};
+    return quantile(s, t, lt+eq);
   }
 
-  size_type select_greater(value_type x, size_type n, size_type s) /* const */ {
-    if (n == 0) return s;
-    size_type lb = s;
-    size_type ub = M_c.size();
-    while (ub-lb > 1) {
-      size_type mid = (lb+ub) >> 1;
-      auto r3 = rank_3way(x, s, mid);
-      size_type k = r3[S_greater];
-      ((k < n)? lb: ub) = mid;
-    }
-    return ub;
-  }
-  size_type select_greater_equal(value_type x, size_type n, size_type s) /* const */ {
-    if (n == 0) return s;
-    size_type lb = s;
-    size_type ub = M_c.size();
-    while (ub-lb > 1) {
-      size_type mid = (lb+ub) >> 1;
-      auto r3 = rank_3way(x, s, mid);
-      size_type k = r3[S_equal] + r3[S_greater];
-      ((k < n)? lb: ub) = mid;
-    }
-    return ub;
-  }
-  size_type select_less(value_type x, size_type n, size_type s) /* const */ {
-    if (n == 0) return s;
-    size_type lb = s;
-    size_type ub = M_c.size();
-    while (ub-lb > 1) {
-      size_type mid = (lb+ub) >> 1;
-      auto r3 = rank_3way(x, s, mid);
-      size_type k = r3[S_less];
-      ((k < n)? lb: ub) = mid;
-    }
-    return ub;
-  }
-  size_type select_less_equal(value_type x, size_type n, size_type s) /* const */ {
-    if (n == 0) return s;
-    size_type lb = s;
-    size_type ub = M_c.size();
-    while (ub-lb > 1) {
-      size_type mid = (lb+ub) >> 1;
-      auto r3 = rank_3way(x, s, mid);
-      size_type k = r3[S_less] + r3[S_equal];
-      ((k < n)? lb: ub) = mid;
-    }
-    return ub;
+  optional_type min_greater_equal(size_type s, size_type t, int_type x) const {
+    auto [lt, eq, gt] = count_3way(s, t, x);
+    if (lt == t-s) return {};
+    return quantile(s, t, lt);
   }
 
-  // for dynamic bitvectors only
-  void insert(size_type t, value_type x) {
-    size_type s = 0;
+  optional_type max_less(size_type s, size_type t, int_type x) const {
+    auto [lt, eq, gt] = count_3way(s, t, x);
+    if (lt == 0) return {};
+    return quantile(s, t, lt-1);
+  }
+
+  optional_type max_less_equal(size_type s, size_type t, int_type x) const {
+    auto [lt, eq, gt] = count_3way(s, t, x);
+    if (lt+eq == 0) return {};
+    return quantile(s, t, lt+eq-1);
+  }
+
+  std::array<value_type, 3> sum_3way(size_type s, size_type t, int_type x) const {
+    value_type lt{}, eq{}, gt{};
+    if (s == t) return {lt, eq, gt};
     for (size_type i = Nb; i--;) {
       size_type j = Nb-i-1;
-      M_a[j].insert(s+t, x >> i & 1);
+      size_type s1 = M_z[j] + M_a[j].rank1(s);
+      size_type t1 = M_z[j] + M_a[j].rank1(t);
+      size_type s0 = M_a[j].rank0(s);
+      size_type t0 = M_a[j].rank0(t);
       if (x >> i & 1) {
-        t = M_a[j].rank(1, s+t+1) - 1;
-        s = M_z[j];
+        lt += M_s[j][t0] - M_s[j][s0];
+        s = s1, t = t1;
       } else {
-        t = M_a[j].rank(0, s+t+1) - 1;
-        s = 0;
-        ++M_z[j];
+        gt += M_s[j][t1] - M_s[j][s1];
+        s = s0, t = t0;
       }
     }
+    eq = M_s[Nb-1][t] - M_s[Nb-1][s];
+    return {lt, eq, gt};
   }
 
-  void erase(size_type t) {
-    size_type s = 0;
-    for (size_type i = Nb; i--;) {
-      size_type j = Nb-i-1;
-      size_type u = s+t;
-      if (M_a[j][u]) {
-        t = M_a[j].rank(1, u+1) - 1;
-        s = M_z[j];
-      } else {
-        t = M_a[j].rank(0, u+1) - 1;
-        s = 0;
-        --M_z[j];
-      }
-      M_a[j].erase(u);
-    }
-  }
-
-  void set(size_type t, value_type x) {
-    erase(t);
-    insert(t, x);
-  }
-
-  value_type operator [](size_type s) /* const */ {
-    return quantile(0, s, s+1);
+  value_type sum_within(size_type s, size_type t, int_type x, int_type y) {
+    auto [x_lt, x_eq, x_gt] = sum_3way(s, t, x);
+    auto [y_lt, y_eq, y_gt] = sum_3way(s, t, y);
+    return y_eq + y_lt - x_lt;
   }
 };
 
 
-#line 8 "test/aoj_ALDS1_5_D.test.cpp"
+#line 10 "test/yj_rectangle_sum.test.cpp"
 
 int main() {
-  size_t n;
-  scanf("%zu", &n);
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-  std::vector<int> a(n);
-  for (auto& ai: a) scanf("%d", &ai);
+  std::vector<std::tuple<int, int, intmax_t>> xyz(n);
+  for (auto& [x, y, z]: xyz)
+    scanf("%d %d %jd", &x, &y, &z);
 
-  wavelet_matrix<31> wm(a.begin(), a.end());
-  intmax_t res = 0;
-  for (size_t i = 1; i < n; ++i) {
-    res += wm.rank_3way(a[i], 0, i)[2];
+  std::sort(xyz.begin(), xyz.end());
+  std::vector<int> x(n), y(n);
+  std::vector<intmax_t> z(n);
+  for (size_t i = 0; i < n; ++i)
+    std::tie(x[i], y[i], z[i]) = xyz[i];
+
+  rectangle_query<30, intmax_t> rq(y.begin(), y.end(), z.begin(), z.end());
+
+  for (size_t i = 0; i < q; ++i) {
+    int l, d, r, u;
+    scanf("%d %d %d %d", &l, &d, &r, &u);
+    size_t il = std::lower_bound(x.begin(), x.end(), l) - x.begin();
+    size_t ir = std::lower_bound(x.begin(), x.end(), r) - x.begin();
+    intmax_t res = rq.sum_within(il, ir, d, u-1);
+    printf("%jd\n", res);
   }
-  printf("%jd\n", res);
 }
 
 ```
