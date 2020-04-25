@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_C_squaring.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-04-26 00:11:32+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C</a>
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
-* :question: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code
@@ -59,8 +59,8 @@ layout: default
 #include "Graph/lowest_common_ancestor_squaring.cpp"
 
 int main() {
-  int n;
-  scanf("%d", &n);
+  size_t n;
+  scanf("%zu", &n);
 
   adjacency_list<weighted_edge<int>, undirected_tag> g(n);
   for (size_t i = 0; i < n; ++i) {
@@ -289,8 +289,8 @@ public:
 #line 9 "test/aoj_GRL_5_C_squaring.test.cpp"
 
 int main() {
-  int n;
-  scanf("%d", &n);
+  size_t n;
+  scanf("%zu", &n);
 
   adjacency_list<weighted_edge<int>, undirected_tag> g(n);
   for (size_t i = 0; i < n; ++i) {
