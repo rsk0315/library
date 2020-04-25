@@ -8,8 +8,8 @@
 #include "Graph/lowest_common_ancestor_squaring.cpp"
 
 int main() {
-  int n;
-  scanf("%d", &n);
+  size_t n;
+  scanf("%zu", &n);
 
   adjacency_list<weighted_edge<int>, undirected_tag> g(n);
   for (size_t i = 0; i < n; ++i) {

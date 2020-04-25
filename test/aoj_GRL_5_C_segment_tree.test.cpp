@@ -11,8 +11,8 @@
 int main() {
   BEGIN_STACK_EXTEND(128*1024*1024);
 
-  int n;
-  scanf("%d", &n);
+  size_t n;
+  scanf("%zu", &n);
 
   adjacency_list<weighted_edge<int>, undirected_tag> g(n);
   for (size_t i = 0; i < n; ++i) {
