@@ -103,61 +103,70 @@ public:
 
   template <typename Predicate>
   size_type foldl_bisect(size_type l, Predicate pred) const {
-    if (l == M_n) return l;
+    // Return minimum r such that pred(fold(l, r)) is false,
+    // or -1 (of size_type) if such r does not exist.
+    size_type r = M_n+M_n;
     value_type x{};
-    size_type v = M_n+M_n;
-    std::vector<size_type> cs = M_covering_segments(l, M_n);
-
-    // search the subroot
-    for (auto s: cs) {
-      if (!pred(x + M_c[s])) {
-        v = s;
-        break;
+    size_type h = 0;
+    if (l == M_n) return pred(x)? -1: l;
+    l += M_n;
+    auto bisect = [&](size_type v) -> size_type {
+      while (v < M_n) {
+        v <<= 1;
+        if (pred(x + M_c[v])) x += M_c[v++];
       }
-      x += M_c[s];
+      return v - M_n;
+    };
+    for (; l < r; ++h, l >>= 1, r >>= 1) {
+      if (l & 1) {
+        if (!pred(x + M_c[l])) return bisect(l);
+        x += M_c[l];
+        ++l;
+      }
+      if (r & 1) --r;
     }
-
-    // search the leaf
-    while (v < M_n) {
-      v <<= 1;
-      if (pred(x + M_c[v])) {
-        x += M_c[v];
-        v |= 1;
+    while (r <<= 1, h--) {
+      if (((r+1) << h) <= M_n+M_n) {
+        if (!pred(x + M_c[r])) return bisect(r);
+        x += M_c[r];
+        ++r;
       }
     }
-
-    return v - M_n;
+    return -1;
   }
 
   template <typename Predicate>
   size_type foldr_bisect(size_type r, Predicate pred) const {
-    if (r == 0) return r;
+    // Return maximum l such that pred(fold(l, r)) is false,
+    // of -1 (of size_type) if such does not exist.
+    size_type l = M_n;
     value_type x{};
-    size_type v = M_n+M_n;
-    std::vector<size_type> cs = M_covering_segments(0, r);
-    std::reverse(cs.begin(), cs.end());
-
-    // search the subroot
-    for (auto s: cs) {
-      if (!pred(M_c[s] + x)) {
-        v = s;
-        break;
+    size_type h = 0;
+    if (r == 0) return pred(x)? -1: 0;
+    r += M_n;
+    auto bisect = [&](size_type v) -> size_type {
+      while (v < M_n) {
+        v = (v << 1 | 1);
+        if (pred(M_c[v] + x)) x = M_c[v--] + std::move(x);
       }
-      x = M_c[s] + std::move(x);
-    }
-    if (v == M_n+M_n) return -1;  // always true
-
-    // search the leaf
-    while (v < M_n) {
-      v <<= 1;
-      if (pred(M_c[v|1] + x)) {
-        x = M_c[v|1] + std::move(x);
-      } else {
-        v |= 1;
+      return v - M_n;
+    };
+    for (; l < r; ++h, l >>= 1, r >>= 1) {
+      if (l & 1) ++l;
+      if (r & 1) {
+        --r;
+        if (!pred(M_c[r] + x)) return bisect(r);
+        x = M_c[r] + std::move(x);
       }
     }
-
-    return v - M_n;
+    while (l <<= 1, h--) {
+      if (((l-1) << h) >= M_n) {
+        --l;
+        if (!pred(M_c[l] + x)) return bisect(l);
+        x = M_c[l] + std::move(x);
+      }
+    }
+    return -1;
   }
 };
 
