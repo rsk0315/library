@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_vertex_add_path_sum.test.cpp
+# :x: test/yj_vertex_add_path_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:57:16+09:00
+    - Last commit date: 2020-04-27 02:19:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -306,7 +306,9 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for ([[maybe_unused]] auto const& [u, v, w]: es) {
+    for (auto const& e: es) {
+      size_type u, v;
+      std::tie(u, v, std::ignore) = e;
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }

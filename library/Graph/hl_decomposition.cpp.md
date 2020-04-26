@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:57:16+09:00
+    - Last commit date: 2020-04-27 02:19:10+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
@@ -39,10 +39,10 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
-* :x: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -250,7 +250,9 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for ([[maybe_unused]] auto const& [u, v, w]: es) {
+    for (auto const& e: es) {
+      size_type u, v;
+      std::tie(u, v, std::ignore) = e;
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }
@@ -486,7 +488,9 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for ([[maybe_unused]] auto const& [u, v, w]: es) {
+    for (auto const& e: es) {
+      size_type u, v;
+      std::tie(u, v, std::ignore) = e;
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }

@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_vertex_set_path_composite.test.cpp
+# :x: test/yj_vertex_set_path_composite.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_set_path_composite.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:57:16+09:00
+    - Last commit date: 2020-04-27 02:19:10+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_set_path_composite">https://judge.yosupo.jp/problem/vertex_set_path_composite</a>
@@ -41,8 +41,8 @@ layout: default
 
 * :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :question: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :question: <a href="../../library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :question: <a href="../../library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 
 
 ## Code
@@ -318,7 +318,9 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for ([[maybe_unused]] auto const& [u, v, w]: es) {
+    for (auto const& e: es) {
+      size_type u, v;
+      std::tie(u, v, std::ignore) = e;
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }
