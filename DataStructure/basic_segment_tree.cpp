@@ -20,20 +20,6 @@ private:
   std::vector<value_type> M_c;
   size_type M_n;
 
-  std::vector<size_type> M_covering_segments(size_type l, size_type r) const {
-    std::vector<size_type> left, right;
-    l += M_n;
-    r += M_n;
-    while (l < r) {
-      if (l & 1) left.push_back(l++);
-      if (r & 1) right.push_back(--r);
-      l >>= 1;
-      r >>= 1;
-    }
-    left.insert(left.end(), right.rbegin(), right.rend());
-    return left;
-  }
-
 public:
   basic_segment_tree() = default;
 
