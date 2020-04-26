@@ -46,7 +46,7 @@ layout: default
 
 ### DataStructure
 
-* :question: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/disjoint_sparse_table.cpp.html">disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
@@ -71,7 +71,7 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/capacitated_adjacency_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_adjacency_list.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
-* :question: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
@@ -96,7 +96,7 @@ layout: default
 * :heavy_check_mark: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
-* :question: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
@@ -192,7 +192,7 @@ layout: default
 
 ### utility/monoid
 
-* :question: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
 * :warning: <a href="library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
@@ -291,8 +291,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/yj_suffixarray.test.cpp.html">test/yj_suffixarray.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
-* :x: <a href="verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :x: <a href="verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
 
 

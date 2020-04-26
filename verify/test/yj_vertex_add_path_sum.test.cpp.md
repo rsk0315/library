@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_vertex_add_path_sum.test.cpp
+# :heavy_check_mark: test/yj_vertex_add_path_sum.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-27 02:19:10+09:00
+    - Last commit date: 2020-04-27 02:23:18+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
-* :question: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
 
 
 ## Code
@@ -117,8 +117,9 @@ int main() {
  */
 
 #include <cstddef>
+#include <tuple>
 #include <type_traits>
-#line 14 "Graph/hl_decomposition.cpp"
+#line 15 "Graph/hl_decomposition.cpp"
 
 struct value_on_directed_edge_tag {};
 struct value_on_undirected_edge_tag {};

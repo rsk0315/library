@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
+# :heavy_check_mark: HL 分解 <small>(Graph/hl_decomposition.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/hl_decomposition.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-27 02:19:10+09:00
+    - Last commit date: 2020-04-27 02:23:18+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/53170">https://codeforces.com/blog/entry/53170</a>
@@ -41,8 +41,8 @@ layout: default
 
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
-* :x: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_add_path_sum.test.cpp.html">test/yj_vertex_add_path_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_vertex_set_path_composite.test.cpp.html">test/yj_vertex_set_path_composite.test.cpp</a>
 
 
 ## Code
@@ -60,6 +60,7 @@ layout: default
  */
 
 #include <cstddef>
+#include <tuple>
 #include <type_traits>
 #include <utility>
 #include <vector>
@@ -298,6 +299,7 @@ public:
  */
 
 #include <cstddef>
+#include <tuple>
 #include <type_traits>
 #include <utility>
 #include <vector>
