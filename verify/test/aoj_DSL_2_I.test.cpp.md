@@ -25,29 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small>
+# :heavy_check_mark: test/aoj_DSL_2_I.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-10 05:36:19+09:00
+* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_I.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-27 02:33:44+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Code
@@ -55,143 +51,38 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef H_segment_tree
-#define H_segment_tree
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I"
 
-/**
- * @brief 区間作用・区間和セグメント木
- * @author えびちゃん
- */
-
-#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <algorithm>
+#include <utility>
 #include <vector>
 
-#include "integer/bit.cpp"
+#include "DataStructure/segment_tree.cpp"
+#include "utility/action/set_sum.cpp"
 
-template <typename Operation>
-class segment_tree {
-public:
-  using size_type = size_t;
-  using operation = Operation;
-  using operand_type = typename operation::operand_type;
-  using action_type = typename operation::action_type;
-  using value_type = operand_type;
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
 
-private:
-  size_type M_n;
-  std::vector<operand_type> M_c;
-  std::vector<action_type> M_d;  // deferred
+  segment_tree<action_set_to_sum<int>> st(n, 0);
+  for (size_t i = 0; i < q; ++i) {
+    int t;
+    scanf("%d", &t);
 
-  void M_build(size_type i) {
-    while (i > 1) {
-      i >>= 1;
-      M_c[i] = (M_c[i<<1|0] + M_c[i<<1|1]);
-      operation::act(M_c[i], M_d[i]);
+    if (t == 0) {
+      size_t l, r;
+      int x;
+      scanf("%zu %zu %d", &l, &r, &x);
+      st.act(l, r+1, x);
+    } else if (t == 1) {
+      size_t l, r;
+      scanf("%zu %zu", &l, &r);
+      printf("%d\n", st.fold(l, r+1).get());
     }
   }
-
-  void M_resolve(size_type i) {
-    size_type h = ilog2(M_n) + 2;  // ilog2p1(M_n*2)
-    for (size_type s = h; s > 0; --s) {
-      size_type p = i >> s;
-      action_type id{};
-      if (M_d[p] != id) {
-        M_apply(p<<1|0, M_d[p]);
-        M_apply(p<<1|1, M_d[p]);
-        M_d[p] = id;
-      }
-    }
-  }
-
-  void M_apply(size_type i, action_type const& x) {
-    operation::act(M_c[i], x);
-    if (i < M_n) M_d[i] += x;
-  }
-
-public:
-  segment_tree() = default;
-  explicit segment_tree(size_type n):
-    M_n(n), M_c(n+n, operand_type{}), M_d(n, action_type{}) {}
-
-  segment_tree(size_type n, operand_type const& x):
-    M_n(n), M_c(n+n, x), M_d(n, action_type{})
-  {
-    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  template <typename InputIt>
-  segment_tree(InputIt first, InputIt last): M_c(first, last) {
-    M_n = M_c.size();
-    M_d.assign(M_n, action_type{});
-    M_c.insert(M_c.begin(), M_n, operand_type{});
-    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  void assign(size_type n) {
-    M_n = n;
-    M_c(n+n, operand_type{});
-    M_d(n, action_type{});
-  }
-
-  void assign(size_type n, operand_type const& x) {
-    M_n = n;
-    M_c(n+n, x);
-    M_d(n, action_type{});
-    for (size_type i = n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  template <typename InputIt>
-  void assign(InputIt first, InputIt last) {
-    M_c.assign(first, last);
-    M_n = M_c.size();
-    M_d.assign(M_n, action_type{});
-    M_c.insert(M_c.begin(), M_n, operand_type{});
-    for (size_type i = M_n; i--;) M_c[i] = M_c[i<<1|0] + M_c[i<<1|1];
-  }
-
-  void act(size_type l, size_type r, action_type const& x) {
-    if (l == r) return;
-    l += M_n;
-    r += M_n;
-    size_type l0 = l;
-    size_type r0 = r;
-    M_resolve(l0);
-    M_resolve(r0-1);
-    while (l < r) {
-      if (l & 1) M_apply(l++, x);
-      if (r & 1) M_apply(--r, x);
-      l >>= 1;
-      r >>= 1;
-    }
-    M_build(l0);
-    M_build(r0-1);
-  }
-
-  operand_type fold(size_type l, size_type r) {
-    operand_type resl{}, resr{};
-    if (l == r) return resl;
-
-    l += M_n;
-    r += M_n;
-    M_resolve(l);
-    M_resolve(r-1);
-    while (l < r) {
-      if (l & 1) resl += M_c[l++];
-      if (r & 1) resr = M_c[--r] + std::move(resr);
-      l >>= 1;
-      r >>= 1;
-    }
-    return resl += resr;
-  }
-
-  operand_type operator [](size_type i) {
-    i += M_n;
-    M_resolve(i);
-    return M_c[i];
-  }
-};
-
-#endif  /* !defined(H_segment_tree) */
+}
 
 ```
 {% endraw %}
@@ -199,6 +90,15 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "test/aoj_DSL_2_I.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I"
+
+#include <cstdint>
+#include <cstdio>
+#include <algorithm>
+#include <utility>
+#include <vector>
+
 #line 1 "DataStructure/segment_tree.cpp"
 
 
@@ -209,7 +109,7 @@ public:
  */
 
 #include <cstddef>
-#include <vector>
+#line 11 "DataStructure/segment_tree.cpp"
 
 #line 1 "integer/bit.cpp"
 
@@ -447,6 +347,146 @@ public:
 };
 
 
+#line 1 "utility/action/set_sum.cpp"
+
+
+
+/**
+ * @brief 区間和・区間代入用のヘルパークラス
+ * @author えびちゃん
+ */
+
+#line 1 "utility/monoid/length.cpp"
+/**
+ * @brief 和と長さを得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#line 8 "utility/monoid/length.cpp"
+
+#ifndef H_length_monoid
+#define H_length_monoid
+
+template <typename Tp>
+class length_monoid {
+public:
+  using value_type = Tp;
+  using size_type = size_t;
+
+private:
+  value_type M_x{};
+  size_type M_l = 1;
+
+public:
+  length_monoid() = default;  // identity
+
+  length_monoid(value_type const& x, size_type l = 1): M_x(x), M_l(l) {};
+  length_monoid(value_type&& x, size_type l = 1): M_x(std::move(x)), M_l(l) {};
+
+  length_monoid& operator +=(length_monoid const& that) {
+    M_x += that.M_x;
+    M_l += that.M_l;
+    return *this;
+  }
+  length_monoid& operator +=(length_monoid&& that) {
+    M_x += std::move(that.M_x);
+    M_l += that.M_l;
+    return *this;
+  }
+
+  length_monoid operator +(length_monoid const& that) const {
+    return length_monoid(*this) += that;
+  }
+  length_monoid operator +(length_monoid&& that) const {
+    return length_monoid(*this) += std::move(that);
+  }
+
+  value_type const& get() const { return M_x; }
+  size_type length() const { return M_l; }
+};
+
+#endif  /* !defined(H_length_monoid) */
+#line 1 "utility/monoid/set.cpp"
+
+
+
+/**
+ * @brief モノイドクラス
+ * @author えびちゃん
+ */
+
+template <typename Tp>
+class set_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  bool M_empty = true;
+  value_type M_x;
+
+public:
+  set_monoid() = default;  // identity
+
+  set_monoid(value_type const& x): M_empty(false), M_x(x) {}
+
+  set_monoid& operator +=(set_monoid const& that) {
+    M_empty = that.M_empty;
+    if (!that.M_empty) M_x = that.M_x;
+    return *this;
+  }
+  friend bool operator ==(set_monoid const& lhs, set_monoid const& rhs) {
+    if (lhs.M_empty && rhs.M_empty) return true;
+    if (lhs.M_empty != rhs.M_empty) return false;
+    return lhs.M_x == rhs.M_x;
+  }
+
+  friend set_monoid operator +(set_monoid lhs, set_monoid const& rhs) { return lhs += rhs; }
+  friend bool operator !=(set_monoid const& lhs, set_monoid const& rhs) {
+    return !(lhs == rhs);
+  }
+
+  bool empty() const noexcept { return M_empty; }
+  value_type const& get() const { return M_x; }
+};
+
+
+#line 11 "utility/action/set_sum.cpp"
+
+template <typename Tp>
+struct action_set_to_sum {
+  using operand_type = length_monoid<Tp>;
+  using action_type = set_monoid<Tp>;
+
+  static void act(operand_type& op, action_type const& a) {
+    if (a.empty()) return;
+    op = operand_type(a.get() * op.length(), op.length());
+  }
+};
+
+
+#line 11 "test/aoj_DSL_2_I.test.cpp"
+
+int main() {
+  size_t n, q;
+  scanf("%zu %zu", &n, &q);
+
+  segment_tree<action_set_to_sum<int>> st(n, 0);
+  for (size_t i = 0; i < q; ++i) {
+    int t;
+    scanf("%d", &t);
+
+    if (t == 0) {
+      size_t l, r;
+      int x;
+      scanf("%zu %zu %d", &l, &r, &x);
+      st.act(l, r+1, x);
+    } else if (t == 1) {
+      size_t l, r;
+      scanf("%zu %zu", &l, &r);
+      printf("%d\n", st.fold(l, r+1).get());
+    }
+  }
+}
 
 ```
 {% endraw %}

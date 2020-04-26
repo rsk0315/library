@@ -25,30 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small>
+# :heavy_check_mark: 区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/length.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-22 02:59:14+09:00
+* category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/action/set_sum.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-27 02:33:44+09:00
 
 
 
 
-## Required by
+## Depends on
 
-* :heavy_check_mark: <a href="../action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
-* :heavy_check_mark: <a href="../action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="../monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :heavy_check_mark: <a href="../monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Verified with
 
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code
@@ -56,56 +52,29 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_action_set_sum
+#define H_action_set_sum
+
 /**
- * @brief 和と長さを得る演算のモノイド
+ * @brief 区間和・区間代入用のヘルパークラス
  * @author えびちゃん
  */
 
-#include <cstddef>
-#include <utility>
-
-#ifndef H_length_monoid
-#define H_length_monoid
+#include "utility/monoid/length.cpp"
+#include "utility/monoid/set.cpp"
 
 template <typename Tp>
-class length_monoid {
-public:
-  using value_type = Tp;
-  using size_type = size_t;
+struct action_set_to_sum {
+  using operand_type = length_monoid<Tp>;
+  using action_type = set_monoid<Tp>;
 
-private:
-  value_type M_x{};
-  size_type M_l = 1;
-
-public:
-  length_monoid() = default;  // identity
-
-  length_monoid(value_type const& x, size_type l = 1): M_x(x), M_l(l) {};
-  length_monoid(value_type&& x, size_type l = 1): M_x(std::move(x)), M_l(l) {};
-
-  length_monoid& operator +=(length_monoid const& that) {
-    M_x += that.M_x;
-    M_l += that.M_l;
-    return *this;
+  static void act(operand_type& op, action_type const& a) {
+    if (a.empty()) return;
+    op = operand_type(a.get() * op.length(), op.length());
   }
-  length_monoid& operator +=(length_monoid&& that) {
-    M_x += std::move(that.M_x);
-    M_l += that.M_l;
-    return *this;
-  }
-
-  length_monoid operator +(length_monoid const& that) const {
-    return length_monoid(*this) += that;
-  }
-  length_monoid operator +(length_monoid&& that) const {
-    return length_monoid(*this) += std::move(that);
-  }
-
-  value_type const& get() const { return M_x; }
-  size_type length() const { return M_l; }
 };
 
-#endif  /* !defined(H_length_monoid) */
+#endif  /* !defined(H_action_set_sum) */
 
 ```
 {% endraw %}
@@ -113,6 +82,15 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "utility/action/set_sum.cpp"
+
+
+
+/**
+ * @brief 区間和・区間代入用のヘルパークラス
+ * @author えびちゃん
+ */
+
 #line 1 "utility/monoid/length.cpp"
 /**
  * @brief 和と長さを得る演算のモノイド
@@ -164,6 +142,64 @@ public:
 };
 
 #endif  /* !defined(H_length_monoid) */
+#line 1 "utility/monoid/set.cpp"
+
+
+
+/**
+ * @brief モノイドクラス
+ * @author えびちゃん
+ */
+
+template <typename Tp>
+class set_monoid {
+public:
+  using value_type = Tp;
+
+private:
+  bool M_empty = true;
+  value_type M_x;
+
+public:
+  set_monoid() = default;  // identity
+
+  set_monoid(value_type const& x): M_empty(false), M_x(x) {}
+
+  set_monoid& operator +=(set_monoid const& that) {
+    M_empty = that.M_empty;
+    if (!that.M_empty) M_x = that.M_x;
+    return *this;
+  }
+  friend bool operator ==(set_monoid const& lhs, set_monoid const& rhs) {
+    if (lhs.M_empty && rhs.M_empty) return true;
+    if (lhs.M_empty != rhs.M_empty) return false;
+    return lhs.M_x == rhs.M_x;
+  }
+
+  friend set_monoid operator +(set_monoid lhs, set_monoid const& rhs) { return lhs += rhs; }
+  friend bool operator !=(set_monoid const& lhs, set_monoid const& rhs) {
+    return !(lhs == rhs);
+  }
+
+  bool empty() const noexcept { return M_empty; }
+  value_type const& get() const { return M_x; }
+};
+
+
+#line 11 "utility/action/set_sum.cpp"
+
+template <typename Tp>
+struct action_set_to_sum {
+  using operand_type = length_monoid<Tp>;
+  using action_type = set_monoid<Tp>;
+
+  static void act(operand_type& op, action_type const& a) {
+    if (a.empty()) return;
+    op = operand_type(a.get() * op.length(), op.length());
+  }
+};
+
+
 
 ```
 {% endraw %}
