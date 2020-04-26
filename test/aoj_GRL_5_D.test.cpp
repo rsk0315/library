@@ -7,8 +7,10 @@
 
 #include "DataStructure/basic_segment_tree.cpp"
 #include "Graph/hl_decomposition.cpp"
+#include "utility/macro/stack_extend.cpp"
 
 int main() {
+  BEGIN_STACK_EXTEND(128*1024*1024);
   size_t n;
   scanf("%zu", &n);
 
@@ -48,4 +50,6 @@ int main() {
       printf("%d\n", res);
     }
   }
+
+  END_STACK_EXTEND;
 }
