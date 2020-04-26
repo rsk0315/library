@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73f33be586ad6030eddb73b8318d3cf9">misc/interface</a>
 * <a href="{{ site.github.repository_url }}/blob/master/misc/interface/monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 04:41:43+09:00
+    - Last commit date: 2020-04-26 02:32:24+09:00
 
 
 
@@ -41,6 +41,9 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#ifndef H_monoid
+#define H_monoid
+
 /**
  * @brief モノイドクラス
  * @author えびちゃん
@@ -52,23 +55,30 @@ public:
   using value_type = Tp;
 
 private:
-  //
+  value_type M_x;
 
 public:
   monoid() = default;  // identity
 
-  monoid(value_type const&);
+  monoid(value_type const& x): M_x(x) {}
 
-  monoid& operator +=(monoid const&);
-  friend bool operator ==(monoid const& lhs, monoid const& rhs);
+  monoid& operator +=(monoid const& that) {
+    //
+    return *this;
+  }
+  friend bool operator ==(monoid const& lhs, monoid const& rhs) {
+    return lhs.M_x == rhs.M_x;
+  }
 
-  friend monoid operator +(monoid lhs, monoid const& rhs) {return lhs += rhs; }
+  friend monoid operator +(monoid lhs, monoid const& rhs) { return lhs += rhs; }
   friend bool operator !=(monoid const& lhs, monoid const& rhs) {
     return !(lhs == rhs);
   }
 
-  value_type const& get() const;
+  value_type const& get() const { return M_x; }
 };
+
+#endif  /* !defined(H_monoid) */
 
 ```
 {% endraw %}
@@ -77,6 +87,9 @@ public:
 {% raw %}
 ```cpp
 #line 1 "misc/interface/monoid.cpp"
+
+
+
 /**
  * @brief モノイドクラス
  * @author えびちゃん
@@ -88,23 +101,30 @@ public:
   using value_type = Tp;
 
 private:
-  //
+  value_type M_x;
 
 public:
   monoid() = default;  // identity
 
-  monoid(value_type const&);
+  monoid(value_type const& x): M_x(x) {}
 
-  monoid& operator +=(monoid const&);
-  friend bool operator ==(monoid const& lhs, monoid const& rhs);
+  monoid& operator +=(monoid const& that) {
+    //
+    return *this;
+  }
+  friend bool operator ==(monoid const& lhs, monoid const& rhs) {
+    return lhs.M_x == rhs.M_x;
+  }
 
-  friend monoid operator +(monoid lhs, monoid const& rhs) {return lhs += rhs; }
+  friend monoid operator +(monoid lhs, monoid const& rhs) { return lhs += rhs; }
   friend bool operator !=(monoid const& lhs, monoid const& rhs) {
     return !(lhs == rhs);
   }
 
-  value_type const& get() const;
+  value_type const& get() const { return M_x; }
 };
+
+
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-21 23:29:30+09:00
+    - Last commit date: 2020-04-26 20:17:56+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
@@ -183,20 +183,6 @@ private:
   std::vector<value_type> M_c;
   size_type M_n;
 
-  std::vector<size_type> M_covering_segments(size_type l, size_type r) const {
-    std::vector<size_type> left, right;
-    l += M_n;
-    r += M_n;
-    while (l < r) {
-      if (l & 1) left.push_back(l++);
-      if (r & 1) right.push_back(--r);
-      l >>= 1;
-      r >>= 1;
-    }
-    left.insert(left.end(), right.rbegin(), right.rend());
-    return left;
-  }
-
 public:
   basic_segment_tree() = default;
 
@@ -266,61 +252,70 @@ public:
 
   template <typename Predicate>
   size_type foldl_bisect(size_type l, Predicate pred) const {
-    if (l == M_n) return l;
+    // Return minimum r such that pred(fold(l, r)) is false,
+    // or -1 (of size_type) if such r does not exist.
+    size_type r = M_n+M_n;
     value_type x{};
-    size_type v = M_n+M_n;
-    std::vector<size_type> cs = M_covering_segments(l, M_n);
-
-    // search the subroot
-    for (auto s: cs) {
-      if (!pred(x + M_c[s])) {
-        v = s;
-        break;
+    size_type h = 0;
+    if (l == M_n) return pred(x)? -1: l;
+    l += M_n;
+    auto bisect = [&](size_type v) -> size_type {
+      while (v < M_n) {
+        v <<= 1;
+        if (pred(x + M_c[v])) x += M_c[v++];
       }
-      x += M_c[s];
+      return v - M_n;
+    };
+    for (; l < r; ++h, l >>= 1, r >>= 1) {
+      if (l & 1) {
+        if (!pred(x + M_c[l])) return bisect(l);
+        x += M_c[l];
+        ++l;
+      }
+      if (r & 1) --r;
     }
-
-    // search the leaf
-    while (v < M_n) {
-      v <<= 1;
-      if (pred(x + M_c[v])) {
-        x += M_c[v];
-        v |= 1;
+    while (r <<= 1, h--) {
+      if (((r+1) << h) <= M_n+M_n) {
+        if (!pred(x + M_c[r])) return bisect(r);
+        x += M_c[r];
+        ++r;
       }
     }
-
-    return v - M_n;
+    return -1;
   }
 
   template <typename Predicate>
   size_type foldr_bisect(size_type r, Predicate pred) const {
-    if (r == 0) return r;
+    // Return maximum l such that pred(fold(l, r)) is false,
+    // of -1 (of size_type) if such does not exist.
+    size_type l = M_n;
     value_type x{};
-    size_type v = M_n+M_n;
-    std::vector<size_type> cs = M_covering_segments(0, r);
-    std::reverse(cs.begin(), cs.end());
-
-    // search the subroot
-    for (auto s: cs) {
-      if (!pred(M_c[s] + x)) {
-        v = s;
-        break;
+    size_type h = 0;
+    if (r == 0) return pred(x)? -1: 0;
+    r += M_n;
+    auto bisect = [&](size_type v) -> size_type {
+      while (v < M_n) {
+        v = (v << 1 | 1);
+        if (pred(M_c[v] + x)) x = M_c[v--] + std::move(x);
       }
-      x = M_c[s] + std::move(x);
-    }
-    if (v == M_n+M_n) return -1;  // always true
-
-    // search the leaf
-    while (v < M_n) {
-      v <<= 1;
-      if (pred(M_c[v|1] + x)) {
-        x = M_c[v|1] + std::move(x);
-      } else {
-        v |= 1;
+      return v - M_n;
+    };
+    for (; l < r; ++h, l >>= 1, r >>= 1) {
+      if (l & 1) ++l;
+      if (r & 1) {
+        --r;
+        if (!pred(M_c[r] + x)) return bisect(r);
+        x = M_c[r] + std::move(x);
       }
     }
-
-    return v - M_n;
+    while (l <<= 1, h--) {
+      if (((l-1) << h) >= M_n) {
+        --l;
+        if (!pred(M_c[l] + x)) return bisect(l);
+        x = M_c[l] + std::move(x);
+      }
+    }
+    return -1;
   }
 };
 
