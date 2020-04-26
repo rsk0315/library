@@ -88,7 +88,7 @@
 "test/yj_suffixarray.test.cpp": "2020-04-06 05:07:20 +0900",
 "test/yj_two_sat.test.cpp": "2020-04-06 05:07:20 +0900",
 "test/yj_unionfind.test.cpp": "2020-04-20 20:08:25 +0900",
-"test/yj_vertex_add_path_sum.test.cpp": "2020-04-26 20:17:56 +0900",
-"test/yj_vertex_set_path_composite.test.cpp": "2020-04-26 20:17:56 +0900",
+"test/yj_vertex_add_path_sum.test.cpp": "2020-04-26 20:57:16 +0900",
+"test/yj_vertex_set_path_composite.test.cpp": "2020-04-26 20:57:16 +0900",
 "test/yj_zalgorithm.test.cpp": "2020-04-06 05:07:20 +0900"
 }
