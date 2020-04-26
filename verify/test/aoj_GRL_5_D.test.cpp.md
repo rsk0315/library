@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:27:37+09:00
+    - Last commit date: 2020-04-26 20:57:16+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D</a>
@@ -480,7 +480,7 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for (auto const& [u, v, w]: es) {
+    for ([[maybe_unused]] auto const& [u, v, w]: es) {
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }
