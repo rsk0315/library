@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_GRL_5_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:17:56+09:00
+    - Last commit date: 2020-04-26 20:27:37+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_D</a>
@@ -41,6 +41,7 @@ layout: default
 
 * :question: <a href="../../library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
 * :question: <a href="../../library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :question: <a href="../../library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
 
 
 ## Code
@@ -57,8 +58,10 @@ layout: default
 
 #include "DataStructure/basic_segment_tree.cpp"
 #include "Graph/hl_decomposition.cpp"
+#include "utility/macro/stack_extend.cpp"
 
 int main() {
+  BEGIN_STACK_EXTEND(128*1024*1024);
   size_t n;
   scanf("%zu", &n);
 
@@ -98,6 +101,8 @@ int main() {
       printf("%d\n", res);
     }
   }
+
+  END_STACK_EXTEND;
 }
 
 ```
@@ -503,9 +508,34 @@ public:
 };
 
 
-#line 10 "test/aoj_GRL_5_D.test.cpp"
+#line 1 "utility/macro/stack_extend.cpp"
+
+
+
+/**
+ * @brief スタック拡張マクロ（魔法）
+ * @author えびちゃん
+ * @see http://sigma425.hatenablog.com/entry/2016/03/26/221844
+ */
+
+#include <cstdlib>
+
+#define BEGIN_STACK_EXTEND(size)                                        \
+  void* stack_extend_memory_ = malloc(size);                            \
+  void* stack_extend_origin_memory_;                                    \
+  char* stack_extend_dummy_memory_ = (char*)alloca((1+(int)(((long long)stack_extend_memory_)&127))*16); \
+  *stack_extend_dummy_memory_ = 0;                                      \
+  asm volatile ("mov %%rsp, %%rbx\n\tmov %%rax, %%rsp":"=b"(stack_extend_origin_memory_):"a"((char*)stack_extend_memory_+(size)-1024));
+
+#define END_STACK_EXTEND                                                \
+  asm volatile ("mov %%rax, %%rsp"::"a"(stack_extend_origin_memory_));  \
+  free(stack_extend_memory_);
+
+
+#line 11 "test/aoj_GRL_5_D.test.cpp"
 
 int main() {
+  BEGIN_STACK_EXTEND(128*1024*1024);
   size_t n;
   scanf("%zu", &n);
 
@@ -545,6 +575,8 @@ int main() {
       printf("%d\n", res);
     }
   }
+
+  END_STACK_EXTEND;
 }
 
 ```

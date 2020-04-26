@@ -43,7 +43,7 @@ layout: default
 * :heavy_check_mark: <a href="../../library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
+* :question: <a href="../../library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
 
 
 ## Code

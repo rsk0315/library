@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small>
+# :question: スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -41,6 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :x: <a href="../../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 
 
 ## Code

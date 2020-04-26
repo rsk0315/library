@@ -170,7 +170,7 @@ layout: default
 ### utility/macro
 
 * :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
-* :heavy_check_mark: <a href="library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
+* :question: <a href="library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
