@@ -198,7 +198,7 @@ public:
   ): M_n(n), M_p(n, n), M_hp(n, r), M_in(n) {
     std::vector<std::vector<size_type>> al(n);
     bool undir = std::is_same<Va, value_on_undirected_edge_tag>::value;
-    for (auto const& [u, v, w]: es) {
+    for ([[maybe_unused]] auto const& [u, v, w]: es) {
       al[u].push_back(v);
       if (undir) al[v].push_back(u);
     }
