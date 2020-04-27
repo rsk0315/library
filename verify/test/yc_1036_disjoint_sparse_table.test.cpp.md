@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_1036_disjoint_sparse_table.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-25 20:44:34+09:00
+    - Last commit date: 2020-04-27 20:46:59+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/1036">https://yukicoder.me/problems/no/1036</a>
@@ -41,6 +41,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../library/DataStructure/disjoint_sparse_table.cpp.html">disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
 
 
 ## Code
@@ -56,40 +57,7 @@ layout: default
 #include <vector>
 
 #include "DataStructure/disjoint_sparse_table.cpp"
-
-template <typename Tp>
-class gcd_monoid {
-public:
-  using value_type = Tp;
-
-private:
-  value_type M_x = 0;
-
-  static value_type S_gcd(value_type x, value_type y) {
-    while (y) std::swap(x %= y, y);
-    return x;
-  }
-
-public:
-  gcd_monoid() = default;  // identity
-
-  gcd_monoid(value_type const& x): M_x(x) {}
-
-  gcd_monoid& operator +=(gcd_monoid const& that) {
-    M_x = S_gcd(M_x, that.M_x);
-    return *this;
-  }
-  friend bool operator ==(gcd_monoid const& lhs, gcd_monoid const& rhs) {
-    return lhs.M_x == rhs.M_x;
-  }
-
-  friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) { return lhs += rhs; }
-  friend bool operator !=(gcd_monoid const& lhs, gcd_monoid const& rhs) {
-    return !(lhs == rhs);
-  }
-
-  value_type const& get() const { return M_x; }
-};
+#include "utility/monoid/gcd.cpp"
 
 int main() {
   size_t n;
@@ -302,7 +270,16 @@ public:
 };
 
 
-#line 9 "test/yc_1036_disjoint_sparse_table.test.cpp"
+#line 1 "utility/monoid/gcd.cpp"
+
+
+
+/**
+ * @brief 最大公約数を得る演算のモノイド
+ * @author えびちゃん
+ */
+
+#include <utility>
 
 template <typename Tp>
 class gcd_monoid {
@@ -312,7 +289,7 @@ public:
 private:
   value_type M_x = 0;
 
-  static value_type S_gcd(value_type x, value_type y) {
+  static constexpr value_type S_gcd(value_type x, value_type y) {
     while (y) std::swap(x %= y, y);
     return x;
   }
@@ -327,7 +304,7 @@ public:
     return *this;
   }
   friend bool operator ==(gcd_monoid const& lhs, gcd_monoid const& rhs) {
-    return lhs.M_x == rhs.M_x;
+    return lhs.M_x == rhs.m_x;
   }
 
   friend gcd_monoid operator +(gcd_monoid lhs, gcd_monoid const& rhs) { return lhs += rhs; }
@@ -337,6 +314,9 @@ public:
 
   value_type const& get() const { return M_x; }
 };
+
+
+#line 10 "test/yc_1036_disjoint_sparse_table.test.cpp"
 
 int main() {
   size_t n;

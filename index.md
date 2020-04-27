@@ -194,7 +194,7 @@ layout: default
 ### utility/monoid
 
 * :heavy_check_mark: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max_subsum.cpp.html">部分和の最大値を得る演算のモノイドクラス <small>(utility/monoid/max_subsum.cpp)</small></a>

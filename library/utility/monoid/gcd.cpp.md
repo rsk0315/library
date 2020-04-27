@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small>
+# :heavy_check_mark: 最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,13 @@ layout: default
     - Last commit date: 2020-04-26 02:32:04+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/yc_1036.test.cpp.html">test/yc_1036.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_1036_disjoint_sparse_table.test.cpp.html">test/yc_1036_disjoint_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yc_1036_sparse_table.test.cpp.html">test/yc_1036_sparse_table.test.cpp</a>
 
 
 ## Code
