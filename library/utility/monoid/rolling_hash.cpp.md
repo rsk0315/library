@@ -25,19 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
+# :question: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/rolling_hash.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-19 19:24:42+09:00
+    - Last commit date: 2020-04-27 23:07:02+09:00
 
 
 
 
 ## Verified with
 
+* :x: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 
 
@@ -74,12 +75,19 @@ public:
     M_p *= that.M_p;
     return *this;
   }
+  friend bool operator ==(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return lhs.M_x == rhs.M_x && lhs.M_p == rhs.M_p;
+  }
 
-  rolling_hash_monoid operator +(rolling_hash_monoid const& that) const {
-    return rolling_hash_monoid(*this) += that;
+  friend rolling_hash_monoid operator +(rolling_hash_monoid lhs, rolling_hash_monoid const& rhs) {
+    return lhs += rhs;
+  }
+  friend bool operator !=(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return !(lhs == rhs);
   }
 
   value_type const& get() const { return M_x; }
+  value_type const& coefficient() const { return M_p; }
 };
 
 #endif  /* !defined(H_rolling_hash_monoid) */
@@ -119,12 +127,19 @@ public:
     M_p *= that.M_p;
     return *this;
   }
+  friend bool operator ==(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return lhs.M_x == rhs.M_x && lhs.M_p == rhs.M_p;
+  }
 
-  rolling_hash_monoid operator +(rolling_hash_monoid const& that) const {
-    return rolling_hash_monoid(*this) += that;
+  friend rolling_hash_monoid operator +(rolling_hash_monoid lhs, rolling_hash_monoid const& rhs) {
+    return lhs += rhs;
+  }
+  friend bool operator !=(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return !(lhs == rhs);
   }
 
   value_type const& get() const { return M_x; }
+  value_type const& coefficient() const { return M_p; }
 };
 
 
