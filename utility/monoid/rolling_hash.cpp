@@ -26,12 +26,19 @@ public:
     M_p *= that.M_p;
     return *this;
   }
+  friend bool operator ==(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return lhs.M_x == rhs.M_x && lhs.M_p == rhs.M_p;
+  }
 
-  rolling_hash_monoid operator +(rolling_hash_monoid const& that) const {
-    return rolling_hash_monoid(*this) += that;
+  friend rolling_hash_monoid operator +(rolling_hash_monoid lhs, rolling_hash_monoid const& rhs) {
+    return lhs += rhs;
+  }
+  friend bool operator !=(rolling_hash_monoid const& lhs, rolling_hash_monoid const& rhs) {
+    return !(lhs == rhs);
   }
 
   value_type const& get() const { return M_x; }
+  value_type const& coefficient() const { return M_p; }
 };
 
 #endif  /* !defined(H_rolling_hash_monoid) */
