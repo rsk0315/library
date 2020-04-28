@@ -25,21 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yj_unionfind.test.cpp
+# :heavy_check_mark: 素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yj_unionfind.test.cpp">View this file on GitHub</a>
+* category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
+* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/disjoint_set.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-28 18:27:31+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
 
 
-## Depends on
+## Verified with
 
-* :heavy_check_mark: <a href="../../library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
 
 
 ## Code
@@ -47,29 +49,59 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
+#ifndef H_disjoint_set
+#define H_disjoint_set
 
-#include <cstdio>
+/**
+ * @brief 素集合データ構造
+ * @author えびちゃん
+ */
 
-#include "DataStructure/disjoint_set.cpp"
+#include <cstddef>
+#include <cstdint>
+#include <utility>
+#include <vector>
 
-int main() {
-  size_t n, q;
-  scanf("%zu %zu", &n, &q);
+class disjoint_set {
+public:
+  using size_type = size_t;
 
-  disjoint_set ds(n);
-  for (size_t i = 0; i < q; ++i) {
-    int t;
-    size_t u, v;
-    scanf("%d %zu %zu", &t, &u, &v);
+private:
+  mutable std::vector<intmax_t> M_c;
 
-    if (t == 0) {
-      ds.unite(u, v);
-    } else if (t == 1) {
-      printf("%d\n", ds.equivalent(u, v)? 1: 0);
-    }
+public:
+  disjoint_set() = default;
+
+  explicit disjoint_set(size_type n): M_c(n, -1) {}
+
+  void reset() { M_c.assign(M_c.size(), -1); }
+
+  size_type representative(size_type v) const {
+    if (M_c[v] < 0) return v;
+    return (M_c[v] = representative(M_c[v]));
   }
-}
+
+  bool unite(size_type u, size_type v) {
+    u = representative(u);
+    v = representative(v);
+    if (u == v) return false;
+    if (-M_c[u] > -M_c[v]) std::swap(u, v);
+    M_c[v] += M_c[u];
+    M_c[u] = v;
+    return true;
+  }
+
+  bool equivalent(size_type u, size_type v) const {
+    return (representative(u) == representative(v));
+  }
+
+  size_type size() const noexcept { return M_c.size(); }
+  size_type count(size_type v) const {
+    return -M_c[representative(v)];
+  }
+};
+
+#endif  /* !defined(H_disjoint_set) */
 
 ```
 {% endraw %}
@@ -77,11 +109,6 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yj_unionfind.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
-
-#include <cstdio>
-
 #line 1 "DataStructure/disjoint_set.cpp"
 
 
@@ -136,25 +163,6 @@ public:
 };
 
 
-#line 6 "test/yj_unionfind.test.cpp"
-
-int main() {
-  size_t n, q;
-  scanf("%zu %zu", &n, &q);
-
-  disjoint_set ds(n);
-  for (size_t i = 0; i < q; ++i) {
-    int t;
-    size_t u, v;
-    scanf("%d %zu %zu", &t, &u, &v);
-
-    if (t == 0) {
-      ds.unite(u, v);
-    } else if (t == 1) {
-      printf("%d\n", ds.equivalent(u, v)? 1: 0);
-    }
-  }
-}
 
 ```
 {% endraw %}

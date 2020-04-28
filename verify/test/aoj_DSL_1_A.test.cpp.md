@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_1_A.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-20 20:08:25+09:00
+    - Last commit date: 2020-04-28 18:27:31+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../library/DataStructure/union_find.cpp.html">素集合データ構造 <small>(DataStructure/union_find.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
 
 
 ## Code
@@ -51,7 +51,7 @@ layout: default
 
 #include <cstdio>
 
-#include "DataStructure/union_find.cpp"
+#include "DataStructure/disjoint_set.cpp"
 
 int main() {
   size_t n, q;
@@ -85,7 +85,7 @@ int main() {
 
 #include <cstdio>
 
-#line 1 "DataStructure/union_find.cpp"
+#line 1 "DataStructure/disjoint_set.cpp"
 
 
 
@@ -105,19 +105,13 @@ public:
 
 private:
   mutable std::vector<intmax_t> M_c;
-  std::vector<bool> M_cycle;
 
 public:
   disjoint_set() = default;
-  disjoint_set(disjoint_set const&) = default;
-  disjoint_set(disjoint_set&&) = default;
 
-  explicit disjoint_set(size_type n): M_c(n, -1), M_cycle(n, false) {}
+  explicit disjoint_set(size_type n): M_c(n, -1) {}
 
-  disjoint_set& operator =(disjoint_set const&) = default;
-  disjoint_set& operator =(disjoint_set&&) = default;
-
-  void reset() { M_c.assign(M_c.size(), -1), M_cycle.assign(M_c.size(), false); }
+  void reset() { M_c.assign(M_c.size(), -1); }
 
   size_type representative(size_type v) const {
     if (M_c[v] < 0) return v;
@@ -127,14 +121,10 @@ public:
   bool unite(size_type u, size_type v) {
     u = representative(u);
     v = representative(v);
-    if (u == v) {
-      M_cycle[u] = true;
-      return false;
-    }
+    if (u == v) return false;
     if (-M_c[u] > -M_c[v]) std::swap(u, v);
     M_c[v] += M_c[u];
     M_c[u] = v;
-    if (M_cycle[u]) M_cycle[v] = true;
     return true;
   }
 
@@ -146,8 +136,6 @@ public:
   size_type count(size_type v) const {
     return -M_c[representative(v)];
   }
-
-  bool has_cycle(size_type v) const noexcept { return M_cycle[representative(v)]; }
 };
 
 
