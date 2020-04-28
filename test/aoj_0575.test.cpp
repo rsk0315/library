@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "algorithm/parallel_binary_search.cpp"
-#include "DataStructure/union_find.cpp"
+#include "DataStructure/disjoint_set.cpp"
 #include "Graph/adjacency_list.cpp"
 #include "utility/limits.cpp"
 

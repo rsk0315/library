@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-#include "DataStructure/union_find.cpp"
+#include "DataStructure/disjoint_set.cpp"
 
 int main() {
   size_t n, q;
