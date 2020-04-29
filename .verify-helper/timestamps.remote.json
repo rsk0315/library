@@ -1,4 +1,5 @@
 {
+"test/aoj_0355.test.cpp": "2020-04-29 14:26:18 +0900",
 "test/aoj_0425.test.cpp": "2020-04-07 01:37:10 +0900",
 "test/aoj_0575.test.cpp": "2020-04-28 18:27:31 +0900",
 "test/aoj_1180.test.cpp": "2020-04-07 01:37:10 +0900",
@@ -55,8 +56,8 @@
 "test/yc_1036_disjoint_sparse_table.test.cpp": "2020-04-27 20:46:59 +0900",
 "test/yc_1036_sparse_table.test.cpp": "2020-04-27 20:46:59 +0900",
 "test/yc_3014.test.cpp": "2020-04-06 05:07:20 +0900",
-"test/yc_306.test.cpp": "2020-04-06 05:07:20 +0900",
-"test/yc_306_maximize.test.cpp": "2020-04-06 05:07:20 +0900",
+"test/yc_306.test.cpp": "2020-04-29 14:28:04 +0900",
+"test/yc_306_maximize.test.cpp": "2020-04-29 14:28:04 +0900",
 "test/yc_502.test.cpp": "2020-04-23 19:40:18 +0900",
 "test/yc_551.test.cpp": "2020-04-23 19:40:18 +0900",
 "test/yc_703_onoff.test.cpp": "2020-04-06 23:03:06 +0900",
