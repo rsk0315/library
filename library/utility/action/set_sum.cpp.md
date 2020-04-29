@@ -39,7 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
-* :question: <a href="../monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
+* :heavy_check_mark: <a href="../monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Verified with

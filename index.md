@@ -59,7 +59,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
-* :question: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
 * :warning: <a href="library/DataStructure/union_find.cpp.html">DataStructure/union_find.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
@@ -77,6 +77,7 @@ layout: default
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :warning: <a href="library/Graph/shortest_path.cpp.html">グラフ上の最短距離 <small>(Graph/shortest_path.cpp)</small></a>
 * :warning: <a href="library/Graph/topological_sort.cpp.html">トポロジカルソート <small>(Graph/topological_sort.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 
@@ -85,6 +86,7 @@ layout: default
 
 ### Math
 
+* :warning: <a href="library/Math/factor.cpp.html">素因数分解 <small>(Math/factor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
 * :heavy_check_mark: <a href="library/Math/remainder_sum.cpp.html">$i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small></a>
 
@@ -97,7 +99,7 @@ layout: default
 * :heavy_check_mark: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
-* :question: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
@@ -125,7 +127,7 @@ layout: default
 * :heavy_check_mark: <a href="library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/parallel_binary_search.cpp.html">並列二分探索 <small>(algorithm/parallel_binary_search.cpp)</small></a>
-* :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割の三分探索 <small>(algorithm/ternary_search.cpp)</small></a>
 * :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
 
@@ -133,7 +135,7 @@ layout: default
 
 ### integer
 
-* :question: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
 * :heavy_check_mark: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
@@ -200,13 +202,13 @@ layout: default
 * :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/max_subsum.cpp.html">部分和の最大値を得る演算のモノイドクラス <small>(utility/monoid/max_subsum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
-* :question: <a href="library/utility/monoid/rolling_hash.cpp.html">ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small></a>
-* :question: <a href="library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/rolling_hash.cpp.html">ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Verify Files
 
-* :x: <a href="verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>

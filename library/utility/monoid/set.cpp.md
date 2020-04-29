@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: モノイドクラス <small>(utility/monoid/set.cpp)</small>
+# :heavy_check_mark: モノイドクラス <small>(utility/monoid/set.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -43,7 +43,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2450.test.cpp.html">test/aoj_2450.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
 

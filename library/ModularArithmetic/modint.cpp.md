@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
+# :heavy_check_mark: 合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -45,7 +45,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>

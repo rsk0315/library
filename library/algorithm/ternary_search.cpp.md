@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 黄金比分割探索 <small>(algorithm/ternary_search.cpp)</small>
+# :heavy_check_mark: 黄金比分割の三分探索 <small>(algorithm/ternary_search.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/ternary_search.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-04-29 14:28:04+09:00
 
 
 
@@ -51,7 +51,7 @@ layout: default
 #define H_ternary_search
 
 /**
- * @brief 黄金比分割探索
+ * @brief 黄金比分割の三分探索
  * @author えびちゃん
  */
 
@@ -59,8 +59,9 @@ layout: default
 #include <utility>
 
 template <typename Fn, typename Tp>
-std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
-  // Returns {argmin f(x), min f(x)}.
+auto optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
+  // Return {argmax f(x), max f(x)} if maximize, {argmin f(x), min f(x)}
+  // otherwise.  If f is not convex in [xl, xu], the behavior is undefined.
   Tp const phi = (1 + std::sqrt(static_cast<Tp>(5))) / 2;
   int const iter = (std::log(xu-xl) - std::log(err)) / std::log(phi) + 1;
   Tp xml = (phi * xl + xu) / (1 + phi);
@@ -98,7 +99,7 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 
 
 /**
- * @brief 黄金比分割探索
+ * @brief 黄金比分割の三分探索
  * @author えびちゃん
  */
 
@@ -106,8 +107,9 @@ std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = 
 #include <utility>
 
 template <typename Fn, typename Tp>
-std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
-  // Returns {argmin f(x), min f(x)}.
+auto optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
+  // Return {argmax f(x), max f(x)} if maximize, {argmin f(x), min f(x)}
+  // otherwise.  If f is not convex in [xl, xu], the behavior is undefined.
   Tp const phi = (1 + std::sqrt(static_cast<Tp>(5))) / 2;
   int const iter = (std::log(xu-xl) - std::log(err)) / std::log(phi) + 1;
   Tp xml = (phi * xl + xu) / (1 + phi);

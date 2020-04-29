@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
+# :heavy_check_mark: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 
 
