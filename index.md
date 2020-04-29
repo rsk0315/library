@@ -61,7 +61,6 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
-* :warning: <a href="library/DataStructure/union_find.cpp.html">DataStructure/union_find.cpp</a>
 * :heavy_check_mark: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 
 
