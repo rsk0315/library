@@ -23,6 +23,7 @@
 "test/mini/fused_operations.test.cpp": "2020-04-24 02:42:59 +0900",
 "test/yc_1036_sparse_table.test.cpp": "2020-04-25 20:39:54 +0900",
 "test/yc_3014.test.cpp": "2020-03-27 19:41:11 +0900",
+"test/yc_306.test.cpp": "2020-04-29 14:27:23 +0900",
 "test/yc_502.test.cpp": "2020-04-22 03:12:13 +0900",
 "test/yc_551.test.cpp": "2020-04-10 05:02:05 +0900",
 "test/yc_703_lichao.test.cpp": "2020-04-13 02:06:42 +0900",

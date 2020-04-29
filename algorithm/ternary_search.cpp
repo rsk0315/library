@@ -2,7 +2,7 @@
 #define H_ternary_search
 
 /**
- * @brief 黄金比分割探索
+ * @brief 黄金比分割の三分探索
  * @author えびちゃん
  */
 
@@ -10,8 +10,9 @@
 #include <utility>
 
 template <typename Fn, typename Tp>
-std::pair<Tp, Tp> optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
-  // Returns {argmin f(x), min f(x)}.
+auto optimize_convex(Fn&& f, Tp xl, Tp xu, Tp err, bool maximize = true) {
+  // Return {argmax f(x), max f(x)} if maximize, {argmin f(x), min f(x)}
+  // otherwise.  If f is not convex in [xl, xu], the behavior is undefined.
   Tp const phi = (1 + std::sqrt(static_cast<Tp>(5))) / 2;
   int const iter = (std::log(xu-xl) - std::log(err)) / std::log(phi) + 1;
   Tp xml = (phi * xl + xu) / (1 + phi);
