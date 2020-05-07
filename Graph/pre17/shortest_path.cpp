@@ -27,12 +27,15 @@ auto shortest_path(AdjacencyList const& g, size_t s, dijkstra_tag) {
   std::priority_queue<pair, std::vector<pair>, std::greater<>> pq;
   pq.emplace(0, s);
   while (!pq.empty()) {
-    auto [w, v] = pq.top();
+    weight_type w;
+    size_t v;
+    std::tie(w, v) = pq.top();
     pq.pop();
     if (d[v] < w) continue;
     for (auto const& e: g[v]) {
       size_t nv = e.target();
-      if (auto nw = w + e.weight(); nw < d[nv]) {
+      auto nw = w + e.weight();
+      if (nw < d[nv]) {
         d[nv] = nw;
         pq.emplace(nw, nv);
       }
