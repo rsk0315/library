@@ -42,6 +42,9 @@ public:
     M_h.pop_back();
     M_c[i] = x;
   }
+
+  auto begin() const { return M_c.begin(); }
+  auto end() const { return M_c.end(); }
 };
 
 #endif  /* !defined(H_rollbackable_array) */
