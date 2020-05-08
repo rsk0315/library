@@ -31,11 +31,12 @@ layout: default
 
 * category: <a href="../../index.html#dcaf23bbd71caccee83ae655fb01a59a">!PREFACE!</a>
 * <a href="{{ site.github.repository_url }}/blob/master/preface/todo.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-22 02:17:04+09:00
+    - Last commit date: 2020-05-08 23:15:23+09:00
 
 
-* see: <a href="https://kmyk.github.io/online-judge-verify-helper/document.ja.html">https://kmyk.github.io/online-judge-verify-helper/document.ja.html</a>
-* see: <a href="https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py">https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py</a>
+* see: <a href="https://online-judge-tools.github.io/verification-helper/document.ja.html">https://online-judge-tools.github.io/verification-helper/document.ja.html</a>
+* see: <a href="https://online-judge-tools.github.io/verification-helper/installer.ja.html">https://online-judge-tools.github.io/verification-helper/installer.ja.html</a>
+* see: <a href="https://github.com/online-judge-tools/verification-helper/blob/master/onlinejudge_verify/docs.py">https://github.com/online-judge-tools/verification-helper/blob/master/onlinejudge_verify/docs.py</a>
 
 
 # 置きたいもの
@@ -115,8 +116,9 @@ layout: default
  * @title TODO
  * @category !PREFACE!
  * @docs todo.md
- * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
- * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
+ * @see https://online-judge-tools.github.io/verification-helper/document.ja.html
+ * @see https://online-judge-tools.github.io/verification-helper/installer.ja.html
+ * @see https://github.com/online-judge-tools/verification-helper/blob/master/onlinejudge_verify/docs.py
  */
 
 ```
@@ -130,8 +132,9 @@ layout: default
  * @title TODO
  * @category !PREFACE!
  * @docs todo.md
- * @see https://kmyk.github.io/online-judge-verify-helper/document.ja.html
- * @see https://github.com/kmyk/online-judge-verify-helper/blob/master/onlinejudge_verify/docs.py
+ * @see https://online-judge-tools.github.io/verification-helper/document.ja.html
+ * @see https://online-judge-tools.github.io/verification-helper/installer.ja.html
+ * @see https://github.com/online-judge-tools/verification-helper/blob/master/onlinejudge_verify/docs.py
  */
 
 ```
