@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_persistent_unionfind_rollback.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 00:03:52+09:00
+    - Last commit date: 2020-05-07 20:42:49+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/persistent_unionfind">https://judge.yosupo.jp/problem/persistent_unionfind</a>
@@ -184,6 +184,9 @@ public:
     M_h.pop_back();
     M_c[i] = x;
   }
+
+  auto begin() const { return M_c.begin(); }
+  auto end() const { return M_c.end(); }
 };
 
 

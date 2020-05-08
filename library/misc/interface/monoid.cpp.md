@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73f33be586ad6030eddb73b8318d3cf9">misc/interface</a>
 * <a href="{{ site.github.repository_url }}/blob/master/misc/interface/monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 02:32:24+09:00
+    - Last commit date: 2020-05-08 21:14:54+09:00
 
 
 
@@ -55,7 +55,7 @@ public:
   using value_type = Tp;
 
 private:
-  value_type M_x;
+  value_type M_x = /* identity */;
 
 public:
   monoid() = default;  // identity
@@ -101,7 +101,7 @@ public:
   using value_type = Tp;
 
 private:
-  value_type M_x;
+  value_type M_x = /* identity */;
 
 public:
   monoid() = default;  // identity

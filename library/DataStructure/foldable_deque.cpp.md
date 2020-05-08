@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_deque.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-19 19:24:42+09:00
+    - Last commit date: 2020-05-08 18:52:04+09:00
 
 
 
@@ -68,7 +68,7 @@ private:
   std::stack<value_type> M_front, M_back;
   std::stack<value_type> M_front_folded, M_back_folded;
 
-  void M_distribute_to_front() {
+  void M_rotate_to_front() {
     // precondition: M_front.empty(), M_back.size() == n > 0
     // postcondition: M_front.size() == (n+1)/2, M_back.size() == n/2
     size_type n = M_back.size();
@@ -88,7 +88,7 @@ private:
     }
   }
 
-  void M_distribute_to_back() {
+  void M_rotate_to_back() {
     // precondition: M_front.size() == n > 0, M_back.empty()
     // postcondition: M_front.size() == n/2, M_back.size() == (n+1)/2
     size_type n = M_front.size();
@@ -136,12 +136,12 @@ public:
   }
 
   void pop_back() {
-    if (M_back.empty()) M_distribute_to_back();
+    if (M_back.empty()) M_rotate_to_back();
     M_back.pop();
     M_back_folded.pop();
   }
   void pop_front() {
-    if (M_front.empty()) M_distribute_to_front();
+    if (M_front.empty()) M_rotate_to_front();
     M_front.pop();
     M_front_folded.pop();
   }
@@ -185,7 +185,7 @@ private:
   std::stack<value_type> M_front, M_back;
   std::stack<value_type> M_front_folded, M_back_folded;
 
-  void M_distribute_to_front() {
+  void M_rotate_to_front() {
     // precondition: M_front.empty(), M_back.size() == n > 0
     // postcondition: M_front.size() == (n+1)/2, M_back.size() == n/2
     size_type n = M_back.size();
@@ -205,7 +205,7 @@ private:
     }
   }
 
-  void M_distribute_to_back() {
+  void M_rotate_to_back() {
     // precondition: M_front.size() == n > 0, M_back.empty()
     // postcondition: M_front.size() == n/2, M_back.size() == (n+1)/2
     size_type n = M_front.size();
@@ -253,12 +253,12 @@ public:
   }
 
   void pop_back() {
-    if (M_back.empty()) M_distribute_to_back();
+    if (M_back.empty()) M_rotate_to_back();
     M_back.pop();
     M_back_folded.pop();
   }
   void pop_front() {
-    if (M_front.empty()) M_distribute_to_front();
+    if (M_front.empty()) M_rotate_to_front();
     M_front.pop();
     M_front_folded.pop();
   }

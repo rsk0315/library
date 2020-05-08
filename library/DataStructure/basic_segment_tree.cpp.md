@@ -31,9 +31,12 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 20:17:56+09:00
+    - Last commit date: 2020-05-08 23:04:31+09:00
 
 
+
+
+ねこ。
 
 
 ## Verified with
@@ -63,6 +66,7 @@ layout: default
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
+ * @docs docs/basic_segment_tree.md
  */
 
 #include <cstddef>
@@ -230,6 +234,7 @@ public:
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
+ * @docs docs/basic_segment_tree.md
  */
 
 #include <cstddef>

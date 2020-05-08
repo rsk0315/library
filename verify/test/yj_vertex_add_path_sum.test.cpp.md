@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_vertex_add_path_sum.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-27 02:23:18+09:00
+    - Last commit date: 2020-05-08 23:04:31+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
@@ -344,11 +344,12 @@ public:
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
+ * @docs docs/basic_segment_tree.md
  */
 
-#line 10 "DataStructure/basic_segment_tree.cpp"
+#line 11 "DataStructure/basic_segment_tree.cpp"
 #include <algorithm>
-#line 12 "DataStructure/basic_segment_tree.cpp"
+#line 13 "DataStructure/basic_segment_tree.cpp"
 
 template <typename Monoid>
 class basic_segment_tree {

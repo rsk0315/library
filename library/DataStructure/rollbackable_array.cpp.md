@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/rollbackable_array.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 00:01:52+09:00
+    - Last commit date: 2020-05-07 20:42:49+09:00
 
 
 
@@ -95,6 +95,9 @@ public:
     M_h.pop_back();
     M_c[i] = x;
   }
+
+  auto begin() const { return M_c.begin(); }
+  auto end() const { return M_c.end(); }
 };
 
 #endif  /* !defined(H_rollbackable_array) */
@@ -150,6 +153,9 @@ public:
     M_h.pop_back();
     M_c[i] = x;
   }
+
+  auto begin() const { return M_c.begin(); }
+  auto end() const { return M_c.end(); }
 };
 
 

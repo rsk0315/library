@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small>
+# :warning: 区間最小値・区間最小値更新用のヘルパークラス <small>(utility/action/min_min.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/min.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 21:15:09+09:00
+* category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/action/min_min.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-08 22:56:58+09:00
 
 
 
@@ -39,20 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-
-
-## Required by
-
-* :heavy_check_mark: <a href="../action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
-* :warning: <a href="../action/min_min.cpp.html">区間最小値・区間最小値更新用のヘルパークラス <small>(utility/action/min_min.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
 
 ## Code
@@ -60,51 +47,27 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef H_min_monoid
-#define H_min_monoid
+#ifndef H_action_min_min
+#define H_action_min_min
 
 /**
- * @brief min を得る演算のモノイド
+ * @brief 区間最小値・区間最小値更新用のヘルパークラス
  * @author えびちゃん
  */
 
-#include <algorithm>
-#include <utility>
-
-#include "utility/limits.cpp"
+#include "utility/monoid/min.cpp"
 
 template <typename Tp>
-class min_monoid {
-public:
-  using value_type = Tp;
+struct action_min_to_min {
+  using operand_type = min_monoid<Tp>;
+  using action_type = min_monoid<Tp>;
 
-private:
-  value_type M_x = limits<Tp>::max();
-
-public:
-  min_monoid() = default;  // identity
-
-  min_monoid(value_type const& x): M_x(x) {}
-
-  min_monoid& operator +=(min_monoid const& that) {
-    M_x = std::min(M_x, that.M_x);
-    return *this;
+  static void act(operand_type& op, action_type const& a) {
+    op += a;
   }
-  friend bool operator ==(min_monoid const& lhs, min_monoid const& rhs) {
-    return lhs.M_x == rhs.M_x;
-  }
-
-  friend min_monoid operator +(min_monoid lhs, min_monoid const& rhs) {
-    return lhs += rhs;
-  }
-  friend bool operator !=(min_monoid const& lhs, min_monoid const& rhs) {
-    return !(lhs == rhs);
-  }
-
-  value_type const& get() const { return M_x; }
 };
 
-#endif  /* !defined(H_min_monoid) */
+#endif  /* !defined(H_action_min_min) */
 
 ```
 {% endraw %}
@@ -112,6 +75,15 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "utility/action/min_min.cpp"
+
+
+
+/**
+ * @brief 区間最小値・区間最小値更新用のヘルパークラス
+ * @author えびちゃん
+ */
+
 #line 1 "utility/monoid/min.cpp"
 
 
@@ -170,6 +142,19 @@ public:
   }
 
   value_type const& get() const { return M_x; }
+};
+
+
+#line 10 "utility/action/min_min.cpp"
+
+template <typename Tp>
+struct action_min_to_min {
+  using operand_type = min_monoid<Tp>;
+  using action_type = min_monoid<Tp>;
+
+  static void act(operand_type& op, action_type const& a) {
+    op += a;
+  }
 };
 
 

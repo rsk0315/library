@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_min.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-05-08 21:15:09+09:00
 
 
 
@@ -124,33 +124,26 @@ public:
   using value_type = Tp;
 
 private:
-  value_type M_x = limits<value_type>::max();
+  value_type M_x = limits<Tp>::max();
 
 public:
   min_monoid() = default;  // identity
-  min_monoid(min_monoid const&) = default;
-  min_monoid(min_monoid&&) = default;
 
-  min_monoid(value_type const& x): M_x(x) {};
-  min_monoid(value_type&& x): M_x(std::move(x)) {};
-
-  min_monoid& operator =(min_monoid const&) = default;
-  min_monoid& operator =(min_monoid&&) = default;
+  min_monoid(value_type const& x): M_x(x) {}
 
   min_monoid& operator +=(min_monoid const& that) {
     M_x = std::min(M_x, that.M_x);
     return *this;
   }
-  min_monoid& operator +=(min_monoid&& that) {
-    M_x = std::min(M_x, std::move(that.M_x));
-    return *this;
+  friend bool operator ==(min_monoid const& lhs, min_monoid const& rhs) {
+    return lhs.M_x == rhs.M_x;
   }
 
-  min_monoid operator +(min_monoid const& that) const {
-    return min_monoid(*this) += that;
+  friend min_monoid operator +(min_monoid lhs, min_monoid const& rhs) {
+    return lhs += rhs;
   }
-  min_monoid operator +(min_monoid&& that) const {
-    return min_monoid(*this) += std::move(that);
+  friend bool operator !=(min_monoid const& lhs, min_monoid const& rhs) {
+    return !(lhs == rhs);
   }
 
   value_type const& get() const { return M_x; }

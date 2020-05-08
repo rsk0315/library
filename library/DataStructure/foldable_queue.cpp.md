@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_queue.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-19 19:24:42+09:00
+    - Last commit date: 2020-05-08 18:52:04+09:00
 
 
 
@@ -70,7 +70,7 @@ private:
   std::stack<value_type> M_front, M_back;
   value_type M_back_folded{};
 
-  void M_distribute_to_front() {
+  void M_rotate_to_front() {
     if (!M_back.empty()) {
       M_front.push(std::move(M_back.top()));
       M_back.pop();
@@ -99,7 +99,7 @@ public:
   }
 
   void pop() {
-    if (M_front.empty()) M_distribute_to_front();
+    if (M_front.empty()) M_rotate_to_front();
     M_front.pop();
   }
 
@@ -140,7 +140,7 @@ private:
   std::stack<value_type> M_front, M_back;
   value_type M_back_folded{};
 
-  void M_distribute_to_front() {
+  void M_rotate_to_front() {
     if (!M_back.empty()) {
       M_front.push(std::move(M_back.top()));
       M_back.pop();
@@ -169,7 +169,7 @@ public:
   }
 
   void pop() {
-    if (M_front.empty()) M_distribute_to_front();
+    if (M_front.empty()) M_rotate_to_front();
     M_front.pop();
   }
 

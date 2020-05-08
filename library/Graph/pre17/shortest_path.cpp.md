@@ -21,16 +21,16 @@ layout: default
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="../../assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="../../assets/css/copy-button.css" />
+<script type="text/javascript" src="../../../assets/js/copy-button.js"></script>
+<link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: グラフ上の最短距離 <small>(Graph/shortest_path.cpp)</small>
+# :warning: グラフ上の最短距離 <small>(Graph/pre17/shortest_path.cpp)</small>
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/Graph/shortest_path.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#694801437bb6e7915892bf31576387fb">Graph/pre17</a>
+* <a href="{{ site.github.repository_url }}/blob/master/Graph/pre17/shortest_path.cpp">View this file on GitHub</a>
     - Last commit date: 2020-05-07 20:42:31+09:00
 
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Code
@@ -75,12 +75,15 @@ auto shortest_path(AdjacencyList const& g, size_t s, dijkstra_tag) {
   std::priority_queue<pair, std::vector<pair>, std::greater<>> pq;
   pq.emplace(0, s);
   while (!pq.empty()) {
-    auto [w, v] = pq.top();
+    weight_type w;
+    size_t v;
+    std::tie(w, v) = pq.top();
     pq.pop();
     if (d[v] < w) continue;
     for (auto const& e: g[v]) {
       size_t nv = e.target();
-      if (auto nw = w + e.weight(); nw < d[nv]) {
+      auto nw = w + e.weight();
+      if (nw < d[nv]) {
         d[nv] = nw;
         pq.emplace(nw, nv);
       }
@@ -122,7 +125,7 @@ auto shortest_path(AdjacencyList const& g, size_t s, bfs01_tag) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "Graph/shortest_path.cpp"
+#line 1 "Graph/pre17/shortest_path.cpp"
 
 
 
@@ -152,7 +155,7 @@ template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
 
 
-#line 16 "Graph/shortest_path.cpp"
+#line 16 "Graph/pre17/shortest_path.cpp"
 
 struct dijkstra_tag {} dijkstra;
 struct bfs01_tag {} bfs01;
@@ -167,12 +170,15 @@ auto shortest_path(AdjacencyList const& g, size_t s, dijkstra_tag) {
   std::priority_queue<pair, std::vector<pair>, std::greater<>> pq;
   pq.emplace(0, s);
   while (!pq.empty()) {
-    auto [w, v] = pq.top();
+    weight_type w;
+    size_t v;
+    std::tie(w, v) = pq.top();
     pq.pop();
     if (d[v] < w) continue;
     for (auto const& e: g[v]) {
       size_t nv = e.target();
-      if (auto nw = w + e.weight(); nw < d[nv]) {
+      auto nw = w + e.weight();
+      if (nw < d[nv]) {
         d[nv] = nw;
         pq.emplace(nw, nv);
       }
@@ -211,5 +217,5 @@ auto shortest_path(AdjacencyList const& g, size_t s, bfs01_tag) {
 ```
 {% endraw %}
 
-<a href="../../index.html">Back to top page</a>
+<a href="../../../index.html">Back to top page</a>
 
