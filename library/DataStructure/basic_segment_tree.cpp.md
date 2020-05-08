@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/basic_segment_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 23:04:31+09:00
+    - Last commit date: 2020-05-08 23:49:38+09:00
 
 
 
@@ -194,8 +194,6 @@ public:
 
   template <typename Predicate>
   size_type foldl_bisect(size_type l, Predicate pred) const {
-    // Return minimum r such that pred(fold(l, r)) is false,
-    // or -1 (of size_type) if such r does not exist.
     size_type r = M_n+M_n;
     value_type x{};
     size_type h = 0;
@@ -228,8 +226,6 @@ public:
 
   template <typename Predicate>
   size_type foldr_bisect(size_type r, Predicate pred) const {
-    // Return maximum l such that pred(fold(l, r)) is false,
-    // of -1 (of size_type) if such does not exist.
     size_type l = M_n;
     value_type x{};
     size_type h = 0;
@@ -362,8 +358,6 @@ public:
 
   template <typename Predicate>
   size_type foldl_bisect(size_type l, Predicate pred) const {
-    // Return minimum r such that pred(fold(l, r)) is false,
-    // or -1 (of size_type) if such r does not exist.
     size_type r = M_n+M_n;
     value_type x{};
     size_type h = 0;
@@ -396,8 +390,6 @@ public:
 
   template <typename Predicate>
   size_type foldr_bisect(size_type r, Predicate pred) const {
-    // Return maximum l such that pred(fold(l, r)) is false,
-    // of -1 (of size_type) if such does not exist.
     size_type l = M_n;
     value_type x{};
     size_type h = 0;
