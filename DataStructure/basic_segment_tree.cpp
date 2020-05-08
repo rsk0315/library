@@ -4,6 +4,7 @@
 /**
  * @brief 単一更新セグメント木
  * @author えびちゃん
+ * @docs docs/basic_segment_tree.md
  */
 
 #include <cstddef>
