@@ -20,7 +20,7 @@ private:
   std::stack<value_type> M_front, M_back;
   std::stack<value_type> M_front_folded, M_back_folded;
 
-  void M_distribute_to_front() {
+  void M_rotate_to_front() {
     // precondition: M_front.empty(), M_back.size() == n > 0
     // postcondition: M_front.size() == (n+1)/2, M_back.size() == n/2
     size_type n = M_back.size();
@@ -40,7 +40,7 @@ private:
     }
   }
 
-  void M_distribute_to_back() {
+  void M_rotate_to_back() {
     // precondition: M_front.size() == n > 0, M_back.empty()
     // postcondition: M_front.size() == n/2, M_back.size() == (n+1)/2
     size_type n = M_front.size();
@@ -88,12 +88,12 @@ public:
   }
 
   void pop_back() {
-    if (M_back.empty()) M_distribute_to_back();
+    if (M_back.empty()) M_rotate_to_back();
     M_back.pop();
     M_back_folded.pop();
   }
   void pop_front() {
-    if (M_front.empty()) M_distribute_to_front();
+    if (M_front.empty()) M_rotate_to_front();
     M_front.pop();
     M_front_folded.pop();
   }
