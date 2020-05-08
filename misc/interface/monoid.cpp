@@ -12,7 +12,7 @@ public:
   using value_type = Tp;
 
 private:
-  value_type M_x;
+  value_type M_x = /* identity */;
 
 public:
   monoid() = default;  // identity
