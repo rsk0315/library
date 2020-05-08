@@ -7,6 +7,8 @@
  * @docs docs/basic_segment_tree.md
  */
 
+// ---
+
 #include <cstddef>
 #include <algorithm>
 #include <vector>
