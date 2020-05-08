@@ -2,7 +2,7 @@
 #define H_action_min_min
 
 /**
- * @brief 区間最小値・区間加算用のヘルパークラス
+ * @brief 区間最小値・区間最小値更新用のヘルパークラス
  * @author えびちゃん
  */
 
