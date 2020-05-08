@@ -113,8 +113,8 @@ template <typename Predicate>
 size_type foldl_bisect(size_type l, Predicate pred) const;
 ```
 
-$\\mathtt{fold}(l, n)$ が真の場合は `size_type` の `-1` を返します。
-そうでない場合、$\\mathit{pred}(\\mathtt{fold}(l, r))$ が真になるような最大の $r$ を返します。
+$\\mathit{fold}(l, n)$ が真の場合は `size_type` の `-1` を返します。
+そうでない場合、$\\mathit{pred}(\\mathit{fold}(l, r))$ が真になるような最大の $r$ を返します。
 計算量は $O(\\log(n))$ です。
 
 ```
@@ -122,8 +122,8 @@ template <typename Predicate>
 size_type foldr_bisect(size_type r, Predicate pred) const;
 ```
 
-$\\mathit{pred}(\\mathtt{fold}(0, r))$ が真の場合は `size_type` の `-1` を返します。
-そうでない場合、$\\mathit{pred}(\\mathtt{fold}(l, r))$ が偽になるような最大の $l$ を返します。
+$\\mathit{pred}(\\mathit{fold}(0, r))$ が真の場合は `size_type` の `-1` を返します。
+そうでない場合、$\\mathit{pred}(\\mathit{fold}(l, r))$ が偽になるような最大の $l$ を返します。
 計算量は $O(\\log(n))$ です。
 
 `fold*_bisect` で返される境界値について補足します。
