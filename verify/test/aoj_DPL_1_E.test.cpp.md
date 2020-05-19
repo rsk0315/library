@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:37:10+09:00
+    - Last commit date: 2020-05-20 05:22:02+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
@@ -96,13 +96,13 @@ int main() {
 #include <vector>
 
 #line 1 "utility/make/vector.cpp"
+
+
+
 /**
  * @brief 多次元 vector の作成
  * @author えびちゃん
  */
-
-#ifndef H_make_vector
-#define H_make_vector
 
 #include <cstddef>
 #include <type_traits>
@@ -128,7 +128,7 @@ auto make_vector(size_t const(&sizes)[Nb], Tp const& x = Tp()) {
   return detail::make_vector<Tp, Nb>(s, x);
 }
 
-#endif  /* !defined(H_make_vector) */
+
 #line 10 "test/aoj_DPL_1_E.test.cpp"
 
 int main() {

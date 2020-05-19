@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_convolution_mod_raw.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-23 19:40:18+09:00
+    - Last commit date: 2020-05-20 05:21:44+09:00
 
 
 * see: <a href="http://wwwa.pikara.ne.jp/okojisan/stockham/">http://wwwa.pikara.ne.jp/okojisan/stockham/</a>
@@ -487,6 +487,8 @@ void fft4(std::vector<mi>& x, bool inv = false) {
 #include <type_traits>
 #line 18 "utility/fast_io.cpp"
 
+#line 20 "utility/fast_io.cpp"
+
 namespace fast {
   static constexpr size_t buf_size = 1 << 17;
   static constexpr size_t margin = 1;
@@ -543,12 +545,12 @@ namespace fast {
       }
       do {
         memcpy(minibuf, pos, 8);
-        long c = *(long*)minibuf;
-        long d = (c & digit_mask) ^ digit_mask;
+        intmax_t c = *(intmax_t*)minibuf;
+        intmax_t d = (c & digit_mask) ^ digit_mask;
         int skip = 8;
         int shift = 8;
         if (d) {
-          int ctz = __builtin_ctzl(d);
+          int ctz = countr_zero<uintmax_t>(d);
           if (ctz == 4) break;
           c &= (1L << (ctz-5)) - 1;
           int discarded = (68-ctz) / 8;
@@ -589,7 +591,7 @@ namespace fast {
               typename enable_if_integral<Integral>::type* = nullptr>
     // Use scan_parallel(x) only when x may be too large (about 10^12).
     // Otherwise, even when x <= 10^9, scan_serial(x) may be faster.
-    void scan(Integral& x) { scan_parallel(x); }
+    void scan(Integral& x) { scan_serial(x); }
 
     void scan_serial(std::string& s) {
       // until first whitespace
@@ -661,21 +663,21 @@ namespace fast {
         return 18;  // 3
       }
       return 19;  // 2
-      // if (n < tenpow[19]) return 19;  // 3
-      // return 20;  // 3
+      if (n < tenpow[19]) return 19;  // 3
+      return 20;  // 3
     }
 
     void M_precompute() {
-      unsigned long const digit1 = 0x0200000002000000;
-      unsigned long const digit2 = 0xf600fffff6010000;
-      unsigned long const digit3 = 0xfff600fffff60100;
-      unsigned long const digit4 = 0xfffff600fffff601;
-      unsigned long counter = 0x3130303030303030;
+      uintmax_t const digit1 = 0x0200000002000000;
+      uintmax_t const digit2 = 0xf600fffff6010000;
+      uintmax_t const digit3 = 0xfff600fffff60100;
+      uintmax_t const digit4 = 0xfffff600fffff601;
+      uintmax_t counter = 0x3130303030303030;
       for (int i = 0, i4 = 0; i4 < 10; ++i4, counter += digit4)
         for (int i3 = 0; i3 < 10; ++i3, counter += digit3)
           for (int i2 = 0; i2 < 10; ++i2, counter += digit2)
             for (int i1 = 0; i1 < 5; ++i1, ++i, counter += digit1)
-              *((unsigned long*)inttab + i) = counter;
+              *((uintmax_t*)inttab + i) = counter;
     }
 
   public:

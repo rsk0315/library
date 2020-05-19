@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small>
+# :warning: 区間最大値・区間加算用のヘルパークラス <small>(utility/action/add_max.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
-* <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/max.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+* category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
+* <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_max.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-20 05:23:00+09:00
 
 
 
@@ -39,19 +39,7 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-
-
-## Required by
-
-* :warning: <a href="../action/add_max.cpp.html">区間最大値・区間加算用のヘルパークラス <small>(utility/action/add_max.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/aoj_0613.test.cpp.html">test/aoj_0613.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
+* :heavy_check_mark: <a href="../monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
 
 
 ## Code
@@ -59,58 +47,27 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef H_max_monoid
-#define H_max_monoid
+#ifndef H_action_add_max
+#define H_action_add_max
 
 /**
- * @brief max を得る演算のモノイド
+ * @brief 区間最大値・区間加算用のヘルパークラス
  * @author えびちゃん
  */
 
-#include <algorithm>
-#include <utility>
-
-#include "utility/limits.cpp"
+#include "utility/monoid/max.cpp"
 
 template <typename Tp>
-class max_monoid {
-public:
-  using value_type = Tp;
+struct action_add_to_max {
+  using operand_type = max_monoid<Tp>;
+  using action_type = Tp;
 
-private:
-  value_type M_x = limits<value_type>::min();
-
-public:
-  max_monoid() = default;  // identity
-  max_monoid(max_monoid const&) = default;
-  max_monoid(max_monoid&&) = default;
-
-  max_monoid(value_type const& x): M_x(x) {};
-  max_monoid(value_type&& x): M_x(std::move(x)) {};
-
-  max_monoid& operator =(max_monoid const&) = default;
-  max_monoid& operator =(max_monoid&&) = default;
-
-  max_monoid& operator +=(max_monoid const& that) {
-    M_x = std::max(M_x, that.M_x);
-    return *this;
+  static void act(operand_type& op, action_type const& a) {
+    op = operand_type(std::move(op).get() + a);
   }
-  max_monoid& operator +=(max_monoid&& that) {
-    M_x = std::max(M_x, std::move(that.M_x));
-    return *this;
-  }
-
-  max_monoid operator +(max_monoid const& that) const {
-    return max_monoid(*this) += that;
-  }
-  max_monoid operator +(max_monoid&& that) const {
-    return max_monoid(*this) += std::move(that);
-  }
-
-  value_type const& get() const { return M_x; }
 };
 
-#endif  /* !defined(H_max_monoid) */
+#endif  /* !defined(H_action_add_max) */
 
 ```
 {% endraw %}
@@ -118,6 +75,15 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
+#line 1 "utility/action/add_max.cpp"
+
+
+
+/**
+ * @brief 区間最大値・区間加算用のヘルパークラス
+ * @author えびちゃん
+ */
+
 #line 1 "utility/monoid/max.cpp"
 
 
@@ -183,6 +149,19 @@ public:
   }
 
   value_type const& get() const { return M_x; }
+};
+
+
+#line 10 "utility/action/add_max.cpp"
+
+template <typename Tp>
+struct action_add_to_max {
+  using operand_type = max_monoid<Tp>;
+  using action_type = Tp;
+
+  static void act(operand_type& op, action_type const& a) {
+    op = operand_type(std::move(op).get() + a);
+  }
 };
 
 

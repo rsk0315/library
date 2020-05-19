@@ -61,6 +61,7 @@ layout: default
 * :heavy_check_mark: <a href="library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
+* :warning: <a href="library/DataStructure/starry_sky_tree.cpp.html">starry-sky tree <small>(DataStructure/starry_sky_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 
 
@@ -161,6 +162,7 @@ layout: default
 ### utility
 
 * :heavy_check_mark: <a href="library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
+* :warning: <a href="library/utility/four_neighbor.cpp.html">4-近傍 <small>(utility/four_neighbor.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
@@ -169,6 +171,7 @@ layout: default
 
 ### utility/action
 
+* :warning: <a href="library/utility/action/add_max.cpp.html">区間最大値・区間加算用のヘルパークラス <small>(utility/action/add_max.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
@@ -218,6 +221,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0613.test.cpp.html">test/aoj_0613.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>

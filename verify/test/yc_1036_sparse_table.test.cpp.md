@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_1036_sparse_table.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-27 20:46:59+09:00
+    - Last commit date: 2020-05-20 05:21:34+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/1036">https://yukicoder.me/problems/no/1036</a>
@@ -276,6 +276,7 @@ public:
   }
 
   value_type fold(size_type l, size_type r) const {
+    if (l >= r) return {};
     size_type e = ilog2(r-l);
     r -= (1_zu << e) - 1;
     return M_c[e][l] + M_c[e][r-1];

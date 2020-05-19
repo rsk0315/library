@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_many_aplusb.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-05-20 05:21:44+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/many_aplusb">https://judge.yosupo.jp/problem/many_aplusb</a>
@@ -39,6 +39,7 @@ layout: default
 
 ## Depends on
 
+* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 * :heavy_check_mark: <a href="../../library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 
 
@@ -93,6 +94,118 @@ int main() {
 #include <string>
 #include <type_traits>
 #include <utility>
+
+#line 1 "integer/bit.cpp"
+
+
+
+/** 
+ * @brief ビット演算
+ * @author えびちゃん
+ */
+
+// XXX integral promotion 関連の注意をあまりしていません
+
+#include <climits>
+#include <type_traits>
+
+template <typename Tp>
+constexpr auto countl_zero(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  int bits = (sizeof(value_type) * CHAR_BIT);
+  if (n == 0) return bits;
+  int res = 0;
+  for (int i = bits / 2; i > 0; i /= 2) {
+    value_type mask = ((static_cast<value_type>(1) << i) - 1) << i;
+    if (n & mask) n >>= i;
+    else res += i;
+  }
+  return res;
+}
+template <typename Tp>
+constexpr auto countl_one(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  return countl_zero(static_cast<value_type>(~n));
+}
+
+template <typename Tp>
+constexpr auto countr_zero(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  int bits = (sizeof(value_type) * CHAR_BIT);
+  if (n == 0) return bits;
+  int res = 0;
+  for (int i = bits / 2; i > 0; i /= 2) {
+    value_type mask = ((static_cast<value_type>(1) << i) - 1);
+    if (!(n & mask)) res += i, n >>= i;
+  }
+  return res;
+}
+template <typename Tp>
+constexpr auto countr_one(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  using value_type = typename std::make_unsigned<Tp>::type;
+  return countr_zero(static_cast<value_type>(~n));
+}
+
+constexpr unsigned long long half_mask[] = {
+  0x5555555555555555uLL, 0x3333333333333333uLL, 0x0F0F0F0F0F0F0F0FuLL,
+  0x00FF00FF00FF00FFuLL, 0x0000FFFF0000FFFFuLL, 0x00000000FFFFFFFFuLL
+};
+
+template <typename Tp>
+constexpr auto popcount(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{
+  int bits = static_cast<int>((sizeof n) * CHAR_BIT);
+  for (int i = 0, j = 1; j < bits; ++i, j *= 2) {
+    if (j <= 8) n = (n & half_mask[i]) + ((n >> j) & half_mask[i]);
+    else n += n >> j;
+  }
+  return n & 0xFF;
+}
+
+template <typename Tp>
+constexpr auto parity(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, int>::type
+{ return popcount(n) & 1; }
+
+
+template <typename Tp>
+int clz(Tp n) { return countl_zero(static_cast<typename std::make_unsigned<Tp>::type>(n)); }
+template <typename Tp>
+int ctz(Tp n) { return countr_zero(static_cast<typename std::make_unsigned<Tp>::type>(n)); }
+
+template <typename Tp>
+int ilog2(Tp n) {
+  return (CHAR_BIT * sizeof(Tp) - 1) - clz(static_cast<typename std::make_unsigned<Tp>::type>(n));
+}
+template <typename Tp>
+bool is_pow2(Tp n) { return (n > 0) && ((n & (n-1)) == 0); }
+template <typename Tp>
+Tp floor2(Tp n) { return is_pow2(n)? n: static_cast<Tp>(1) << ilog2(n); }
+template <typename Tp>
+Tp ceil2(Tp n) { return is_pow2(n)? n: static_cast<Tp>(2) << ilog2(n); }
+
+template <typename Tp>
+constexpr auto reverse(Tp n)
+  -> typename std::enable_if<std::is_unsigned<Tp>::value, Tp>::type
+{
+  int bits = static_cast<int>((sizeof n) * CHAR_BIT);
+  for (int i = 0, j = 1; j < bits; ++i, j *= 2) {
+    n = ((n & half_mask[i]) << j) | ((n >> j) & half_mask[i]);
+  }
+  return n;
+}
+
+
+#line 20 "utility/fast_io.cpp"
 
 namespace fast {
   static constexpr size_t buf_size = 1 << 17;
@@ -150,12 +263,12 @@ namespace fast {
       }
       do {
         memcpy(minibuf, pos, 8);
-        long c = *(long*)minibuf;
-        long d = (c & digit_mask) ^ digit_mask;
+        intmax_t c = *(intmax_t*)minibuf;
+        intmax_t d = (c & digit_mask) ^ digit_mask;
         int skip = 8;
         int shift = 8;
         if (d) {
-          int ctz = __builtin_ctzl(d);
+          int ctz = countr_zero<uintmax_t>(d);
           if (ctz == 4) break;
           c &= (1L << (ctz-5)) - 1;
           int discarded = (68-ctz) / 8;
@@ -196,7 +309,7 @@ namespace fast {
               typename enable_if_integral<Integral>::type* = nullptr>
     // Use scan_parallel(x) only when x may be too large (about 10^12).
     // Otherwise, even when x <= 10^9, scan_serial(x) may be faster.
-    void scan(Integral& x) { scan_parallel(x); }
+    void scan(Integral& x) { scan_serial(x); }
 
     void scan_serial(std::string& s) {
       // until first whitespace
@@ -268,21 +381,21 @@ namespace fast {
         return 18;  // 3
       }
       return 19;  // 2
-      // if (n < tenpow[19]) return 19;  // 3
-      // return 20;  // 3
+      if (n < tenpow[19]) return 19;  // 3
+      return 20;  // 3
     }
 
     void M_precompute() {
-      unsigned long const digit1 = 0x0200000002000000;
-      unsigned long const digit2 = 0xf600fffff6010000;
-      unsigned long const digit3 = 0xfff600fffff60100;
-      unsigned long const digit4 = 0xfffff600fffff601;
-      unsigned long counter = 0x3130303030303030;
+      uintmax_t const digit1 = 0x0200000002000000;
+      uintmax_t const digit2 = 0xf600fffff6010000;
+      uintmax_t const digit3 = 0xfff600fffff60100;
+      uintmax_t const digit4 = 0xfffff600fffff601;
+      uintmax_t counter = 0x3130303030303030;
       for (int i = 0, i4 = 0; i4 < 10; ++i4, counter += digit4)
         for (int i3 = 0; i3 < 10; ++i3, counter += digit3)
           for (int i2 = 0; i2 < 10; ++i2, counter += digit2)
             for (int i1 = 0; i1 < 5; ++i1, ++i, counter += digit1)
-              *((unsigned long*)inttab + i) = counter;
+              *((uintmax_t*)inttab + i) = counter;
     }
 
   public:

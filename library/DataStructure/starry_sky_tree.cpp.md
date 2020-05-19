@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: sparse table <small>(DataStructure/sparse_table.cpp)</small>
+# :warning: starry-sky tree <small>(DataStructure/starry_sky_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/sparse_table.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-20 05:21:34+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/DataStructure/starry_sky_tree.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-05-20 05:22:34+09:00
 
 
 
@@ -39,12 +39,6 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/yc_1036_sparse_table.test.cpp.html">test/yc_1036_sparse_table.test.cpp</a>
 
 
 ## Code
@@ -52,66 +46,56 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#ifndef H_sparse_table
-#define H_sparse_table
+#ifndef H_starry_sky_tree
+#define H_starry_sky_tree
 
 /**
- * @brief sparse table
+ * @brief starry-sky tree
  * @author えびちゃん
  */
 
 #include <cstddef>
-#include <vector>
+#include <algorithm>
 
-#include "utility/literals.cpp"
 #include "integer/bit.cpp"
 
-template <typename Band>
-class sparse_table {
+template <typename Tp>
+class starry_sky_tree {
 public:
   using size_type = size_t;
-  using value_type = Band;
+  using value_type = Tp;
 
 private:
-  std::vector<std::vector<value_type>> M_c;
+  size_type M_n = 0;
+  std::vector<value_type> M_c;
 
-public:
-  sparse_table() = default;
-
-  template <typename InputIt>
-  sparse_table(InputIt first, InputIt last) {
-    assign(first, last);
-  }
-  template <typename InputIt>
-  sparse_table(std::initializer_list<value_type> il) {
-    assign(il.begin(), il.end());
-  }
-
-  template <typename InputIt>
-  void assign(InputIt first, InputIt last) {
-    M_c.assign(1, std::vector<value_type>(first, last));
-    size_type n = M_c[0].size();
-    for (size_type i = 1, ii = 1; M_c.back().size() > ii; (++i, ii <<= 1)) {
-      M_c.emplace_back();
-      M_c.back().reserve(n - ii);
-      for (size_type j = ii; j < M_c[i-1].size(); ++j)
-        M_c[i].push_back(M_c[i-1][j] + M_c[i-1][j-ii]);
+  void M_fix_up(size_type i) {
+    for (; i > 1; i >>= 1) {
+      value_type d = std::max(M_c[i], M_c[i^1]);
+      M_c[i] -= d;
+      M_c[i^1] -= d;
+      M_c[i >> 1] += d;
     }
   }
 
-  void assign(std::initializer_list<value_type> il) {
-    assign(il.begin(), il.end());
+public:
+  starry_sky_tree() = default;
+  starry_sky_tree(size_type n): M_n(ceil2(n)), M_c(2*M_n, value_type{0}) {}
+
+  void add(size_type l, size_type r, value_type const& x) {
+    if (l >= r) return;
+    l += M_n, r += M_n;
+    for (size_type il = l, ir = r; il < ir; il >>= 1, ir >>= 1) {
+      if (il & 1) M_c[il++] += x;
+      if (ir & 1) M_c[--ir] += x;
+    }
+    M_fix_up(l), M_fix_up(r-1);
   }
 
-  value_type fold(size_type l, size_type r) const {
-    if (l >= r) return {};
-    size_type e = ilog2(r-l);
-    r -= (1_zu << e) - 1;
-    return M_c[e][l] + M_c[e][r-1];
-  }
+  value_type max() const { return M_c[1]; }
 };
 
-#endif /* !defined(H_sparse_table) */
+#endif  /* !defined(H_starry_sky_tree) */
 
 ```
 {% endraw %}
@@ -119,35 +103,17 @@ public:
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "DataStructure/sparse_table.cpp"
+#line 1 "DataStructure/starry_sky_tree.cpp"
 
 
 
 /**
- * @brief sparse table
+ * @brief starry-sky tree
  * @author えびちゃん
  */
 
 #include <cstddef>
-#include <vector>
-
-#line 1 "utility/literals.cpp"
-
-
-
-/**
- * @brief ユーザ定義リテラル
- * @author えびちゃん
- */
-
-#line 10 "utility/literals.cpp"
-#include <cstdint>
-
-constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
-constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
-constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
-constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
-
+#include <algorithm>
 
 #line 1 "integer/bit.cpp"
 
@@ -259,51 +225,42 @@ constexpr auto reverse(Tp n)
 }
 
 
-#line 14 "DataStructure/sparse_table.cpp"
+#line 13 "DataStructure/starry_sky_tree.cpp"
 
-template <typename Band>
-class sparse_table {
+template <typename Tp>
+class starry_sky_tree {
 public:
   using size_type = size_t;
-  using value_type = Band;
+  using value_type = Tp;
 
 private:
-  std::vector<std::vector<value_type>> M_c;
+  size_type M_n = 0;
+  std::vector<value_type> M_c;
 
-public:
-  sparse_table() = default;
-
-  template <typename InputIt>
-  sparse_table(InputIt first, InputIt last) {
-    assign(first, last);
-  }
-  template <typename InputIt>
-  sparse_table(std::initializer_list<value_type> il) {
-    assign(il.begin(), il.end());
-  }
-
-  template <typename InputIt>
-  void assign(InputIt first, InputIt last) {
-    M_c.assign(1, std::vector<value_type>(first, last));
-    size_type n = M_c[0].size();
-    for (size_type i = 1, ii = 1; M_c.back().size() > ii; (++i, ii <<= 1)) {
-      M_c.emplace_back();
-      M_c.back().reserve(n - ii);
-      for (size_type j = ii; j < M_c[i-1].size(); ++j)
-        M_c[i].push_back(M_c[i-1][j] + M_c[i-1][j-ii]);
+  void M_fix_up(size_type i) {
+    for (; i > 1; i >>= 1) {
+      value_type d = std::max(M_c[i], M_c[i^1]);
+      M_c[i] -= d;
+      M_c[i^1] -= d;
+      M_c[i >> 1] += d;
     }
   }
 
-  void assign(std::initializer_list<value_type> il) {
-    assign(il.begin(), il.end());
+public:
+  starry_sky_tree() = default;
+  starry_sky_tree(size_type n): M_n(ceil2(n)), M_c(2*M_n, value_type{0}) {}
+
+  void add(size_type l, size_type r, value_type const& x) {
+    if (l >= r) return;
+    l += M_n, r += M_n;
+    for (size_type il = l, ir = r; il < ir; il >>= 1, ir >>= 1) {
+      if (il & 1) M_c[il++] += x;
+      if (ir & 1) M_c[--ir] += x;
+    }
+    M_fix_up(l), M_fix_up(r-1);
   }
 
-  value_type fold(size_type l, size_type r) const {
-    if (l >= r) return {};
-    size_type e = ilog2(r-l);
-    r -= (1_zu << e) - 1;
-    return M_c[e][l] + M_c[e][r-1];
-  }
+  value_type max() const { return M_c[1]; }
 };
 
 
