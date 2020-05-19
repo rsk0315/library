@@ -1,10 +1,10 @@
+#ifndef H_make_vector
+#define H_make_vector
+
 /**
  * @brief 多次元 vector の作成
  * @author えびちゃん
  */
-
-#ifndef H_make_vector
-#define H_make_vector
 
 #include <cstddef>
 #include <type_traits>
