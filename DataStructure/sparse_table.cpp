@@ -50,6 +50,7 @@ public:
   }
 
   value_type fold(size_type l, size_type r) const {
+    if (l >= r) return {};
     size_type e = ilog2(r-l);
     r -= (1_zu << e) - 1;
     return M_c[e][l] + M_c[e][r-1];
