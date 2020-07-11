@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_min.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-08 21:15:09+09:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
 
@@ -111,9 +111,21 @@ struct action_add_to_min {
  */
 
 #include <limits>
+#line 11 "utility/limits.cpp"
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 #line 13 "utility/monoid/min.cpp"

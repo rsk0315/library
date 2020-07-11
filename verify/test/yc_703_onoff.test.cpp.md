@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_703_onoff.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
 * see: <a href="https://yukicoder.me/problems/no/703">https://yukicoder.me/problems/no/703</a>
@@ -182,9 +182,21 @@ auto monotone_minima(Fn&& f, size_t h, size_t w) {
  */
 
 #include <limits>
+#line 11 "utility/limits.cpp"
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 #line 1 "utility/make/fix_point.cpp"

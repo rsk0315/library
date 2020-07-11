@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_segment_add_get_min.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-24 09:40:47+09:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/segment_add_get_min">https://judge.yosupo.jp/problem/segment_add_get_min</a>
@@ -138,9 +138,21 @@ int main() {
  */
 
 #include <limits>
+#include <utility>
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 #line 1 "DataStructure/li_chao_tree.cpp"
@@ -153,8 +165,6 @@ class limits: public std::numeric_limits<Tp> {};
  */
 
 #include <cstddef>
-#line 11 "DataStructure/li_chao_tree.cpp"
-#include <utility>
 #line 13 "DataStructure/li_chao_tree.cpp"
 
 #line 15 "DataStructure/li_chao_tree.cpp"

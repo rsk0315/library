@@ -38,6 +38,7 @@ layout: default
 
 ## Required by
 
+* :warning: <a href="../../misc/interface/action.cpp.html">作用のヘルパークラス <small>(misc/interface/action.cpp)</small></a>
 * :heavy_check_mark: <a href="../action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
 * :heavy_check_mark: <a href="../action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>

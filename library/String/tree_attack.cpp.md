@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/tree_attack.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 04:52:14+09:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/60442">https://codeforces.com/blog/entry/60442</a>
@@ -182,6 +182,15 @@ constexpr intmax_t  operator ""_jd(unsigned long long n) { return n; }
 constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
 constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
 constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
+
+constexpr int8_t   operator ""_i8(unsigned long long n)  { return n; }
+constexpr int16_t  operator ""_i16(unsigned long long n) { return n; }
+constexpr int32_t  operator ""_i32(unsigned long long n) { return n; }
+constexpr int64_t  operator ""_i64(unsigned long long n) { return n; }
+constexpr uint8_t  operator ""_u8(unsigned long long n)  { return n; }
+constexpr uint16_t operator ""_u16(unsigned long long n) { return n; }
+constexpr uint32_t operator ""_u32(unsigned long long n) { return n; }
+constexpr uint64_t operator ""_u64(unsigned long long n) { return n; }
 
 
 #line 18 "String/tree_attack.cpp"

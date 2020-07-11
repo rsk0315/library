@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/limits.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-06 23:03:06+09:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
 
@@ -87,9 +87,21 @@ layout: default
  */
 
 #include <limits>
+#include <utility>
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 #endif  /* !defined(H_limits) */
 
@@ -109,9 +121,21 @@ class limits: public std::numeric_limits<Tp> {};
  */
 
 #include <limits>
+#include <utility>
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 

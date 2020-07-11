@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#4cdbd2bafa8193091ba09509cedf94fd">Graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/dinitz.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-24 09:56:38+09:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
 
@@ -171,6 +171,15 @@ constexpr uintmax_t operator ""_ju(unsigned long long n) { return n; }
 constexpr size_t    operator ""_zu(unsigned long long n) { return n; }
 constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
 
+constexpr int8_t   operator ""_i8(unsigned long long n)  { return n; }
+constexpr int16_t  operator ""_i16(unsigned long long n) { return n; }
+constexpr int32_t  operator ""_i32(unsigned long long n) { return n; }
+constexpr int64_t  operator ""_i64(unsigned long long n) { return n; }
+constexpr uint8_t  operator ""_u8(unsigned long long n)  { return n; }
+constexpr uint16_t operator ""_u16(unsigned long long n) { return n; }
+constexpr uint32_t operator ""_u32(unsigned long long n) { return n; }
+constexpr uint64_t operator ""_u64(unsigned long long n) { return n; }
+
 
 #line 1 "utility/limits.cpp"
 
@@ -182,9 +191,21 @@ constexpr ptrdiff_t operator ""_td(unsigned long long n) { return n; }
  */
 
 #include <limits>
+#include <utility>
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 #line 1 "utility/make/fix_point.cpp"
@@ -196,7 +217,7 @@ class limits: public std::numeric_limits<Tp> {};
 #ifndef H_make_fix_point
 #define H_make_fix_point
 
-#include <utility>
+#line 10 "utility/make/fix_point.cpp"
 
 template <typename Fn>
 class fix_point: Fn {

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#694801437bb6e7915892bf31576387fb">Graph/pre17</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Graph/pre17/shortest_path.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-07 20:42:31+09:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
 
@@ -150,9 +150,21 @@ auto shortest_path(AdjacencyList const& g, size_t s, bfs01_tag) {
  */
 
 #include <limits>
+#line 11 "utility/limits.cpp"
 
 template <typename Tp>
 class limits: public std::numeric_limits<Tp> {};
+
+template <typename T1, typename T2>
+class limits<std::pair<T1, T2>> {
+public:
+  static constexpr auto min() {
+    return std::make_pair(limits<T1>::min(), limits<T2>::min());
+  }
+  static constexpr auto max() {
+    return std::make_pair(limits<T1>::max(), limits<T2>::max());
+  }
+};
 
 
 #line 16 "Graph/pre17/shortest_path.cpp"
