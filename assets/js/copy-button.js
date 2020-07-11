@@ -101,7 +101,7 @@ $(function() {
     $('#verify-files').append(` <small>[passed ${numOfPassedTests} test${suffix}]</small>`);
 
     {
-        let $commitBadge = $('a[href="https://github.io/rsk0315/library"]');
+        let $commitBadge = $('a[href="https://github.com/rsk0315/library"]');
         // https://atcoder-badges.now.sh/
         // $commitBadge.after(' [![rsk0315](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Frsk0315)](https://atcoder.jp/users/rsk0315)');
         // ここでこれを追加してもタグになってくれないじゃん！
@@ -113,7 +113,7 @@ $(function() {
             href: 'https://atcoder.jp/users/rsk0315',
         });
         $a.html($ratingBadge);
-        $commitBadge.after('&nbsp;');
+        $commitBadge.after(' ');
         $commitBadge.after($a);
     }
 });
