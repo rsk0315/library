@@ -109,10 +109,11 @@ $(function() {
             alt: 'rsk0315',
             src: 'https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Frsk0315'
         });
-        let $a = $(' <a>').attr({
+        let $a = $('<a>').attr({
             href: 'https://atcoder.jp/users/rsk0315',
         });
         $a.html($ratingBadge);
         $commitBadge.after($a);
+        $commitBadge.after(' ');
     }
 });
