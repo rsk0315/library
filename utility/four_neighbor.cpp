@@ -8,10 +8,12 @@
 
 #include <cstddef>
 #include <array>
+#include <utility>
 
 #include "utility/literals.cpp"
 
-constexpr std::array<size_t, 4> di{{-1_zu, 0, 1, 0}};
-constexpr std::array<size_t, 4> dj{{0, -1_zu, 0, 1}};
+constexpr std::array<std::pair<size_t, size_t>, 4> dij4{
+  {{-1_zu, 0}, {0, -1_zu}, {1, 0}, {0, 1}}
+};
 
 #endif  /* !defined(H_four_neighbor) */
