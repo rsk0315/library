@@ -113,7 +113,7 @@ $(function() {
             href: 'https://atcoder.jp/users/rsk0315',
         });
         $a.html($ratingBadge);
-        $commitBadge.after(' ');
+        $commitBadge.after('&nbsp;');
         $commitBadge.after($a);
     }
 });
