@@ -25,29 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
+# :warning: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/online_to_offline_optimization.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-11 14:49:45+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :heavy_check_mark: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 
 
 ## Code
@@ -93,14 +79,15 @@ auto online_to_offline_optimization(Fn&& f, size_t n, decltype(f(n, n)) init = 0
   };
 
   make_fix_point([&](auto& solve, size_t l, size_t r) -> void {
-      if (l+1 == r) {
-        if (r < n) dp[r] = std::min(dp[r], dp[l] + f(l, r));
-        return;
-      }
-      size_t m = (l+r) >> 1;
-      solve(l, m);
-      induce(l, m, r);
-      solve(m, r);
+    if (l+1 == r) return;
+    if (l+2 == r) {
+      if (r <= n) dp[l+1] = std::min(dp[l+1], dp[l] + f(l, l+1));
+      return;
+    }
+    size_t m = (l+r) >> 1;
+    solve(l, m);
+    induce(l, m, r);
+    solve(m, r);
   })(0, n);
   return dp;
 }
@@ -273,14 +260,15 @@ auto online_to_offline_optimization(Fn&& f, size_t n, decltype(f(n, n)) init = 0
   };
 
   make_fix_point([&](auto& solve, size_t l, size_t r) -> void {
-      if (l+1 == r) {
-        if (r < n) dp[r] = std::min(dp[r], dp[l] + f(l, r));
-        return;
-      }
-      size_t m = (l+r) >> 1;
-      solve(l, m);
-      induce(l, m, r);
-      solve(m, r);
+    if (l+1 == r) return;
+    if (l+2 == r) {
+      if (r <= n) dp[l+1] = std::min(dp[l+1], dp[l] + f(l, l+1));
+      return;
+    }
+    size_t m = (l+r) >> 1;
+    solve(l, m);
+    induce(l, m, r);
+    solve(m, r);
   })(0, n);
   return dp;
 }

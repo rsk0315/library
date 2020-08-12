@@ -25,26 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small>
+# :warning: mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/rolling_hash_l61m1.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-11 14:53:01+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
 * see: <a href="https://qiita.com/keymoon/items/11fac5627672a6d6a9f6">https://qiita.com/keymoon/items/11fac5627672a6d6a9f6</a>
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/aoj_ALDS1_14_B_l61m1.test.cpp.html">test/aoj_ALDS1_14_B_l61m1.test.cpp</a>
 
 
 ## Code

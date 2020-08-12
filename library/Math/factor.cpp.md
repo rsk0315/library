@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/factor.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-29 14:28:22+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
 

@@ -25,21 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
+# :warning: ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/rolling_hash.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-27 23:07:02+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 
 
 ## Code

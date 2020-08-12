@@ -25,33 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small>
+# :warning: max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/max.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-11 14:49:45+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-
-
-## Required by
-
-* :warning: <a href="../action/add_max.cpp.html">区間最大値・区間加算用のヘルパークラス <small>(utility/action/add_max.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/aoj_0613.test.cpp.html">test/aoj_0613.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
 
 
 ## Code

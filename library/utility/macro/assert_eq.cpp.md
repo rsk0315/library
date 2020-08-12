@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small>
+# :warning: 等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ace665e51d5ef826ab32c568535c1658">utility/macro</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/macro/assert_eq.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-24 01:14:46+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
 
 
 ## Code

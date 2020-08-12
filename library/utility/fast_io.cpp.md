@@ -25,27 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: 高速入出力 <small>(utility/fast_io.cpp)</small>
+# :warning: 高速入出力 <small>(utility/fast_io.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/fast_io.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-05-20 05:21:44+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
 * see: <a href="https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4">https://qiita.com/rsk0315_h4x/items/17a9cb12e0de5fd918f4</a>
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
-* :heavy_check_mark: <a href="../../verify/test/yj_many_aplusb.test.cpp.html">test/yj_many_aplusb.test.cpp</a>
 
 
 ## Code

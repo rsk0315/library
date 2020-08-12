@@ -25,24 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yc_704_onoff.test.cpp
+# :x: test/yc_704_onoff.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_704_onoff.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-11 14:49:45+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-* see: <a href="https://yukicoder.me/problems/no/704">https://yukicoder.me/problems/no/704</a>
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="../../library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code
@@ -253,14 +244,15 @@ auto online_to_offline_optimization(Fn&& f, size_t n, decltype(f(n, n)) init = 0
   };
 
   make_fix_point([&](auto& solve, size_t l, size_t r) -> void {
-      if (l+1 == r) {
-        if (r < n) dp[r] = std::min(dp[r], dp[l] + f(l, r));
-        return;
-      }
-      size_t m = (l+r) >> 1;
-      solve(l, m);
-      induce(l, m, r);
-      solve(m, r);
+    if (l+1 == r) return;
+    if (l+2 == r) {
+      if (r <= n) dp[l+1] = std::min(dp[l+1], dp[l] + f(l, l+1));
+      return;
+    }
+    size_t m = (l+r) >> 1;
+    solve(l, m);
+    induce(l, m, r);
+    solve(m, r);
   })(0, n);
   return dp;
 }
