@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
 
 
 ## Code

@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_many_aplusb.test.cpp
+# :heavy_check_mark: test/yj_many_aplusb.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,8 +39,8 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :x: <a href="../../library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 
 
 ## Code

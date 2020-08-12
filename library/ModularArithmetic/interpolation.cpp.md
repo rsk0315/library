@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: 補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small>
+# :heavy_check_mark: 補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,15 +38,15 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
-* :question: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :question: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
-* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :heavy_check_mark: <a href="modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :heavy_check_mark: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
 
 
 ## Code

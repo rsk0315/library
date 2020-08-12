@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Z algorithm <small>(String/z_algorithm.cpp)</small>
+# :question: Z algorithm <small>(String/z_algorithm.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,7 +39,7 @@ layout: default
 ## Verified with
 
 * :x: <a href="../../verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
-* :x: <a href="../../verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
 
 
 ## Code

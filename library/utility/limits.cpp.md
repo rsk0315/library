@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :question: 型依存の定数 <small>(utility/limits.cpp)</small>
+# :heavy_check_mark: 型依存の定数 <small>(utility/limits.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Required by
 
-* :x: <a href="../DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
 * :warning: <a href="../Graph/pre17/shortest_path.cpp.html">グラフ上の最短距離 <small>(Graph/pre17/shortest_path.cpp)</small></a>
 * :warning: <a href="../Graph/shortest_path.cpp.html">グラフ上の最短距離 <small>(Graph/shortest_path.cpp)</small></a>
@@ -48,7 +48,7 @@ layout: default
 * :heavy_check_mark: <a href="action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
 * :warning: <a href="action/min_min.cpp.html">区間最小値・区間最小値更新用のヘルパークラス <small>(utility/action/min_min.cpp)</small></a>
 * :heavy_check_mark: <a href="monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
-* :question: <a href="monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
+* :heavy_check_mark: <a href="monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
 
 
 ## Verified with
@@ -68,9 +68,9 @@ layout: default
 * :heavy_check_mark: <a href="../../verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
 * :heavy_check_mark: <a href="../../verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
-* :x: <a href="../../verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
-* :x: <a href="../../verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
-* :x: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
 ## Code

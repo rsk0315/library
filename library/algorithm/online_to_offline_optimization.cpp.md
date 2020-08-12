@@ -39,8 +39,8 @@ layout: default
 ## Depends on
 
 * :heavy_check_mark: <a href="monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :question: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Verified with

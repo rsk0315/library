@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small>
+# :heavy_check_mark: rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,12 +38,12 @@ layout: default
 
 ## Required by
 
-* :x: <a href="rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
+* :heavy_check_mark: <a href="rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yj_persistent_unionfind_rollback.test.cpp.html">test/yj_persistent_unionfind_rollback.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_persistent_unionfind_rollback.test.cpp.html">test/yj_persistent_unionfind_rollback.test.cpp</a>
 
 
 ## Code

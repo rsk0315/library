@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :question: ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small>
+# :heavy_check_mark: ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -39,8 +39,8 @@ layout: default
 ## Required by
 
 * :heavy_check_mark: <a href="../../Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
-* :question: <a href="../../Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
-* :question: <a href="../../Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
+* :heavy_check_mark: <a href="../../Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :heavy_check_mark: <a href="../../Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 * :heavy_check_mark: <a href="../../algorithm/dp_on_tree.cpp.html">木 DP <small>(algorithm/dp_on_tree.cpp)</small></a>
 * :heavy_check_mark: <a href="../../algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
 * :heavy_check_mark: <a href="../../algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
@@ -59,9 +59,9 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
-* :x: <a href="../../../verify/test/yj_persistent_unionfind_rollback.test.cpp.html">test/yj_persistent_unionfind_rollback.test.cpp</a>
-* :x: <a href="../../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
-* :x: <a href="../../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_persistent_unionfind_rollback.test.cpp.html">test/yj_persistent_unionfind_rollback.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_scc.test.cpp.html">test/yj_scc.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yj_two_sat.test.cpp.html">test/yj_two_sat.test.cpp</a>
 
 
 ## Code

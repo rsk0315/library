@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small>
+# :heavy_check_mark: Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,13 +38,13 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :heavy_check_mark: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Verified with
 
-* :x: <a href="../../verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
-* :x: <a href="../../verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_line_add_get_min_li_chao_tree.test.cpp.html">test/yj_line_add_get_min_li_chao_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_segment_add_get_min.test.cpp.html">test/yj_segment_add_get_min.test.cpp</a>
 
 
 ## Code

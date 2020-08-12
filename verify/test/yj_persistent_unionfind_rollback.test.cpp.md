@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yj_persistent_unionfind_rollback.test.cpp
+# :heavy_check_mark: test/yj_persistent_unionfind_rollback.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
@@ -39,9 +39,9 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
-* :x: <a href="../../library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
-* :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code
