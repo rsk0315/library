@@ -31,9 +31,14 @@ layout: default
 
 * category: <a href="../../index.html#67b732dc42aaffa9056d34cc477c863c">utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/four_neighbor.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 
 
 ## Code

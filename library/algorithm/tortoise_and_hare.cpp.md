@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small>
+# :heavy_check_mark: 周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/tortoise_and_hare.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
 
 
 ## Code

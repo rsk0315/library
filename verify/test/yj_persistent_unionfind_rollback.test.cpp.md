@@ -31,9 +31,17 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_persistent_unionfind_rollback.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-07 20:42:49+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/persistent_unionfind">https://judge.yosupo.jp/problem/persistent_unionfind</a>
+
+
+## Depends on
+
+* :x: <a href="../../library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
+* :x: <a href="../../library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
+* :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code

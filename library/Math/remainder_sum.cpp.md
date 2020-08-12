@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: $i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small>
+# :heavy_check_mark: $i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/remainder_sum.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-23 19:40:26+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yc_752.test.cpp.html">test/yc_752.test.cpp</a>
 
 
 ## Code

@@ -31,9 +31,15 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-28 18:27:31+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
+
+
+## Depends on
+
+* :question: <a href="../../library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
 
 
 ## Code

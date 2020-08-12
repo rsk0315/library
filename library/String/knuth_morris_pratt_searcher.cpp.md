@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small>
+# :x: KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/knuth_morris_pratt_searcher.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/aoj_ALDS1_14_B_kmp.test.cpp.html">test/aoj_ALDS1_14_B_kmp.test.cpp</a>
 
 
 ## Code

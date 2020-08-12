@@ -31,9 +31,14 @@ layout: default
 
 * category: <a href="../../../index.html#73f33be586ad6030eddb73b8318d3cf9">misc/interface</a>
 * <a href="{{ site.github.repository_url }}/blob/master/misc/interface/action.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:53:33+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../../utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
 
 
 ## Code

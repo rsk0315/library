@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small>
+# :heavy_check_mark: disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/disjoint_sparse_table.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-25 20:44:34+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yc_1036_disjoint_sparse_table.test.cpp.html">test/yc_1036_disjoint_sparse_table.test.cpp</a>
 
 
 ## Code

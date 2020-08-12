@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small>
+# :heavy_check_mark: 線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#a49950aa047c2292e989e368a97a3aae">Math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/Math/lp_solver.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_2911.test.cpp.html">test/aoj_2911.test.cpp</a>
 
 
 ## Code

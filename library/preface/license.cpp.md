@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#dcaf23bbd71caccee83ae655fb01a59a">!PREFACE!</a>
 * <a href="{{ site.github.repository_url }}/blob/master/preface/license.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-22 02:17:04+09:00
 
 
 * see: <a href="https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/">https://kimiyuki.net/blog/2020/02/14/licenses-for-kyopro-libraries/</a>

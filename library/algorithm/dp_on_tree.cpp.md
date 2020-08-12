@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 木 DP <small>(algorithm/dp_on_tree.cpp)</small>
+# :heavy_check_mark: 木 DP <small>(algorithm/dp_on_tree.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/dp_on_tree.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
 
 
 ## Code

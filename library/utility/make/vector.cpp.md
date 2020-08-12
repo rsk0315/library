@@ -25,15 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 多次元 vector の作成 <small>(utility/make/vector.cpp)</small>
+# :heavy_check_mark: 多次元 vector の作成 <small>(utility/make/vector.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#eea2354d8759bbd52e8bbb508d91fa66">utility/make</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/make/vector.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-20 05:22:02+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DPL_1_E.test.cpp.html">test/aoj_DPL_1_E.test.cpp</a>
 
 
 ## Code

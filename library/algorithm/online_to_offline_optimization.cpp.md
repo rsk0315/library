@@ -25,15 +25,29 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
+# :heavy_check_mark: オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/online_to_offline_optimization.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-08-12 20:24:36+09:00
 
 
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
+* :question: <a href="../utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
 
 
 ## Code

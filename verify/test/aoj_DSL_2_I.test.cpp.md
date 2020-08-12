@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj_DSL_2_I.test.cpp
+# :heavy_check_mark: test/aoj_DSL_2_I.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DSL_2_I.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-27 02:33:44+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I</a>
+
+
+## Depends on
+
+* :question: <a href="../../library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :question: <a href="../../library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+* :question: <a href="../../library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Code

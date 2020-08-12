@@ -25,15 +25,24 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/yc_704_onoff.test.cpp
+# :heavy_check_mark: test/yc_704_onoff.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yc_704_onoff.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-08-12 20:24:36+09:00
 
 
+* see: <a href="https://yukicoder.me/problems/no/704">https://yukicoder.me/problems/no/704</a>
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../../library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
+* :question: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../../library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
 
 
 ## Code

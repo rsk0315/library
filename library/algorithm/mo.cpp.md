@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Mo's algorithm <small>(algorithm/mo.cpp)</small>
+# :heavy_check_mark: Mo's algorithm <small>(algorithm/mo.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#ed469618898d75b149e5c7c4b6a1c415">algorithm</a>
 * <a href="{{ site.github.repository_url }}/blob/master/algorithm/mo.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 23:03:06+09:00
 
 
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
 
 
 ## Code

@@ -25,15 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj_DPL_1_E.test.cpp
+# :heavy_check_mark: test/aoj_DPL_1_E.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_DPL_1_E.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-20 05:22:02+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E</a>
+
+
+## Depends on
+
+* :heavy_check_mark: <a href="../../library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
 
 
 ## Code

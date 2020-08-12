@@ -25,16 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small>
+# :heavy_check_mark: スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#ace665e51d5ef826ab32c568535c1658">utility/macro</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/macro/stack_extend.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-25 23:58:41+09:00
 
 
 * see: <a href="http://sigma425.hatenablog.com/entry/2016/03/26/221844">http://sigma425.hatenablog.com/entry/2016/03/26/221844</a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
 
 
 ## Code

@@ -25,15 +25,25 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small>
+# :x: rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/rollbackable_array.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-07 20:42:49+09:00
 
 
+
+
+## Required by
+
+* :x: <a href="rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/yj_persistent_unionfind_rollback.test.cpp.html">test/yj_persistent_unionfind_rollback.test.cpp</a>
 
 
 ## Code

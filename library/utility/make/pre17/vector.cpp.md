@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../../index.html#ed5f438ac724808465cd4913865f1315">utility/make/pre17</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/make/pre17/vector.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-05 15:19:11+09:00
 
 
 

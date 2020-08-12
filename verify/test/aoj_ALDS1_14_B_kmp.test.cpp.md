@@ -31,9 +31,15 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_kmp.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-07 01:36:33+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B</a>
+
+
+## Depends on
+
+* :x: <a href="../../library/String/knuth_morris_pratt_searcher.cpp.html">KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small></a>
 
 
 ## Code

@@ -25,15 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: Z algorithm <small>(String/z_algorithm.cpp)</small>
+# :x: Z algorithm <small>(String/z_algorithm.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/z_algorithm.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 04:52:14+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
+* :x: <a href="../../verify/test/yj_zalgorithm.test.cpp.html">test/yj_zalgorithm.test.cpp</a>
 
 
 ## Code

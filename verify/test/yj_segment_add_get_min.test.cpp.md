@@ -31,9 +31,16 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_segment_add_get_min.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/segment_add_get_min">https://judge.yosupo.jp/problem/segment_add_get_min</a>
+
+
+## Depends on
+
+* :x: <a href="../../library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
+* :question: <a href="../../library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
 
 
 ## Code

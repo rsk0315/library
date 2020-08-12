@@ -25,15 +25,23 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small>
+# :question: 素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/disjoint_set.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-28 18:27:31+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
+* :x: <a href="../../verify/test/yj_unionfind.test.cpp.html">test/yj_unionfind.test.cpp</a>
 
 
 ## Code

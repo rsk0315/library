@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: 矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small>
+# :x: 矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/rectangle_query.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+
+
+## Verified with
+
+* :x: <a href="../../verify/test/yj_rectangle_sum.test.cpp.html">test/yj_rectangle_sum.test.cpp</a>
 
 
 ## Code

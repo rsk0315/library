@@ -25,15 +25,34 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small>
+# :question: min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/min.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+
+
+## Required by
+
+* :heavy_check_mark: <a href="../action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :warning: <a href="../action/min_min.cpp.html">区間最小値・区間最小値更新用のヘルパークラス <small>(utility/action/min_min.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :x: <a href="../../../verify/test/yj_staticrmq.test.cpp.html">test/yj_staticrmq.test.cpp</a>
 
 
 ## Code

@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small>
+# :heavy_check_mark: 区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/add_min.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:49:45+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="../monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
 
 
 ## Code

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#73f33be586ad6030eddb73b8318d3cf9">misc/interface</a>
 * <a href="{{ site.github.repository_url }}/blob/master/misc/interface/monoid.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-08 21:14:54+09:00
 
 
 

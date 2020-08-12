@@ -25,15 +25,31 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small>
+# :question: 和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/length.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-03-22 02:59:14+09:00
 
 
+
+
+## Required by
+
+* :warning: <a href="../../misc/interface/action.cpp.html">作用のヘルパークラス <small>(misc/interface/action.cpp)</small></a>
+* :heavy_check_mark: <a href="../action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
+* :x: <a href="../action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="../action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :x: <a href="../../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code

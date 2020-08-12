@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small>
+# :heavy_check_mark: fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#5e248f107086635fddcead5bf28943fc">DataStructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/DataStructure/foldable_deque.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-05-08 18:52:04+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
 
 
 ## Code

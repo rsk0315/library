@@ -25,15 +25,64 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ビット演算 <small>(integer/bit.cpp)</small>
+# :question: ビット演算 <small>(integer/bit.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#157db7df530023575515d366c9b672e8">integer</a>
 * <a href="{{ site.github.repository_url }}/blob/master/integer/bit.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-10 05:36:19+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="../DataStructure/disjoint_sparse_table.cpp.html">disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
+* :question: <a href="../DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
+* :warning: <a href="../DataStructure/starry_sky_tree.cpp.html">starry-sky tree <small>(DataStructure/starry_sky_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="../Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
+* :heavy_check_mark: <a href="../ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :x: <a href="../ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
+* :question: <a href="../ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
+* :question: <a href="../ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :heavy_check_mark: <a href="../algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
+* :x: <a href="../utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_2450.test.cpp.html">test/aoj_2450.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_1036_disjoint_sparse_table.test.cpp.html">test/yc_1036_disjoint_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_1036_sparse_table.test.cpp.html">test/yc_1036_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :x: <a href="../../verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
+* :x: <a href="../../verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
+* :x: <a href="../../verify/test/yj_log_of_formal_power_series.test.cpp.html">test/yj_log_of_formal_power_series.test.cpp</a>
+* :x: <a href="../../verify/test/yj_many_aplusb.test.cpp.html">test/yj_many_aplusb.test.cpp</a>
+* :x: <a href="../../verify/test/yj_multipoint_evaluation.test.cpp.html">test/yj_multipoint_evaluation.test.cpp</a>
+* :x: <a href="../../verify/test/yj_polynomial_interpolation.test.cpp.html">test/yj_polynomial_interpolation.test.cpp</a>
+* :x: <a href="../../verify/test/yj_range_affine_range_sum.test.cpp.html">test/yj_range_affine_range_sum.test.cpp</a>
 
 
 ## Code

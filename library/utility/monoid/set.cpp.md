@@ -25,15 +25,27 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: モノイドクラス <small>(utility/monoid/set.cpp)</small>
+# :heavy_check_mark: モノイドクラス <small>(utility/monoid/set.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0991b1681f77f54af5325f2eb1ef5d3e">utility/monoid</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/monoid/set.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-27 02:33:44+09:00
 
 
+
+
+## Required by
+
+* :heavy_check_mark: <a href="../action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_2450.test.cpp.html">test/aoj_2450.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
 
 
 ## Code

@@ -25,15 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: 区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small>
+# :heavy_check_mark: 区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small>
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#f9ed6bc15c58239d0b090799c8486b17">utility/action</a>
 * <a href="{{ site.github.repository_url }}/blob/master/utility/action/set_sum.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-27 02:33:44+09:00
 
 
+
+
+## Depends on
+
+* :question: <a href="../monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :heavy_check_mark: <a href="../monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
 
 
 ## Code

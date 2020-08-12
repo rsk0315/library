@@ -46,40 +46,40 @@ layout: default
 
 ### DataStructure
 
-* :warning: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
-* :warning: <a href="library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
-* :warning: <a href="library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
-* :warning: <a href="library/DataStructure/disjoint_sparse_table.cpp.html">disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small></a>
-* :warning: <a href="library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
-* :warning: <a href="library/DataStructure/foldable_deque.cpp.html">fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small></a>
-* :warning: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
-* :warning: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
-* :warning: <a href="library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
-* :warning: <a href="library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
-* :warning: <a href="library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
-* :warning: <a href="library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
-* :warning: <a href="library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
-* :warning: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
-* :warning: <a href="library/DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
+* :question: <a href="library/DataStructure/basic_segment_tree.cpp.html">単一更新セグメント木 <small>(DataStructure/basic_segment_tree.cpp)</small></a>
+* :question: <a href="library/DataStructure/bit_vector.cpp.html">rank/select 辞書 <small>(DataStructure/bit_vector.cpp)</small></a>
+* :question: <a href="library/DataStructure/disjoint_set.cpp.html">素集合データ構造 <small>(DataStructure/disjoint_set.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/disjoint_sparse_table.cpp.html">disjoint sparse table <small>(DataStructure/disjoint_sparse_table.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/dynamic_bitvector.cpp.html">動的ビットベクトル <small>(DataStructure/dynamic_bitvector.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/foldable_deque.cpp.html">fold 可能両端キュー <small>(DataStructure/foldable_deque.cpp)</small></a>
+* :question: <a href="library/DataStructure/foldable_queue.cpp.html">fold 可能キュー <small>(DataStructure/foldable_queue.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/integral_intervals.cpp.html">整数の区間の集合 <small>(DataStructure/integral_intervals.cpp)</small></a>
+* :x: <a href="library/DataStructure/li_chao_tree.cpp.html">Li-Chao tree <small>(DataStructure/li_chao_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/potential_function.cpp.html">ポテンシャル関数 <small>(DataStructure/potential_function.cpp)</small></a>
+* :x: <a href="library/DataStructure/rectangle_query.cpp.html">矩形クエリ <small>(DataStructure/rectangle_query.cpp)</small></a>
+* :x: <a href="library/DataStructure/rollbackable_array.cpp.html">rollback 可能配列 <small>(DataStructure/rollbackable_array.cpp)</small></a>
+* :x: <a href="library/DataStructure/rollbackable_disjoint_set.cpp.html">rollback 可能な素集合データ構造 <small>(DataStructure/rollbackable_disjoint_set.cpp)</small></a>
+* :question: <a href="library/DataStructure/segment_tree.cpp.html">区間作用・区間和セグメント木 <small>(DataStructure/segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/DataStructure/sparse_table.cpp.html">sparse table <small>(DataStructure/sparse_table.cpp)</small></a>
 * :warning: <a href="library/DataStructure/starry_sky_tree.cpp.html">starry-sky tree <small>(DataStructure/starry_sky_tree.cpp)</small></a>
-* :warning: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
+* :question: <a href="library/DataStructure/wavelet_matrix.cpp.html">ウェーブレット行列 <small>(DataStructure/wavelet_matrix.cpp)</small></a>
 
 
 <div id="4cdbd2bafa8193091ba09509cedf94fd"></div>
 
 ### Graph
 
-* :warning: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
-* :warning: <a href="library/Graph/capacitated_adjacency_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_adjacency_list.cpp)</small></a>
-* :warning: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
-* :warning: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
-* :warning: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
-* :warning: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
-* :warning: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
-* :warning: <a href="library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
+* :question: <a href="library/Graph/adjacency_list.cpp.html">重みつきグラフの隣接リスト <small>(Graph/adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/capacitated_adjacency_list.cpp.html">容量つきグラフの隣接リスト <small>(Graph/capacitated_adjacency_list.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/dinitz.cpp.html">最大流 (Dinitz 法) <small>(Graph/dinitz.cpp)</small></a>
+* :question: <a href="library/Graph/hl_decomposition.cpp.html">HL 分解 <small>(Graph/hl_decomposition.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_segment_tree.cpp.html">最深共通祖先 (segment tree) <small>(Graph/lowest_common_ancestor_segment_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Graph/lowest_common_ancestor_sparse_table.cpp.html">最深共通祖先 (sparse table) <small>(Graph/lowest_common_ancestor_sparse_table.cpp)</small></a>
+* :question: <a href="library/Graph/lowest_common_ancestor_squaring.cpp.html">最深共通祖先 (squaring) <small>(Graph/lowest_common_ancestor_squaring.cpp)</small></a>
+* :question: <a href="library/Graph/scc.cpp.html">強連結成分分解 <small>(Graph/scc.cpp)</small></a>
 * :warning: <a href="library/Graph/shortest_path.cpp.html">グラフ上の最短距離 <small>(Graph/shortest_path.cpp)</small></a>
 * :warning: <a href="library/Graph/topological_sort.cpp.html">トポロジカルソート <small>(Graph/topological_sort.cpp)</small></a>
-* :warning: <a href="library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
+* :question: <a href="library/Graph/two_sat.cpp.html">2-SAT <small>(Graph/two_sat.cpp)</small></a>
 
 
 <div id="694801437bb6e7915892bf31576387fb"></div>
@@ -94,60 +94,60 @@ layout: default
 ### Math
 
 * :warning: <a href="library/Math/factor.cpp.html">素因数分解 <small>(Math/factor.cpp)</small></a>
-* :warning: <a href="library/Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
-* :warning: <a href="library/Math/remainder_sum.cpp.html">$i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Math/lp_solver.cpp.html">線形計画法ソルバ (simplex 法) <small>(Math/lp_solver.cpp)</small></a>
+* :heavy_check_mark: <a href="library/Math/remainder_sum.cpp.html">$i \\bmod{n}$ の和 <small>(Math/remainder_sum.cpp)</small></a>
 
 
 <div id="495e431c85de4c533fce4ff12db613fe"></div>
 
 ### ModularArithmetic
 
-* :warning: <a href="library/ModularArithmetic/chinese_remaindering.cpp.html">連立合同式の解の構成 <small>(ModularArithmetic/chinese_remaindering.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
-* :warning: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/chinese_remaindering.cpp.html">連立合同式の解の構成 <small>(ModularArithmetic/chinese_remaindering.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/factorial.cpp.html">階乗の高速計算 <small>(ModularArithmetic/factorial.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/garner.cpp.html">Garner's algorithm <small>(ModularArithmetic/garner.cpp)</small></a>
+* :x: <a href="library/ModularArithmetic/interpolation.cpp.html">補間多項式 <small>(ModularArithmetic/interpolation.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/modint.cpp.html">合同算術用クラス <small>(ModularArithmetic/modint.cpp)</small></a>
+* :heavy_check_mark: <a href="library/ModularArithmetic/modtable.cpp.html">合同演算の前計算テーブル <small>(ModularArithmetic/modtable.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/operations.cpp.html">合同算術の基本演算 <small>(ModularArithmetic/operations.cpp)</small></a>
+* :question: <a href="library/ModularArithmetic/polynomial.cpp.html">多項式 <small>(ModularArithmetic/polynomial.cpp)</small></a>
 
 
 <div id="27118326006d3829667a400ad23d5d98"></div>
 
 ### String
 
-* :warning: <a href="library/String/knuth_morris_pratt_searcher.cpp.html">KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small></a>
-* :warning: <a href="library/String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
-* :warning: <a href="library/String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
-* :warning: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
-* :warning: <a href="library/String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
-* :warning: <a href="library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
+* :x: <a href="library/String/knuth_morris_pratt_searcher.cpp.html">KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small></a>
+* :heavy_check_mark: <a href="library/String/rolling_hash_l61m1.cpp.html">mod 2^61-1 のローリングハッシュ <small>(String/rolling_hash_l61m1.cpp)</small></a>
+* :question: <a href="library/String/sa_is.cpp.html">接尾辞配列 + induced sort <small>(String/sa_is.cpp)</small></a>
+* :heavy_check_mark: <a href="library/String/suffix_array.cpp.html">接尾辞配列 <small>(String/suffix_array.cpp)</small></a>
+* :heavy_check_mark: <a href="library/String/tree_attack.cpp.html">ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small></a>
+* :x: <a href="library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 <div id="ed469618898d75b149e5c7c4b6a1c415"></div>
 
 ### algorithm
 
-* :warning: <a href="library/algorithm/dp_on_tree.cpp.html">木 DP <small>(algorithm/dp_on_tree.cpp)</small></a>
-* :warning: <a href="library/algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
-* :warning: <a href="library/algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
-* :warning: <a href="library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
-* :warning: <a href="library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
-* :warning: <a href="library/algorithm/parallel_binary_search.cpp.html">並列二分探索 <small>(algorithm/parallel_binary_search.cpp)</small></a>
-* :warning: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割の三分探索 <small>(algorithm/ternary_search.cpp)</small></a>
-* :warning: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/dp_on_tree.cpp.html">木 DP <small>(algorithm/dp_on_tree.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/mo.cpp.html">Mo's algorithm <small>(algorithm/mo.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/moebius_transform.cpp.html">高速 Möbius 変換 <small>(algorithm/moebius_transform.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/monotone_minima.cpp.html">monotone minima <small>(algorithm/monotone_minima.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/online_to_offline_optimization.cpp.html">オンライン・オフライン変換 <small>(algorithm/online_to_offline_optimization.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/parallel_binary_search.cpp.html">並列二分探索 <small>(algorithm/parallel_binary_search.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/ternary_search.cpp.html">黄金比分割の三分探索 <small>(algorithm/ternary_search.cpp)</small></a>
+* :heavy_check_mark: <a href="library/algorithm/tortoise_and_hare.cpp.html">周期検出 <small>(algorithm/tortoise_and_hare.cpp)</small></a>
 
 
 <div id="157db7df530023575515d366c9b672e8"></div>
 
 ### integer
 
-* :warning: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
-* :warning: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
-* :warning: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
-* :warning: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
-* :warning: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
-* :warning: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
+* :question: <a href="library/integer/bit.cpp.html">ビット演算 <small>(integer/bit.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/fused_operations.cpp.html">乗算との複合演算 <small>(integer/fused_operations.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/gcd.cpp.html">最大公約数 <small>(integer/gcd.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/mul_upper.cpp.html">整数の乗算の上位ワード <small>(integer/mul_upper.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/overflow.cpp.html">オーバーフロー判定つき演算 <small>(integer/overflow.cpp)</small></a>
+* :heavy_check_mark: <a href="library/integer/sqrt.cpp.html">整数の平方根 <small>(integer/sqrt.cpp)</small></a>
 
 
 <div id="73f33be586ad6030eddb73b8318d3cf9"></div>
@@ -162,11 +162,11 @@ layout: default
 
 ### utility
 
-* :warning: <a href="library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
+* :x: <a href="library/utility/fast_io.cpp.html">高速入出力 <small>(utility/fast_io.cpp)</small></a>
 * :warning: <a href="library/utility/four_neighbor.cpp.html">4-近傍 <small>(utility/four_neighbor.cpp)</small></a>
 * :warning: <a href="library/utility/io.cpp.html">入出力 <small>(utility/io.cpp)</small></a>
-* :warning: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
-* :warning: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+* :question: <a href="library/utility/limits.cpp.html">型依存の定数 <small>(utility/limits.cpp)</small></a>
+* :question: <a href="library/utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
 * :warning: <a href="library/utility/set_if.cpp.html">条件つき代入 <small>(utility/set_if.cpp)</small></a>
 
 
@@ -175,27 +175,27 @@ layout: default
 ### utility/action
 
 * :warning: <a href="library/utility/action/add_max.cpp.html">区間最大値・区間加算用のヘルパークラス <small>(utility/action/add_max.cpp)</small></a>
-* :warning: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
-* :warning: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
-* :warning: <a href="library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/action/add_min.cpp.html">区間最小値・区間加算用のヘルパークラス <small>(utility/action/add_min.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/action/add_sum.cpp.html">区間和・区間加算用のヘルパークラス <small>(utility/action/add_sum.cpp)</small></a>
+* :x: <a href="library/utility/action/affine_sum.cpp.html">区間 Affine 変換・区間加算用のヘルパークラス <small>(utility/action/affine_sum.cpp)</small></a>
 * :warning: <a href="library/utility/action/min_min.cpp.html">区間最小値・区間最小値更新用のヘルパークラス <small>(utility/action/min_min.cpp)</small></a>
-* :warning: <a href="library/utility/action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/action/set_sum.cpp.html">区間和・区間代入用のヘルパークラス <small>(utility/action/set_sum.cpp)</small></a>
 
 
 <div id="ace665e51d5ef826ab32c568535c1658"></div>
 
 ### utility/macro
 
-* :warning: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
-* :warning: <a href="library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/macro/assert_eq.cpp.html">等値判定のテスト用マクロ <small>(utility/macro/assert_eq.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/macro/stack_extend.cpp.html">スタック拡張マクロ（魔法） <small>(utility/macro/stack_extend.cpp)</small></a>
 
 
 <div id="eea2354d8759bbd52e8bbb508d91fa66"></div>
 
 ### utility/make
 
-* :warning: <a href="library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
-* :warning: <a href="library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
+* :question: <a href="library/utility/make/fix_point.cpp.html">ラムダ式の再帰 <small>(utility/make/fix_point.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/make/vector.cpp.html">多次元 vector の作成 <small>(utility/make/vector.cpp)</small></a>
 
 
 <div id="ed5f438ac724808465cd4913865f1315"></div>
@@ -209,88 +209,88 @@ layout: default
 
 ### utility/monoid
 
-* :warning: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/max_subsum.cpp.html">部分和の最大値を得る演算のモノイドクラス <small>(utility/monoid/max_subsum.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/rolling_hash.cpp.html">ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small></a>
-* :warning: <a href="library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
+* :x: <a href="library/utility/monoid/composite.cpp.html">一次関数の合成を得る演算のモノイド <small>(utility/monoid/composite.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/gcd.cpp.html">最大公約数を得る演算のモノイド <small>(utility/monoid/gcd.cpp)</small></a>
+* :question: <a href="library/utility/monoid/length.cpp.html">和と長さを得る演算のモノイド <small>(utility/monoid/length.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/max.cpp.html">max を得る演算のモノイド <small>(utility/monoid/max.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/max_subsum.cpp.html">部分和の最大値を得る演算のモノイドクラス <small>(utility/monoid/max_subsum.cpp)</small></a>
+* :question: <a href="library/utility/monoid/min.cpp.html">min を得る演算のモノイド <small>(utility/monoid/min.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/rolling_hash.cpp.html">ロリハの演算のモノイド <small>(utility/monoid/rolling_hash.cpp)</small></a>
+* :heavy_check_mark: <a href="library/utility/monoid/set.cpp.html">モノイドクラス <small>(utility/monoid/set.cpp)</small></a>
 
 
 ## Verify Files
 
-* :x: <a href="verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
-* :x: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
-* :x: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
-* :x: <a href="verify/test/aoj_0613.test.cpp.html">test/aoj_0613.test.cpp</a>
-* :x: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
-* :x: <a href="verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
-* :x: <a href="verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
-* :x: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
-* :x: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
-* :x: <a href="verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
-* :x: <a href="verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
-* :x: <a href="verify/test/aoj_2450.test.cpp.html">test/aoj_2450.test.cpp</a>
-* :x: <a href="verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
-* :x: <a href="verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
-* :x: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
-* :x: <a href="verify/test/aoj_2911.test.cpp.html">test/aoj_2911.test.cpp</a>
-* :x: <a href="verify/test/aoj_2970.test.cpp.html">test/aoj_2970.test.cpp</a>
-* :x: <a href="verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
-* :x: <a href="verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
-* :x: <a href="verify/test/aoj_3111.test.cpp.html">test/aoj_3111.test.cpp</a>
-* :x: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
-* :x: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
-* :x: <a href="verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0355.test.cpp.html">test/aoj_0355.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0425.test.cpp.html">test/aoj_0425.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0575.test.cpp.html">test/aoj_0575.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_0613.test.cpp.html">test/aoj_0613.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_1180.test.cpp.html">test/aoj_1180.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_1322.test.cpp.html">test/aoj_1322.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_1595.test.cpp.html">test/aoj_1595.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2178.test.cpp.html">test/aoj_2178.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2313.test.cpp.html">test/aoj_2313.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2444.test.cpp.html">test/aoj_2444.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2446.test.cpp.html">test/aoj_2446.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2450.test.cpp.html">test/aoj_2450.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2580.test.cpp.html">test/aoj_2580.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2748.test.cpp.html">test/aoj_2748.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2880.test.cpp.html">test/aoj_2880.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2911.test.cpp.html">test/aoj_2911.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2970.test.cpp.html">test/aoj_2970.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_2976.test.cpp.html">test/aoj_2976.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_3110.test.cpp.html">test/aoj_3110.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_3111.test.cpp.html">test/aoj_3111.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_3112.test.cpp.html">test/aoj_3112.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_3112_sa_is.test.cpp.html">test/aoj_3112_sa_is.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_10_A.test.cpp.html">test/aoj_ALDS1_10_A.test.cpp</a>
 * :x: <a href="verify/test/aoj_ALDS1_14_B_kmp.test.cpp.html">test/aoj_ALDS1_14_B_kmp.test.cpp</a>
-* :x: <a href="verify/test/aoj_ALDS1_14_B_l61m1.test.cpp.html">test/aoj_ALDS1_14_B_l61m1.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_14_B_l61m1.test.cpp.html">test/aoj_ALDS1_14_B_l61m1.test.cpp</a>
 * :x: <a href="verify/test/aoj_ALDS1_14_B_z.test.cpp.html">test/aoj_ALDS1_14_B_z.test.cpp</a>
-* :x: <a href="verify/test/aoj_ALDS1_5_D.test.cpp.html">test/aoj_ALDS1_5_D.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_1_E.test.cpp.html">test/aoj_DPL_1_E.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_B.test.cpp.html">test/aoj_DPL_5_B.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_D.test.cpp.html">test/aoj_DPL_5_D.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_E.test.cpp.html">test/aoj_DPL_5_E.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
-* :x: <a href="verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_1_B.test.cpp.html">test/aoj_DSL_1_B.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
-* :x: <a href="verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
-* :x: <a href="verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
-* :x: <a href="verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
-* :x: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
-* :x: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
-* :x: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
-* :x: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
-* :x: <a href="verify/test/yc_1036.test.cpp.html">test/yc_1036.test.cpp</a>
-* :x: <a href="verify/test/yc_1036_disjoint_sparse_table.test.cpp.html">test/yc_1036_disjoint_sparse_table.test.cpp</a>
-* :x: <a href="verify/test/yc_1036_sparse_table.test.cpp.html">test/yc_1036_sparse_table.test.cpp</a>
-* :x: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
-* :x: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
-* :x: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
-* :x: <a href="verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
-* :x: <a href="verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
-* :x: <a href="verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
-* :x: <a href="verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
-* :x: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
-* :x: <a href="verify/test/yc_752.test.cpp.html">test/yc_752.test.cpp</a>
-* :x: <a href="verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
-* :x: <a href="verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
-* :x: <a href="verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
-* :x: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
-* :x: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_ALDS1_5_D.test.cpp.html">test/aoj_ALDS1_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_1_D.test.cpp.html">test/aoj_DPL_1_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_1_E.test.cpp.html">test/aoj_DPL_1_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_A.test.cpp.html">test/aoj_DPL_5_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_B.test.cpp.html">test/aoj_DPL_5_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_C.test.cpp.html">test/aoj_DPL_5_C.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_D.test.cpp.html">test/aoj_DPL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_E.test.cpp.html">test/aoj_DPL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_F.test.cpp.html">test/aoj_DPL_5_F.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_G.test.cpp.html">test/aoj_DPL_5_G.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_I.test.cpp.html">test/aoj_DPL_5_I.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_J.test.cpp.html">test/aoj_DPL_5_J.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DPL_5_L.test.cpp.html">test/aoj_DPL_5_L.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_1_A.test.cpp.html">test/aoj_DSL_1_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_1_B.test.cpp.html">test/aoj_DSL_1_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_A.test.cpp.html">test/aoj_DSL_2_A.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_B.test.cpp.html">test/aoj_DSL_2_B.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_G.test.cpp.html">test/aoj_DSL_2_G.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_H.test.cpp.html">test/aoj_DSL_2_H.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_2_I.test.cpp.html">test/aoj_DSL_2_I.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_DSL_3_D.test.cpp.html">test/aoj_DSL_3_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_segment_tree.test.cpp.html">test/aoj_GRL_5_C_segment_tree.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_sparse_table.test.cpp.html">test/aoj_GRL_5_C_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_C_squaring.test.cpp.html">test/aoj_GRL_5_C_squaring.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_D.test.cpp.html">test/aoj_GRL_5_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj_GRL_5_E.test.cpp.html">test/aoj_GRL_5_E.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/mini/fused_operations.test.cpp.html">test/mini/fused_operations.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_1036.test.cpp.html">test/yc_1036.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_1036_disjoint_sparse_table.test.cpp.html">test/yc_1036_disjoint_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_1036_sparse_table.test.cpp.html">test/yc_1036_sparse_table.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_306.test.cpp.html">test/yc_306.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_306_maximize.test.cpp.html">test/yc_306_maximize.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_502.test.cpp.html">test/yc_502.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_551.test.cpp.html">test/yc_551.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_703_onoff.test.cpp.html">test/yc_703_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_704_onoff.test.cpp.html">test/yc_704_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_705_onoff.test.cpp.html">test/yc_705_onoff.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_752.test.cpp.html">test/yc_752.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_878.test.cpp.html">test/yc_878.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yc_878_reversed.test.cpp.html">test/yc_878_reversed.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_bipartitematching.test.cpp.html">test/yj_bipartitematching.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod.test.cpp.html">test/yj_convolution_mod.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yj_convolution_mod_1000000007.test.cpp.html">test/yj_convolution_mod_1000000007.test.cpp</a>
 * :x: <a href="verify/test/yj_convolution_mod_raw.test.cpp.html">test/yj_convolution_mod_raw.test.cpp</a>
 * :x: <a href="verify/test/yj_inv_of_formal_power_series.test.cpp.html">test/yj_inv_of_formal_power_series.test.cpp</a>
 * :x: <a href="verify/test/yj_lca_squaring.test.cpp.html">test/yj_lca_squaring.test.cpp</a>

@@ -31,9 +31,15 @@ layout: default
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yj_zalgorithm.test.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-04-06 05:07:20+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/zalgorithm">https://judge.yosupo.jp/problem/zalgorithm</a>
+
+
+## Depends on
+
+* :x: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 ## Code

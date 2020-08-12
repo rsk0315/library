@@ -25,16 +25,26 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small>
+# :heavy_check_mark: ロリハを衝突させるやつ (tree attack) <small>(String/tree_attack.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#27118326006d3829667a400ad23d5d98">String</a>
 * <a href="{{ site.github.repository_url }}/blob/master/String/tree_attack.cpp">View this file on GitHub</a>
-    - Last commit date: 1970-01-01 00:00:00+00:00
+    - Last commit date: 2020-07-11 14:53:01+09:00
 
 
 * see: <a href="https://codeforces.com/blog/entry/60442">https://codeforces.com/blog/entry/60442</a>
+
+
+## Depends on
+
+* :question: <a href="../utility/literals.cpp.html">ユーザ定義リテラル <small>(utility/literals.cpp)</small></a>
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../verify/test/yc_3014.test.cpp.html">test/yc_3014.test.cpp</a>
 
 
 ## Code
