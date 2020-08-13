@@ -16,8 +16,9 @@ int main() {
 
   knuth_morris_pratt_searcher kmp(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: kmp.find_all(t.begin(), t.end())) {
+  for (auto tmp: kmp.find_all(t.begin(), t.end())) {
     matched = true;
+    auto first = tmp.first;
     printf("%td\n", first-t.begin());
   }
 

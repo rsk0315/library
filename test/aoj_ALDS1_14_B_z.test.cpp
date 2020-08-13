@@ -16,8 +16,9 @@ int main() {
 
   z_array z(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: z.find_all(t.begin(), t.end())) {
+  for (auto tmp: z.find_all(t.begin(), t.end())) {
     matched = true;
+    auto first = tmp.first;
     printf("%td\n", first-t.begin());
   }
 
