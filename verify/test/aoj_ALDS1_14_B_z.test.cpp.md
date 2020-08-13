@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj_ALDS1_14_B_z.test.cpp
+# :heavy_check_mark: test/aoj_ALDS1_14_B_z.test.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#098f6bcd4621d373cade4e832627b4f6">test</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj_ALDS1_14_B_z.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 01:36:33+09:00
+    - Last commit date: 2020-08-13 17:52:20+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :question: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
+* :heavy_check_mark: <a href="../../library/String/z_algorithm.cpp.html">Z algorithm <small>(String/z_algorithm.cpp)</small></a>
 
 
 ## Code
@@ -65,8 +65,9 @@ int main() {
 
   z_array z(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: z.find_all(t.begin(), t.end())) {
+  for (auto tmp: z.find_all(t.begin(), t.end())) {
     matched = true;
+    auto first = tmp.first;
     printf("%td\n", first-t.begin());
   }
 
@@ -214,8 +215,9 @@ int main() {
 
   z_array z(p.begin(), p.end());
   bool matched = false;
-  for (auto [first, last]: z.find_all(t.begin(), t.end())) {
+  for (auto tmp: z.find_all(t.begin(), t.end())) {
     matched = true;
+    auto first = tmp.first;
     printf("%td\n", first-t.begin());
   }
 

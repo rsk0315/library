@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :x: KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small>
+# :heavy_check_mark: KMP 法 <small>(String/knuth_morris_pratt_searcher.cpp)</small>
 
 <a href="../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../verify/test/aoj_ALDS1_14_B_kmp.test.cpp.html">test/aoj_ALDS1_14_B_kmp.test.cpp</a>
+* :heavy_check_mark: <a href="../../verify/test/aoj_ALDS1_14_B_kmp.test.cpp.html">test/aoj_ALDS1_14_B_kmp.test.cpp</a>
 
 
 ## Code
